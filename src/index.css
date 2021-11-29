@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'Matrix';
   src: url(styles/fonts/LcdSolid-VPzB.ttf) format('truetype');
-  font-display: swap;
+  font-display: fallback;
 }
 body {
   margin: 0;
