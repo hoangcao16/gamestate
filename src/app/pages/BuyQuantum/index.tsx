@@ -18,6 +18,10 @@ const StyledQuantumItem = styled(Col)`
   justify-content: center;
   max-width: 705px;
   margin: 60px auto;
+  text-align: center;
+  @media screen and (max-width: 575px) {
+    max-width: unset;
+  }
 `;
 const StyledTitle = styled.h3`
   font-size: 60px;
@@ -25,6 +29,11 @@ const StyledTitle = styled.h3`
   line-height: 60px;
   letter-spacing: 0px;
   color: #ffffff;
+  @media screen and (max-width: 575px) {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 60px;
+  }
 `;
 const StyledDesc = styled.p`
   text-align: center;
@@ -35,6 +44,12 @@ const StyledDesc = styled.p`
   color: #ffffff;
   opacity: 0.7;
   margin: 34px 0 55px;
+  @media screen and (max-width: 575px) {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 0px;
+  }
 `;
 const StyledButton = styled.div`
   margin-top: 90px;
@@ -78,7 +93,7 @@ const BuyQuantum = () => {
           handle={handleClose}
         />
       </StyledMain>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
