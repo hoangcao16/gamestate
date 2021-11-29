@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 // import HeroVideo from 'app/assets/videos/herovideo.mp4';
-import { ThreeHorseLoading } from 'react-loadingg';
 import Loading from '../Loading';
 const StyledLoadingProgress = styled(Loading)`
   display: flex;
@@ -15,21 +14,14 @@ const StyledLoadingProgress = styled(Loading)`
   border-radius: 10px;
 `;
 const Hero = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  // useEffect(() => {
-  //   return () => {
-  //     setIsLoading(true);
-  //   };
-  // }, []);
-  console.log('time', isLoading);
-
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <Div>
       {isLoading && <StyledLoadingProgress done={100} />}
       <video
-        width="100%"
-        height="80%"
-        autoPlay={false}
+        width={isLoading ? '0' : '100%'}
+        height={isLoading ? '0' : '80%'}
+        autoPlay={true}
         loop
         muted
         playsInline
@@ -37,10 +29,13 @@ const Hero = () => {
         onLoadStart={() => {
           setIsLoading(true);
         }}
-        onCanPlay={() => {
-          setTimeout(() => {
+        onLoadedData={() => {
+          const delay = setTimeout(() => {
             setIsLoading(false);
           }, 3000);
+          if (!isLoading) {
+            clearTimeout(delay);
+          }
         }}
       >
         <source
@@ -54,7 +49,7 @@ const Hero = () => {
 export default Hero;
 
 const Div = styled.div`
-  position: relative;
+  /* position: relative; */
   text-align: center;
   display: flex;
   justify-content: center;
