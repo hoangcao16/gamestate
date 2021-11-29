@@ -13,10 +13,23 @@ import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import ModalConnectWallet from './components/ModalConnect';
+import Web3 from '../services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
+import axios from 'axios';
 
 export function App() {
   const { i18n } = useTranslation();
+  const intanceValue = Web3.getInstance;
+
+  const baseURL = `${process.env.REACT_APP_BASE_API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/crypto-asset`; //responesive code
+  axios.get(baseURL).then((response: any) => {
+    localStorage.setItem(
+      'StoreCryptoCurrency',
+      JSON.stringify(response.data.data),
+    );
+  });
+
   return (
     <BrowserRouter>
       <Helmet
@@ -32,6 +45,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/modal" component={ModalConnectWallet} />
         <Route exact path="/buy" component={BuyQuantum} />
         <Route component={NotFoundPage} />
       </Switch>

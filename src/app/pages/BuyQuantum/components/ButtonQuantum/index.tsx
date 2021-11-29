@@ -35,8 +35,12 @@ const StyledButton = styled.button<{ width: number }>`
     z-index: -1;
   }
 `;
-const ButtonQuantum = ({ minWidth, children }) => {
-  return <StyledButton width={minWidth}>{children}</StyledButton>;
+const ButtonQuantum = ({ onclick, minWidth, children }) => {
+  return (
+    <StyledButton onClick={onclick} width={minWidth}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default ButtonQuantum;

@@ -57,7 +57,7 @@ export const getBalance = async (walletAddress: string) => {
               .balanceOf(walletAddress)
               .call();
           } catch (error) {
-            console.log(error);
+            // console.log(error);
           }
           return {
             symbol: symbol,
