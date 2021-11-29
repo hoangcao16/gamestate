@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Background from 'app/assets/img/Explore/background.png';
 // import HeroBanner from "../../assets/img/Explore/Giff_Chip.gif";
 import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
-import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 const Explore = () => {
