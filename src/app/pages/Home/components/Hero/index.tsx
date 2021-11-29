@@ -1,19 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import HeroVideo from 'app/assets/videos/herovideo.mp4';
-import { SolarSystemLoading } from 'react-loadingg';
-
+import { ThreeHorseLoading } from 'react-loadingg';
+import Loading from '../Loading';
+const StyledLoadingProgress = styled(Loading)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+`;
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(false);
+  // useEffect(() => {
+  //   return () => {
+  //     setIsLoading(true);
+  //   };
+  // }, []);
+  console.log('time', isLoading);
 
   return (
     <Div>
-      {isLoading && <SolarSystemLoading color="yellow" />}
-
+      {isLoading && <StyledLoadingProgress done={100} />}
       <video
         width="100%"
         height="80%"
-        autoPlay
+        autoPlay={false}
         loop
         muted
         playsInline
@@ -21,8 +37,10 @@ const Hero = () => {
         onLoadStart={() => {
           setIsLoading(true);
         }}
-        onLoadedData={() => {
-          setIsLoading(false);
+        onCanPlay={() => {
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 3000);
         }}
       >
         <source
@@ -36,6 +54,7 @@ const Hero = () => {
 export default Hero;
 
 const Div = styled.div`
+  position: relative;
   text-align: center;
   display: flex;
   justify-content: center;

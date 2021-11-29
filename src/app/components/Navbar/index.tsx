@@ -3,8 +3,10 @@ import Logo from 'app/assets/img/Logo/logo.png';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import close from 'app/assets/img/close.png';
+import { useHistory } from 'react-router';
 
 const Header = () => {
+  const history = useHistory();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = function () {
@@ -26,7 +28,11 @@ const Header = () => {
       >
         <StyledContainer>
           <Navbar.Brand href="#">
-            <StyledImg src={Logo} alt="Logo" />
+            <StyledImg
+              src={Logo}
+              alt="Logo"
+              onClick={() => history.push('/')}
+            />
           </Navbar.Brand>
           <StyledNavbarToggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

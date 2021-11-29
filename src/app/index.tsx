@@ -15,6 +15,7 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import ModalConnectWallet from './components/ModalConnect';
 import Web3 from '../services/walletService/initWeb3';
+import BuyQuantum from './pages/BuyQuantum';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -35,6 +36,7 @@ export function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/modal" component={ModalConnectWallet} />
+        <Route exact path="/buy" component={BuyQuantum} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
