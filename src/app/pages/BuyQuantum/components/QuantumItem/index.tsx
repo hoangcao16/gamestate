@@ -17,36 +17,51 @@ const StyledBuyItemBlack = styled.div`
 const StyledBuyItem = styled.div`
   max-width: 705px;
   padding: 40px;
-  background: linear-gradient(
-      90deg,
-      rgba(38, 39, 39, 1) 0%,
-      rgba(108, 65, 157, 1) 55%,
-      rgba(38, 39, 39, 1) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(38, 39, 39, 1) 0%,
-      rgba(108, 65, 157, 1) 55%,
-      rgba(38, 39, 39, 1) 100%
-    );
+  background-color: linear-gradient(
+    90deg,
+    rgba(38, 39, 39, 1) 0%,
+    rgba(108, 65, 157, 1) 55%,
+    rgba(38, 39, 39, 1) 100%
+  );
+
   border-radius: 42px;
   position: relative;
-  /* padding: 17px;
-  &:before {
+
+  background: linear-gradient(
+      to right,
+      rgba(38, 39, 39, 1) 20%,
+      rgba(108, 65, 157, 1) 55%,
+      rgba(38, 39, 39, 1) 80%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(38, 39, 39, 1) 20%,
+      rgba(108, 65, 157, 1) 55%,
+      rgba(38, 39, 39, 1) 80%
+    ),
+    linear-gradient(
+      to left,
+      rgba(38, 39, 39, 1) 20%,
+      rgba(108, 65, 157, 1) 55%,
+      rgba(38, 39, 39, 1) 80%
+    ),
+    linear-gradient(
+      to top,
+      rgba(38, 39, 39, 1) 20%,
+      rgba(108, 65, 157, 1) 55%,
+      rgba(38, 39, 39, 1) 80%
+    );
+  background-origin: border-box;
+  background-size: 100% 40px, 40px 100%, 100% 40px, 40px 100%;
+  background-position: top left, top right, bottom right, bottom left;
+  background-repeat: no-repeat;
+  &:after {
     content: '';
     position: absolute;
-    width: 100%;
-    max-width: 673px;
-    height: 100%;
-    max-height: 700px;
-    left: 0px;
-    bottom: 0px;
-    border-radius: 50%;
-    -webkit-filter: blur(50px);
-    filter: blur(50px);
-    background: linear-gradient(to right, #163f8c, #9e08a6);
+    inset: 40px;
+    background: rgba(38, 39, 39, 1);
     z-index: -1;
-  } */
+  }
   @media screen and (max-width: 575px) {
     max-width: 322px;
     padding: 17px;
