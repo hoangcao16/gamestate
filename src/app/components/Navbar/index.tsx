@@ -6,7 +6,6 @@ import close from 'app/assets/img/close.png';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [text, setText] = useState('META PAPER');
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 10) {
@@ -39,12 +38,12 @@ const Header = () => {
                 PITCH DECK
               </StyledFirstButton>
               <StyledSecondButton
-                href="#"
-                onMouseEnter={() => setText('COMING SOON')}
-                onMouseLeave={() => setText('META PAPER')}
+                href="https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Gamestate-Meta-Paper-v1.pdf"
+                target="_blank"
               >
-                {text}
+                METAPAPER
               </StyledSecondButton>
+
               <StyledThirdButton href="#staking">STAKING</StyledThirdButton>
               <StyledFourthButton
                 href="https://getstarted.gamestate.one"

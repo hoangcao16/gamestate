@@ -244,10 +244,10 @@ const StyledStakingTitleRight = styled.span`
     position: absolute;
     top: 0;
     right: 0;
-    /* height: 40px;
+    height: 40px;
     background: #6294ef 0% 0% no-repeat padding-box;
     opacity: 1;
-    filter: blur(39px); */
+    filter: blur(39px);
 
     @media screen and (max-width: 576px) {
       filter: unset;

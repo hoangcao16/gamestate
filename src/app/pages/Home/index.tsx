@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Staking from '../../pages/Home/components/Staking';
-import Header from '../../pages/Home/components/Navbar';
+import Header from '../../components/Navbar';
 import Hero from '../../pages/Home/components/Hero';
 import Explore from '../../pages/Home/components/Explore';
 import Partners from '../../pages/Home/components/Partners';
