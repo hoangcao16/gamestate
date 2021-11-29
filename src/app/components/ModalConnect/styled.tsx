@@ -1,6 +1,5 @@
 import { Dialog, styled } from '@mui/material';
 import Box from '@mui/material/Box';
-import { boxSizing } from '@mui/system';
 
 export const Modal = styled(Dialog)(({ theme }) => ({
   '.MuiPaper-root': {
@@ -52,7 +51,7 @@ export const Modal = styled(Dialog)(({ theme }) => ({
       },
     },
     '.MuiDialogContent-root': {
-      padding: '0 40px',
+      padding: '0 39px',
       textAlign: 'center',
       [theme.breakpoints.down('sm')]: {
         padding: '0 20px',

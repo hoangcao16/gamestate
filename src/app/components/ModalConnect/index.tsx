@@ -336,6 +336,6 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
 
 const StyledModal = styled.div`
   background-color: #000000;
-  border-radius: 30px;
+  border-radius: 32px;
   position: relative;
 `;
