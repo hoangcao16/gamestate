@@ -13,9 +13,12 @@ import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import ModalConnectWallet from './components/ModalConnect';
+import Web3 from '../services/walletService/initWeb3';
 
 export function App() {
   const { i18n } = useTranslation();
+  const intanceValue = Web3.getInstance;
   return (
     <BrowserRouter>
       <Helmet
@@ -31,6 +34,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/modal" component={ModalConnectWallet} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
