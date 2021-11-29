@@ -209,7 +209,7 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
   return (
     <>
       <Modal
-        open={true}
+        open={props.isOpen}
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
@@ -336,6 +336,6 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
 
 const StyledModal = styled.div`
   background-color: #000000;
-  border-radius: 42px;
+  border-radius: 30px;
   position: relative;
 `;

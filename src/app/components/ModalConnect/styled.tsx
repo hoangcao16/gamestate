@@ -6,7 +6,7 @@ export const Modal = styled(Dialog)(({ theme }) => ({
   '.MuiPaper-root': {
     borderRadius: '42px',
     boxSizing: 'border-box',
-    maxWidth: '673px',
+    maxWidth: '720px',
     // minHeight: '367px',
     maxHeight: 'unset',
     // padding: '0px 0px 24px 0px',
@@ -52,7 +52,7 @@ export const Modal = styled(Dialog)(({ theme }) => ({
       },
     },
     '.MuiDialogContent-root': {
-      padding: '0 45px',
+      padding: '0 40px',
       textAlign: 'center',
       [theme.breakpoints.down('sm')]: {
         padding: '0 20px',
@@ -130,6 +130,7 @@ export const ButtonCustom = styled('button')<color>(({ theme, types }) => ({
 export const BoxCustom = styled(Box)(({ theme }) => ({
   padding: '15px 16px 20px 16px',
   marginTop: '25px',
+  marginBottom: '25px',
   color: '#F1F1F1',
   borderRadius: '4px',
   border: '1px dashed #707070',

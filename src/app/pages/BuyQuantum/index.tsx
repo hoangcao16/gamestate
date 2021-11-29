@@ -1,11 +1,12 @@
 import Header from 'app/components/Navbar';
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import Footer from '../Home/components/Footer';
 import QuantumItem from './components';
 import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
+import ModalConnectWallet from 'app/components/ModalConnect';
 
 const StyledMain = styled(Container)`
   margin-top: 90px;
@@ -43,6 +44,14 @@ const StyledButton = styled.div`
   align-items: center;
 `;
 const BuyQuantum = () => {
+  const [openConnect, setOpenConnect] = useState(false);
+  const handleOpenConnect = () => {
+    setOpenConnect(true);
+  };
+  const handleCloseConnect = () => {
+    setOpenConnect(false);
+  };
+  const handleClose = () => {};
   return (
     <>
       <Header />
@@ -57,10 +66,17 @@ const BuyQuantum = () => {
             <QuantumItem />
             <LabelPrice>250 USDC</LabelPrice>
             <StyledButton>
-              <ButtonQuantum minWidth={100}>BUY NOW</ButtonQuantum>
+              <ButtonQuantum minWidth={100} onclick={() => handleOpenConnect()}>
+                BUY NOW
+              </ButtonQuantum>
             </StyledButton>
           </StyledQuantumItem>
         </Row>
+        <ModalConnectWallet
+          onClose={handleCloseConnect}
+          isOpen={openConnect}
+          handle={handleClose}
+        />
       </StyledMain>
       <Footer />
     </>
