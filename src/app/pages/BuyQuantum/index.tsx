@@ -44,7 +44,7 @@ const StyledButton = styled.div`
   align-items: center;
 `;
 const BuyQuantum = () => {
-  const [openConnect, setOpenConnect] = useState(false);
+  const [openConnect, setOpenConnect] = useState(true);
   const handleOpenConnect = () => {
     setOpenConnect(true);
   };

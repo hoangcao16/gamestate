@@ -12,7 +12,7 @@ declare global {
 const Moralis = require('moralis');
 export const accountsChanged = Moralis.onAccountsChanged(async function () {
   const storage = store.getState();
-  const curAddress: any = storage.globalState.loggedInUser;
+  const curAddress: any = storage?.globalState.loggedInUser;
 
   const accounts = window.ethereum.selectedAddress;
   if (!curAddress?.email) {
