@@ -10,6 +10,12 @@ const StyledPrice = styled.div`
   text-align: center;
   color: #fff;
   margin-top: 24px;
+  @media screen and (max-width: 575px) {
+    min-width: 153px;
+    line-height: 30px;
+    font-size: 14px;
+    border-radius: 2px;
+  }
 `;
 const LabelPrice = ({ children }: any) => {
   return <StyledPrice>{children}</StyledPrice>;

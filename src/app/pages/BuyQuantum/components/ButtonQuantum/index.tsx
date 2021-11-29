@@ -13,6 +13,12 @@ const StyledButton = styled.button<{ width: number }>`
   border: none;
   border-radius: 3px;
   position: relative;
+  @media screen and (max-width: 575px) {
+    min-width: 98%;
+    line-height: 54px;
+    font-size: 18px;
+  }
+
   &:before {
     content: '';
     position: absolute;
