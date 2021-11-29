@@ -13,9 +13,9 @@ import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import ModalConnectWallet from './components/ModalConnect';
 import Web3 from '../services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
+import QuantumOrder from './pages/Order';
 import axios from 'axios';
 
 export function App() {
@@ -45,8 +45,8 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/modal" component={ModalConnectWallet} />
         <Route exact path="/buy" component={BuyQuantum} />
+        <Route exact path="/order" component={QuantumOrder} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
