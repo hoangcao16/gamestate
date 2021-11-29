@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import Background from 'app/assets/img/Explore/background.png';
-// import HeroBanner from "app/assets/img/Explore/Giff_Chip.gif";
+// import HeroBanner from "../../assets/img/Explore/Giff_Chip.gif";
 import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
 import { useState } from 'react';
 
@@ -169,8 +169,12 @@ const SpanPurple = styled.span`
     top: 50%;
     transform: translateY(-50%);
     @media screen and (max-width: 991px) {
-      height: 22px;
-      top: 0px;
+      /* height: 22px; */
+      /* top: 0px; */
+      filter: unset;
+      background: unset;
+      height: 0;
+      box-shadow: 0px 0px 50px 10px #e740f0;
     }
   }
 `;

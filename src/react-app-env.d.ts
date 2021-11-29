@@ -8,3 +8,4 @@ declare module '*.mp4' {
   export default src;
 }
 declare module '*.ttf';
+declare module 'react-loadingg';

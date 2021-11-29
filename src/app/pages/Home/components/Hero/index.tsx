@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import styled from 'styled-components';
-import HeroVideo from 'app/assets/videos/herovideo.mp4';
+// import HeroVideo from 'app/assets/videos/herovideo.mp4';
+import { SolarSystemLoading } from 'react-loadingg';
 
 const Hero = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <Div>
+      {isLoading && <SolarSystemLoading color="yellow" />}
+
       <video
         width="100%"
         height="80%"
@@ -12,8 +18,17 @@ const Hero = () => {
         muted
         playsInline
         preload="auto"
+        onLoadStart={() => {
+          setIsLoading(true);
+        }}
+        onLoadedData={() => {
+          setIsLoading(false);
+        }}
       >
-        <source src={HeroVideo} type="video/mp4" />
+        <source
+          src="https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Logo_Effect_VS1.mp4"
+          type="video/mp4"
+        />
       </video>
     </Div>
   );
