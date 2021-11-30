@@ -29,7 +29,7 @@ const Hero = () => {
         onLoadStart={() => {
           setIsLoading(true);
         }}
-        onLoadedData={() => {
+        onCanPlay={() => {
           const delay = setTimeout(() => {
             setIsLoading(false);
           }, 3000);

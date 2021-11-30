@@ -113,17 +113,6 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
           handleClose();
         })();
         break;
-        (async () => {
-          setLoading1(false);
-          setLoading2(false);
-          setLoading4(false);
-          localStorage.setItem('extensionName', 'Metamask');
-          await instanceValue.setWeb3();
-          // await onCheckEmailAssociationWalletAddress();
-          handleClose();
-        })();
-
-        break;
       case 'OQ':
         (async () => {
           setLoading4(true);
