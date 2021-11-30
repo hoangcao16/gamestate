@@ -6,10 +6,11 @@ import {
 } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import { isEmpty } from 'lodash';
-import { CircularProgress, Button } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import BigNumber from 'bignumber.js';
 import Web3 from 'services/walletService/initWeb3';
+import Button from '../ButtonQuantum';
 interface Props {
   curAddress: string;
   tokenSymbol: string;
@@ -72,13 +73,17 @@ const ApproveButton = (props: Props) => {
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (
-        <Button onClick={handleApprove}>Approve</Button>
+        <Button onclick={handleApprove} minWidth={80} disable={false}>
+          Approve
+        </Button>
       )}
-      {allowance! < Number(amount) &&
-        !isEmpty(receipt) &&
-        loading === false && <Button disabled>Approved</Button>}
+      {allowance! < Number(amount) && !isEmpty(receipt) && loading === false && (
+        <Button disable={true} minWidth={80}>
+          Approved
+        </Button>
+      )}
       {loading === true && (
-        <Button disabled variant="contained">
+        <Button disable={true} minWidth={80}>
           <CircularProgress size={19} color="inherit" />
         </Button>
       )}
