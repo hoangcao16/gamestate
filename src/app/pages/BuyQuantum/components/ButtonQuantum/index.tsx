@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-const StyledButton = styled.button<{ width: number }>`
+const StyledButton = styled.button<{
+  width: number;
+  disabled?: any;
+  top?: number;
+}>`
   min-width: ${props => props.width}%;
   font-size: 20px;
   font-weight: bold;
@@ -8,7 +12,8 @@ const StyledButton = styled.button<{ width: number }>`
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
-  background: #262626;
+  background: ${props => (props.disabled === 1 ? 'gray' : '#262626')};
+  margin-top: ${props => (props.top ? props.top : '')}px;
   outline: none;
   border: none;
   border-radius: 3px;
@@ -46,14 +51,21 @@ const ButtonQuantum = ({
   minWidth,
   disable,
   children,
+  top,
 }: {
   onclick?: () => void;
   minWidth: number;
   disable?: boolean;
   children: React.ReactNode;
+  top?: number;
 }) => {
   return (
-    <StyledButton onClick={onclick} width={minWidth} disabled={disable}>
+    <StyledButton
+      onClick={onclick}
+      width={minWidth}
+      disabled={disable ? 1 : 0}
+      top={top}
+    >
       {children}
     </StyledButton>
   );

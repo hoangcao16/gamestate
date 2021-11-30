@@ -73,17 +73,17 @@ const ApproveButton = (props: Props) => {
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (
-        <Button onclick={handleApprove} minWidth={80} disable={false}>
+        <Button onclick={handleApprove} minWidth={90} disable={false} top={90}>
           Approve
         </Button>
       )}
       {allowance! < Number(amount) && !isEmpty(receipt) && loading === false && (
-        <Button disable={true} minWidth={80}>
+        <Button disable={true} minWidth={90} top={90}>
           Approved
         </Button>
       )}
       {loading === true && (
-        <Button disable={true} minWidth={80}>
+        <Button disable={true} minWidth={90} top={90}>
           <CircularProgress size={19} color="inherit" />
         </Button>
       )}
