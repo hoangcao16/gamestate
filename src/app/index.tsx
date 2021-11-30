@@ -13,7 +13,7 @@ import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import Web3 from '../services/walletService/initWeb3';
+import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import axios from 'axios';
@@ -21,12 +21,12 @@ import axios from 'axios';
 export function App() {
   const { i18n } = useTranslation();
   const intanceValue = Web3.getInstance;
-  // console.log('in', intanceValue);
 
   // useEffect(() => {
   //   if (localStorage.getItem('extensionName')) {
   //     (async () => {
   //       await intanceValue.setWeb3();
+  //       console.log('Extension', intanceValue.getWeb3());
   //     })();
   //   }
   // }, []);
