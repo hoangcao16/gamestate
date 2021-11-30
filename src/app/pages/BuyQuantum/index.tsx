@@ -81,7 +81,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
-  const amount = '2000';
+  const amount = '1000000000';
 
   const [openConnect, setOpenConnect] = useState(false);
   const storeWallet = JSON.parse(
@@ -122,25 +122,20 @@ const BuyQuantum = () => {
                 </ButtonQuantum>
               </StyledButton>
             ) : (
-              <ApproveButton
-                curAddress={curAddress}
-                tokenSymbol={tokenSymbol}
-                toAddress={toAddress}
-                amount={amount}
-                handleAction={handleAction}
-              />
-              // <StyledGroupButton>
-              //   <StyledButton>
-              //     <ButtonQuantum minWidth={90} onclick={console.log('approve')}>
-              //       APPROVE
-              //     </ButtonQuantum>
-              //   </StyledButton>
-              //   <StyledButton>
-              //     <ButtonQuantum minWidth={90} onclick={console.log('buy')}>
-              //       BUY
-              //     </ButtonQuantum>
-              //   </StyledButton>
-              // </StyledGroupButton>
+              <StyledGroupButton>
+                <StyledButton>
+                  <ApproveButton
+                    curAddress={curAddress}
+                    tokenSymbol={tokenSymbol}
+                    toAddress={toAddress}
+                    amount={amount}
+                    handleAction={handleAction}
+                  />
+                </StyledButton>
+                <StyledButton>
+                  <ButtonQuantum minWidth={90}>BUY</ButtonQuantum>
+                </StyledButton>
+              </StyledGroupButton>
             )}
           </StyledQuantumItem>
         </Row>

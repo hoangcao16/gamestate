@@ -41,9 +41,19 @@ const StyledButton = styled.button<{ width: number }>`
     z-index: -1;
   }
 `;
-const ButtonQuantum = ({ onclick, minWidth, children }) => {
+const ButtonQuantum = ({
+  onclick,
+  minWidth,
+  disable,
+  children,
+}: {
+  onclick?: () => void;
+  minWidth: number;
+  disable?: boolean;
+  children: React.ReactNode;
+}) => {
   return (
-    <StyledButton onClick={onclick} width={minWidth}>
+    <StyledButton onClick={onclick} width={minWidth} disabled={disable}>
       {children}
     </StyledButton>
   );
