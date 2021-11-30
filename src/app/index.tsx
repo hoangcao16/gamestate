@@ -6,7 +6,7 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
@@ -21,7 +21,15 @@ import axios from 'axios';
 export function App() {
   const { i18n } = useTranslation();
   const intanceValue = Web3.getInstance;
+  // console.log('in', intanceValue);
 
+  // useEffect(() => {
+  //   if (localStorage.getItem('extensionName')) {
+  //     (async () => {
+  //       await intanceValue.setWeb3();
+  //     })();
+  //   }
+  // }, []);
   const baseURL = `${process.env.REACT_APP_BASE_API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/crypto-asset`; //responesive code
   axios.get(baseURL).then((response: any) => {
     localStorage.setItem(

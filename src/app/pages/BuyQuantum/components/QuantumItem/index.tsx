@@ -23,10 +23,8 @@ const StyledBuyItem = styled.div`
     rgba(108, 65, 157, 1) 55%,
     rgba(38, 39, 39, 1) 100%
   );
-
   border-radius: 42px;
   position: relative;
-
   background: linear-gradient(
       to right,
       rgba(38, 39, 39, 1) 20%,
