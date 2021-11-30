@@ -70,19 +70,18 @@ const StyledGroupButton = styled.div`
   }
 `;
 const BuyQuantum = () => {
-  // const intanceValue = Web3.getInstance;
-
-  // const [allow, setAllow] = useState(false);
-  // //set up allow
-  // const handleAction = data => {
-  //   setAllow(data);
-  // };
-  // const curAddress = JSON.parse(
-  //   localStorage.getItem('StoreWallet')!,
-  // )?.currentAddress;
-  // const tokenSymbol = 'USDC';
-  // const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
-  // const amount = '1000';
+  const intanceValue = Web3.getInstance;
+  const [allow, setAllow] = useState(false);
+  //set up allow
+  const handleAction = data => {
+    setAllow(data);
+  };
+  const curAddress = JSON.parse(
+    localStorage.getItem('StoreWallet')!,
+  )?.currentAddress;
+  const tokenSymbol = 'USDC';
+  const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
+  const amount = '2000';
 
   const [openConnect, setOpenConnect] = useState(false);
   const storeWallet = JSON.parse(
@@ -123,18 +122,25 @@ const BuyQuantum = () => {
                 </ButtonQuantum>
               </StyledButton>
             ) : (
-              <StyledGroupButton>
-                <StyledButton>
-                  <ButtonQuantum minWidth={90} onclick={console.log('approve')}>
-                    APPROVE
-                  </ButtonQuantum>
-                </StyledButton>
-                <StyledButton>
-                  <ButtonQuantum minWidth={90} onclick={console.log('buy')}>
-                    BUY
-                  </ButtonQuantum>
-                </StyledButton>
-              </StyledGroupButton>
+              <ApproveButton
+                curAddress={curAddress}
+                tokenSymbol={tokenSymbol}
+                toAddress={toAddress}
+                amount={amount}
+                handleAction={handleAction}
+              />
+              // <StyledGroupButton>
+              //   <StyledButton>
+              //     <ButtonQuantum minWidth={90} onclick={console.log('approve')}>
+              //       APPROVE
+              //     </ButtonQuantum>
+              //   </StyledButton>
+              //   <StyledButton>
+              //     <ButtonQuantum minWidth={90} onclick={console.log('buy')}>
+              //       BUY
+              //     </ButtonQuantum>
+              //   </StyledButton>
+              // </StyledGroupButton>
             )}
           </StyledQuantumItem>
         </Row>
@@ -142,15 +148,7 @@ const BuyQuantum = () => {
           onClose={handleCloseConnect}
           isOpen={openConnect}
           handle={handleClose}
-          // isOpenModal={isOpenModal}
         />
-        {/* <ApproveButton
-          curAddress={curAddress}
-          tokenSymbol={tokenSymbol}
-          toAddress={toAddress}
-          amount={amount}
-          handleAction={handleAction}
-        /> */}
       </StyledMain>
       {/* <Footer /> */}
     </>

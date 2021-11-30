@@ -35,7 +35,9 @@ const HomeContainer = () => {
   };
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
-    return () => {};
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
   }, []);
   return (
     <>
