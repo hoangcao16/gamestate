@@ -22,7 +22,6 @@ export const checkApprove = async (
   } else {
     const instanceValue = Web3.getInstance;
     const web3: any = instanceValue.getWeb3();
-    console.log('web', web3);
     const supportSymbol = JSON.parse(
       localStorage.getItem('StoreCryptoCurrency')!,
     );

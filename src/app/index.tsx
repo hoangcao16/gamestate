@@ -6,21 +6,21 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import Web3 from 'services/walletService/initWeb3';
+// import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import axios from 'axios';
 
 export function App() {
   const { i18n } = useTranslation();
-  const intanceValue = Web3.getInstance;
+  // const intanceValue = Web3.getInstance;
 
   // useEffect(() => {
   //   if (localStorage.getItem('extensionName')) {
