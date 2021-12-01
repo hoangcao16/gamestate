@@ -2,7 +2,7 @@ import * as gasInfo from '../supportService/getGasInformation';
 import Web3 from '../initWeb3';
 import erc20Abi from '../config/erc20.abi.json';
 import softNftAbi from '../config/softNft.abi.json';
-import { filterTokenToAddress } from '../supportService/filterTokenToAddress';
+// import { filterTokenToAddress } from '../supportService/filterTokenToAddress';
 import BigNumber from 'bignumber.js';
 
 /**
@@ -17,17 +17,19 @@ export const checkApprove = async (
   spender,
   amountApprove,
 ) => {
-  if (tokenSymbol === 'BNB') {
+  if (tokenSymbol === 'MATIC') {
     return amountApprove;
   } else {
     const instanceValue = Web3.getInstance;
     const web3: any = instanceValue.getWeb3();
-    const supportSymbol = JSON.parse(
-      localStorage.getItem('StoreCryptoCurrency')!,
+    // const supportSymbol = JSON.parse(
+    //   localStorage.getItem('StoreCryptoCurrency')!,
+    // );
+    // const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
+    const tokenContract = new web3.eth.Contract(
+      erc20Abi,
+      '0x76B07A77769CB38A973e46d7c29c828Ab91A6744', //sua address coin
     );
-    const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
-    const tokenContract = new web3.eth.Contract(erc20Abi, tokenAddress);
-
     const allowance = await tokenContract.methods
       .allowance(from, spender)
       .call();
@@ -51,15 +53,14 @@ export const createApprove = async (
 ) => {
   const instanceValue = Web3.getInstance;
   const web3: any = instanceValue.getWeb3();
-  const supportSymbol = JSON.parse(
-    localStorage.getItem('StoreCryptoCurrency')!,
-  );
-  const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
+  // const supportSymbol = JSON.parse(
+  //   localStorage.getItem('StoreCryptoCurrency')!,
+  // );
+  // const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
   const tokenContract = new web3.eth.Contract(
     erc20Abi,
-    tokenAddress, // sua
+    '0x76B07A77769CB38A973e46d7c29c828Ab91A6744', // sua address coin
   );
-
   const txData = tokenContract.methods.approve(
     spender,
     new BigNumber(amountApprove).multipliedBy(10 ** 18).toFixed(),
@@ -69,7 +70,7 @@ export const createApprove = async (
   // data tx
   const tx = {
     from,
-    to: tokenAddress, // sua,
+    to: '0x76b07a77769cb38a973e46d7c29c828ab91a6744', // sua address coin
     value: 0,
     nonce,
     data: txData.encodeABI(),

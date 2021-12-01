@@ -33,7 +33,7 @@ export const getBalance = async (walletAddress: string) => {
     let money = await Promise.all(
       Object.values(supportSymbol).map(async e => {
         let symbol = e.symbol;
-        if (symbol === 'BNB') {
+        if (symbol === 'USDC') {
           let userBalance: any = 0;
           try {
             userBalance = await web3.eth.getBalance(walletAddress);
