@@ -81,7 +81,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
-  const amount = '1000000000';
+  const amount = '102';
 
   const [openConnect, setOpenConnect] = useState(false);
   const storeWallet = JSON.parse(
@@ -133,7 +133,9 @@ const BuyQuantum = () => {
                   />
                 </StyledButton>
                 <StyledButton>
-                  <ButtonQuantum minWidth={90}>BUY</ButtonQuantum>
+                  <ButtonQuantum minWidth={90} disable={allow ? false : true}>
+                    BUY
+                  </ButtonQuantum>
                 </StyledButton>
               </StyledGroupButton>
             )}
