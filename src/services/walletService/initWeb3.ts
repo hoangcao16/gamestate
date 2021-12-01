@@ -41,7 +41,6 @@ export default class Web3 {
     }
 
     const accounts = await this._init.eth?.getAccounts();
-
     if (!isEmpty(accounts)) {
       await loginSignature(accounts[0]);
       await getBalance(accounts[0]);

@@ -9,7 +9,7 @@ import {
 } from '@reduxjs/toolkit';
 import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
-import { logger } from 'redux-logger';
+// import { logger } from 'redux-logger';
 import { createReducer } from './reducers';
 
 export function configureAppStore() {
@@ -18,7 +18,7 @@ export function configureAppStore() {
   const { run: runSaga } = sagaMiddleware;
 
   // Create the store with saga middleware
-  const middlewares = [sagaMiddleware, logger];
+  const middlewares = [sagaMiddleware];
   const enhancers = [
     createInjectorsEnhancer({
       createReducer,
