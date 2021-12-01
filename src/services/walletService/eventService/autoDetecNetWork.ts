@@ -14,6 +14,11 @@ export const changeNetWork = async function () {
       idNetWork = 97;
       chainName = 'Smart Chain - Testnet';
       autoSwitchNetWork(id, idNetWork, chainName);
+    } else if (process.env.REACT_APP_BLOCKCHAIN_NETWORK === 'POLYGON') {
+      id = 80001;
+      idNetWork = 80001;
+      chainName = 'Polygon Testnet';
+      autoSwitchNetWork(id, idNetWork, chainName);
     }
   } else {
     window.alert('you need connect wallet, if you want use network!');

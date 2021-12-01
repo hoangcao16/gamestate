@@ -78,8 +78,8 @@ const BuyQuantum = () => {
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   const tokenSymbol = 'USDC';
-  const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
-  const amount = '250';
+  const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
+  const amount = '3'; // amount
 
   //set up allow
   const handleAction = data => {
