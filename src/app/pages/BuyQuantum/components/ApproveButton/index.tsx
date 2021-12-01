@@ -70,20 +70,26 @@ const ApproveButton = (props: Props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log('test', amount, receipt, allowance);
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (
-        <Button onclick={handleApprove} minWidth={90} disable={false} top={90}>
+        <Button onclick={handleApprove} minWidth={90} disable={false}>
           Approve
         </Button>
       )}
       {allowance! < Number(amount) && !isEmpty(receipt) && loading === false && (
-        <Button disable={true} minWidth={90} top={90}>
+        <Button disable={true} minWidth={90}>
+          Approved
+        </Button>
+      )}
+      {allowance! >= Number(amount) && loading === false && (
+        <Button disable={true} minWidth={80}>
           Approved
         </Button>
       )}
       {loading === true && (
-        <Button disable={true} minWidth={90} top={90}>
+        <Button disable={true} minWidth={90}>
           <CircularProgress size={19} color="inherit" />
         </Button>
       )}
