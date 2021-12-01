@@ -2,7 +2,7 @@ const Moralis = require('moralis');
 
 export const changeNetWork = async function () {
   if (localStorage.hasOwnProperty('extensionName')) {
-    const chainId = await Moralis.getChainId();
+    // const chainId = await Moralis.getChainId();
     let id, idNetWork, chainName;
     if (process.env.REACT_APP_BLOCKCHAIN_NETWORK === 'MAINNET') {
       id = '0x38';

@@ -7,7 +7,6 @@ import {
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import { isEmpty } from 'lodash';
 import { CircularProgress } from '@mui/material';
-import { Box, styled } from '@mui/system';
 import BigNumber from 'bignumber.js';
 import Web3 from 'services/walletService/initWeb3';
 import Button from '../ButtonQuantum';
@@ -25,7 +24,6 @@ const ApproveButton = (props: Props) => {
   const [allowance, setAllowance] = useState<Number>();
   const [receipt, setReceipt] = useState();
   const [loading, setLoading] = useState(false);
-  const [test, setTest] = useState(false);
   const intanceValue = Web3.getInstance;
   //create approve
   const handleApprove = async () => {
@@ -51,7 +49,6 @@ const ApproveButton = (props: Props) => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
         await intanceValue.setWeb3();
-        console.log('Extension', intanceValue.getWeb3());
         const res = await checkApprove(
           curAddress,
           tokenSymbol,
@@ -61,7 +58,6 @@ const ApproveButton = (props: Props) => {
         const resDiv18 = Number(
           new BigNumber(res).dividedBy(10 ** 18).toFixed(),
         );
-        console.log(resDiv18, 'checkapprove');
         if (resDiv18 >= Number(amount)) {
           handleAction(true);
         }
@@ -70,26 +66,26 @@ const ApproveButton = (props: Props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log('test', amount, receipt, allowance);
+  console.log('amount:', amount, 'recept:', receipt, 'allowance:', allowance);
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (
-        <Button onclick={handleApprove} minWidth={90} disable={false}>
+        <Button onclick={handleApprove} margin="0 20px 0 0" disable={false}>
           Approve
         </Button>
       )}
       {allowance! < Number(amount) && !isEmpty(receipt) && loading === false && (
-        <Button disable={true} minWidth={90}>
+        <Button margin="0 20px 0 0" disable={true}>
           Approved
         </Button>
       )}
       {allowance! >= Number(amount) && loading === false && (
-        <Button disable={true} minWidth={80}>
+        <Button margin="0 20px 0 0" disable={true}>
           Approved
         </Button>
       )}
       {loading === true && (
-        <Button disable={true} minWidth={90}>
+        <Button margin="0 20px 0 0" disable={true}>
           <CircularProgress size={19} color="inherit" />
         </Button>
       )}

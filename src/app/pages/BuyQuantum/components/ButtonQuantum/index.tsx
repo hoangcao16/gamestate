@@ -1,27 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 const StyledButton = styled.button<{
-  width: number;
   disabled?: any;
+  margin?: string;
 }>`
-  min-width: ${props => props.width}%;
   font-size: 20px;
+  flex: 1;
   font-weight: bold;
   line-height: 70px;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
-  background: ${props => (props.disabled === 1 ? 'gray' : '#262626')};
+  background: ${props =>
+    props.disabled === 1 ? '#888888' : 'rgb(38, 38, 38)'};
   outline: none;
   border: none;
   border-radius: 3px;
   position: relative;
+  margin: ${props => props.margin};
   @media screen and (max-width: 575px) {
-    min-width: 98%;
     line-height: 54px;
     font-size: 18px;
+    margin: 20px 20px;
   }
-
+  &:hover:not([disabled]) {
+    background: rgba(38, 38, 38, 0.9);
+  }
   &:before {
     content: '';
     position: absolute;
@@ -39,24 +43,24 @@ const StyledButton = styled.button<{
       linear-gradient(96deg, #163f8c 0%, #8f65be 48%, #e740f0 100%) 0% 0%
       no-repeat padding-box;
     border-radius: 4px;
-    opacity: 0.9;
+    opacity: 1;
     filter: blur(15px);
     z-index: -1;
   }
 `;
 const ButtonQuantum = ({
   onclick,
-  minWidth,
+  margin,
   disable,
   children,
 }: {
   onclick?: () => void;
-  minWidth: number;
+  margin?: string;
   disable?: boolean;
   children: React.ReactNode;
 }) => {
   return (
-    <StyledButton onClick={onclick} width={minWidth} disabled={disable ? 1 : 0}>
+    <StyledButton onClick={onclick} margin={margin} disabled={disable ? 1 : 0}>
       {children}
     </StyledButton>
   );

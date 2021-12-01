@@ -2,15 +2,15 @@ import Header from 'app/components/Navbar';
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
-import Footer from '../Home/components/Footer';
+// import Footer from '../Home/components/Footer';
 import QuantumItem from './components/QuantumItem';
 import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
 import ModalConnectWallet from 'app/components/ModalConnect';
-import { useSelector } from 'react-redux';
-import { walletAction } from 'store/globalReducer';
+// import { useSelector } from 'react-redux';
+// import { walletAction } from 'store/globalReducer';
 import ApproveButton from './components/ApproveButton';
-import Web3 from 'services/walletService/initWeb3';
+// import Web3 from 'services/walletService/initWeb3';
 
 const StyledMain = styled(Container)`
   margin-top: 90px;
@@ -65,30 +65,33 @@ const StyledButton = styled.div`
 const StyledGroupButton = styled.div`
   display: flex;
   width: 100%;
+  margin: 90px auto 0 auto;
   @media screen and (max-width: 575px) {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 `;
 const BuyQuantum = () => {
-  const intanceValue = Web3.getInstance;
+  // const intanceValue = Web3.getInstance;
   const [allow, setAllow] = useState(false);
-  //set up allow
-  const handleAction = data => {
-    setAllow(data);
-  };
+
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0xdd9185db084f5c4fff3b4f70e7ba62123b812226';
-  const amount = '102';
+  const amount = '250';
 
+  //set up allow
+  const handleAction = data => {
+    setAllow(data);
+  };
   const [openConnect, setOpenConnect] = useState(false);
   const storeWallet = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   useEffect(() => {
     storeWallet ? setOpenConnect(false) : setOpenConnect(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOpenConnect = () => {
@@ -111,32 +114,28 @@ const BuyQuantum = () => {
               opportunities, staking multipliers and early bird access!
             </StyledDesc>
             <QuantumItem />
-            <LabelPrice>250 USDC</LabelPrice>
+            <LabelPrice>{amount} USDC</LabelPrice>
             {!storeWallet ? (
               <StyledButton>
-                <ButtonQuantum
-                  minWidth={100}
-                  onclick={() => handleOpenConnect()}
-                >
+                <ButtonQuantum onclick={() => handleOpenConnect()}>
                   BUY NOW
                 </ButtonQuantum>
               </StyledButton>
             ) : (
               <StyledGroupButton>
-                <StyledButton>
-                  <ApproveButton
-                    curAddress={curAddress}
-                    tokenSymbol={tokenSymbol}
-                    toAddress={toAddress}
-                    amount={amount}
-                    handleAction={handleAction}
-                  />
-                </StyledButton>
-                <StyledButton>
-                  <ButtonQuantum minWidth={90} disable={allow ? false : true}>
-                    BUY
-                  </ButtonQuantum>
-                </StyledButton>
+                <ApproveButton
+                  curAddress={curAddress}
+                  tokenSymbol={tokenSymbol}
+                  toAddress={toAddress}
+                  amount={amount}
+                  handleAction={handleAction}
+                />
+                <ButtonQuantum
+                  margin="0 0 0 20px"
+                  disable={allow ? false : true}
+                >
+                  BUY
+                </ButtonQuantum>
               </StyledGroupButton>
             )}
           </StyledQuantumItem>
