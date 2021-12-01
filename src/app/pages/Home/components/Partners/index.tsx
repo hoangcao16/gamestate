@@ -10,13 +10,22 @@ import logoN from 'app/assets/img/Logo/logoN.svg';
 import logoBirt from 'app/assets/img/Logo/logoBirt.svg';
 import logoEdso from 'app/assets/img/Logo/logoEdso.svg';
 import logoBlockchain from 'app/assets/img/Logo/logoDemo.svg';
-const StyledBlockLogo = styled(Row)`
+import logoPolygon from 'app/assets/img/Logo/logoPolygon.svg';
+import logoArweave from 'app/assets/img/Logo/logoArweave.svg';
+const StyledBlockLogo = styled(Row)<{ technology?: number }>`
   margin-bottom: 124px;
-  justify-content: center;
+  ${props =>
+    props.technology === 1
+      ? `
+    justify-content: space-evenly;
+    width: 82%;
+    margin: 0 auto;`
+      : `
+    justify-content: center; `}
 
   @media screen and (max-width: 1788px) {
     & img {
-      margin: 10px 35px;
+      margin: 30px 35px;
     }
   }
   @media screen and (max-width: 414px) {
@@ -48,11 +57,21 @@ const Partners = () => {
         <StyledLogo width="264" height="210" src={logoAnother} right="117" />
         <StyledLogo width="141" height="141" src={logoDig} right="0" />
         <StyledLogo width="477" height="76" src={logoHive} right="184" />
-        <StyledLogo width="306" height="157" src={logoN} right="160" />
         {/* <StyledLogo width="197" height="197" src={logoVR} right="170" /> */}
         <StyledLogo width="215" height="198" src={logoBirt} />
-        <StyledLogo width="858" height="186" src={logoBlockchain} right="165" />
+      </StyledBlockLogo>
+      <Row>
+        <LabelSection label="TECHNOLOGY PARTNERS" topAuto="mt-auto" />
+      </Row>
+      <StyledBlockLogo
+        className="align-items-center flex-wrap mt-5 mb-124"
+        technology={1}
+      >
+        <StyledLogo width="314" height="54" src={logoPolygon} />
+        <StyledLogo width="858" height="186" src={logoBlockchain} />
         <StyledLogo width="314" height="54" src={logoEdso} />
+        <StyledLogo width="306" height="157" src={logoN} />
+        <StyledLogo width="314" height="54" src={logoArweave} />
       </StyledBlockLogo>
     </Container>
   );

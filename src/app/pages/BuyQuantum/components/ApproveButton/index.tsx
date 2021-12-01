@@ -25,6 +25,7 @@ const ApproveButton = (props: Props) => {
   const [receipt, setReceipt] = useState();
   const [loading, setLoading] = useState(false);
   const intanceValue = Web3.getInstance;
+
   //create approve
   const handleApprove = async () => {
     setLoading(true);
@@ -35,6 +36,7 @@ const ApproveButton = (props: Props) => {
         toAddress,
         amount,
       );
+      console.log('tx', tx);
       const receipt = await signAndSendTx(tx);
       setReceipt(receipt);
       setLoading(false);
