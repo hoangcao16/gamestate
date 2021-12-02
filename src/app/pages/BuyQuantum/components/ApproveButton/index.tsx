@@ -1,4 +1,3 @@
-// import DfyButton from 'app/components/DfyButton';
 import { useState } from 'react';
 import { createApprove } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';

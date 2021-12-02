@@ -7,7 +7,6 @@ import actionBuyAbi from '../config/actionBuy.abi.json';
  * @param {*} from (vi hien tai)
  * @param {*} payableAmount
  * @param {*} tokenId
- * @param {*} numberOfCopies
  * @param {*} spender (env)
  * @returns
  */
