@@ -82,14 +82,16 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
   const amount = '3'; // amount
-  const tokenID = '2';
+  const tokenID = '3';
+  console.log('test', allow);
+
   // Handle Buy
   const handleBuy = async () => {
     try {
       const buyCoin = await buy(curAddress, 0, tokenID, tokenSymbol);
-      console.log(buyCoin);
+      console.log('buyCoin', buyCoin);
       const receipt = await signAndSendTx(buyCoin);
-      console.log(receipt);
+      console.log('receipt', receipt);
     } catch (error) {
       console.log(error);
     }
@@ -99,11 +101,9 @@ const BuyQuantum = () => {
     setAllow(data);
   };
   const [openConnect, setOpenConnect] = useState(false);
-  const storeWallet = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
-  )?.currentAddress;
+
   useEffect(() => {
-    storeWallet ? setOpenConnect(false) : setOpenConnect(true);
+    curAddress ? setOpenConnect(false) : setOpenConnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -128,9 +128,9 @@ const BuyQuantum = () => {
             </StyledDesc>
             <QuantumItem />
             <LabelPrice>{amount} USDC</LabelPrice>
-            {!storeWallet ? (
+            {!curAddress ? (
               <StyledButton>
-                <ButtonQuantum onclick={() => handleOpenConnect()}>
+                <ButtonQuantum onclick={handleOpenConnect}>
                   BUY NOW
                 </ButtonQuantum>
               </StyledButton>
@@ -146,7 +146,7 @@ const BuyQuantum = () => {
                 <ButtonQuantum
                   margin="0 0 0 20px"
                   disable={allow ? false : true}
-                  onclick={() => handleBuy()}
+                  onclick={handleBuy}
                 >
                   BUY
                 </ButtonQuantum>

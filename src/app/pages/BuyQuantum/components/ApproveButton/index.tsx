@@ -45,7 +45,6 @@ const ApproveButton = (props: Props) => {
       setLoading(false);
     }
   };
-
   //checkApprove
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
@@ -60,6 +59,7 @@ const ApproveButton = (props: Props) => {
         const resDiv18 = Number(
           new BigNumber(res).dividedBy(10 ** 18).toFixed(),
         );
+        console.log('div', res, resDiv18);
         if (resDiv18 >= Number(amount)) {
           handleAction(true);
         }
@@ -68,7 +68,14 @@ const ApproveButton = (props: Props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log('amount:', amount, 'recept:', receipt, 'allowance:', allowance);
+  console.log(
+    'amount111:',
+    amount,
+    'recept:',
+    receipt,
+    'allowance:',
+    allowance,
+  );
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (
