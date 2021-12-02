@@ -1,101 +1,93 @@
 import Header from 'app/components/Navbar';
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import styled from 'styled-components';
-// import Footer from '../Home/components/Footer';
+import { useState, useEffect } from 'react';
+import { Row } from 'react-bootstrap';
 import QuantumItem from './components/QuantumItem';
 import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
 import ModalConnectWallet from 'app/components/ModalConnect';
-// import { useSelector } from 'react-redux';
-// import { walletAction } from 'store/globalReducer';
 import ApproveButton from './components/ApproveButton';
-import { buy } from 'services/walletService/buyService/buy';
-// import Web3 from 'services/walletService/initWeb3';
+import { buy, getPrice } from 'services/walletService/buyService/buy';
+import Web3 from 'services/walletService/initWeb3';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
+import BigNumber from 'bignumber.js';
+import { CircularProgress } from '@mui/material';
+import {
+  StyledMain,
+  StyledQuantumItem,
+  StyledTitle,
+  StyledDesc,
+  StyledButton,
+  StyledGroupButton,
+} from './style';
+import { checkApprove } from 'services/walletService/approveService/approve';
 
-const StyledMain = styled(Container)`
-  margin-top: 90px;
-`;
-const StyledQuantumItem = styled(Col)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 705px;
-  margin: 60px auto;
-  text-align: center;
-  @media screen and (max-width: 575px) {
-    max-width: unset;
-  }
-`;
-const StyledTitle = styled.h3`
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 60px;
-  letter-spacing: 0px;
-  color: #ffffff;
-  @media screen and (max-width: 575px) {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 60px;
-  }
-`;
-const StyledDesc = styled.p`
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 40px;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 0.7;
-  margin: 34px 0 55px;
-  @media screen and (max-width: 575px) {
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 24px;
-    margin-top: 0px;
-  }
-`;
-const StyledButton = styled.div`
-  margin-top: 90px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const StyledGroupButton = styled.div`
-  display: flex;
-  width: 100%;
-  margin: 90px auto 0 auto;
-  @media screen and (max-width: 575px) {
-    flex-direction: column;
-  }
-`;
 const BuyQuantum = () => {
-  // const intanceValue = Web3.getInstance;
+  const intanceValue = Web3.getInstance;
   const [allow, setAllow] = useState(false);
-
+  const [amount, setAmount] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [allowance, setAllowance] = useState<Number>();
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
-  const amount = '3'; // amount
-  const tokenID = '3';
-  console.log('test', allow);
-
+  const tokenID = '11';
   // Handle Buy
   const handleBuy = async () => {
+    setLoading(true);
     try {
       const buyCoin = await buy(curAddress, 0, tokenID, tokenSymbol);
       console.log('buyCoin', buyCoin);
       const receipt = await signAndSendTx(buyCoin);
-      console.log('receipt', receipt);
+      console.log(receipt);
+      if (receipt.status) {
+        setLoading(false);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  //get price
+  useEffect(() => {
+    if (localStorage.getItem('extensionName')) {
+      (async () => {
+        await intanceValue.setWeb3();
+        const price = await getPrice(tokenID);
+        const priceY = Number(
+          new BigNumber(price?.txData.price).dividedBy(10 ** 18).toFixed(),
+        );
+        await setAmount(`${priceY}`);
+        // Check approve
+        const res = await checkApprove(
+          curAddress,
+          tokenSymbol,
+          toAddress,
+          priceY,
+        );
+        const resDiv18 = Number(
+          new BigNumber(res).dividedBy(10 ** 18).toFixed(),
+        );
+        if (resDiv18 >= Number(priceY)) {
+          handleAction(true);
+        }
+        setAllowance(resDiv18);
+        console.log(
+          'price',
+          'priceY',
+          'res',
+          'div',
+          'allow',
+          price,
+          priceY,
+          res,
+          resDiv18,
+          allowance,
+        );
+      })();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   //set up allow
   const handleAction = data => {
     setAllow(data);
@@ -115,6 +107,7 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
+  console.log('allow: ', allow);
   return (
     <>
       <Header />
@@ -142,13 +135,18 @@ const BuyQuantum = () => {
                   toAddress={toAddress}
                   amount={amount}
                   handleAction={handleAction}
+                  allowance={allowance}
                 />
                 <ButtonQuantum
                   margin="0 0 0 20px"
                   disable={allow ? false : true}
                   onclick={handleBuy}
                 >
-                  BUY
+                  {loading ? (
+                    <CircularProgress size={19} color="inherit" />
+                  ) : (
+                    'BUY'
+                  )}
                 </ButtonQuantum>
               </StyledGroupButton>
             )}
