@@ -21,14 +21,14 @@ import {
   StyledButton,
   StyledGroupButton,
 } from './style';
-// import { getTokenId } from 'services/walletService/nftService/getNft';
+import { getTokenId } from 'services/walletService/nftService/getNft';
 const BuyQuantum = () => {
   const intanceValue = Web3.getInstance;
   const [allow, setAllow] = useState(false);
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [allowance, setAllowance] = useState<Number>();
-
+  const [tokenID, setTokenID] = useState<Number>();
   const history = useHistory();
 
   //Mock data
@@ -37,7 +37,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
-  const tokenID = '1';
+  // const tokenID = '1';
   //set up allow
   const handleAction = data => {
     setAllow(data);
@@ -59,15 +59,19 @@ const BuyQuantum = () => {
       setLoading(false);
     }
   };
+
   //get price
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
         await intanceValue.setWeb3();
-        //Get AllTokenId
-        // const getId = await getTokenId();
-        // console.log(getId);
-        const price = await getPrice(tokenID);
+        //get randomTokenID
+        const getId = await getTokenId();
+        const TokenIdRandom =
+          getId?.txData[Math.floor(Math.random() * getId?.txData.length)];
+        setTokenID(TokenIdRandom);
+        //get Token price
+        const price = await getPrice(TokenIdRandom);
         const priceY = Number(
           new BigNumber(price?.txData.price).dividedBy(10 ** 18).toFixed(),
         );
@@ -91,7 +95,7 @@ const BuyQuantum = () => {
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenID]);
+  }, [localStorage.getItem('StoreWallet')]);
 
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
