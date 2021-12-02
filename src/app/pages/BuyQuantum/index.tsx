@@ -11,6 +11,8 @@ import Web3 from 'services/walletService/initWeb3';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import BigNumber from 'bignumber.js';
 import { CircularProgress } from '@mui/material';
+import { checkApprove } from 'services/walletService/approveService/approve';
+import { useHistory } from 'react-router';
 import {
   StyledMain,
   StyledQuantumItem,
@@ -19,20 +21,27 @@ import {
   StyledButton,
   StyledGroupButton,
 } from './style';
-import { checkApprove } from 'services/walletService/approveService/approve';
-
+// import { getTokenId } from 'services/walletService/nftService/getNft';
 const BuyQuantum = () => {
   const intanceValue = Web3.getInstance;
   const [allow, setAllow] = useState(false);
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [allowance, setAllowance] = useState<Number>();
+
+  const history = useHistory();
+
+  //Mock data
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
-  const tokenID = '6';
+  const tokenID = '1';
+  //set up allow
+  const handleAction = data => {
+    setAllow(data);
+  };
   // Handle Buy
   const handleBuy = async () => {
     setLoading(true);
@@ -43,9 +52,11 @@ const BuyQuantum = () => {
       console.log(receipt);
       if (receipt.status) {
         setLoading(false);
+        history.push('/order');
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
   //get price
@@ -53,6 +64,9 @@ const BuyQuantum = () => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
         await intanceValue.setWeb3();
+        //Get AllTokenId
+        // const getId = await getTokenId();
+        // console.log(getId);
         const price = await getPrice(tokenID);
         const priceY = Number(
           new BigNumber(price?.txData.price).dividedBy(10 ** 18).toFixed(),
@@ -70,22 +84,19 @@ const BuyQuantum = () => {
         );
         if (resDiv18 >= Number(priceY)) {
           handleAction(true);
+        } else {
+          handleAction(false);
         }
         setAllowance(resDiv18);
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  //set up allow
-  const handleAction = data => {
-    setAllow(data);
-  };
+  }, [tokenID]);
+
+  //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
-  const storeWallet = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
-  )?.currentAddress;
   useEffect(() => {
-    storeWallet ? setOpenConnect(false) : setOpenConnect(true);
+    curAddress ? setOpenConnect(false) : setOpenConnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -97,7 +108,6 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
-  console.log('allow: ', allow);
   return (
     <>
       <Header />
@@ -111,7 +121,7 @@ const BuyQuantum = () => {
             </StyledDesc>
             <QuantumItem />
             <LabelPrice>{amount} USDC</LabelPrice>
-            {!storeWallet ? (
+            {!curAddress ? (
               <StyledButton>
                 <ButtonQuantum onclick={() => handleOpenConnect()}>
                   BUY NOW
