@@ -10,6 +10,7 @@ export const getTokenId = async (
 
   try {
     const txData = await buyContract.methods.getOwnedTokenIds(address).call();
+
     return {
       txData,
     };

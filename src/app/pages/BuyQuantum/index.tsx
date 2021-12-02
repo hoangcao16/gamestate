@@ -6,7 +6,11 @@ import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
 import ModalConnectWallet from 'app/components/ModalConnect';
 import ApproveButton from './components/ApproveButton';
-import { buy, getPrice } from 'services/walletService/buyService/buy';
+import {
+  buy,
+  // getNftOnSellOf,
+  getPrice,
+} from 'services/walletService/buyService/buy';
 import Web3 from 'services/walletService/initWeb3';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import BigNumber from 'bignumber.js';
@@ -21,9 +25,8 @@ import {
   StyledButton,
   StyledGroupButton,
 } from './style';
-// import { getTokenId } from 'services/walletService/nftService/getNft';
 const BuyQuantum = () => {
-  const intanceValue = Web3.getInstance;
+  const instanceValue = Web3.getInstance;
   const [allow, setAllow] = useState(false);
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,7 +40,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
-  const tokenID = '11';
+  const tokenID = '2';
   //set up allow
   const handleAction = data => {
     setAllow(data);
@@ -63,7 +66,7 @@ const BuyQuantum = () => {
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
-        await intanceValue.setWeb3();
+        await instanceValue.setWeb3();
         //Get AllTokenId
         // const getId = await getTokenId();
         // console.log(getId);
@@ -88,22 +91,25 @@ const BuyQuantum = () => {
           handleAction(false);
         }
         setAllowance(resDiv18);
-        console.log(
-          'price',
-          'priceY',
-          'res',
-          'div',
-          'allow',
-          price,
-          priceY,
-          res,
-          resDiv18,
-          allowance,
-        );
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenID]);
+  }, [tokenID, localStorage.getItem('StoreWallet')]);
+
+  // useEffect(() => {
+  //   if (localStorage.getItem('extensionName')) {
+  //     (async () => {
+  //       await instanceValue.setWeb3();
+  //       const allTokenIds = await getTokenId();
+  //       console.log(curAddress);
+  //       const tokenIdsOwner = await getNftOnSellOf(curAddress);
+  //       const tokenIdsOthers = await allTokenIds?.txData?.filter(
+  //         item => !tokenIdsOwner?.txData?.includes(item),
+  //       );
+  //       console.log('others', tokenIdsOthers);
+  //     })();
+  //   }
+  // }, []);
 
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
