@@ -27,7 +27,6 @@ export const buy = async (
   }
   try {
     const txData = await buyContract.methods.purchaseNFT(tokenId);
-    console.log(txData);
     const nonce = await web3.eth.getTransactionCount(from, 'pending');
     // Create transaction
     const tx = {
@@ -44,6 +43,23 @@ export const buy = async (
       tx,
       gasPrice: gasData.gasPrice,
       gasLimit: gasData.gasLimit,
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getPrice = async (
+  tokenId,
+  spender = process.env.REACT_APP_NFT_SALES_ADDRESS,
+) => {
+  const instanceValue = Web3.getInstance;
+  const web3: any = instanceValue.getWeb3();
+  const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
+
+  try {
+    const txData = await buyContract.methods.getNFTInfo(tokenId).call();
+    return {
+      txData,
     };
   } catch (error) {
     console.log(error);
