@@ -10,7 +10,9 @@ import ModalConnectWallet from 'app/components/ModalConnect';
 // import { useSelector } from 'react-redux';
 // import { walletAction } from 'store/globalReducer';
 import ApproveButton from './components/ApproveButton';
+import { buy } from 'services/walletService/buyService/buy';
 // import Web3 from 'services/walletService/initWeb3';
+import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 
 const StyledMain = styled(Container)`
   margin-top: 90px;
@@ -80,7 +82,18 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
   const amount = '3'; // amount
-
+  const tokenID = '2';
+  // Handle Buy
+  const handleBuy = async () => {
+    try {
+      const buyCoin = await buy(curAddress, 0, tokenID, tokenSymbol);
+      console.log(buyCoin);
+      const receipt = await signAndSendTx(buyCoin);
+      console.log(receipt);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   //set up allow
   const handleAction = data => {
     setAllow(data);
@@ -133,6 +146,7 @@ const BuyQuantum = () => {
                 <ButtonQuantum
                   margin="0 0 0 20px"
                   disable={allow ? false : true}
+                  onclick={() => handleBuy()}
                 >
                   BUY
                 </ButtonQuantum>
