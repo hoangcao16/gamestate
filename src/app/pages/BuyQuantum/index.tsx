@@ -12,6 +12,7 @@ import ModalConnectWallet from 'app/components/ModalConnect';
 import ApproveButton from './components/ApproveButton';
 import { buy } from 'services/walletService/buyService/buy';
 // import Web3 from 'services/walletService/initWeb3';
+import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 
 const StyledMain = styled(Container)`
   margin-top: 90px;
@@ -81,12 +82,14 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = '0x94C00A503a2eF543279B92403AE2f1c93d01E3fa'; // market
   const amount = '3'; // amount
-  const orderId = '2';
+  const tokenID = '2';
   // Handle Buy
   const handleBuy = async () => {
     try {
-      const buyCoin = await buy(curAddress, 0, orderId, tokenSymbol);
+      const buyCoin = await buy(curAddress, 0, tokenID, tokenSymbol);
       console.log(buyCoin);
+      const receipt = await signAndSendTx(buyCoin);
+      console.log(receipt);
     } catch (error) {
       console.log(error);
     }
