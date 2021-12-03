@@ -2,52 +2,38 @@ import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
 import LabelPrice from './components/LabelPrice';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { getTokenId } from 'services/walletService/nftService/getNft';
+import Web3 from 'services/walletService/initWeb3';
 
-const mockData = [
-  {
-    id: '#1111',
-  },
-  {
-    id: '#1234',
-  },
-  {
-    id: '#1515',
-  },
-  {
-    id: '#5454',
-  },
-  {
-    id: '#6435',
-  },
-  {
-    id: '#5443',
-  },
-  {
-    id: '#1545',
-  },
-  {
-    id: '#1675',
-  },
-  {
-    id: '#1100',
-  },
-  {
-    id: '#1909',
-  },
-];
 const QuantumOrder = () => {
+  const intanceValue = Web3.getInstance;
+  const [data, setData] = useState<Array<any>>([]);
+  const curAddress = JSON.parse(
+    localStorage.getItem('StoreWallet')!,
+  )?.currentAddress;
+  useEffect(() => {
+    if (localStorage.getItem('extensionName')) {
+      (async () => {
+        await intanceValue.setWeb3();
+        const tokenId = await getTokenId(curAddress);
+        setData(tokenId?.txData);
+      })();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <Header />
       <Main>
         <P>Quantum accelerator orders</P>
         <Row className="justify-content-around">
-          {mockData.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
                 <QuantumItem />
-                <LabelPrice>{item.id}</LabelPrice>
+                <LabelPrice># {item}</LabelPrice>
               </StyledCol>
             );
           })}
