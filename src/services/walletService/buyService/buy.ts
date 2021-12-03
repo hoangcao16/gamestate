@@ -13,9 +13,9 @@ import actionBuyAbi from '../config/actionBuy.abi.json';
 export const buy = async (
   from,
   payableAmount,
-  tokenId,
   tokenSymbol,
   spender = process.env.REACT_APP_NFT_SALES_ADDRESS,
+  currency = process.env.REACT_APP_COIN_ADDRESS,
 ) => {
   const instanceValue = Web3.getInstance;
   const web3: any = instanceValue.getWeb3();
@@ -25,8 +25,9 @@ export const buy = async (
     payableAmount = 0;
   }
   try {
-    const txData = await buyContract.methods.purchaseNFT(tokenId);
+    const txData = await buyContract.methods.buyNFTMint(currency);
     const nonce = await web3.eth.getTransactionCount(from, 'pending');
+    console.log(txData);
     // Create transaction
     const tx = {
       from,
