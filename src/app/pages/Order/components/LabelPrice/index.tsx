@@ -14,6 +14,7 @@ const StyledPrice = styled.div`
     line-height: 30px;
     font-size: 14px;
     border-radius: 2px;
+    width: 100px;
   }
 `;
 const LabelPrice = ({ children }: any) => {

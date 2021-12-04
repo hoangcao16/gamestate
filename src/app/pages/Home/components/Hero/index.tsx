@@ -7,7 +7,7 @@ import Loading from '../Loading';
 const StyledLoadingProgress = styled(Loading)`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -78,7 +78,9 @@ const Div = styled.div`
   justify-content: center;
   padding-top: 93px;
   background-color: #05080a;
+
   @media screen and (max-width: 576px) {
+    /* padding-bottom: 30px; */
     padding-top: 66px;
   }
 `;

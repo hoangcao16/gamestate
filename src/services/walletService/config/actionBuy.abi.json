@@ -87,6 +87,19 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "maxSupply",
+        "type": "uint256"
+      }
+    ],
+    "name": "MaxNFTCanMint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "NFT721Addr",
         "type": "address"
@@ -389,6 +402,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "maxNFTCanMint",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "address", "name": "", "type": "address" },
       { "internalType": "address", "name": "", "type": "address" },
@@ -477,6 +497,15 @@
   },
   {
     "inputs": [
+      { "internalType": "uint256", "name": "maxSupply", "type": "uint256" }
+    ],
+    "name": "setMaxNFTCanMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       { "internalType": "address", "name": "nft721Address", "type": "address" }
     ],
     "name": "setNFT721Address",
@@ -521,6 +550,13 @@
     "name": "setWalletCanSell",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "supplyNFTMinted",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
