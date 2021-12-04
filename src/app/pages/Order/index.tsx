@@ -28,7 +28,7 @@ const QuantumOrder = () => {
       <Header />
       <Main>
         <P>Quantum accelerator orders</P>
-        <Row className="justify-content-around">
+        <Row className="justify-content-center">
           {data.map((item, index) => {
             return (
               <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>

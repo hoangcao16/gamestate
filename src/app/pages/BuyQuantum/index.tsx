@@ -83,7 +83,7 @@ const BuyQuantum = () => {
             <LabelPrice>{amount} USDC</LabelPrice>
             {!curAddress ? (
               <StyledButton>
-                <ButtonQuantum onclick={() => handleOpenConnect()}>
+                <ButtonQuantum onclick={handleOpenConnect}>
                   BUY NOW
                 </ButtonQuantum>
               </StyledButton>
@@ -99,7 +99,7 @@ const BuyQuantum = () => {
                 <ButtonQuantum
                   margin="0 0 0 20px"
                   disable={allow ? false : true}
-                  onclick={() => handleBuy()}
+                  onclick={handleBuy}
                 >
                   {loading ? (
                     <CircularProgress size={19} color="inherit" />

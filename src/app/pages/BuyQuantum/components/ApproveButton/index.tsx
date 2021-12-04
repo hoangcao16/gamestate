@@ -16,7 +16,7 @@ interface Props {
 }
 const ApproveButton = (props: Props) => {
   //init something
-  const intanceValue = Web3.getInstance;
+  const instanceValue = Web3.getInstance;
   const [receipt, setReceipt] = useState();
   const [loading, setLoading] = useState(false);
   const [allowance, setAllowance] = useState<Number>();
@@ -26,7 +26,7 @@ const ApproveButton = (props: Props) => {
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
-        await intanceValue.setWeb3();
+        await instanceValue.setWeb3();
         // Check approve
         const res = await checkApprove(
           curAddress,
@@ -57,6 +57,7 @@ const ApproveButton = (props: Props) => {
         toAddress,
         amount,
       );
+      console.log('tx', tx);
       const receipt = await signAndSendTx(tx);
       setReceipt(receipt);
       setLoading(false);
@@ -65,7 +66,6 @@ const ApproveButton = (props: Props) => {
       setLoading(false);
     }
   };
-
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && loading === false && (

@@ -65,3 +65,19 @@ export const getPrice = async (
     console.log(error);
   }
 };
+// export const getNftOnSellOf = async (
+//   from,
+//   spender = process.env.REACT_APP_NFT_SALES_ADDRESS,
+// ) => {
+//   const instanceValue = Web3.getInstance;
+//   const web3: any = instanceValue.getWeb3();
+//   const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
+//   try {
+//     const txData = await buyContract.methods.getNFTsOnSellOf(from).call();
+//     return {
+//       txData,
+//     };
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
