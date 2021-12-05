@@ -18,11 +18,15 @@ import {
   StyledButton,
   StyledGroupButton,
 } from './style';
+import { useBuyNFTSlice } from './slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBuyNFT } from './slice/selectors';
 const BuyQuantum = () => {
+  const dispatch = useDispatch();
   const [allow, setAllow] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-
+  const { actions } = useBuyNFTSlice();
   //Mock data
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
@@ -30,27 +34,36 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
   const amount = '250';
-
+  const statusReceipt = useSelector(selectBuyNFT).status;
   //set up allow
   const handleAction = data => {
     setAllow(data);
   };
   // Handle Buy
   const handleBuy = async () => {
+    // setLoading(true);
+    // try {
+    //   const buyCoin = await buy(curAddress, 0, tokenSymbol);
+    //   console.log(buyCoin);
+    //   const receipt = await signAndSendTx(buyCoin);
+    //   console.log(receipt);
+    //   if (receipt.status) {
+    //     setLoading(false);
+    //     history.push('/order');
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    //   setLoading(false);
+    // }
     setLoading(true);
-    try {
-      const buyCoin = await buy(curAddress, 0, tokenSymbol);
-      console.log(buyCoin);
-      const receipt = await signAndSendTx(buyCoin);
-      console.log(receipt);
-      if (receipt.status) {
-        setLoading(false);
-        history.push('/order');
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
+    dispatch(
+      actions.buyNFTRequest({
+        from: curAddress,
+        payableAmount: 0,
+        tokenSymbol,
+      }),
+    );
+    statusReceipt && setLoading(false) && history.push('/order');
   };
 
   //open modal connect
