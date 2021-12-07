@@ -5,4 +5,4 @@ import { initialState } from '.';
 
 const buyNFTSlice = (state: RootState) => state?.buyNFT || initialState;
 
-export const selectBuyNFT = createSelector([buyNFTSlice], state => state);
+export const buyNFTSelector = createSelector([buyNFTSlice], state => state);

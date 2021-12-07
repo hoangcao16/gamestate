@@ -1,6 +1,8 @@
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
+import { ApproveNFTState } from 'app/pages/BuyQuantum/components/ApproveButton/slice/types';
 import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
+import { OrderNFTState } from 'app/pages/Order/slice/types';
 
 /* 
   Because the redux-injectors injects your reducers asynchronously somewhere in your code
@@ -9,4 +11,6 @@ import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
 export interface RootState {
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
   buyNFT?: BuyNftState;
+  approveNFT?: ApproveNFTState;
+  orderNFT?: OrderNFTState;
 }

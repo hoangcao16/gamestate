@@ -20,12 +20,13 @@ import {
 } from './style';
 import { useBuyNFTSlice } from './slice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectBuyNFT } from './slice/selectors';
+import { buyNFTSelector } from './slice/selectors';
+import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
 const BuyQuantum = () => {
   const dispatch = useDispatch();
-  const [allow, setAllow] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const history = useHistory();
+
+  // const [allow, setAllow] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const { actions } = useBuyNFTSlice();
   //Mock data
   const curAddress = JSON.parse(
@@ -34,10 +35,10 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
   const amount = '250';
-  const statusReceipt = useSelector(selectBuyNFT).status;
+  const isLoading = useSelector(buyNFTSelector).isLoading;
   //set up allow
   const handleAction = data => {
-    setAllow(data);
+    // setAllow(data);
   };
   // Handle Buy
   const handleBuy = async () => {
@@ -55,7 +56,7 @@ const BuyQuantum = () => {
     //   console.log(error);
     //   setLoading(false);
     // }
-    setLoading(true);
+    // setLoading(true);
     dispatch(
       actions.buyNFTRequest({
         from: curAddress,
@@ -63,15 +64,13 @@ const BuyQuantum = () => {
         tokenSymbol,
       }),
     );
-    statusReceipt && setLoading(false) && history.push('/order');
   };
 
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
   useEffect(() => {
     curAddress ? setOpenConnect(false) : setOpenConnect(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [curAddress]);
 
   const handleOpenConnect = () => {
     setOpenConnect(true);
@@ -81,6 +80,8 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
+  const { isAllow } = useSelector(approveNFTSelector);
+  console.log('isAllow', isAllow);
   return (
     <>
       <Header />
@@ -111,10 +112,10 @@ const BuyQuantum = () => {
                 />
                 <ButtonQuantum
                   margin="0 0 0 20px"
-                  disable={allow ? false : true}
+                  disable={isAllow ? false : true}
                   onclick={handleBuy}
                 >
-                  {loading ? (
+                  {isLoading ? (
                     <CircularProgress size={19} color="inherit" />
                   ) : (
                     'BUY'

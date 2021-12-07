@@ -16,6 +16,7 @@ const Header = () => {
         setScrolled(false);
       }
     };
+    return () => {};
   }, []);
   return (
     <Div>

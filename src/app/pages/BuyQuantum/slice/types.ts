@@ -1,4 +1,5 @@
 /* --- STATE --- */
 export interface BuyNftState {
-  status: boolean;
+  isLoading: boolean;
+  isError: boolean;
 }

@@ -5,18 +5,24 @@ import { buyNFTSaga } from './saga';
 import { BuyNftState } from './types';
 
 export const initialState: BuyNftState = {
-  status: false,
+  isLoading: false,
+  isError: false,
 };
 
 const buyNFTSlice = createSlice({
   name: 'buyNFT',
   initialState,
   reducers: {
-    buyNFTRequest(state, action) {},
-    buyNFTSuccess(state, action: PayloadAction<any>) {
-      state.status = action.payload;
+    buyNFTRequest(state, action) {
+      state.isLoading = true;
     },
-    buyNFTError(state) {},
+
+    buyNFTError(state) {
+      state.isError = true;
+    },
+    clearLoading(state) {
+      state.isLoading = false;
+    },
   },
 });
 
