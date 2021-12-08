@@ -5,13 +5,15 @@ import styled from 'styled-components';
 import close from 'app/assets/img/close.png';
 import { useHistory } from 'react-router';
 import ModalConnectWallet from 'app/components/ModalConnect/index';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { isEmpty } from 'lodash';
+import { useSelector } from 'react-redux';
+import { store } from 'index';
+import { walletAction } from 'store/globalReducer';
 
 const Header = () => {
   const history = useHistory();
-
-  const curAddress = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
-  )?.currentAddress;
+  const wallet: any = useSelector(selectWallet);
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -26,6 +28,7 @@ const Header = () => {
   }, []);
   //logout
   const handleLogout = () => {
+    store.dispatch(walletAction(null));
     localStorage.removeItem('StoreWallet');
     localStorage.removeItem('extensionName');
   };
@@ -80,12 +83,14 @@ const Header = () => {
               >
                 GET STARTED
               </StyledFourthButton>
-              {curAddress ? (
+              {!isEmpty(wallet.wallet) ? (
                 <StyledDropdown>
                   <Dropdown.Toggle id="dropdown-basic">
-                    {curAddress.slice(0, 5) +
+                    {wallet?.wallet?.currentAddress.slice(0, 5) +
                       '...' +
-                      curAddress.slice(curAddress.length - 4)}
+                      wallet?.wallet?.currentAddress.slice(
+                        wallet?.wallet?.currentAddress.length - 4,
+                      )}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>Profile</Dropdown.Item>
