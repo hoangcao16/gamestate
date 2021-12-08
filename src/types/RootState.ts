@@ -1,4 +1,9 @@
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
+
+import { ApproveNFTState } from 'app/pages/BuyQuantum/components/ApproveButton/slice/types';
+import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
+import { OrderNFTState } from 'app/pages/Order/slice/types';
+
 import { GlobalState } from '../store/globalReducer';
 import { WalletState } from 'app/components/Wallet/slice/types';
 /* 
@@ -8,5 +13,7 @@ import { WalletState } from 'app/components/Wallet/slice/types';
 export interface RootState {
   globalState: GlobalState;
   wallet?: WalletState;
-  // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
+  buyNFT?: BuyNftState;
+  approveNFT?: ApproveNFTState;
+  orderNFT?: OrderNFTState;
 }

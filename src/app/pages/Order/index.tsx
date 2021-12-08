@@ -2,42 +2,45 @@ import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
 import LabelPrice from './components/LabelPrice';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { getTokenId } from 'services/walletService/nftService/getNft';
-import Web3 from 'services/walletService/initWeb3';
+import { useDispatch, useSelector } from 'react-redux';
+import { useOrderNFTSlice } from './slice';
+import { orderNFTSelector } from './slice/selectors';
+import { CircularProgress } from '@mui/material';
 
 const QuantumOrder = () => {
-  const intanceValue = Web3.getInstance;
-  const [data, setData] = useState<Array<any>>([]);
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
+  const dispatch = useDispatch();
+  const { actions } = useOrderNFTSlice();
+
   useEffect(() => {
-    if (localStorage.getItem('extensionName')) {
-      (async () => {
-        await intanceValue.setWeb3();
-        const tokenId = await getTokenId(curAddress);
-        setData(tokenId?.txData);
-      })();
-    }
+    dispatch(actions.orderNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const { data, isLoading } = useSelector(orderNFTSelector);
+
   return (
     <>
       <Header />
       <Main>
         <P>Quantum accelerator orders</P>
-        <Row className="justify-content-center">
-          {data.map((item, index) => {
-            return (
-              <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
-                <QuantumItem />
-                <LabelPrice># {item}</LabelPrice>
-              </StyledCol>
-            );
-          })}
-        </Row>
+        {isLoading ? (
+          <CircularProgress size={40} color="primary" />
+        ) : (
+          <Row className="justify-content-center">
+            {data?.map((item, index) => {
+              return (
+                <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
+                  <QuantumItem />
+                  <LabelPrice># {item}</LabelPrice>
+                </StyledCol>
+              );
+            })}
+          </Row>
+        )}
       </Main>
     </>
   );
