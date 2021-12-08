@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from 'styled-components';
 import CoinBackground from 'app/assets/img/TokenSale/coinbackground.png';
 import TokenBackground from 'app/assets/img/TokenSale/token.png';
-import HiveLogo from 'app/assets/img/TokenSale/hivelogo.png';
+// import HiveLogo from "../../assets/img/TokenSale/hivelogo.png"
 import PolygonLogo from 'app/assets/img/TokenSale/polygonlogo.png';
 import { Container } from 'react-bootstrap';
 import Countdown, { zeroPad } from 'react-countdown';
@@ -45,46 +46,41 @@ const TokenSale = () => {
           <StyledSubTitle>Sale</StyledSubTitle>
         </div>
         <StyledBar>
-          <HiveProgessBar fluid>
+          {/* <HiveProgessBar fluid>
             <Bar>
               <img src={HiveLogo} alt="Hive Logo" />
               <span className="title">HIVE-ENGINE IDO</span>
-              {/* <Countdown
+              <Countdown
                 date={new Date('Nov 26 2021 10:00:00 UTC').getTime()}
                 renderer={Rendered}
-              /> */}
+              />
               <div className="progessBar">
                 <div className="progessBar-fill">
                   <div className="progessBar-fill-inner"></div>
                 </div>
               </div>
             </Bar>
-          </HiveProgessBar>
+          </HiveProgessBar> */}
           <PolygonProgessBar fluid>
             <Bar>
               <img src={PolygonLogo} alt="Polygon Logo" />
               <span className="title">Polygon IDO</span>
               <Countdown
-                date={new Date('Dec 7 2021 02:00:00 UTC').getTime()}
+                date={new Date('Dec 10 2021 02:00:00 UTC').getTime()}
                 renderer={Rendered}
               />
-              {/* <div className="progessBar">
-                <div className="progessBar-fill">
-                  <div className="progessBar-fill-inner"></div>
-                </div>
-              </div> */}
             </Bar>
           </PolygonProgessBar>
         </StyledBar>
-        <StyledButton>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://getstarted.gamestate.one/"
-          >
-            Read more
-          </a>
-        </StyledButton>
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://getstarted.gamestate.one/"
+        >
+          <StyledButton>Read more </StyledButton>
+        </a>
+
         <StyledTokenImage src={TokenBackground} alt="Token Background" />
       </StyledTokenSales>
     </Div>
@@ -330,7 +326,7 @@ const Bar = styled.div`
     }
   }
 `;
-
+//test
 const StyledButton = styled.button`
   min-width: 160px;
   margin-top: 60px;
@@ -345,10 +341,8 @@ const StyledButton = styled.button`
   line-height: 42px;
   font-weight: 500;
   text-transform: uppercase;
-  a {
-    color: #ffffff;
-    text-decoration: none;
-  }
+  color: #ffffff;
+  text-decoration: none;
   @media screen and (max-width: 654px) {
     min-width: 140px;
     height: 40px;
