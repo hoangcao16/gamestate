@@ -1,12 +1,20 @@
 import { useState, useEffect } from 'react';
 import Logo from 'app/assets/img/Logo/logo.png';
-import { Nav, Navbar, Container } from 'react-bootstrap';
+import { Nav, Navbar, Container, Dropdown } from 'react-bootstrap';
 import styled from 'styled-components';
 import close from 'app/assets/img/close.png';
 import { useHistory } from 'react-router';
+import ModalConnectWallet from 'app/components/ModalConnect/index';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { isEmpty } from 'lodash';
+import { useSelector } from 'react-redux';
+import { store } from 'index';
+import { walletAction } from 'store/globalReducer';
 
 const Header = () => {
   const history = useHistory();
+  const wallet: any = useSelector(selectWallet);
+
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = function () {
@@ -16,7 +24,25 @@ const Header = () => {
         setScrolled(false);
       }
     };
+    return () => {};
   }, []);
+  //logout
+  const handleLogout = () => {
+    store.dispatch(walletAction(null));
+    localStorage.removeItem('StoreWallet');
+    localStorage.removeItem('extensionName');
+  };
+  //open modal connect
+  const [openConnect, setOpenConnect] = useState(false);
+
+  const handleOpenConnect = () => {
+    setOpenConnect(true);
+  };
+  const handleCloseConnect = () => {
+    setOpenConnect(false);
+  };
+
+  const handleClose = () => {};
   return (
     <Div>
       <StyledNavbar
@@ -57,10 +83,34 @@ const Header = () => {
               >
                 GET STARTED
               </StyledFourthButton>
+              {!isEmpty(wallet.wallet) ? (
+                <StyledDropdown>
+                  <Dropdown.Toggle id="dropdown-basic">
+                    {wallet?.wallet?.currentAddress.slice(0, 5) +
+                      '...' +
+                      wallet?.wallet?.currentAddress.slice(
+                        wallet?.wallet?.currentAddress.length - 4,
+                      )}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </StyledDropdown>
+              ) : (
+                <StyledConnectButton onClick={handleOpenConnect}>
+                  Connect
+                </StyledConnectButton>
+              )}
             </StyledNav>
           </Navbar.Collapse>
         </StyledContainer>
       </StyledNavbar>
+      <ModalConnectWallet
+        onClose={handleCloseConnect}
+        isOpen={openConnect}
+        handle={handleClose}
+      />
     </Div>
   );
 };
@@ -135,6 +185,89 @@ const StyledFourthButton = styled(A)`
   &:hover {
     color: #e740f0;
     transform: scale(1.05);
+  }
+`;
+const StyledConnectButton = styled.div`
+  text-align: center;
+  margin-left: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 36px;
+  border-radius: 24px;
+  cursor: pointer;
+  min-width: 148px;
+  max-width: 150px;
+  transition: 0.2s;
+  height: 41px;
+  @media screen and (min-width: 992px) and (max-width: 1310px) {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 36px;
+    min-width: 116px;
+  }
+  @media (max-width: 991px) {
+    min-width: 148px;
+    margin-bottom: 22px;
+    margin-left: 0;
+  }
+  @media (max-width: 414px) {
+    min-width: 148px;
+    margin-bottom: 50px;
+    margin-left: 0;
+  }
+  color: #6633ff;
+  border: 3px solid #6633ff;
+  text-shadow: 0px 3px 6px rgb(158, 80, 162), 0px 3px 6px rgb(231, 64, 240);
+  box-shadow: 0px 3px 6px #6633ff;
+  &:hover {
+    color: #6633ff;
+    transform: scale(1.05);
+  }
+`;
+const StyledDropdown = styled(Dropdown)`
+  text-align: center;
+  margin-left: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 36px;
+  border-radius: 24px;
+  cursor: pointer;
+  min-width: 148px;
+  max-width: 150px;
+  transition: 0.2s;
+  height: 41px;
+  @media screen and (min-width: 992px) and (max-width: 1310px) {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 36px;
+    min-width: 116px;
+  }
+  @media (max-width: 991px) {
+    min-width: 148px;
+    margin-bottom: 22px;
+    margin-left: 0;
+  }
+  @media (max-width: 414px) {
+    min-width: 148px;
+    margin-bottom: 50px;
+    margin-left: 0;
+  }
+  color: #6633ff;
+  border: 3px solid #6633ff;
+  text-shadow: 0px 3px 6px rgb(158, 80, 162), 0px 3px 6px rgb(231, 64, 240);
+  box-shadow: 0px 3px 6px #6633ff;
+  &:hover {
+    color: #6633ff;
+    transform: scale(1.05);
+  }
+  #dropdown-basic {
+    box-shadow: unset;
+    outline: none;
+    background-color: transparent !important;
+    border: none !important;
+    &::after {
+      display: none;
+    }
   }
 `;
 const StyledNav = styled(Nav)`
