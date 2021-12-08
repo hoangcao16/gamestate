@@ -16,7 +16,6 @@ const buyNFTSlice = createSlice({
     buyNFTRequest(state, action) {
       state.isLoading = true;
     },
-
     buyNFTError(state) {
       state.isError = true;
     },

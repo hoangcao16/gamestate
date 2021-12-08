@@ -6,15 +6,21 @@ import { OrderNFTState } from './types';
 
 export const initialState: OrderNFTState = {
   data: [],
+  isLoading: false,
 };
 
 const slice = createSlice({
   name: 'orderNFT',
   initialState,
   reducers: {
-    orderNFTRequest(state, action: PayloadAction<any>) {},
+    orderNFTRequest(state, action: PayloadAction<any>) {
+      state.isLoading = true;
+    },
     orderNFTSuccess(state, action) {
       state.data = action.payload;
+    },
+    clearLoading(state) {
+      state.isLoading = false;
     },
   },
 });

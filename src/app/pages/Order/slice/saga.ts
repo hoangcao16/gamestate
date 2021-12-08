@@ -11,7 +11,6 @@ import actionNftAbi from 'services/walletService/config/actionNft.abi.json';
 function* handleOrderNFT(action) {
   const spender = process.env.REACT_APP_NFT_ADDRESS;
   const curAddress = action.payload;
-  console.log('cur', curAddress);
   try {
     if (localStorage.getItem('extensionName')) {
       const instanceValue = Web3.getInstance;
@@ -21,11 +20,12 @@ function* handleOrderNFT(action) {
       const txData = yield buyContract.methods
         .getOwnedTokenIds(curAddress)
         .call();
-      console.log('data', txData);
       yield put(actions.orderNFTSuccess(txData));
-      // setData(tokenId?.txData);
     }
-  } catch (err) {}
+  } catch (err) {
+  } finally {
+    yield put(actions.clearLoading());
+  }
 }
 function* watchHandleOrderNFT() {
   yield takeLatest(actions.orderNFTRequest, handleOrderNFT);
@@ -33,5 +33,4 @@ function* watchHandleOrderNFT() {
 
 export function* OrderNFTSaga() {
   yield all([watchHandleOrderNFT()]);
-  // yield takeLatest(actions.someAction.type, doSomething);
 }

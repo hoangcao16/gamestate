@@ -1,4 +1,4 @@
-import { all, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import Web3 from 'services/walletService/initWeb3';
 import { actions } from '.';
 import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
@@ -8,6 +8,9 @@ import { history } from 'app';
 
 const spender = process.env.REACT_APP_NFT_SALES_ADDRESS;
 const currency = process.env.REACT_APP_COIN_ADDRESS;
+function forwardTo(location) {
+  history.push(location);
+}
 function* handleBuyNFT(action) {
   const { from, payableAmount, tokenSymbol } = action.payload;
   const instanceValue = Web3.getInstance;
@@ -33,8 +36,8 @@ function* handleBuyNFT(action) {
       gasLimit: gasData.gasLimit,
     };
     yield signAndSendTx(txBuy);
-    // yield put(actions.buyNFTSuccess(receipt.status));
-    history.push('/order');
+    yield call(forwardTo, '/order');
+    // history.push('/order');
   } catch (err) {
     yield put(actions.buyNFTError());
   } finally {
@@ -42,7 +45,6 @@ function* handleBuyNFT(action) {
   }
 }
 function* watchHandleBuyNFT() {
-  // yield takeLatest(actions.someAction.type, doSomething);
   yield takeLatest(actions.buyNFTRequest, handleBuyNFT);
 }
 export function* buyNFTSaga() {

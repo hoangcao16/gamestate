@@ -24,9 +24,6 @@ import { buyNFTSelector } from './slice/selectors';
 import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
 const BuyQuantum = () => {
   const dispatch = useDispatch();
-
-  // const [allow, setAllow] = useState(false);
-  // const [loading, setLoading] = useState(false);
   const { actions } = useBuyNFTSlice();
   //Mock data
   const curAddress = JSON.parse(
@@ -37,26 +34,9 @@ const BuyQuantum = () => {
   const amount = '250';
   const isLoading = useSelector(buyNFTSelector).isLoading;
   //set up allow
-  const handleAction = data => {
-    // setAllow(data);
-  };
+
   // Handle Buy
-  const handleBuy = async () => {
-    // setLoading(true);
-    // try {
-    //   const buyCoin = await buy(curAddress, 0, tokenSymbol);
-    //   console.log(buyCoin);
-    //   const receipt = await signAndSendTx(buyCoin);
-    //   console.log(receipt);
-    //   if (receipt.status) {
-    //     setLoading(false);
-    //     history.push('/order');
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   setLoading(false);
-    // }
-    // setLoading(true);
+  const handleBuy = () => {
     dispatch(
       actions.buyNFTRequest({
         from: curAddress,
@@ -81,7 +61,6 @@ const BuyQuantum = () => {
 
   const handleClose = () => {};
   const { isAllow } = useSelector(approveNFTSelector);
-  console.log('isAllow', isAllow);
   return (
     <>
       <Header />
@@ -108,7 +87,6 @@ const BuyQuantum = () => {
                   tokenSymbol={tokenSymbol}
                   toAddress={toAddress}
                   amount={amount}
-                  handleAction={handleAction}
                 />
                 <ButtonQuantum
                   margin="0 0 0 20px"
