@@ -2,15 +2,12 @@ import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
 import LabelPrice from './components/LabelPrice';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { getTokenId } from 'services/walletService/nftService/getNft';
-import Web3 from 'services/walletService/initWeb3';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOrderNFTSlice } from './slice';
 import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
-import { history } from 'app';
 
 const QuantumOrder = () => {
   const curAddress = JSON.parse(

@@ -4,12 +4,15 @@ import { ApproveNFTState } from 'app/pages/BuyQuantum/components/ApproveButton/s
 import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
 import { OrderNFTState } from 'app/pages/Order/slice/types';
 
+import { GlobalState } from '../store/globalReducer';
+import { WalletState } from 'app/components/Wallet/slice/types';
 /* 
   Because the redux-injectors injects your reducers asynchronously somewhere in your code
   You have to declare them here manually
 */
 export interface RootState {
-  // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
+  globalState: GlobalState;
+  wallet?: WalletState;
   buyNFT?: BuyNftState;
   approveNFT?: ApproveNFTState;
   orderNFT?: OrderNFTState;

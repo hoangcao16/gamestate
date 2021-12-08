@@ -1,12 +1,7 @@
-import { useState, useEffect } from 'react';
-import { createApprove } from 'services/walletService/approveService/approve';
-import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
+import { useEffect } from 'react';
 import { isEmpty } from 'lodash';
 import { CircularProgress } from '@mui/material';
 import Button from '../ButtonQuantum';
-import { checkApprove } from 'services/walletService/approveService/approve';
-import Web3 from 'services/walletService/initWeb3';
-import BigNumber from 'bignumber.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useApproveNFT } from './slice';
 import { approveNFTSelector } from './slice/selectors';

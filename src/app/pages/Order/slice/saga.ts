@@ -1,11 +1,9 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 // import { Actions as actions } from '.';
 
-import { put, takeLatest, all, takeEvery } from '@redux-saga/core/effects';
-import { watch } from 'fs';
+import { put, takeLatest, all } from '@redux-saga/core/effects';
 import { actions } from '.';
 import Web3 from 'services/walletService/initWeb3';
-import { getTokenId } from 'services/walletService/nftService/getNft';
 import actionNftAbi from 'services/walletService/config/actionNft.abi.json';
 
 function* handleOrderNFT(action) {

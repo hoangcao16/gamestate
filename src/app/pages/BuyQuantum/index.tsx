@@ -6,10 +6,7 @@ import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
 import ModalConnectWallet from 'app/components/ModalConnect';
 import ApproveButton from './components/ApproveButton';
-import { buy } from 'services/walletService/buyService/buy';
-import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import { CircularProgress } from '@mui/material';
-import { useHistory } from 'react-router';
 import {
   StyledMain,
   StyledQuantumItem,
@@ -22,8 +19,15 @@ import { useBuyNFTSlice } from './slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { buyNFTSelector } from './slice/selectors';
 import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { isEmpty } from 'lodash';
+
 const BuyQuantum = () => {
   const dispatch = useDispatch();
+  // const [allow, setAllow] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const history = useHistory();
+  const wallet: any = useSelector(selectWallet);
   const { actions } = useBuyNFTSlice();
   //Mock data
   const curAddress = JSON.parse(
@@ -49,8 +53,10 @@ const BuyQuantum = () => {
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
   useEffect(() => {
+    // isEmpty(wallet.wallet) ? setOpenConnect(true) : setOpenConnect(false);
     curAddress ? setOpenConnect(false) : setOpenConnect(true);
-  }, [curAddress]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleOpenConnect = () => {
     setOpenConnect(true);
@@ -74,7 +80,7 @@ const BuyQuantum = () => {
             </StyledDesc>
             <QuantumItem />
             <LabelPrice>{amount} USDC</LabelPrice>
-            {!curAddress ? (
+            {isEmpty(wallet.wallet) ? (
               <StyledButton>
                 <ButtonQuantum onclick={handleOpenConnect}>
                   BUY NOW

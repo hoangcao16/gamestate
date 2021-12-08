@@ -8,7 +8,7 @@ import BigNumber from 'bignumber.js';
 import { createApprove } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import erc20Abi from 'services/walletService/config/erc20.abi.json';
-import * as gasInfo from 'services/walletService/supportService/getGasInformation';
+// import * as gasInfo from 'services/walletService/supportService/getGasInformation';
 
 const spender = process.env.REACT_APP_NFT_SALES_ADDRESS;
 const coinAddress = process.env.REACT_APP_COIN_ADDRESS;
@@ -37,9 +37,9 @@ function* checkApproveNFT(action) {
 }
 function* handleApproveNFT(action) {
   const { curAddress, tokenSymbol, amount } = action.payload;
-  const instanceValue = Web3.getInstance;
-  const web3: any = instanceValue.getWeb3();
-  const tokenContract = new web3.eth.Contract(erc20Abi, coinAddress);
+  // const instanceValue = Web3.getInstance;
+  // const web3: any = instanceValue.getWeb3();
+  // const tokenContract = new web3.eth.Contract(erc20Abi, coinAddress);
   try {
     const tx = yield createApprove(curAddress, tokenSymbol, spender, amount);
     // const txData = yield tokenContract.methods.approve(
@@ -62,7 +62,6 @@ function* handleApproveNFT(action) {
     //   gasLimit: gasData.gasLimit,
     // });
     const receipt = yield signAndSendTx(tx);
-    console.log('receipt', tx);
     yield put(actions.handleApproveNFTRequest(receipt));
     yield put(actions.checkApproveNFTSuccess());
   } catch (error) {
