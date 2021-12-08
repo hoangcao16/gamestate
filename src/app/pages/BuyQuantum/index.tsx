@@ -18,10 +18,15 @@ import {
   StyledButton,
   StyledGroupButton,
 } from './style';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { useSelector } from 'react-redux';
+import { isEmpty } from 'lodash';
+
 const BuyQuantum = () => {
   const [allow, setAllow] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  const wallet: any = useSelector(selectWallet);
 
   //Mock data
   const curAddress = JSON.parse(
@@ -56,7 +61,7 @@ const BuyQuantum = () => {
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
   useEffect(() => {
-    curAddress ? setOpenConnect(false) : setOpenConnect(true);
+    isEmpty(wallet.wallet) ? setOpenConnect(true) : setOpenConnect(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
