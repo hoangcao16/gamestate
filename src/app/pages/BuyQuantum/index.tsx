@@ -53,7 +53,6 @@ const BuyQuantum = () => {
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
   useEffect(() => {
-    // isEmpty(wallet.wallet) ? setOpenConnect(true) : setOpenConnect(false);
     curAddress ? setOpenConnect(false) : setOpenConnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

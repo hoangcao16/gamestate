@@ -22,12 +22,12 @@ import { createBrowserHistory } from 'history';
 export const history = createBrowserHistory();
 export function App() {
   const { i18n } = useTranslation();
-  const intanceValue = Web3.getInstance;
+  const instanceValue = Web3.getInstance;
 
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
-        await intanceValue.setWeb3();
+        await instanceValue.setWeb3();
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

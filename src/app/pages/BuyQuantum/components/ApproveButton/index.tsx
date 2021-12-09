@@ -38,22 +38,22 @@ const ApproveButton = (props: Props) => {
   const { receipt, allowance, isLoading } = useSelector(approveNFTSelector);
   return (
     <>
-      {allowance! < Number(amount) && isEmpty(receipt) && isLoading === false && (
+      {allowance! < Number(amount) && isEmpty(receipt) && !isLoading && (
         <Button onclick={handleApprove} margin="0 20px 0 0" disable={false}>
           Approve
         </Button>
       )}
-      {allowance! < Number(amount) && !isEmpty(receipt) && isLoading === false && (
+      {allowance! < Number(amount) && !isEmpty(receipt) && !isLoading && (
         <Button margin="0 20px 0 0" disable={true}>
           Approved
         </Button>
       )}
-      {allowance! >= Number(amount) && isLoading === false && (
+      {allowance! >= Number(amount) && !isLoading && (
         <Button margin="0 20px 0 0" disable={true}>
           Approved
         </Button>
       )}
-      {isLoading === true && (
+      {isLoading && (
         <Button margin="0 20px 0 0" disable={true}>
           <CircularProgress size={19} color="inherit" />
         </Button>
