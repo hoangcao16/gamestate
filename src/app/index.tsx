@@ -18,11 +18,13 @@ import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
+import { useGlobalState } from 'store/globalReducer';
 
 export const history = createBrowserHistory();
 export function App() {
   const { i18n } = useTranslation();
   const intanceValue = Web3.getInstance;
+  useGlobalState();
 
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {

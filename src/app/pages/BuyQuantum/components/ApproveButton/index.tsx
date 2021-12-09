@@ -17,7 +17,6 @@ const ApproveButton = (props: Props) => {
   const { curAddress, tokenSymbol, amount } = props;
   const dispatch = useDispatch();
   const { actions } = useApproveNFT();
-  //get price
   useEffect(() => {
     dispatch(
       actions.checkApproveNFTRequest({

@@ -1,6 +1,6 @@
 import { createReducer, createAction, PayloadAction } from '@reduxjs/toolkit';
 // import { loggedInUser } from 'app/components/ProtectedRoute/selectors';
-
+import { useInjectReducer } from 'utils/redux-injectors';
 export interface DfyProfile {
   activatedAt: number | null;
   address: any;
@@ -29,12 +29,16 @@ export const profileUser = createAction<DfyProfile | null>('global/user');
 export const walletAction = createAction<Object | null>('global/wallet');
 
 const globalReducer = createReducer(initialState, {
-  // [profileUser.toString()]: (state, action: PayloadAction<DfyProfile>) => {
-  //   state.loggedInUser = action.payload;
-  // },
+  [profileUser.toString()]: (state, action: PayloadAction<DfyProfile>) => {
+    state.loggedInUser = action.payload;
+  },
   [walletAction.toString()]: (state, action: PayloadAction<Object>) => {
     state.wallet = action.payload;
   },
 });
 
-export default globalReducer;
+export const useGlobalState = () => {
+  useInjectReducer({ key: 'globalState', reducer: globalReducer });
+  return { actions: globalReducer };
+};
+// export default globalReducer;

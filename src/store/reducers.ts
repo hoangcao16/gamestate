@@ -6,7 +6,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 
 import { InjectedReducersType } from 'utils/types/injector-typings';
 
-import globalReducer from './globalReducer';
+// import globalReducer from './globalReducer';
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
@@ -14,20 +14,20 @@ import globalReducer from './globalReducer';
 
 export function createReducer(injectedReducers: InjectedReducersType = {}) {
   // Initially we don't have any injectedReducers, so returning identity function to avoid the error
-  // if (Object.keys(injectedReducers).length === 0) {
-  //   return state => state;
-  // } else {
-  //   return combineReducers({
-  //     globalState: globalReducer,
+  if (Object.keys(injectedReducers).length === 0) {
+    return state => state;
+  } else {
+    return combineReducers({
+      // globalState: globalReducer,
+      ...injectedReducers,
+    });
+  }
   //     ...injectedReducers,
   //   });
-  // }
-  //     ...injectedReducers,
-  //   });
-  // }
-
-  return combineReducers({
-    globalState: globalReducer,
-    ...injectedReducers,
-  });
 }
+
+//   return combineReducers({
+//     // globalState: globalReducer,
+//     ...injectedReducers,
+//   });
+// }

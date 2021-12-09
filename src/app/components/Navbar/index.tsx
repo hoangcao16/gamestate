@@ -22,6 +22,7 @@ import {
   StyledNavbar,
   Div,
 } from './style';
+import UserAvatar from 'app/assets/img/user.png';
 const Header = () => {
   const history = useHistory();
   const wallet: any = useSelector(selectWallet);
@@ -95,33 +96,37 @@ const Header = () => {
                 GET STARTED
               </StyledFourthButton>
               {!isEmpty(wallet.wallet) ? (
-                <StyledDropdown
-                  id="basic-nav-dropdown"
-                  title={
-                    wallet?.wallet?.currentAddress.slice(0, 5) +
-                    '...' +
-                    wallet?.wallet?.currentAddress.slice(
-                      wallet?.wallet?.currentAddress.length - 4,
-                    )
-                  }
-                >
-                  {/* <Dropdown.Toggle id="dropdown-basic">
-                    {wallet?.wallet?.currentAddress.slice(0, 5) +
-                      '...' +
-                      wallet?.wallet?.currentAddress.slice(
-                        wallet?.wallet?.currentAddress.length - 4,
-                      )}
-                  </Dropdown.Toggle> */}
-                  {/* <Dropdown.Menu> */}
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
-                  <NavDropdown.Item onClick={handleLogout}>
-                    Logout
-                  </NavDropdown.Item>
-                  {/* </Dropdown.Menu> */}
-                </StyledDropdown>
+                <>
+                  <StyledDropdown
+                    id="basic-nav-dropdown"
+                    title={
+                      <span>
+                        <img
+                          style={{ marginRight: '4px' }}
+                          src={UserAvatar}
+                          alt="user"
+                        />
+                        {wallet?.wallet?.currentAddress.slice(0, 5) +
+                          '...' +
+                          wallet?.wallet?.currentAddress.slice(
+                            wallet?.wallet?.currentAddress.length - 4,
+                          )}
+                      </span>
+                    }
+                  >
+                    <NavDropdown.Item onClick={() => history.push('/order')}>
+                      My Wallet
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={handleLogout}>
+                      Log Out
+                    </NavDropdown.Item>
+                    {/* </Dropdown.Menu> */}
+                  </StyledDropdown>
+                </>
               ) : (
                 <StyledConnectButton onClick={handleOpenConnect}>
-                  Connect
+                  Connect wallet
                 </StyledConnectButton>
               )}
             </StyledNav>

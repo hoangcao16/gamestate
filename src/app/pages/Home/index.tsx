@@ -17,8 +17,9 @@ import BackTopBackground from '../../assets/img/backtopBackground.png';
 import ExtendedTeam from '../../pages/Home/components/ExtendedTeam';
 import CoreTeam from '../../pages/Home/components/CoreTeam';
 import Monitor from '../../pages/Home/components/Monitor';
-
+// import { useGlobalState } from 'store/globalReducer';
 const HomeContainer = () => {
+  // console.log(useGlobalState());
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
     if (window.pageYOffset > 680) {
