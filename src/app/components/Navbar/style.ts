@@ -131,7 +131,7 @@ export const StyledDropdown = styled(NavDropdown)`
   line-height: 36px;
   cursor: pointer;
   min-width: 148px;
-  max-width: 150px;
+  /* max-width: 150px; */
   transition: 0.2s;
   /* height: 41px; */
   @media screen and (min-width: 992px) and (max-width: 1310px) {
@@ -152,9 +152,10 @@ export const StyledDropdown = styled(NavDropdown)`
   }
   .dropdown-toggle {
     padding: 0;
+    width: 100%;
     color: #ffffff !important;
     &::after {
-      vertical-align: 50%;
+      display: none;
       margin-left: 8px;
       vertical-align: 0;
       border-top: 0.6em solid;
@@ -162,13 +163,16 @@ export const StyledDropdown = styled(NavDropdown)`
       border-bottom: 0;
       border-left: 0.5em solid transparent;
     }
+    svg {
+      font-size: 36px;
+    }
   }
   .dropdown-menu {
     margin-top: 12px;
     font-size: 14px;
     line-height: 17px;
     font-weight: 500;
-    width: 110%;
+    width: 100%;
     min-width: unset;
     background: linear-gradient(to right, #322541, #442a5d, #322541);
     box-shadow: 0px 3px 24px #ffffff76;
