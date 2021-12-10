@@ -19,7 +19,8 @@ export const A = styled.a`
     font-weight: 500;
     font-size: 12px;
     line-height: 36px;
-    min-width: 116px;
+    min-width: 100px;
+    margin-left: 30px;
   }
   @media (max-width: 991px) {
     min-width: 148px;
@@ -34,8 +35,9 @@ export const A = styled.a`
 `;
 export const StyledFirstButton = styled(A)`
   color: #81efff;
+  margin-left: 0;
   border: 3px solid #81efff;
-  box-shadow: 0px 3px 6px #406ef8;
+  box-shadow: 0px 0px 6px #406ef8;
   text-shadow: 0px 3px 6px #7ad3e0, 0px 3px 6px #81efff;
   &:hover {
     color: #81efff;
@@ -45,7 +47,7 @@ export const StyledFirstButton = styled(A)`
 export const StyledSecondButton = styled(A)`
   color: #ffffff;
   border: 3px solid #ffffff;
-  box-shadow: inset 0px 3px 6px #aaa9a96c, 0px 3px 6px #ffffff;
+  box-shadow: 0px 0px 6px #ffffff;
   text-shadow: 0px 3px 6px #aaa9a96c, 0px 3px 6px #ffffffbe;
   &:hover {
     color: #ffffff;
@@ -57,7 +59,7 @@ export const StyledThirdButton = styled(A)`
   color: #1ad177;
   border: 3px solid #1ad177;
   text-shadow: 0px 3px 6px #20ac67, 0px 3px 6px #1ad178;
-  box-shadow: 0px 3px 6px #1dcc70;
+  box-shadow: 0px 0px 6px #1dcc70;
   &:hover {
     color: #1ad177;
     transform: scale(1.05);
@@ -67,7 +69,7 @@ export const StyledFourthButton = styled(A)`
   color: #e740f0;
   border: 3px solid #e740f0;
   text-shadow: 0px 3px 6px rgb(158, 80, 162), 0px 3px 6px rgb(231, 64, 240);
-  box-shadow: 0px 3px 6px #e740f0;
+  box-shadow: 0px 0px 6px #e740f0;
   &:hover {
     color: #e740f0;
     transform: scale(1.05);
@@ -82,14 +84,34 @@ export const StyledConnectButton = styled.div`
   border-radius: 24px;
   cursor: pointer;
   min-width: 148px;
-  max-width: 150px;
+  /* max-width: 150px; */
+  padding: 0 20px;
   transition: 0.2s;
-  height: 41px;
+  text-transform: uppercase;
+  /* height: 41px; */
+  color: #a5b6fc;
+  border: 3px solid #6633ff;
+  text-shadow: 0px 3px 6px #183095, 0px 3px 6px #3c62ff;
+  box-shadow: 0px 0px 6px #7993ff;
+  & a {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1486px) {
+    padding: 0 14px;
+  }
+  @media screen and (max-width: 1475px) {
+    padding: 0;
+    font-size: 14px;
+  }
   @media screen and (min-width: 992px) and (max-width: 1310px) {
     font-weight: 500;
     font-size: 12px;
     line-height: 36px;
-    min-width: 116px;
+    min-width: 130px;
+    padding: 0;
+    margin-left: 30px;
   }
   @media (max-width: 991px) {
     min-width: 148px;
@@ -101,26 +123,34 @@ export const StyledConnectButton = styled.div`
     margin-bottom: 50px;
     margin-left: 0;
   }
-  color: #6633ff;
-  border: 3px solid #6633ff;
-  text-shadow: 0px 3px 6px rgb(158, 80, 162), 0px 3px 6px rgb(231, 64, 240);
-  box-shadow: 0px 3px 6px #6633ff;
   &:hover {
-    color: #6633ff;
+    color: #a5b6fc;
     transform: scale(1.05);
   }
 `;
 export const StyledDropdown = styled(NavDropdown)`
   text-align: center;
-  margin-left: 50px;
+  margin-left: 30px;
   font-weight: 500;
   font-size: 16px;
   line-height: 36px;
   cursor: pointer;
   min-width: 148px;
-  max-width: 150px;
+  /* max-width: 150px; */
   transition: 0.2s;
   /* height: 41px; */
+  & svg {
+    position: relative;
+  }
+  & svg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    box-shadow: 1px 1px 1px 1px #fff;
+  }
   @media screen and (min-width: 992px) and (max-width: 1310px) {
     font-weight: 500;
     font-size: 12px;
@@ -139,30 +169,47 @@ export const StyledDropdown = styled(NavDropdown)`
   }
   .dropdown-toggle {
     padding: 0;
-    color: #6633ff;
-    border: 3px solid #6633ff;
-    text-shadow: 0px 3px 6px rgb(158, 80, 162), 0px 3px 6px rgb(231, 64, 240);
-    box-shadow: 0px 3px 6px #6633ff;
-    border-radius: 24px;
-    &:hover {
-      color: #6633ff;
-      transform: scale(1.05);
-    }
+    width: 100%;
+    color: #ffffff !important;
     &::after {
       display: none;
+      margin-left: 8px;
+      vertical-align: 0;
+      border-top: 0.6em solid;
+      border-right: 0.5em solid transparent;
+      border-bottom: 0;
+      border-left: 0.5em solid transparent;
+    }
+    svg {
+      font-size: 36px;
     }
   }
   .dropdown-menu {
-    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
     width: 100%;
     min-width: unset;
+    background: linear-gradient(to right, #322541, #442a5d, #322541);
+    box-shadow: 0px 3px 24px #ffffff76;
+    border: 8px solid #3a2e46;
+    padding: 0.5rem 2px;
+    .dropdown-divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .dropdown-item {
+      padding: 0 0 0 12px;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 500;
+      color: #ffffff;
+      &:hover {
+        opacity: 0.8;
+        background-color: transparent;
+      }
+    }
   }
-  /* #dropdown-basic {
-    box-shadow: unset;
-    outline: none;
-    background-color: transparent !important;
-    border: none !important;
-  } */
 `;
 export const StyledNav = styled(Nav)`
   justify-content: flex-end;
@@ -213,7 +260,8 @@ export const StyledContainer = styled(Container)`
 `;
 export const StyledNavbar = styled(Navbar)`
   background-color: #000000;
-  max-height: 102px;
+  /* max-height: 102px; */
+  height: 93px;
   .navbar-toggler {
     border-radius: 8px;
     width: 35px;

@@ -8,6 +8,7 @@ import { isEmpty } from 'lodash';
 import { useSelector } from 'react-redux';
 import { store } from 'index';
 import { walletAction } from 'store/globalReducer';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   StyledFirstButton,
   StyledSecondButton,
@@ -22,10 +23,10 @@ import {
   StyledNavbar,
   Div,
 } from './style';
+import UserAvatar from 'app/assets/img/user.png';
 const Header = () => {
   const history = useHistory();
   const wallet: any = useSelector(selectWallet);
-
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = function () {
@@ -95,33 +96,37 @@ const Header = () => {
                 GET STARTED
               </StyledFourthButton>
               {!isEmpty(wallet.wallet) ? (
-                <StyledDropdown
-                  id="basic-nav-dropdown"
-                  title={
-                    wallet?.wallet?.currentAddress.slice(0, 5) +
-                    '...' +
-                    wallet?.wallet?.currentAddress.slice(
-                      wallet?.wallet?.currentAddress.length - 4,
-                    )
-                  }
-                >
-                  {/* <Dropdown.Toggle id="dropdown-basic">
-                    {wallet?.wallet?.currentAddress.slice(0, 5) +
-                      '...' +
-                      wallet?.wallet?.currentAddress.slice(
-                        wallet?.wallet?.currentAddress.length - 4,
-                      )}
-                  </Dropdown.Toggle> */}
-                  {/* <Dropdown.Menu> */}
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
-                  <NavDropdown.Item onClick={handleLogout}>
-                    Logout
-                  </NavDropdown.Item>
-                  {/* </Dropdown.Menu> */}
-                </StyledDropdown>
+                <>
+                  <StyledDropdown
+                    id="basic-nav-dropdown"
+                    title={
+                      <>
+                        <img
+                          style={{ marginRight: '10px' }}
+                          src={UserAvatar}
+                          alt="user"
+                        />
+                        {wallet?.wallet?.currentAddress.slice(0, 5) +
+                          '...' +
+                          wallet?.wallet?.currentAddress.slice(
+                            wallet?.wallet?.currentAddress.length - 4,
+                          )}
+                        <ArrowDropDownIcon />
+                      </>
+                    }
+                  >
+                    <NavDropdown.Item onClick={() => history.push('/order')}>
+                      My Wallet
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={handleLogout}>
+                      Log Out
+                    </NavDropdown.Item>
+                  </StyledDropdown>
+                </>
               ) : (
                 <StyledConnectButton onClick={handleOpenConnect}>
-                  Connect
+                  Connect wallet
                 </StyledConnectButton>
               )}
             </StyledNav>

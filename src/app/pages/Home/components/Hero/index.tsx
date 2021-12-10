@@ -34,7 +34,7 @@ const Hero = () => {
   };
   useEffect(() => {
     videoRef.current?.addEventListener('contextmenu', (e: any) => {
-      e.preventDefault();
+      // e.preventDefault();
     });
     if (window.innerWidth < 576) {
       setIsControls(true);
@@ -99,9 +99,6 @@ const Div = styled.div`
       display: none;
     }
   }
-  @media screen and (max-width: 576px) {
-    padding-top: 66px;
-  }
 `;
 const StyledIconSound = styled.div`
   position: absolute;
@@ -110,9 +107,6 @@ const StyledIconSound = styled.div`
   color: white;
   &:hover {
     cursor: pointer;
-  }
-  @media screen and (max-width: 576px) {
-    top: 80px;
   }
 `;
 const StyledIconFullscreen = styled.div`

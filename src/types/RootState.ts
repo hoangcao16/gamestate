@@ -11,7 +11,7 @@ import { WalletState } from 'app/components/Wallet/slice/types';
   You have to declare them here manually
 */
 export interface RootState {
-  globalState: GlobalState;
+  globalState?: GlobalState;
   wallet?: WalletState;
   buyNFT?: BuyNftState;
   approveNFT?: ApproveNFTState;

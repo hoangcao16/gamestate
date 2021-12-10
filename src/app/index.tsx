@@ -17,13 +17,14 @@ import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import axios from 'axios';
-
 import { createBrowserHistory } from 'history';
+import { useGlobalState } from 'store/globalReducer';
 
 export const history = createBrowserHistory();
 export function App() {
   const { i18n } = useTranslation();
   const instanceValue = Web3.getInstance;
+  useGlobalState();
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
