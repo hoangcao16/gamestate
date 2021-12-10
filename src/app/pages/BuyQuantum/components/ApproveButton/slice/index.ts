@@ -29,6 +29,9 @@ const slice = createSlice({
       state.isLoading = true;
       state.receipt = action.payload;
     },
+    clearReceipt(state) {
+      state.receipt = undefined;
+    },
     clearLoading(state) {
       state.isLoading = false;
     },

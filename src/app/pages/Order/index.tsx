@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOrderNFTSlice } from './slice';
+import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/slice';
 import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 
@@ -15,8 +16,9 @@ const QuantumOrder = () => {
   )?.currentAddress;
   const dispatch = useDispatch();
   const { actions } = useOrderNFTSlice();
-
+  const { actions: actionsApprove } = useApproveNFT();
   useEffect(() => {
+    dispatch(actionsApprove.clearReceipt());
     dispatch(actions.orderNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

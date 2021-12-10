@@ -93,6 +93,11 @@ export const StyledConnectButton = styled.div`
   border: 3px solid #6633ff;
   text-shadow: 0px 3px 6px #183095, 0px 3px 6px #3c62ff;
   box-shadow: 0px 0px 6px #7993ff;
+  & a {
+    display: flex;
+    align-items: center;
+  }
+
   @media screen and (max-width: 1486px) {
     padding: 0 14px;
   }
@@ -134,6 +139,18 @@ export const StyledDropdown = styled(NavDropdown)`
   /* max-width: 150px; */
   transition: 0.2s;
   /* height: 41px; */
+  & svg {
+    position: relative;
+  }
+  & svg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    box-shadow: 1px 1px 1px 1px #fff;
+  }
   @media screen and (min-width: 992px) and (max-width: 1310px) {
     font-weight: 500;
     font-size: 12px;
@@ -243,7 +260,8 @@ export const StyledContainer = styled(Container)`
 `;
 export const StyledNavbar = styled(Navbar)`
   background-color: #000000;
-  max-height: 102px;
+  /* max-height: 102px; */
+  height: 93px;
   .navbar-toggler {
     border-radius: 8px;
     width: 35px;
