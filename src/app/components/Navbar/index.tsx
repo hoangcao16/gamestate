@@ -8,6 +8,7 @@ import { isEmpty } from 'lodash';
 import { useSelector } from 'react-redux';
 import { store } from 'index';
 import { walletAction } from 'store/globalReducer';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   StyledFirstButton,
   StyledSecondButton,
@@ -26,7 +27,6 @@ import UserAvatar from 'app/assets/img/user.png';
 const Header = () => {
   const history = useHistory();
   const wallet: any = useSelector(selectWallet);
-
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = function () {
@@ -100,9 +100,9 @@ const Header = () => {
                   <StyledDropdown
                     id="basic-nav-dropdown"
                     title={
-                      <span>
+                      <>
                         <img
-                          style={{ marginRight: '4px' }}
+                          style={{ marginRight: '10px' }}
                           src={UserAvatar}
                           alt="user"
                         />
@@ -111,7 +111,8 @@ const Header = () => {
                           wallet?.wallet?.currentAddress.slice(
                             wallet?.wallet?.currentAddress.length - 4,
                           )}
-                      </span>
+                        <ArrowDropDownIcon />
+                      </>
                     }
                   >
                     <NavDropdown.Item onClick={() => history.push('/order')}>
@@ -121,7 +122,6 @@ const Header = () => {
                     <NavDropdown.Item onClick={handleLogout}>
                       Log Out
                     </NavDropdown.Item>
-                    {/* </Dropdown.Menu> */}
                   </StyledDropdown>
                 </>
               ) : (
