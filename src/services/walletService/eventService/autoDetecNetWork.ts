@@ -32,7 +32,7 @@ const autoSwitchNetWork = async (id, idNetWork, chainName) => {
   } catch (error: any) {
     if (error.code === 4902) {
       try {
-        autoAddNetWork(idNetWork, chainName);
+        // autoAddNetWork(idNetWork, chainName);
       } catch (addError) {
         console.log('Error', addError);
       }
@@ -41,16 +41,16 @@ const autoSwitchNetWork = async (id, idNetWork, chainName) => {
 };
 
 //add Network
-const autoAddNetWork = async (idNetWork, chainName) => {
-  const currencyName = 'BNB';
-  const currencySymbol = 'BNB';
+// const autoAddNetWork = async (idNetWork, chainName) => {
+//   const currencyName = 'BNB';
+//   const currencySymbol = 'BNB';
 
-  await Moralis.addNetwork(
-    idNetWork,
-    chainName,
-    currencyName,
-    currencySymbol,
-    process.env.REACT_APP_RPC_NETWORK,
-    process.env.REACT_APP_BLOCK_EXPLORER_URL,
-  );
-};
+//   await Moralis.addNetwork(
+//     idNetWork,
+//     chainName,
+//     currencyName,
+//     currencySymbol,
+//     process.env.REACT_APP_RPC_NETWORK,
+//     process.env.REACT_APP_BLOCK_EXPLORER_URL,
+//   );
+// };

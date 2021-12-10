@@ -276,7 +276,7 @@ export const StyledNavbar = styled(Navbar)`
     background-color: #000000;
     justify-content: flex-end;
     @media screen and (max-width: 991px) {
-      margin-top: 16px;
+      padding-top: 16px;
       padding-bottom: 20px;
     }
   }

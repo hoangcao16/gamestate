@@ -8,7 +8,7 @@
 
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, Router, Redirect } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
@@ -19,15 +19,13 @@ import QuantumOrder from './pages/Order';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import { useGlobalState } from 'store/globalReducer';
+import PrivateRoute from 'app/components/common/privateRoute';
 
 export const history = createBrowserHistory();
 export function App() {
   const { i18n } = useTranslation();
   const instanceValue = Web3.getInstance;
   useGlobalState();
-  const curAddress = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
-  )?.currentAddress;
   useEffect(() => {
     if (localStorage.getItem('extensionName')) {
       (async () => {
@@ -60,11 +58,7 @@ export function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/buy" component={BuyQuantum} />
-        {curAddress ? (
-          <Route exact path="/order" component={QuantumOrder} />
-        ) : (
-          <Redirect to="/" />
-        )}
+        <PrivateRoute exact path="/order" component={QuantumOrder} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
