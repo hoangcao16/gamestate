@@ -23,6 +23,8 @@ import mobileCoreTung from 'app/assets/img/Team/mobileCoreTung.png';
 import mobileCoreViet from 'app/assets/img/Team/mobileCoreViet.png';
 import mobileCoreManne from 'app/assets/img/Team/mobileCoreManne.png';
 import mobileCorePeck from 'app/assets/img/Team/mobileCorePeck.png';
+import mobileCoreTien from 'app/assets/img/Team/mobileCoreTien.png';
+
 // import mobileCoreMartinez from 'app/assets/img/Team/mobileCoreMartinez.png';
 // import anonymous from "../../assets/img/Team/anonymous.png"
 import AvatarItem from '../AvatarItem';
@@ -141,16 +143,16 @@ const CORE_TEAM = [
     desc: 'M.Sc. International Business. Professional experience in real estate, FMCG, retail, renewable energy & finance. Serial entrepreneur, building and scaling businesses in Asia since 2014.',
   },
   {
+    src: coreLocke,
+    name: 'LOCKE KOSNOFF',
+    job: 'CO-FOUNDER & MARKETING DIRECTOR',
+    desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
+  },
+  {
     src: coreKobus,
     name: 'KOBUS KOTZE',
     job: 'CREATIVE LEAD',
     desc: '12 Years’ experience in broadcasting, branding, marketing, and strategy. Literary Theory and Writing graduate; currently a brand advisor to Bundesliga, Netflix, Discovery, and other major players.',
-  },
-  {
-    src: coreLocke,
-    name: 'LOCKE KOSNOFF',
-    job: 'MARKETING SPECIALIST & BIZ DEV',
-    desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
   },
   {
     src: coreCong,
@@ -216,16 +218,16 @@ const MOBILE_CORE_TEAM = [
     desc: 'M.Sc. International Business. Professional experience in real estate, FMCG, retail, renewable energy & finance. Serial entrepreneur, building and scaling businesses in Asia since 2014.',
   },
   {
+    image: mobileCoreLocke,
+    name: 'LOCKE KOSNOFF',
+    job: 'CO-FOUNDER & MARKETING DIRECTOR',
+    desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
+  },
+  {
     image: mobileCoreKobus,
     name: 'KOBUS KOTZE',
     job: 'CREATIVE LEAD',
     desc: '12 Years’ experience in broadcasting, branding, marketing, and strategy. Literary Theory and Writing graduate; currently a brand advisor to Bundesliga, Netflix, Discovery, and other major players.',
-  },
-  {
-    image: mobileCoreLocke,
-    name: 'LOCKE KOSNOFF',
-    job: 'MARKETING SPECIALIST & BIZ DEV',
-    desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
   },
   {
     image: mobileCoreCong,
@@ -271,7 +273,7 @@ const MOBILE_CORE_TEAM = [
   },
 
   {
-    image: coreTien,
+    image: mobileCoreTien,
     name: 'TIEN NGUYEN',
     job: 'Digital Marketing Specialist',
     desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
