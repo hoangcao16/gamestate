@@ -34,13 +34,13 @@ export function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const baseURL = `${process.env.REACT_APP_BASE_API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/crypto-asset`; //responesive code
-  axios.get(baseURL).then((response: any) => {
-    localStorage.setItem(
-      'StoreCryptoCurrency',
-      JSON.stringify(response.data.data),
-    );
-  });
+  // const baseURL = `${process.env.REACT_APP_BASE_API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/crypto-asset`; //responesive code
+  // axios.get(baseURL).then((response: any) => {
+  //   localStorage.setItem(
+  //     'StoreCryptoCurrency',
+  //     JSON.stringify(response.data.data),
+  //   );
+  // });
 
   return (
     <Router history={history}>
