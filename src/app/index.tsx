@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
-import axios from 'axios';
+// import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import { useGlobalState } from 'store/globalReducer';
 import PrivateRoute from 'app/components/common/privateRoute';
