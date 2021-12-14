@@ -78,7 +78,7 @@ export const createApprove = async (
   };
 
   const gasData = await gasInfo.getGasInformation(tx);
-  console.log('gasData', gasData);
+  // console.log('gasData', gasData);
   return {
     tx,
     gasPrice: gasData.gasPrice,
