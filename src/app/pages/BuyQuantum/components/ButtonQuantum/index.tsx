@@ -11,6 +11,7 @@ const StyledButton = styled.button<{
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
+  cursor: ${props => (props.disabled === 1 ? 'no-drop' : 'pointer')};
   background: ${props =>
     props.disabled === 1 ? '#888888' : 'rgb(38, 38, 38)'};
   outline: none;
