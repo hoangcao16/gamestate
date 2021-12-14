@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import logo from 'app/assets/img/Logo/logo.svg';
 const StyledBlockFooter = styled(Container)`
   max-width: 94%;
+  @media screen and (min-width: 2440px) {
+    max-width: 1820px;
+  }
   /* max-width: 1820px; */
   @media screen and (max-width: 991px) {
     & img {
