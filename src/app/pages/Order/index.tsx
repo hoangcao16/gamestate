@@ -28,7 +28,7 @@ const QuantumOrder = () => {
     <>
       <Header />
       <Main>
-        <P>Quantum accelerator orders</P>
+        <P>Quantum Accelerator orders</P>
         {isLoading ? (
           <CircularProgress size={40} color="primary" />
         ) : (

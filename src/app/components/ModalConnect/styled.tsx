@@ -6,7 +6,7 @@ export const Modal = styled(Dialog)(({ theme }) => ({
     borderRadius: '42px',
     boxSizing: 'border-box',
     maxWidth: '720px',
-    // minHeight: '367px',
+    minHeight: '367px',
     maxHeight: 'unset',
     // padding: '0px 0px 24px 0px',
     boxShadow: '0px 3px 24px #FFFFFF76',
