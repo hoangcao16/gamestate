@@ -6,16 +6,29 @@ const QuantumItem = () => {
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
-        <StyledBuyItemImage src={buyItem} alt="" />
+        <StyledBuyItemImage
+          src={buyItem}
+          alt=""
+          randomHue={Math.floor(Math.random() * (90 - -90 + 1) - 90)}
+          randomInvert={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
+          randomGray={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
+        />
       </StyledBuyItemBlack>
     </StyledBuyItem>
   );
 };
-const StyledBuyItemImage = styled.img`
+const StyledBuyItemImage = styled.img<{
+  randomHue: number;
+  randomInvert: number;
+  randomGray: number;
+}>`
   width: 100%;
   height: 100%;
   z-index: 2;
   border-radius: 8px;
+  filter: hue-rotate(${props => props.randomHue}deg)
+    invert(${props => props.randomInvert}%)
+    grayscale(${props => props.randomGray}%);
 `;
 const StyledBuyItem = styled.div`
   border-radius: 8px;
