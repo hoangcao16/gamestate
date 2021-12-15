@@ -80,7 +80,7 @@ const BuyQuantum = () => {
             </StyledDesc>
             <QuantumItem />
             <LabelPrice>{amount} USDC</LabelPrice>
-            <StyledDesc>
+            <StyledDesc style={{ marginBottom: 0 }}>
               Purchase 1x Quantum Accelerator static NFT (numbered), un-numbered
               video link included.
             </StyledDesc>
