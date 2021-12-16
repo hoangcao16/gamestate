@@ -5,12 +5,15 @@ const StyledBuyItemImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 42px;
+  @media screen and (max-width: 575px) {
+    border-radius: 0;
+  }
 `;
-const StyledBuyItemBlack = styled.div`
-  background: #0a0c08;
+export const StyledBuyItemBlack = styled.div`
   /* padding: 43px 54px; */
   @media screen and (max-width: 575px) {
-    padding: 18px 36px;
+    background: #0a0c08;
+    /* padding: 18px 36px; */
     border-radius: 0;
   }
 `;

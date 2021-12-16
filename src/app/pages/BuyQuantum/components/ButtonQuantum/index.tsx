@@ -19,6 +19,7 @@ const StyledButton = styled.button<{
   border-radius: 3px;
   position: relative;
   margin: ${props => props.margin};
+
   @media screen and (max-width: 575px) {
     line-height: 54px;
     font-size: 18px;
