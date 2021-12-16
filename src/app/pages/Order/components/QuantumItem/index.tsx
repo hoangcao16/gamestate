@@ -10,7 +10,8 @@ const QuantumItem = () => {
           src={buyItem}
           alt=""
           randomHue={Math.floor(Math.random() * (90 - -90 + 1) - 90)}
-          randomInvert={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
+          randomInvert={Math.floor(Math.random() * (5 - 1 + 1) + 1)}
+          randomSaturate={Math.floor(Math.random() * (5 - 1 + 1) + 1)}
           randomGray={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
         />
       </StyledBuyItemBlack>
@@ -21,13 +22,15 @@ const StyledBuyItemImage = styled.img<{
   randomHue: number;
   randomInvert: number;
   randomGray: number;
+  randomSaturate: number;
 }>`
   width: 100%;
   height: 100%;
   z-index: 2;
   border-radius: 8px;
   filter: hue-rotate(${props => props.randomHue}deg)
-    invert(${props => props.randomInvert}%)
+    invert(${props => (props.randomInvert === 1 ? 80 : 0)}%)
+    saturate(${props => props.randomSaturate})
     grayscale(${props => props.randomGray}%);
 `;
 const StyledBuyItem = styled.div`
