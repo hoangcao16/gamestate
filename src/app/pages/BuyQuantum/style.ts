@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { Container, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 export const StyledMain = styled(Container)`
   margin-top: 90px;
 `;
-export const StyledQuantumItem = styled(Col)`
+export const StyledQuantumItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 705px;
+  /* max-width: 705px; */
   margin: 60px auto;
   text-align: center;
   @media screen and (max-width: 575px) {
@@ -46,16 +46,33 @@ export const StyledDesc = styled.p`
 `;
 export const StyledButton = styled.div`
   margin-top: 90px;
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 1199px) {
+    width: 100%;
+  }
 `;
 export const StyledGroupButton = styled.div`
+  max-width: 1432px;
   display: flex;
   width: 100%;
   margin: 90px auto 0 auto;
   @media screen and (max-width: 575px) {
     flex-direction: column;
+  }
+`;
+export const StyledBuyItemVideo = styled.video`
+  width: 100%;
+  border-radius: 42px;
+`;
+export const StyledBuyCardVideo = styled.div`
+  @media screen and (max-width: 575px) {
+    background: #0a0c08;
+    /* padding: 43px 54px; */
+    overflow: hidden;
+    padding: 18px 36px;
+    border-radius: 0;
   }
 `;

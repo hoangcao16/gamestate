@@ -275,13 +275,13 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
             </Box>
             <BoxCustom sx={{}}>
               <span>
-                Extensions and Mobile Apps allowed to connect to Gane state
+                Extensions and Mobile Apps allowed to connect to Ganestate
                 account:
               </span>
               <br />
               <span>
-                <b>On Desktop</b>: MetaMask, QR code WalletConnect and Binance
-                Chain extensions
+                <b>On Desktop</b>: MetaMask Browser Extension and WalletConnect
+                QR Code
               </span>
               <br />
               <span>
@@ -291,7 +291,7 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
               <br />
               <span>
                 Please access our website through browser of the wallet app to
-                connect your wallet to Gane state account.
+                connect your wallet to Gamestate account.
               </span>
             </BoxCustom>
           </DialogContent>
