@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import buyItem from 'app/assets/img/BuyQuantum/quantum.png';
+import buyItem from 'app/assets/img/Order/quantum.png';
 
-const QuantumItem = () => {
+const QuantumItem = props => {
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
@@ -14,6 +14,7 @@ const QuantumItem = () => {
           randomSaturate={Math.floor(Math.random() * (5 - 1 + 1) + 1)}
           randomGray={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
         />
+        <Span>#{props.items} Quantum Accelerator</Span>
       </StyledBuyItemBlack>
     </StyledBuyItem>
   );
@@ -56,7 +57,17 @@ const StyledBuyItem = styled.div`
 `;
 const StyledBuyItemBlack = styled.div`
   z-index: 2;
-  padding: 16px;
+  padding: 20px 20px 8px 20px;
   border-radius: 8px;
+`;
+const Span = styled.span`
+  font-size: 14px;
+  color: #ffffff;
+  @media screen and (max-width: 459px) {
+    font-size: 10px;
+  }
+  @media screen and (max-width: 402px) {
+    font-size: 8px;
+  }
 `;
 export default QuantumItem;
