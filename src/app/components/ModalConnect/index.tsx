@@ -275,7 +275,7 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
             </Box>
             <BoxCustom sx={{}}>
               <span>
-                Extensions and Mobile Apps allowed to connect to Ganestate
+                Extensions and Mobile Apps allowed to connect to Gamestate
                 account:
               </span>
               <br />

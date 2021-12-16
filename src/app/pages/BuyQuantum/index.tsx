@@ -76,8 +76,9 @@ const BuyQuantum = () => {
           <StyledQuantumItem>
             <StyledTitle>Quantum Accelerator</StyledTitle>
             <StyledDesc>
-              Experience enhancing NFT’s , Reward holders with airdrop
-              opportunities, staking multipliers and early bird access!
+              Experience enhancing NFT that rewards holders with airdrop
+              opportunities, staking multipliers and early access to special
+              events and more!
             </StyledDesc>
             <Row mb-4>
               <Col
