@@ -205,96 +205,98 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
         aria-describedby="alert-dialog-slide-description"
       >
         <StyledModal>
-          <DialogTitle sx={{ m: 0, p: 2 }}>
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              sx={{
-                position: 'absolute',
-                right: 8,
-                top: 8,
-                color: '#000',
-              }}
-            >
-              <CancelIcon sx={{ color: '#E0E0E0' }} />
-            </IconButton>
-          </DialogTitle>
-          <DialogContent>
-            <img src={Logo} alt="logo" className="LogoModalWallet" />
-            <p className="content-title">Connect your wallet.</p>
-            <p className="content-text">
-              By connecting your wallet, you agree to our Terms of Service and
-              our Privacy Policy.
-            </p>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                paddingBottom: '15px',
-                position: 'relative',
-                maxWidth: '480px',
-                margin: '0 auto',
-              }}
-            >
-              {loading1 ? (
-                <ButtonCustom types="1" sx={{ justifyContent: 'center' }}>
-                  <CircularProgress />
-                </ButtonCustom>
-              ) : (
-                <BtnWallet
-                  handle={() => handlerClickConnect('Meta')}
-                  types="1"
-                  img={metaBinance}
-                  text="MetaMask"
-                />
-              )}
-              {loading4 ? (
-                <ButtonCustom types="4" sx={{ justifyContent: 'center' }}>
-                  <CircularProgress />
-                </ButtonCustom>
-              ) : (
-                <BtnWallet
-                  handle={() => handlerClickConnect('OQ')}
-                  types="4"
-                  img={QR}
-                  text="WalletConnect"
-                />
-              )}
-              {loading2 ? (
-                <ButtonCustom types="2" sx={{ justifyContent: 'center' }}>
-                  <CircularProgress />
-                </ButtonCustom>
-              ) : (
-                <BtnWallet
-                  handle={() => handlerClickConnect('Trust')}
-                  types="2"
-                  img={Trust}
-                  text="Trust Wallet"
-                />
-              )}
-            </Box>
-            <BoxCustom sx={{}}>
-              <span>
-                Extensions and Mobile Apps allowed to connect to Gamestate
-                account:
-              </span>
-              <br />
-              <span>
-                <b>On Desktop</b>: MetaMask Browser Extension and WalletConnect
-                QR Code
-              </span>
-              <br />
-              <span>
-                <b>On Mobile</b>: Trust, SafePal, MetaMask and WalletConnect
-                support
-              </span>
-              <br />
-              <span>
-                Please access our website through browser of the wallet app to
-                connect your wallet to Gamestate account.
-              </span>
-            </BoxCustom>
-          </DialogContent>
+          <div className="modalBox">
+            <DialogTitle sx={{ m: 0, p: 2 }}>
+              <IconButton
+                aria-label="close"
+                onClick={handleClose}
+                sx={{
+                  position: 'absolute',
+                  right: 32,
+                  top: 32,
+                  color: '#000',
+                }}
+              >
+                <CancelIcon sx={{ color: '#E0E0E0' }} />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent>
+              <img src={Logo} alt="logo" className="LogoModalWallet" />
+              <p className="content-title">Connect your wallet.</p>
+              <p className="content-text">
+                By connecting your wallet, you agree to our Terms of Service and
+                our Privacy Policy.
+              </p>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  paddingBottom: '15px',
+                  position: 'relative',
+                  maxWidth: '480px',
+                  margin: '0 auto',
+                }}
+              >
+                {loading1 ? (
+                  <ButtonCustom types="1" sx={{ justifyContent: 'center' }}>
+                    <CircularProgress />
+                  </ButtonCustom>
+                ) : (
+                  <BtnWallet
+                    handle={() => handlerClickConnect('Meta')}
+                    types="1"
+                    img={metaBinance}
+                    text="MetaMask"
+                  />
+                )}
+                {loading4 ? (
+                  <ButtonCustom types="4" sx={{ justifyContent: 'center' }}>
+                    <CircularProgress />
+                  </ButtonCustom>
+                ) : (
+                  <BtnWallet
+                    handle={() => handlerClickConnect('OQ')}
+                    types="4"
+                    img={QR}
+                    text="WalletConnect"
+                  />
+                )}
+                {loading2 ? (
+                  <ButtonCustom types="2" sx={{ justifyContent: 'center' }}>
+                    <CircularProgress />
+                  </ButtonCustom>
+                ) : (
+                  <BtnWallet
+                    handle={() => handlerClickConnect('Trust')}
+                    types="2"
+                    img={Trust}
+                    text="Trust Wallet"
+                  />
+                )}
+              </Box>
+              <BoxCustom sx={{}}>
+                <span>
+                  Extensions and Mobile Apps allowed to connect to Gamestate
+                  account:
+                </span>
+                <br />
+                <span>
+                  <b>On Desktop</b>: MetaMask Browser Extension and
+                  WalletConnect QR Code
+                </span>
+                <br />
+                <span>
+                  <b>On Mobile</b>: Trust, SafePal, MetaMask and WalletConnect
+                  support
+                </span>
+                <br />
+                <span>
+                  Please access our website through browser of the wallet app to
+                  connect your wallet to Gamestate account.
+                </span>
+              </BoxCustom>
+            </DialogContent>
+          </div>
         </StyledModal>
       </Modal>
       {/* {confirm ? (
@@ -324,7 +326,28 @@ export default function DfyPopupConnectWallet(props: DfyAlertProps) {
 }
 
 const StyledModal = styled.div`
-  background-color: #000000;
+  background-color: #555555;
   border-radius: 32px;
   position: relative;
+  padding: 24px;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    max-width: 673px;
+    height: 100%;
+    max-height: 700px;
+    left: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: -1;
+    background: linear-gradient(to right, #163f8c, #9e08a6);
+  }
+  .modalBox {
+    background-color: #000;
+    z-index: 9999;
+    border-radius: 32px;
+  }
 `;
