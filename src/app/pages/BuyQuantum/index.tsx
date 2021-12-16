@@ -1,7 +1,7 @@
 import Header from 'app/components/Navbar';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import QuantumItem from './components/QuantumItem';
+import QuantumItem, { StyledBuyItemBlack } from './components/QuantumItem';
 import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
 import ModalConnectWallet from 'app/components/ModalConnect';
@@ -15,7 +15,6 @@ import {
   StyledButton,
   StyledGroupButton,
   StyledBuyItemVideo,
-  StyledBuyCardVideo,
 } from './style';
 import { StyledBuyItem } from './components/QuantumItem';
 import { useBuyNFTSlice } from './slice';
@@ -94,21 +93,21 @@ const BuyQuantum = () => {
                 className="d-flex justify-content-md-center col-xl-6 col-12"
               >
                 <StyledBuyItem>
-                  <StyledBuyCardVideo>
+                  <StyledBuyItemBlack>
                     <StyledBuyItemVideo autoPlay loop muted playsInline>
                       <source src={ChipEffect} type="video/mp4" />
                     </StyledBuyItemVideo>
-                  </StyledBuyCardVideo>
+                  </StyledBuyItemBlack>
                 </StyledBuyItem>
               </Col>
             </Row>
-            <LabelPrice className="mb-4">{amount} USDC</LabelPrice>
+            <LabelPrice className="mb-0">{amount} USDC</LabelPrice>
             <StyledDesc className="mb-0">
               Purchase 1x Quantum Accelerator static NFT (numbered), un-numbered
               video link included.
             </StyledDesc>
             {isEmpty(wallet.wallet) ? (
-              <StyledButton>
+              <StyledButton className="mb-100">
                 <ButtonQuantum onclick={handleOpenConnect}>
                   BUY NOW
                 </ButtonQuantum>

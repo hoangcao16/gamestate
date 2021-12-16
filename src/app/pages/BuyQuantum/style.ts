@@ -54,6 +54,9 @@ export const StyledButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  &.mb-100 {
+    margin-bottom: 100px;
+  }
   @media screen and (max-width: 1199px) {
     width: 100%;
   }
@@ -62,7 +65,7 @@ export const StyledGroupButton = styled.div`
   max-width: 1432px;
   display: flex;
   width: 100%;
-  margin: 90px auto 0 auto;
+  margin: 90px auto 100px auto;
   @media screen and (max-width: 575px) {
     flex-direction: column;
   }
@@ -70,13 +73,4 @@ export const StyledGroupButton = styled.div`
 export const StyledBuyItemVideo = styled.video`
   width: 100%;
   border-radius: 42px;
-`;
-export const StyledBuyCardVideo = styled.div`
-  @media screen and (max-width: 575px) {
-    background: #0a0c08;
-    /* padding: 43px 54px; */
-    overflow: hidden;
-    padding: 18px 36px;
-    border-radius: 0;
-  }
 `;
