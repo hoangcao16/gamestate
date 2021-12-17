@@ -40,6 +40,8 @@ const StyledBuyItem = styled.div`
   position: relative;
   z-index: 2;
   overflow: hidden;
+  flex: 1;
+
   &::before {
     content: '';
     position: absolute;
