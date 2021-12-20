@@ -9,11 +9,7 @@ export const StyledQuantumItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
-  /* max-width: 705px; */
-=======
   max-width: 800px;
->>>>>>> origin
   margin: 60px auto;
   text-align: center;
   @media screen and (max-width: 575px) {

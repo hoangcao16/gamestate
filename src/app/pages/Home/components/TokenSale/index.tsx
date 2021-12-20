@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from 'react';
 import styled from 'styled-components';
 import CoinBackground from 'app/assets/img/TokenSale/coinbackground.png';
 import TokenBackground from 'app/assets/img/TokenSale/token.png';
@@ -38,6 +39,7 @@ const Rendered = ({ days, hours, minutes, seconds }: CountdownProps) => (
   </div>
 );
 const TokenSale = () => {
+  const [textButton, setTextButton] = useState('READ MORE');
   return (
     <Div>
       <StyledTokenSales>
@@ -61,11 +63,11 @@ const TokenSale = () => {
               </div>
             </Bar>
           </HiveProgessBar> */}
-          <StyledCloseTime>December 19, 2021 02:00 AM GMT</StyledCloseTime>
+          <StyledCloseTime>COMING SOON</StyledCloseTime>
           <PolygonProgessBar fluid>
             <Bar>
-              <img src={PolygonLogo} alt="Polygon Logo" />
-              <span className="title">Polygon IDO DURATION</span>
+              {/* <img src={PolygonLogo} alt="Polygon Logo" />
+              <span className="title">Polygon IDO DURATION</span> */}
               <div className="progessBar">
                 <div className="progessBar-fill">
                   <div className="progessBar-fill-inner"></div>
@@ -79,13 +81,18 @@ const TokenSale = () => {
           </PolygonProgessBar>
         </StyledBar>
 
-        <a
+        {/* <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://starter.investments/#/pool/33"
+        > */}
+        <StyledButton
+          onMouseEnter={() => setTextButton('COMING SOON')}
+          onMouseLeave={() => setTextButton('READ MORE')}
         >
-          <StyledButton>LAUNCH IDO</StyledButton>
-        </a>
+          {textButton}
+        </StyledButton>
+        {/* </a> */}
 
         <StyledTokenImage src={TokenBackground} alt="Token Background" />
       </StyledTokenSales>
@@ -220,7 +227,8 @@ const PolygonProgessBar = styled(ProgessBar)`
   display: flex;
   .progessBar-fill-inner {
     background-color: #1969ff;
-    width: 35%;
+    /* width: 35%; */
+    width: 1%;
   }
 `;
 const Bar = styled.div`
@@ -300,7 +308,8 @@ const Bar = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 59%;
+    /* width: 59%; */
+    width: 100%;
     @media screen and (max-width: 991px) {
       margin-bottom: 24px;
       margin-top: 12px;

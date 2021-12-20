@@ -79,7 +79,7 @@ const BuyQuantum = () => {
               opportunities, staking multipliers and early access to special
               events and more!
             </StyledDesc>
-            <Row mb-4>
+            <Row>
               <Col
                 xs={{ order: 2 }}
                 xl={{ order: 1 }}
