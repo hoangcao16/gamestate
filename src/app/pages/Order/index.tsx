@@ -9,8 +9,11 @@ import { useOrderNFTSlice } from './slice';
 import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/slice';
 import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
+import { useHistory } from 'react-router';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
 
 const QuantumOrder = () => {
+  const history = useHistory();
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
@@ -23,7 +26,12 @@ const QuantumOrder = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { data, isLoading } = useSelector(orderNFTSelector);
+  const wallet: any = useSelector(selectWallet);
 
+  useEffect(() => {
+    !curAddress && !wallet?.wallet && history.push('/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [curAddress, wallet]);
   return (
     <>
       <Header />

@@ -44,6 +44,7 @@ const Header = () => {
     localStorage.removeItem('StoreWallet');
     localStorage.removeItem('extensionName');
   };
+
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
 
