@@ -96,6 +96,9 @@ const Div = styled.div`
 const StyledContainer = styled(Container)`
   max-width: 94%;
   padding-top: 220px;
+  @media screen and (min-width: 2440px) {
+    max-width: 1820px;
+  }
   @media screen and (max-width: 767px) {
     padding-top: 150px;
   }

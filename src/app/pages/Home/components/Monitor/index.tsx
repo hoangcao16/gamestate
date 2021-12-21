@@ -117,6 +117,9 @@ const StyledContainer = styled(Container)`
   position: relative;
   max-width: 94%;
   min-height: 380px;
+  @media screen and (min-width: 2440px) {
+    max-width: 1820px;
+  }
   @media (max-width: 1199px) {
     min-height: 480px;
   }
