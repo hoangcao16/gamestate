@@ -53,6 +53,9 @@ const StyledContainer = styled(Container)`
   padding-top: 80px;
   padding-bottom: 108px;
   max-width: 94%;
+  @media screen and (min-width: 2440px) {
+    max-width: 1820px;
+  }
   @media screen and (max-width: 576px) {
     padding-top: 70px;
     padding-bottom: 60px;

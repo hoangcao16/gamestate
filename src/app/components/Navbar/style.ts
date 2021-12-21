@@ -235,7 +235,7 @@ export const StyledContainer = styled(Container)`
   height: 100%;
   max-width: 94%;
   @media screen and (min-width: 2440px) {
-    max-width: 1868px;
+    max-width: 1820px;
   }
   @media screen and (max-width: 992px) {
     max-width: 100%;
