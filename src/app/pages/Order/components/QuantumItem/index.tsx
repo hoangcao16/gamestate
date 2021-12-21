@@ -1,38 +1,70 @@
 import React from 'react';
 import styled from 'styled-components';
-import buyItem from 'app/assets/img/Order/quantum.png';
-
+// import buyItem from 'app/assets/img/Order/quantum.png';
+import Filter1 from '../../assets/img/1.png';
+import Filter2 from '../../assets/img/2.png';
+import Filter3 from '../../assets/img/3.png';
+import Filter4 from '../../assets/img/4.png';
+import Filter5 from '../../assets/img/5.png';
+import Filter6 from '../../assets/img/6.png';
+import Filter7 from '../../assets/img/7.png';
+import Filter8 from '../../assets/img/8.png';
+import Filter9 from '../../assets/img/9.png';
+import Filter10 from '../../assets/img/10.png';
+import Filter11 from '../../assets/img/11.png';
+import Filter12 from '../../assets/img/12.png';
+import Filter13 from '../../assets/img/13.png';
+import Filter14 from '../../assets/img/14.png';
+import Filter15 from '../../assets/img/15.png';
+import Filter16 from '../../assets/img/16.png';
+import Filter17 from '../../assets/img/17.png';
+import Filter18 from '../../assets/img/18.png';
+import Filter19 from '../../assets/img/19.png';
+import Filter20 from '../../assets/img/20.png';
+import Filter21 from '../../assets/img/21.png';
+import Filter22 from '../../assets/img/22.png';
 const QuantumItem = props => {
+  const data = [
+    Filter1,
+    Filter2,
+    Filter3,
+    Filter4,
+    Filter5,
+    Filter6,
+    Filter7,
+    Filter8,
+    Filter9,
+    Filter10,
+    Filter11,
+    Filter12,
+    Filter13,
+    Filter14,
+    Filter15,
+    Filter16,
+    Filter17,
+    Filter18,
+    Filter19,
+    Filter20,
+    Filter21,
+    Filter22,
+  ];
+  const random = Math.floor(Math.random() * 22);
+  console.log(random);
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
-        <StyledBuyItemImage
-          src={buyItem}
-          alt=""
-          randomHue={Math.floor(Math.random() * (90 - -90 + 1) - 90)}
-          randomInvert={Math.floor(Math.random() * (5 - 1 + 1) + 1)}
-          randomSaturate={Math.floor(Math.random() * (5 - 1 + 1) + 1)}
-          randomGray={Math.floor(Math.random() * (10 - 0 + 1) + 0)}
-        />
+        <StyledBuyItemImage src={data[random]} alt="" />
         <Span>#{props.items} Quantum Accelerator</Span>
       </StyledBuyItemBlack>
     </StyledBuyItem>
   );
 };
-const StyledBuyItemImage = styled.img<{
-  randomHue: number;
-  randomInvert: number;
-  randomGray: number;
-  randomSaturate: number;
-}>`
+const StyledBuyItemImage = styled.img`
   width: 100%;
   height: 100%;
   z-index: 2;
   border-radius: 8px;
-  filter: hue-rotate(${props => props.randomHue}deg)
-    invert(${props => (props.randomInvert === 1 ? 80 : 0)}%)
-    saturate(${props => props.randomSaturate})
-    grayscale(${props => props.randomGray}%);
+  background-color: #000;
 `;
 const StyledBuyItem = styled.div`
   border-radius: 8px;
