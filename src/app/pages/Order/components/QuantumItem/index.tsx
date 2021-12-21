@@ -49,7 +49,6 @@ const QuantumItem = props => {
     Filter22,
   ];
   const random = Math.floor(Math.random() * 22);
-  console.log(random);
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
@@ -64,7 +63,6 @@ const StyledBuyItemImage = styled.img`
   height: 100%;
   z-index: 2;
   border-radius: 8px;
-  background-color: #000;
 `;
 const StyledBuyItem = styled.div`
   border-radius: 8px;
