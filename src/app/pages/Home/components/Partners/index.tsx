@@ -55,174 +55,196 @@ const StyledLinkLogo = styled.a<{
   max-width: ${props => props.width}px;
   max-height: ${props => props.height}px;
   margin-right: ${props => props.right}px;
+  margin-bottom: 40px;
 `;
 const StyledBlockLogoPolygon = styled(Row)`
   justify-content: center;
   margin: 70px 0;
 `;
+const PARTNERS = [
+  {
+    label: 'synergy partners',
+    technology: null,
+    className: 'align-items-center flex-wrap mt-5 mb-124',
+    logos: [
+      {
+        name: 'logoSplin',
+        src: logoSplin,
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the-megaverse-44f51c132c91',
+        width: '260',
+        height: '128',
+        right: '150',
+      },
+      {
+        name: 'logoDefi',
+        src: logoDefi,
+        link: 'https://defiforyou.uk/',
+        width: '600',
+        height: '128',
+        right: '113',
+      },
+      {
+        name: 'logoAnother',
+        src: logoAnother,
+        link: 'https://another-1.io/',
+        width: '264',
+        height: '210',
+        right: '117',
+      },
+      {
+        name: 'logoDig',
+        src: logoDig,
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-dig-chain-to-bring-the-future-of-real-estate-tokenization-to-the-megaverse-b02bd0455749',
+        width: '141',
+        height: '141',
+        right: '0',
+      },
+      {
+        name: 'logoHive',
+        src: logoHive,
+        link: 'https://hive-engine.com/',
+        width: '477',
+        height: '76',
+        right: '184',
+      },
+      {
+        name: 'logoBirt',
+        src: logoBirt,
+        link: 'https://blurt.blog/blurt/@blurtofficial/blurt-a-world-of-possibilities',
+        width: '215',
+        height: '198',
+        right: '0',
+      },
+    ],
+  },
+  {
+    label: 'technology partners',
+    technology: 1,
+    className: 'align-items-center flex-wrap mt-5 mb-124',
+    logos: [
+      {
+        name: 'logoBlockchain',
+        src: logoBlockchain,
+        link: 'https://blockchaindeveloper.asia/',
+        width: '858',
+        height: '186',
+        right: '0',
+      },
+      {
+        name: 'logoEdso',
+        src: logoEdso,
+        link: 'https://edsolabs.com/',
+        width: '314',
+        height: '54',
+        right: '0',
+      },
+      {
+        name: 'logoN',
+        src: logoN,
+        link: 'https://notional.ventures/',
+        width: '306',
+        height: '157',
+        right: '0',
+      },
+      {
+        name: 'logoArweave',
+        src: logoArweave,
+        link: 'https://www.arweave.org/',
+        width: '314',
+        height: '54',
+        right: '0',
+      },
+      {
+        name: 'logoPolygon',
+        src: logoPolygon,
+        link: 'https://polygon.technology/',
+        width: '314',
+        height: '54',
+        right: '0',
+      },
+    ],
+  },
+  {
+    label: 'in the media',
+    className: 'mt-5 justify-content-evenly',
+    logos: [
+      {
+        name: 'logoNews',
+        src: logoNews,
+        link: 'https://nftnewstoday.com/2021/11/27/cyberpunks-history-and-foundation-for-the-megaverse/',
+        width: '314',
+        height: '100',
+        right: '40',
+      },
+      {
+        name: 'logoToday',
+        src: logoToday,
+        link: 'https://u.today/press-releases/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the',
+        width: '314',
+        height: '100',
+        right: '40',
+      },
+      {
+        name: 'logoMagazine',
+        src: logoMagazine,
+        link: 'https://blockchainmagazine.net/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the-megaverse/',
+        width: '314',
+        height: '100',
+        right: '40',
+      },
+    ],
+  },
+];
 const Partners = () => {
   return (
     <Container>
       {/* section one */}
-      <Row>
-        <LabelSection label="SYNERGY PARTNERS" topAuto="mt-auto" />
-      </Row>
-      <StyledBlockLogo className="align-items-center flex-wrap mt-5 mb-124">
-        <StyledLinkLogo
-          href="https://medium.com/@gamestate/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the-megaverse-44f51c132c91"
-          rel="nofollow"
-          target="_blank"
-          width="260"
-          height="128"
-          right="150"
-        >
-          <StyledLogo src={logoSplin} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://defiforyou.uk/"
-          rel="nofollow"
-          target="_blank"
-          width="600"
-          height="128"
-          right="113"
-        >
-          <StyledLogo src={logoDefi} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://another-1.io/"
-          rel="nofollow"
-          target="_blank"
-          width="264"
-          height="210"
-          right="117"
-        >
-          <StyledLogo src={logoAnother} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://medium.com/@gamestate/gamestate-partners-with-dig-chain-to-bring-the-future-of-real-estate-tokenization-to-the-megaverse-b02bd0455749"
-          rel="nofollow"
-          target="_blank"
-          width="141"
-          height="141"
-          right="0"
-        >
-          <StyledLogo src={logoDig} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://hive-engine.com/"
-          rel="nofollow"
-          target="_blank"
-          width="477"
-          height="76"
-          right="184"
-        >
-          <StyledLogo src={logoHive} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://blurt.blog/blurt/@blurtofficial/blurt-a-world-of-possibilities"
-          rel="nofollow"
-          target="_blank"
-          width="215"
-          height="198"
-          className="mt-5"
-        >
-          <StyledLogo src={logoBirt} />
-        </StyledLinkLogo>
-      </StyledBlockLogo>
-      {/* section two */}
-      <Row>
-        <LabelSection label="TECHNOLOGY PARTNERS" topAuto="mt-auto" />
-      </Row>
-      <StyledBlockLogo
-        className="align-items-center flex-wrap mt-5 mb-124"
-        technology={1}
-      >
-        <StyledLinkLogo
-          href="https://blockchaindeveloper.asia/"
-          rel="nofollow"
-          target="_blank"
-          width="858"
-          height="186"
-        >
-          <StyledLogo src={logoBlockchain} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://edsolabs.com/"
-          rel="nofollow"
-          target="_blank"
-          width="314"
-          height="54"
-        >
-          <StyledLogo src={logoEdso} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://notional.ventures/"
-          rel="nofollow"
-          target="_blank"
-          width="306"
-          height="157"
-        >
-          <StyledLogo src={logoN} />
-        </StyledLinkLogo>
-
-        <StyledLinkLogo
-          href="https://www.arweave.org/"
-          rel="nofollow"
-          target="_blank"
-          width="314"
-          height="54"
-        >
-          <StyledLogo src={logoArweave} />
-        </StyledLinkLogo>
-        <StyledBlockLogoPolygon>
-          <StyledLinkLogo
-            href="https://polygon.technology/"
-            rel="nofollow"
-            target="_blank"
-            width="314"
-            height="54"
+      {PARTNERS.map((section, idx) => (
+        <div key={idx}>
+          <Row>
+            <LabelSection
+              label={section.label}
+              topAuto="mt-auto"
+              className="text-uppercase"
+            />
+          </Row>
+          <StyledBlockLogo
+            className={section.className}
+            technology={section.technology}
           >
-            <StyledLogo width="314" height="54" src={logoPolygon} />
-          </StyledLinkLogo>
-        </StyledBlockLogoPolygon>
-      </StyledBlockLogo>
-      {/* section three */}
-      <Row>
-        <LabelSection label="IN THE MEDIA" topAuto="mt-auto" />
-      </Row>
-      <StyledBlockLogo className="mt-5">
-        <StyledLinkLogo
-          href="https://nftnewstoday.com/2021/11/27/cyberpunks-history-and-foundation-for-the-megaverse/"
-          rel="nofollow"
-          target="_blank"
-          width="314"
-          height="100"
-          right="40"
-        >
-          <StyledLogo src={logoNews} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://u.today/press-releases/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the"
-          rel="nofollow"
-          target="_blank"
-          width="314"
-          height="100"
-          right="40"
-        >
-          <LogoToday className="d-none" />
-          <StyledLogo src={logoToday} />
-        </StyledLinkLogo>
-        <StyledLinkLogo
-          href="https://blockchainmagazine.net/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the-megaverse/"
-          rel="nofollow"
-          target="_blank"
-          width="300"
-          height="100"
-          right="40"
-        >
-          <StyledLogo src={logoMagazine} />
-        </StyledLinkLogo>
-      </StyledBlockLogo>
+            {section.logos.map((logo, idx) =>
+              logo.name === 'logoPolygon' ? (
+                <StyledBlockLogoPolygon key={idx}>
+                  <StyledLinkLogo
+                    href="https://polygon.technology/"
+                    rel="nofollow"
+                    target="_blank"
+                    width={logo.width}
+                    height={logo.height}
+                  >
+                    <StyledLogo src={logo.src} />
+                  </StyledLinkLogo>
+                </StyledBlockLogoPolygon>
+              ) : (
+                <StyledLinkLogo
+                  key={idx}
+                  href={logo.link}
+                  rel="nofollow"
+                  target="_blank"
+                  width={logo.width}
+                  height={logo.height}
+                  right={logo.right}
+                >
+                  {logo.name === 'logoToday' && (
+                    <LogoToday className="d-none" />
+                  )}
+                  <StyledLogo src={logo.src} />
+                </StyledLinkLogo>
+              ),
+            )}
+          </StyledBlockLogo>
+        </div>
+      ))}
     </Container>
   );
 };
