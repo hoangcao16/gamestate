@@ -72,6 +72,7 @@ const StyledCardJob = styled(Card.Text)`
   line-height: 24px;
   letter-spacing: 0px;
   color: #ffffff;
+  text-transform: uppercase;
   @media screen and (max-width: 1791px) {
     min-height: 48px;
   }

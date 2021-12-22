@@ -75,6 +75,7 @@ const StyledItemJob = styled.span`
   display: inline-block;
   margin-top: 3px;
   width: 190px;
+  text-transform: uppercase;
 `;
 const StyledItemDesc = styled.p`
   font-size: 12px;
