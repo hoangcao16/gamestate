@@ -65,6 +65,7 @@ const StyledItemName = styled.h5`
   color: #ffffff;
   text-shadow: 0px 3px 6px #00000029;
   margin-top: 12px;
+  text-transform: uppercase;
 `;
 const StyledItemJob = styled.span`
   font-size: 14px;
@@ -75,6 +76,7 @@ const StyledItemJob = styled.span`
   display: inline-block;
   margin-top: 3px;
   width: 190px;
+  text-transform: uppercase;
 `;
 const StyledItemDesc = styled.p`
   font-size: 12px;
