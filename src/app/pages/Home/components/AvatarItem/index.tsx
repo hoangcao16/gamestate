@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import { AvatarItemInterface } from 'types/AvatarItemInterface';
@@ -22,10 +21,9 @@ const StyledAvatar = styled.div<{ image: string }>`
     width: 93%;
   }
 `;
-const StyledCardInfo = styled(Card)`
+const StyledCardInfo = styled(Card)<{ height: number }>`
   background: rgba(0, 0, 0, 0.2) 0% 0% no-repeat padding-box;
-  min-height: 214px;
-  /* min-height: 234px; */
+  /* min-height: 214px; */
   border-radius: 14px;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -34,8 +32,9 @@ const StyledCardInfo = styled(Card)`
   text-align: center;
   border: none;
   display: ${props => props.anonymous === 1 && 'none'};
+  min-height: ${props => props.height}px;
 
-  @media screen and (max-width: 1791px) {
+  /* @media screen and (max-width: 1791px) {
     min-height: 239px;
   }
   @media screen and (max-width: 1572px) {
@@ -53,7 +52,7 @@ const StyledCardInfo = styled(Card)`
 
   @media screen and (max-width: 767px) {
     min-height: 200px;
-  }
+  } */
 `;
 const StyledCardName = styled(Card.Title)`
   font-size: 24px;
@@ -97,10 +96,18 @@ const AvatarItem = ({
   item: AvatarItemInterface;
   anonymous?: boolean;
 }) => {
+  const cards = document.querySelectorAll<HTMLElement>('.card-info');
+  const heightCards = Array.from(cards).map(card => card?.offsetHeight);
+  const heightCardMax = Math.max(...heightCards);
   return anonymous ? (
     <a href="#contact-form">
       <StyledAvatar image={item.src}>
-        <StyledCardInfo border="primary" anonymous={anonymous ? 1 : 0}>
+        <StyledCardInfo
+          border="primary"
+          anonymous={anonymous ? 1 : 0}
+          height={heightCardMax}
+          className="card-info"
+        >
           <Card.Body className="d-flex flex-column px-1">
             <StyledCardName dangerouslySetInnerHTML={{ __html: item.name }} />
             <StyledCardJob>{item.job}</StyledCardJob>
@@ -111,7 +118,12 @@ const AvatarItem = ({
     </a>
   ) : (
     <StyledAvatar image={item.src}>
-      <StyledCardInfo border="primary" anonymous={anonymous ? 1 : 0}>
+      <StyledCardInfo
+        border="primary"
+        anonymous={anonymous ? 1 : 0}
+        height={heightCardMax}
+        className="card-info"
+      >
         <Card.Body className="d-flex flex-column px-1">
           <StyledCardName dangerouslySetInnerHTML={{ __html: item.name }} />
           <StyledCardJob>{item.job}</StyledCardJob>
