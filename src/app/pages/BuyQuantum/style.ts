@@ -9,7 +9,7 @@ export const StyledQuantumItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 60px auto;
   text-align: center;
   @media screen and (max-width: 575px) {
@@ -69,4 +69,5 @@ export const StyledGroupButton = styled.div`
 export const StyledBuyItemVideo = styled.video`
   width: 100%;
   border-radius: 42px;
+  display: flex;
 `;

@@ -11,6 +11,7 @@ const StyledBuyItemImage = styled.img`
 `;
 export const StyledBuyItemBlack = styled.div`
   /* padding: 43px 54px; */
+  height: 100%;
   @media screen and (max-width: 575px) {
     background: #0a0c08;
     /* padding: 18px 36px; */
