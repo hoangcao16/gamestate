@@ -19,6 +19,7 @@ import mobileExtMarco from 'app/assets/img/Team/mobileExtMarco.png';
 import mobileExtWilliam from 'app/assets/img/Team/mobileExtWilliam.png';
 import AvatarItem from '../AvatarItem';
 import styled from 'styled-components';
+import AvatarItemMobile from '../AvatarItem/AvatarItemMobile';
 
 const StyledItemCol = styled(Col)`
   padding: 0 15px;
@@ -43,49 +44,6 @@ const StyledMobileTeamRow = styled(Row)`
   }
 `;
 
-const StyledItemColMobile = styled.div`
-  padding: 0px 6px 0px;
-  width: 50%;
-  margin-top: 28px;
-`;
-const StyledItemImage = styled.div<{ image: string }>`
-  background-image: url(${props => props.image});
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 265px;
-  border-radius: 8px;
-`;
-const StyledItemName = styled.h5`
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: bold;
-  letter-spacing: 0px;
-  color: #ffffff;
-  text-shadow: 0px 3px 6px #00000029;
-  margin-top: 12px;
-  text-transform: uppercase;
-`;
-const StyledItemJob = styled.span`
-  font-size: 14px;
-  line-height: 20px;
-  min-height: 40px;
-  letter-spacing: 0px;
-  color: #ffffff;
-  display: inline-block;
-  margin-top: 3px;
-  width: 190px;
-  text-transform: uppercase;
-`;
-const StyledItemDesc = styled.p`
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0px;
-  color: #ededed;
-  flex: 1;
-  margin-top: 8px;
-`;
 const StyledLabelSectionRow = styled(Row)`
   @media screen and (max-width: 415px) {
     display: none;
@@ -244,12 +202,7 @@ const ExtendedTeam = () => {
       </StyledTeamRow>
       <StyledMobileTeamRow>
         {MOBILE_EXTENDED_TEAM.map((item, idx) => (
-          <StyledItemColMobile key={idx}>
-            <StyledItemImage image={item.image} />
-            <StyledItemName>{item.name}</StyledItemName>
-            <StyledItemJob>{item.job}</StyledItemJob>
-            <StyledItemDesc>{item.desc}</StyledItemDesc>
-          </StyledItemColMobile>
+          <AvatarItemMobile item={item} key={idx} />
         ))}
       </StyledMobileTeamRow>
     </Container>

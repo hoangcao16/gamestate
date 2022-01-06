@@ -83,7 +83,7 @@ const Header = () => {
                 PITCH DECK
               </StyledFirstButton>
               <StyledSecondButton
-                href="https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Gamestate-Meta-Paper-v1.pdf"
+                href="https://static.defiforyou.uk/Gamestate-metapaper-20211208.pdf"
                 target="_blank"
               >
                 METAPAPER

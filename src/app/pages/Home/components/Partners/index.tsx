@@ -14,7 +14,11 @@ import logoPolygon from 'app/assets/img/Logo/logoPolygon.svg';
 import logoArweave from 'app/assets/img/Logo/logoArweave.svg';
 import logoToday from 'app/assets/img/Logo/logoToday.svg';
 import logoMagazine from 'app/assets/img/Logo/logoMagazine.svg';
+import logoNulltx from 'app/assets/img/Logo/logoNulltx.png';
+import logoCryptomode from 'app/assets/img/Logo/logoCryptomode.png';
 import logoNews from 'app/assets/img/Logo/logoNews.png';
+import logoFab from 'app/assets/img/Logo/logoFab.png';
+
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -113,6 +117,14 @@ const PARTNERS = [
         link: 'https://blurt.blog/blurt/@blurtofficial/blurt-a-world-of-possibilities',
         width: '215',
         height: '198',
+        right: '184',
+      },
+      {
+        name: 'logoFab',
+        src: logoFab,
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-fabwelt-to-unleash-an-integrated-metaverse-experience-c57190340bd',
+        width: '400',
+        height: '198',
         right: '0',
       },
     ],
@@ -173,24 +185,40 @@ const PARTNERS = [
         src: logoNews,
         link: 'https://nftnewstoday.com/2021/11/27/cyberpunks-history-and-foundation-for-the-megaverse/',
         width: '314',
-        height: '100',
-        right: '40',
+        height: '',
+        right: '200',
       },
       {
         name: 'logoToday',
         src: logoToday,
         link: 'https://u.today/press-releases/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the',
         width: '314',
-        height: '100',
-        right: '40',
+        height: '',
+        right: '200',
       },
       {
         name: 'logoMagazine',
         src: logoMagazine,
         link: 'https://blockchainmagazine.net/gamestate-partners-with-splinterlands-to-bring-nfts-and-blockchain-gaming-to-the-megaverse/',
         width: '314',
-        height: '100',
-        right: '40',
+        height: '',
+        right: '0',
+      },
+      {
+        name: 'logoNulltx',
+        src: logoNulltx,
+        link: 'https://nulltx.com/cyberpunks-history-and-foundation-for-the-megaverse/',
+        width: '314',
+        height: '',
+        right: '200',
+      },
+      {
+        name: 'logoCryptomode',
+        src: logoCryptomode,
+        link: 'https://cryptomode.com/cyberpunks-history-and-foundation-for-the-megaverse/',
+        width: '314',
+        height: '',
+        right: '200',
       },
     ],
   },
@@ -198,7 +226,6 @@ const PARTNERS = [
 const Partners = () => {
   return (
     <Container>
-      {/* section one */}
       {PARTNERS.map((section, idx) => (
         <div key={idx}>
           <Row>

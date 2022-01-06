@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import LabelSection from '../LabelSection';
 import coreCong from 'app/assets/img/Team/coreCong.png';
-// import coreKobus from 'app/assets/img/Team/coreKobus.png';
+// import coreKobus from "../../assets/img/Team/coreKobus.png"
 import coreLocke from 'app/assets/img/Team/coreLocke.png';
 import corePeter from 'app/assets/img/Team/corePeter.png';
 import coreRicardo from 'app/assets/img/Team/coreRicardo.png';
@@ -14,7 +14,7 @@ import corePeck from 'app/assets/img/Team/corePeck.png';
 import coreMartinez from 'app/assets/img/Team/coreMartinez.png';
 import coreTien from 'app/assets/img/Team/coreTien.png';
 import mobileCoreCong from 'app/assets/img/Team/mobileCoreCong.png';
-// import mobileCoreKobus from 'app/assets/img/Team/mobileCoreKobus.png';
+// import mobileCoreKobus from "../../assets/img/Team/mobileCoreKobus.png"
 import mobileCoreLocke from 'app/assets/img/Team/mobileCoreLocke.png';
 import mobileCorePeter from 'app/assets/img/Team/mobileCorePeter.png';
 import mobileCoreRicardo from 'app/assets/img/Team/mobileCoreRicardo.png';
@@ -25,11 +25,12 @@ import mobileCoreManne from 'app/assets/img/Team/mobileCoreManne.png';
 import mobileCorePeck from 'app/assets/img/Team/mobileCorePeck.png';
 import mobileCoreTien from 'app/assets/img/Team/mobileCoreTien.png';
 
-// import mobileCoreMartinez from 'app/assets/img/Team/mobileCoreMartinez.png';
+// import mobileCoreMartinez from "../../assets/img/Team/mobileCoreMartinez.png"
 import anonymous from 'app/assets/img/Team/anonymous.png';
 import AvatarItem from '../AvatarItem';
 import team from 'app/assets/img/Team/team.png';
 import styled from 'styled-components';
+import AvatarItemMobile from '../AvatarItem/AvatarItemMobile';
 
 const StyledItemCol = styled(Col)`
   padding: 0 15px;
@@ -82,53 +83,6 @@ const StyledMobileTeamRow = styled(Row)`
   @media screen and (min-width: 415px) {
     display: none;
   }
-`;
-
-const StyledItemColMobile = styled.div`
-  padding: 0px 6px 0px;
-  width: 50%;
-  margin-top: 28px;
-`;
-const StyledItemImage = styled.div<{ image: string }>`
-  background-image: url(${props => props.image});
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 265px;
-  border-radius: 8px;
-`;
-const StyledItemName = styled.h5`
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: bold;
-  letter-spacing: 0px;
-  color: #ffffff;
-  text-shadow: 0px 3px 6px #00000029;
-  margin-top: 12px;
-  text-transform: uppercase;
-`;
-const StyledItemJob = styled.span`
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0px;
-  min-height: 40px;
-  color: #ffffff;
-  display: inline-block;
-  margin-top: 1px;
-  width: 190px;
-  text-transform: uppercase;
-  @media screen and (max-width: 414px) {
-    width: 100%;
-  }
-`;
-const StyledItemDesc = styled.p`
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0px;
-  color: #ededed;
-  flex: 1;
-  margin-top: 8px;
 `;
 
 const CORE_TEAM = [
@@ -202,7 +156,7 @@ const CORE_TEAM = [
   {
     src: coreTien,
     name: 'TIEN NGUYEN',
-    job: 'Digital Marketing Specialist',
+    job: 'DIGITAL MARKETING MANAGER',
     desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
   },
   {
@@ -285,7 +239,7 @@ const MOBILE_CORE_TEAM = [
   {
     image: mobileCoreTien,
     name: 'TIEN NGUYEN',
-    job: 'Digital Marketing Specialist',
+    job: 'DIGITAL MARKETING MANAGER',
     desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
   },
   {
@@ -316,25 +270,9 @@ const CoreTeam = () => {
           ))}
         </StyledTeamRow>
         <StyledMobileTeamRow>
-          {MOBILE_CORE_TEAM.map((item, idx) =>
-            item.name === '' ? (
-              <StyledItemColMobile key={idx}>
-                <a href="#contact-form">
-                  <StyledItemImage image={item.image} />
-                  <StyledItemName>{item.name}</StyledItemName>
-                  <StyledItemJob>{item.job}</StyledItemJob>
-                  <StyledItemDesc>{item.desc}</StyledItemDesc>
-                </a>
-              </StyledItemColMobile>
-            ) : (
-              <StyledItemColMobile key={idx}>
-                <StyledItemImage image={item.image} />
-                <StyledItemName>{item.name}</StyledItemName>
-                <StyledItemJob>{item.job}</StyledItemJob>
-                <StyledItemDesc>{item.desc}</StyledItemDesc>
-              </StyledItemColMobile>
-            ),
-          )}
+          {MOBILE_CORE_TEAM.map((item, idx) => (
+            <AvatarItemMobile item={item} key={idx} />
+          ))}
         </StyledMobileTeamRow>
       </Container>
     </StyledBlockCoreTeam>

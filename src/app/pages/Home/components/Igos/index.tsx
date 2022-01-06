@@ -180,7 +180,7 @@ const StyledDescription = styled(P)`
     line-height: 19px;
   }
 `;
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   min-width: 160px;
   background-color: transparent;
   border: 3px solid #ffffff;

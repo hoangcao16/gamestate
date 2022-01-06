@@ -1,6 +1,8 @@
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
-import { AvatarItemInterface } from 'types/AvatarItemInterface';
+import { ReactComponent as IconTwitter } from 'app/assets/img/Icons/icon_twitter.svg';
+import { ReactComponent as IconLinedIn } from 'app/assets/img/Icons/icon_linkedin.svg';
+
 const StyledAvatar = styled.div<{ image: string }>`
   background-image: url(${props => props.image});
   background-size: cover;
@@ -13,12 +15,32 @@ const StyledAvatar = styled.div<{ image: string }>`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  transform: scale(1);
+  transition: 0.2s ease-in-out;
+  position: relative;
+  &:hover {
+    box-shadow: 0px 0px 8px #f8f8f8, 0px 0px 10px #db5289, 0px 0px 15px #e7e5ec,
+      inset 0px 0px 5px #dadada;
+    transform: scale(1.05);
+  }
+  &:hover .icons {
+    display: flex;
+    animation: fadeIn 0.4s;
+  }
   @media screen and (max-width: 1660px) {
     margin: 8px 0;
   }
   @media screen and (max-width: 414px) {
     height: 265px;
     width: 93%;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 const StyledCardInfo = styled(Card)<{ height: number }>`
@@ -88,6 +110,43 @@ const StyledCardDesc = styled(Card.Text)`
   flex: 1;
   margin-bottom: auto;
 `;
+const StyledIcons = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 120px;
+  flex-direction: column;
+  display: none;
+`;
+const StyledIcon = styled.a`
+  background: transparent;
+  border-radius: 50%;
+  border: 1px white solid;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: 0.4s;
+
+  svg {
+    color: white;
+    width: 100%;
+  }
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+interface AvatarItemInterface {
+  src: string;
+  name: string;
+  job: string;
+  desc: string;
+}
 
 const AvatarItem = ({
   item,
@@ -118,6 +177,14 @@ const AvatarItem = ({
     </a>
   ) : (
     <StyledAvatar image={item.src}>
+      <StyledIcons className="icons">
+        <StyledIcon>
+          <IconLinedIn />
+        </StyledIcon>
+        <StyledIcon>
+          <IconTwitter />
+        </StyledIcon>
+      </StyledIcons>
       <StyledCardInfo
         border="primary"
         anonymous={anonymous ? 1 : 0}

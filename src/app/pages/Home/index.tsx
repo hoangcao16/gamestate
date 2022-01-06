@@ -17,6 +17,8 @@ import BackTopBackground from '../../assets/img/backtopBackground.png';
 import ExtendedTeam from '../../pages/Home/components/ExtendedTeam';
 import CoreTeam from '../../pages/Home/components/CoreTeam';
 import Monitor from '../../pages/Home/components/Monitor';
+import Media from 'app/pages/Home/components/Media';
+
 // import { useGlobalState } from 'store/globalReducer';
 const HomeContainer = () => {
   // console.log(useGlobalState());
@@ -55,6 +57,7 @@ const HomeContainer = () => {
         <CoreTeam />
         <ExtendedTeam />
         <Partners />
+        <Media />
         <RoadMap />
         <Contact />
         <Footer />
