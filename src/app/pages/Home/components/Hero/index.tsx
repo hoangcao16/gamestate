@@ -64,7 +64,7 @@ const Hero = () => {
         }}
       >
         <source
-          src="https://static.defiforyou.uk/GS_Cinematic_v04_HQ.mp4"
+          src="https://defiforyou.mypinata.cloud/ipfs/QmWAkpPw3fstuK3F7UjuAQ1YEHamftzB82nVnv7UtnQAoQ"
           type="video/mp4"
         />
       </video>

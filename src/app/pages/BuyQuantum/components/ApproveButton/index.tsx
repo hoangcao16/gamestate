@@ -35,6 +35,7 @@ const ApproveButton = (props: Props) => {
     );
   };
   const { receipt, allowance, isLoading } = useSelector(approveNFTSelector);
+  console.log('alow', allowance);
   return (
     <>
       {allowance! < Number(amount) && isEmpty(receipt) && !isLoading && (
