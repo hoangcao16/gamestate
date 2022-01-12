@@ -18,6 +18,7 @@ import ExtendedTeam from '../../pages/Home/components/ExtendedTeam';
 import CoreTeam from '../../pages/Home/components/CoreTeam';
 import Monitor from '../../pages/Home/components/Monitor';
 import Media from 'app/pages/Home/components/Media';
+import Airdrop from './components/Airdrop';
 
 // import { useGlobalState } from 'store/globalReducer';
 const HomeContainer = () => {
@@ -48,6 +49,7 @@ const HomeContainer = () => {
       <StyledMain>
         <Hero />
         <Monitor />
+        <Airdrop />
         <TokenSale />
         <Explore />
         <Description />

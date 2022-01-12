@@ -148,7 +148,7 @@ const Title = styled.span`
     line-height: 60px;
   }
 `;
-const StyledTitle = styled(Title)`
+export const StyledTitle = styled(Title)`
   color: #6a9df9;
   padding-right: 20px;
   position: relative;

@@ -19,15 +19,14 @@ const Igos = () => {
               an early opportunity to become part of games in the early startup
               phase.
             </StyledDescription>
-            <StyledButton>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://medium.com/@gamestate/blurt-enginedrop-attestation-gamestate-megaverse-bbc48fd530f8"
-              >
-                Read more
-              </a>
-            </StyledButton>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://medium.com/@gamestate/blurt-enginedrop-attestation-gamestate-megaverse-bbc48fd530f8"
+            >
+              <StyledButton>Read more </StyledButton>
+            </a>
           </StyledContent>
           <Col
             className="pe-0"
@@ -182,37 +181,33 @@ const StyledDescription = styled(P)`
 `;
 export const StyledButton = styled.button`
   min-width: 160px;
+  margin-top: 60px;
   background-color: transparent;
   border: 3px solid #ffffff;
   box-shadow: 0px 0px 6px 4px #ffffff;
   border-radius: 48px;
   height: 50px;
-  a {
-    color: #ffffff;
-    text-shadow: 2px 4px 6px #ffffffbe;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 42px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+  text-shadow: 2px 4px 6px #ffffffbe;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 42px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
   @media screen and (max-width: 654px) {
     min-width: 140px;
     height: 40px;
-    a {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 34px;
-    }
+    font-size: 14px;
+    line-height: 34px;
+    font-weight: 500;
   }
   @media screen and (max-width: 427px) {
     min-width: 100px;
     height: 40px;
-    a {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 34px;
-    }
+    font-size: 12px;
+    line-height: 34px;
+    font-weight: 500;
   }
 `;
 export default Igos;

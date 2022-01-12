@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import Background from 'app/assets/img/Explore/background.png';
 // import HeroBanner from "../../assets/img/Explore/Giff_Chip.gif";
 import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
+import { useState } from 'react';
 
 const Explore = () => {
-  // const [text, setText] = useState('BUY');
-  // const [textsd, setTextsd] = useState('NOW');
-  const history = useHistory();
+  const [text, setText] = useState('BUY');
+  const [textsd, setTextsd] = useState('NOW');
+  // const history = useHistory();
   return (
     <Div>
       <StyledContainer>
@@ -21,18 +22,18 @@ const Explore = () => {
           and early bird access!
         </StyledDescription>
         <StyledButton
-          // onMouseEnter={() => {
-          //   setText('COMING');
-          //   setTextsd('SOON');
-          // }}
-          // onMouseLeave={() => {
-          //   setText('BUY');
-          //   setTextsd('NOW');
-          // }}
-          onClick={() => history.push('/buy')}
+          onMouseEnter={() => {
+            setText('COMING');
+            setTextsd('SOON');
+          }}
+          onMouseLeave={() => {
+            setText('BUY');
+            setTextsd('NOW');
+          }}
+          // onClick={() => history.push('/buy')}
         >
-          <StyledSpan>BUY</StyledSpan>
-          <StyledSubSpan>NOW</StyledSubSpan>
+          <StyledSpan>{text}</StyledSpan>
+          <StyledSubSpan>{textsd}</StyledSubSpan>
         </StyledButton>
       </StyledContainer>
     </Div>
