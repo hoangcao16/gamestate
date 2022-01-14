@@ -39,7 +39,7 @@ export const Video = ({ linkVideo, radius, shadow }: VideoProps) => {
   };
   useEffect(() => {
     videoRef.current?.addEventListener('contextmenu', (e: any) => {
-      // e.preventDefault();
+      e.preventDefault();
     });
     if (window.innerWidth < 576) {
       setIsControls(true);

@@ -18,7 +18,8 @@ import logoNulltx from 'app/assets/img/Logo/logoNulltx.png';
 import logoCryptomode from 'app/assets/img/Logo/logoCryptomode.png';
 import logoNews from 'app/assets/img/Logo/logoNews.png';
 import logoFab from 'app/assets/img/Logo/logoFab.png';
-
+import logoGameX from 'app/assets/img/Logo/logoGameX.jpg';
+import logoXhash from 'app/assets/img/Logo/logoXhash.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -125,6 +126,22 @@ const PARTNERS = [
         link: 'https://medium.com/@gamestate/gamestate-partners-with-fabwelt-to-unleash-an-integrated-metaverse-experience-c57190340bd',
         width: '400',
         height: '198',
+        right: '0',
+      },
+      {
+        name: 'logoXhash',
+        src: logoXhash,
+        link: 'https://www.xhashtag.io',
+        width: '400',
+        height: '198',
+        right: '200',
+      },
+      {
+        name: 'logoGameX',
+        src: logoGameX,
+        link: 'https://medium.com/@gamestate/gamestate-and-gamex-partner-to-take-blockchain-gaming-to-the-next-level-5ba9ea086c00',
+        width: '400',
+        height: '',
         right: '0',
       },
     ],

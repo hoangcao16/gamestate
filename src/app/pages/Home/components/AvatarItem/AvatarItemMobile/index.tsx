@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as IconTwitter } from 'app/assets/img/Icons/icon_twitter.svg';
-import { ReactComponent as IconLinedIn } from 'app/assets/img/Icons/icon_linkedin.svg';
+import { ReactComponent as IconLinkedIn } from 'app/assets/img/Icons/icon_linkedin.svg';
 const StyledItemColMobile = styled.div`
   padding: 0px 6px 0px;
   width: 50%;
@@ -77,6 +77,8 @@ interface AvatarItemMobileProps {
     name: string;
     job: string;
     desc: string;
+    twitter?: string;
+    linkedIn?: string;
   };
 }
 const AvatarItemMobile = ({ item }: AvatarItemMobileProps) => {
@@ -93,10 +95,10 @@ const AvatarItemMobile = ({ item }: AvatarItemMobileProps) => {
     <StyledItemColMobile>
       <StyledItemImage image={item.image} />
       <StyledIcons className="icons">
-        <StyledIcon>
-          <IconLinedIn />
+        <StyledIcon href={item.linkedIn} target="_blank">
+          <IconLinkedIn />
         </StyledIcon>
-        <StyledIcon>
+        <StyledIcon href={item.twitter} target="_blank">
           <IconTwitter />
         </StyledIcon>
       </StyledIcons>

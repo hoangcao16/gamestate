@@ -54,7 +54,13 @@ const StyledDesc = styled.span`
     font-size: 24px;
   }
 `;
-
+const StyledLink = styled.a`
+  text-decoration: underline;
+  color: #6395f0;
+  &:hover {
+    color: #6394f08d;
+  }
+`;
 const Airdrop = () => {
   const [isShowCode, setIsShowCode] = useState(false);
   const [textCode, setTextCode] = useState('Copy');
@@ -69,7 +75,15 @@ const Airdrop = () => {
     <StyledAirdropSection>
       <StyledTitleAirdrop>AIRDROP</StyledTitleAirdrop>
       <StyledDesc>
-        Use promo code to receive 20 STATE (Gamestate tokens)
+        Use promo code to receive 20 STATE (
+        <StyledLink
+          href="https://twitter.com/Gamestate_one/status/1481233585218719746?s=20"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join Airdrop!
+        </StyledLink>
+        )
       </StyledDesc>
       {!isShowCode ? (
         <StyledButtonCode onClick={handleClick}>

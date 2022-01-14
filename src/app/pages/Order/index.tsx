@@ -44,7 +44,7 @@ const QuantumOrder = () => {
             {data?.map((item, index) => {
               return (
                 <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
-                  <QuantumItem items={item} />
+                  <QuantumItem items={item} idx={index + 1} />
                   <LabelPrice># {item}</LabelPrice>
                 </StyledCol>
               );

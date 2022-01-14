@@ -48,11 +48,11 @@ const QuantumItem = props => {
     Filter21,
     Filter22,
   ];
-  const random = Math.floor(Math.random() * 22);
+  const index = props.idx % 22;
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
-        <StyledBuyItemImage src={data[random]} alt="" />
+        <StyledBuyItemImage src={data[index]} alt="" />
         <Span>#{props.items} Quantum Accelerator</Span>
       </StyledBuyItemBlack>
     </StyledBuyItem>

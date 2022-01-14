@@ -1,7 +1,7 @@
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import { ReactComponent as IconTwitter } from 'app/assets/img/Icons/icon_twitter.svg';
-import { ReactComponent as IconLinedIn } from 'app/assets/img/Icons/icon_linkedin.svg';
+import { ReactComponent as IconLinkedIn } from 'app/assets/img/Icons/icon_linkedin.svg';
 
 const StyledAvatar = styled.div<{ image: string }>`
   background-image: url(${props => props.image});
@@ -55,26 +55,6 @@ const StyledCardInfo = styled(Card)<{ height: number }>`
   border: none;
   display: ${props => props.anonymous === 1 && 'none'};
   min-height: ${props => props.height}px;
-
-  /* @media screen and (max-width: 1791px) {
-    min-height: 239px;
-  }
-  @media screen and (max-width: 1572px) {
-    min-height: 260px;
-  }
-  @media screen and (max-width: 1399px) {
-    min-height: 194px;
-  }
-  @media screen and (max-width: 1199px) {
-    min-height: 215px;
-  }
-  @media screen and (max-width: 991px) {
-    min-height: 236px;
-  }
-
-  @media screen and (max-width: 767px) {
-    min-height: 200px;
-  } */
 `;
 const StyledCardName = styled(Card.Title)`
   font-size: 24px;
@@ -146,6 +126,8 @@ interface AvatarItemInterface {
   name: string;
   job: string;
   desc: string;
+  twitter?: string;
+  linkedIn?: string;
 }
 
 const AvatarItem = ({
@@ -178,10 +160,10 @@ const AvatarItem = ({
   ) : (
     <StyledAvatar image={item.src}>
       <StyledIcons className="icons">
-        <StyledIcon>
-          <IconLinedIn />
+        <StyledIcon href={item.linkedIn} target="_blank">
+          <IconLinkedIn />
         </StyledIcon>
-        <StyledIcon>
+        <StyledIcon href={item.twitter} target="_blank">
           <IconTwitter />
         </StyledIcon>
       </StyledIcons>
