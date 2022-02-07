@@ -103,7 +103,7 @@ const Header = () => {
               >
                 GET STARTED
               </StyledFourthButton>
-              {!isEmpty(wallet.wallet) ? (
+              {/* {!isEmpty(wallet.wallet) ? (
                 <>
                   <StyledDropdown
                     id="basic-nav-dropdown"
@@ -136,7 +136,7 @@ const Header = () => {
                 <StyledConnectButton onClick={handleOpenConnect}>
                   Connect wallet
                 </StyledConnectButton>
-              )}
+              )} */}
             </StyledNav>
           </Navbar.Collapse>
         </StyledContainer>
