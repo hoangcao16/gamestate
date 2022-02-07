@@ -20,6 +20,9 @@ import logoNews from 'app/assets/img/Logo/logoNews.png';
 import logoFab from 'app/assets/img/Logo/logoFab.png';
 import logoGameX from 'app/assets/img/Logo/logoGameX.jpg';
 import logoXhash from 'app/assets/img/Logo/logoXhash.png';
+import logoConfluence from 'app/assets/img/Logo/logoConfluence.png';
+import logoNya from 'app/assets/img/Logo/logoNya.png';
+import logoRoad from 'app/assets/img/Logo/logoRoad.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -39,6 +42,7 @@ const StyledBlockLogo = styled(Row)<{ technology?: number }>`
     }
   }
   @media screen and (max-width: 414px) {
+    margin-bottom: 0;
     & a {
       margin-bottom: 100px;
     }
@@ -61,6 +65,23 @@ const StyledLinkLogo = styled.a<{
   max-height: ${props => props.height}px;
   margin-right: ${props => props.right}px;
   margin-bottom: 40px;
+  transition: 0.4s;
+  &:hover {
+    animation: shaking 0.3s linear;
+    animation-iteration-count: 2;
+    filter: grayscale(0.75) opacity(0.6);
+  }
+  @keyframes shaking {
+    0% {
+      transform: translateX(-3px) rotate(-2deg);
+    }
+    50% {
+      transform: translateX(3px) rotate(2deg);
+    }
+    100% {
+      transform: translateX(-3px) rotate(-2deg);
+    }
+  }
 `;
 const StyledBlockLogoPolygon = styled(Row)`
   justify-content: center;
@@ -110,7 +131,7 @@ const PARTNERS = [
         link: 'https://hive-engine.com/',
         width: '477',
         height: '76',
-        right: '184',
+        right: '80',
       },
       {
         name: 'logoBirt',
@@ -118,16 +139,25 @@ const PARTNERS = [
         link: 'https://blurt.blog/blurt/@blurtofficial/blurt-a-world-of-possibilities',
         width: '215',
         height: '198',
-        right: '184',
+        right: '80',
       },
       {
-        name: 'logoFab',
-        src: logoFab,
-        link: 'https://medium.com/@gamestate/gamestate-partners-with-fabwelt-to-unleash-an-integrated-metaverse-experience-c57190340bd',
-        width: '400',
+        name: 'logoNya',
+        src: logoNya,
+        link: 'https://www.nyaltx.com/token-bnb-new/?logoid=641',
+        width: '215',
         height: '198',
+        right: '80',
+      },
+      {
+        name: 'logoConfluence',
+        src: logoConfluence,
+        link: undefined,
+        width: '600',
+        height: '',
         right: '0',
       },
+
       {
         name: 'logoXhash',
         src: logoXhash,
@@ -140,9 +170,25 @@ const PARTNERS = [
         name: 'logoGameX',
         src: logoGameX,
         link: 'https://medium.com/@gamestate/gamestate-and-gamex-partner-to-take-blockchain-gaming-to-the-next-level-5ba9ea086c00',
-        width: '400',
+        width: '350',
         height: '',
+        right: '200',
+      },
+      {
+        name: 'logoFab',
+        src: logoFab,
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-fabwelt-to-unleash-an-integrated-metaverse-experience-c57190340bd',
+        width: '500',
+        height: '198',
         right: '0',
+      },
+      {
+        name: 'logoRoad',
+        src: logoRoad,
+        link: 'https://corporateroadshow.com/profile/?logoid=8877',
+        width: '500',
+        height: '198',
+        right: '100',
       },
     ],
   },
@@ -243,7 +289,7 @@ const PARTNERS = [
 const Partners = () => {
   return (
     <Container>
-      {PARTNERS.map((section, idx) => (
+      {PARTNERS.map((section: any, idx) => (
         <div key={idx}>
           <Row>
             <LabelSection
@@ -256,7 +302,7 @@ const Partners = () => {
             className={section.className}
             technology={section.technology}
           >
-            {section.logos.map((logo, idx) =>
+            {section.logos.map((logo: any, idx: number) =>
               logo.name === 'logoPolygon' ? (
                 <StyledBlockLogoPolygon key={idx}>
                   <StyledLinkLogo
@@ -272,7 +318,7 @@ const Partners = () => {
               ) : (
                 <StyledLinkLogo
                   key={idx}
-                  href={logo.link}
+                  href={logo.link ? logo.link : undefined}
                   rel="nofollow"
                   target="_blank"
                   width={logo.width}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 import { StyledButton } from '../../Igos';
 
 const StyledItem = styled.div`
@@ -47,7 +48,6 @@ const StyledLink = styled.a`
 `;
 const StyledButtonRead = styled(StyledButton)`
   text-align: center;
-  margin-top: 60px;
   margin-bottom: 60px;
   transition: 0.2s;
   &:hover {
@@ -72,6 +72,7 @@ interface MediaItemProps {
 const MediaItem = ({ item }: MediaItemProps) => {
   return (
     <StyledItem>
+      {item.name === 'logoToday' && <LogoToday className="d-none" />}
       <StyledLink href={item.link} target="_blank">
         <StyledImage src={item.url} />
       </StyledLink>

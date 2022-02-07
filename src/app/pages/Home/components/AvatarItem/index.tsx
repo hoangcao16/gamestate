@@ -90,12 +90,17 @@ const StyledCardDesc = styled(Card.Text)`
   flex: 1;
   margin-bottom: auto;
 `;
-const StyledIcons = styled.div`
+const StyledIcons = styled.div<{
+  has_linked_in: boolean;
+  has_twitter: boolean;
+}>`
   position: absolute;
-  top: 10px;
+  top: ${props =>
+    props.has_linked_in && props.has_twitter ? '10px' : ' 20px'};
   right: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: ${props =>
+    props.has_linked_in && props.has_twitter ? 'space-evenly' : ''};
   height: 120px;
   flex-direction: column;
   display: none;
@@ -120,13 +125,13 @@ const StyledIcon = styled.a`
     transform: scale(1.2);
   }
 `;
-
 interface AvatarItemInterface {
-  src: string;
+  src?: string | any;
+  srcMobile?: string | any;
   name: string;
   job: string;
   desc: string;
-  twitter?: string;
+  twitter?: string | undefined;
   linkedIn?: string;
 }
 
@@ -159,13 +164,21 @@ const AvatarItem = ({
     </a>
   ) : (
     <StyledAvatar image={item.src}>
-      <StyledIcons className="icons">
-        <StyledIcon href={item.linkedIn} target="_blank">
-          <IconLinkedIn />
-        </StyledIcon>
-        <StyledIcon href={item.twitter} target="_blank">
-          <IconTwitter />
-        </StyledIcon>
+      <StyledIcons
+        className="icons"
+        has_linked_in={!!item.twitter}
+        has_twitter={!!item.linkedIn}
+      >
+        {item.linkedIn && (
+          <StyledIcon href={item.linkedIn} target="_blank">
+            <IconLinkedIn />
+          </StyledIcon>
+        )}
+        {item.twitter && (
+          <StyledIcon href={item.twitter} target="_blank">
+            <IconTwitter />
+          </StyledIcon>
+        )}
       </StyledIcons>
       <StyledCardInfo
         border="primary"

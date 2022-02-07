@@ -1,10 +1,12 @@
 import { Container } from 'react-bootstrap';
-import Bird from 'app/assets/img/Explore/bird.svg';
+// import Bird from '../../assets/img/Explore/bird.svg';
 import Discord from 'app/assets/img/Explore/discord.svg';
+import Github from 'app/assets/img/Explore/github.png';
 import Facebook from 'app/assets/img/Explore/facebook.svg';
 import Medium from 'app/assets/img/Explore/medium.svg';
 import Telegram from 'app/assets/img/Explore/telegram.svg';
 import Twitter from 'app/assets/img/Explore/twitter.svg';
+import Youtube from 'app/assets/img/Explore/youtube.svg';
 import styled from 'styled-components';
 import { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
@@ -77,6 +79,14 @@ const Monitor = () => {
             <img src={Twitter} alt="Twitter" />
           </StyledImg>
           <StyledImg
+            width="80px"
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.youtube.com/channel/UC7sSfQLKrazEknDXVvwHFEQ"
+          >
+            <img src={Youtube} alt="Youtube" style={{ filter: 'invert(1)' }} />
+          </StyledImg>
+          <StyledImg
             width="184px"
             target="_blank"
             rel="noreferrer"
@@ -85,12 +95,12 @@ const Monitor = () => {
             <img src={Medium} alt="Medium" />
           </StyledImg>
           <StyledImg
-            width="84px"
+            width="60px"
             target="_blank"
             rel="noreferrer"
-            href="https://blurt.blog/@gamestate"
+            href="https://github.com/Gamestate-one/Gamestate"
           >
-            <img src={Bird} alt="Bird" />
+            <img src={Github} alt="Github" />
           </StyledImg>
           <StyledImg
             width="224px"
@@ -179,7 +189,13 @@ const StyledHead = styled.div`
   }
 `;
 const StyledImg = styled.a`
+  &:hover {
+  }
   max-width: ${(props: TextProps) => props.width};
+  img {
+    width: 100%;
+    height: 100%;
+  }
   @media screen and (max-width: 576px) {
     img {
       max-height: 60px;

@@ -13,6 +13,7 @@ import coreManne from 'app/assets/img/Team/coreManne.png';
 import corePeck from 'app/assets/img/Team/corePeck.png';
 import coreMartinez from 'app/assets/img/Team/coreMartinez.png';
 import coreTien from 'app/assets/img/Team/coreTien.png';
+import coreEdde from 'app/assets/img/Team/coreEdde.png';
 import mobileCoreCong from 'app/assets/img/Team/mobileCoreCong.png';
 // import mobileCoreKobus from "../../assets/img/Team/mobileCoreKobus.png"
 import mobileCoreLocke from 'app/assets/img/Team/mobileCoreLocke.png';
@@ -24,9 +25,10 @@ import mobileCoreViet from 'app/assets/img/Team/mobileCoreViet.png';
 import mobileCoreManne from 'app/assets/img/Team/mobileCoreManne.png';
 import mobileCorePeck from 'app/assets/img/Team/mobileCorePeck.png';
 import mobileCoreTien from 'app/assets/img/Team/mobileCoreTien.png';
+import mobileCoreEdde from 'app/assets/img/Team/mobileCoreEdde.png';
 
 // import mobileCoreMartinez from "../../assets/img/Team/mobileCoreMartinez.png"
-import anonymous from 'app/assets/img/Team/anonymous.png';
+// import anonymous from 'app/assets/img/Team/anonymous.png';
 import AvatarItem from '../AvatarItem';
 import team from 'app/assets/img/Team/team.png';
 import styled from 'styled-components';
@@ -88,6 +90,7 @@ const StyledMobileTeamRow = styled(Row)`
 const CORE_TEAM = [
   {
     src: coreRicardo,
+    srcMobile: mobileCoreRicardo,
     name: 'RICARDO FERREIRA',
     job: 'CO-FOUNDER & TECHNICAL DIRECTOR',
     desc: 'Bachelor of Commerce thought leader, with wide entrepreneurial and business development experience in real estate, manufacturing, information technology, fintech, and blockchain social media sectors.',
@@ -96,77 +99,98 @@ const CORE_TEAM = [
   },
   {
     src: corePeter,
+    srcMobile: mobileCorePeter,
     name: 'PETER HJORTSOE',
     job: 'CO-FOUNDER',
     desc: 'M.Sc. International Business. Professional experience in real estate, FMCG, retail, renewable energy & finance. Serial entrepreneur, building and scaling businesses in Asia since 2014.',
-    twitter: '',
-    linkedIn: '',
+    twitter: 'https://twitter.com/deerlakep',
+    linkedIn: 'https://www.linkedin.com/in/peter-hjortsoe/',
   },
   {
     src: coreLocke,
+    srcMobile: mobileCoreLocke,
     name: 'LOCKE KOSNOFF',
     job: 'CO-FOUNDER & MARKETING DIRECTOR',
     desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/lockekosnoff',
   },
   // {
   //   src: coreKobus,
   //   name: "KOBUS KOTZE",
-  //   job: "CREATIVE LEAD",
+  //   job: "CREATIVE LEAD"//
   //   desc: "12 Years’ experience in broadcasting, branding, marketing, and strategy. Literary Theory and Writing graduate; currently a brand advisor to Bundesliga, Netflix, Discovery, and other major players.",
+  // twitter: '',
+  // linkedIn: ''
   // },
   {
     src: corePeck,
+    srcMobile: mobileCorePeck,
     name: 'Sean Peck',
     job: 'Business Strategist',
     desc: 'MBA. Finance & Human Resources, BA. Biz Management. Experienced in manufacturing management, startups, valuations, mergers, acquisitions, project management, scaling, and strategic management.',
-    twitter: '',
-    linkedIn: '',
+    twitter: 'https://twitter.com/SeanSunset',
+    linkedIn: 'https://www.linkedin.com/in/seanpeck',
   },
   {
     src: coreCong,
+    srcMobile: mobileCoreCong,
     name: 'CONG NGUYEN',
     job: 'CEO - BLOCKCHAIN DEVELOPER ASIA',
     desc: 'An experienced leader in modern technological innovation. Developed the DeFi For You platform and several ongoing blockchain projects for the Vietnamese government, banks, and local industries.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/cong-nguyen-b5b274102/',
   },
   {
     src: coreTung,
+    srcMobile: mobileCoreTung,
     name: 'TUNG DUONG THANH',
     job: 'DEV. LEAD - BLOCKCHAIN DEVELOPER ASIA',
     desc: 'Project manager in multiple blockchain engineering teams, most recently, Travala and Defi For You. Tung is a leading-edge developer; constantly pushing the boundaries of modern technology.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn:
+      'https://www.linkedin.com/in/d%C6%B0%C6%A1ng-thanh-t%C3%B9ng-845aa764/',
   },
   {
     src: coreViet,
+    srcMobile: mobileCoreViet,
     name: `VIET TUAN VU`,
     job: 'VR GAME SPECIALIST',
     desc: '18 years’ experience in the fields of telecommunications and IT. More than 5 years involved in collaborating and providing AR/VR solutions to a wide range of industries.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn: undefined,
   },
   {
     src: coreSang,
+    srcMobile: mobileCoreSang,
     name: 'SANG THE DUONG',
     job: '3D DESIGNER',
     desc: 'More than 5 years’ experience designing for various AR/VR applications, ranging from games, simulation, travel, and education.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn: undefined,
+  },
+  {
+    src: coreEdde,
+    srcMobile: mobileCoreEdde,
+    name: 'Thomas Edde',
+    job: 'Operations & Strategy',
+    desc: 'Bsc. International Management, specialized as project manager, business analyst, business consultant, operations management, at IBM, Kyndryl, and Kepler DAO process Improvement, automation, and standardisation.',
+    twitter: undefined,
+    linkedIn: undefined,
   },
   {
     src: coreManne,
+    srcMobile: mobileCoreManne,
     name: 'Rycharde Manne',
     job: 'Metanomics Architect',
     desc: 'Published mathematics author, Oxford educated cryptonomics researcher, extensively proficient in stress testing algorithmic optimisations, designing and managing DeFi investments.',
-    twitter: '',
-    linkedIn: '',
+    twitter: undefined,
+    linkedIn: undefined,
   },
 
   {
     src: coreMartinez,
+    srcMobile: coreMartinez,
     name: 'Licarmen Martinez',
     job: 'Synergy Alliances',
     desc: 'PhD. Management Science, skilled in industrial relations, managing agile tools in blockchain teams and communities, international speaker, organizer of international virtual events.',
@@ -175,126 +199,24 @@ const CORE_TEAM = [
   },
   {
     src: coreTien,
+    srcMobile: mobileCoreTien,
     name: 'TIEN NGUYEN',
     job: 'DIGITAL MARKETING MANAGER',
     desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    src: anonymous,
-    name: '',
-    job: '',
-    desc: '',
-  },
-];
-
-const MOBILE_CORE_TEAM = [
-  {
-    image: mobileCoreRicardo,
-    name: 'RICARDO FERREIRA',
-    job: 'CO-FOUNDER & TECHNICAL DIRECTOR',
-    desc: 'Bachelor of Commerce thought leader, with wide entrepreneurial and business development experience in real estate, manufacturing, information technology, fintech, and blockchain social media sectors.',
-    twitter: 'https://twitter.com/TheCryptoDrive',
-    linkedIn: 'https://www.linkedin.com/in/ferreira-ricardo/',
-  },
-  {
-    image: mobileCorePeter,
-    name: 'PETER HJORTSOE',
-    job: 'CO-FOUNDER',
-    desc: 'M.Sc. International Business. Professional experience in real estate, FMCG, retail, renewable energy & finance. Serial entrepreneur, building and scaling businesses in Asia since 2014.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreLocke,
-    name: 'LOCKE KOSNOFF',
-    job: 'CO-FOUNDER & MARKETING DIRECTOR',
-    desc: 'BBA and PGCEi graduate, experienced in the fields of blockchain marketing, project management, communications, and advisory in various fintech start-ups.',
-    twitter: '',
-    linkedIn: '',
+    twitter: 'https://twitter.com/TienHip',
+    linkedIn: 'https://www.linkedin.com/in/huytien/',
   },
   // {
-  //   image: mobileCoreKobus,
-  //   name: "KOBUS KOTZE",
-  //   job: "CREATIVE LEAD",
-  //   desc: "12 Years’ experience in broadcasting, branding, marketing, and strategy. Literary Theory and Writing graduate; currently a brand advisor to Bundesliga, Netflix, Discovery, and other major players.",
+  //   src: anonymous,
+  //   srcMobile: anonymous,
+  //   name: "",
+  //   job: "",
+  //   desc: "",
+  //   twitter: "",
+  //   linkedIn: "",
   // },
-  {
-    image: mobileCorePeck,
-    name: 'Sean Peck',
-    job: 'Business Strategist',
-    desc: 'MBA. Finance & Human Resources, BA. Biz Management. Experienced in manufacturing management, startups, valuations, mergers, acquisitions, project management, scaling, and strategic management.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreCong,
-    name: 'CONG NGUYEN',
-    job: 'CEO - BLOCKCHAIN DEVELOPER ASIA',
-    desc: 'An experienced leader in modern technological innovation. Developed the DeFi For You platform and several ongoing blockchain projects for the Vietnamese government, banks, and local industries.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreTung,
-    name: 'TUNG DUONG THANH',
-    job: 'DEV. LEAD - BLOCKCHAIN DEVELOPER ASIA',
-    desc: 'Project manager in multiple blockchain engineering teams, most recently, Travala and Defi For You. Tung is a leading-edge developer; constantly pushing the boundaries of modern technology.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreViet,
-    name: `VIET TUAN VU`,
-    job: 'VR GAME SPECIALIST',
-    desc: '18 years’ experience in the fields of telecommunications and IT. More than 5 years involved in collaborating and providing AR/VR solutions to a wide range of industries.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreSang,
-    name: 'SANG THE DUONG',
-    job: '3D DESIGNER',
-    desc: 'More than 5 years’ experience designing for various AR/VR applications, ranging from games, simulation, travel, and education.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: mobileCoreManne,
-    name: 'Rycharde Manne',
-    job: 'Metanomics Architect',
-    desc: 'Published mathematics author, Oxford educated cryptonomics researcher, extensively proficient in stress testing algorithmic optimisations, designing and managing DeFi investments.',
-    twitter: '',
-    linkedIn: '',
-  },
-
-  {
-    image: coreMartinez,
-    name: 'Licarmen Martinez',
-    job: 'Synergy Alliances',
-    desc: 'PhD. Management Science, skilled in industrial relations, managing agile tools in blockchain teams and communities, international speaker, organizer of international virtual events.',
-    twitter: 'https://twitter.com/lmartinezmdl',
-    linkedIn: 'https://www.linkedin.com/in/licarmen-mart%C3%ADnez-21122861/',
-  },
-
-  {
-    image: mobileCoreTien,
-    name: 'TIEN NGUYEN',
-    job: 'DIGITAL MARKETING MANAGER',
-    desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
-    twitter: '',
-    linkedIn: '',
-  },
-  {
-    image: anonymous,
-    name: '',
-    job: '',
-    desc: '',
-    twitter: '',
-    linkedIn: '',
-  },
 ];
+
 const CoreTeam = () => {
   return (
     <StyledBlockCoreTeam>
@@ -311,12 +233,12 @@ const CoreTeam = () => {
           {CORE_TEAM.map((item, idx) => (
             <StyledItemCol md={6} xxl={3} key={idx}>
               {/* <AvatarItem item={item} /> */}
-              <AvatarItem item={item} anonymous={idx === 11} />
+              <AvatarItem item={item} anonymous={idx === 12} />
             </StyledItemCol>
           ))}
         </StyledTeamRow>
         <StyledMobileTeamRow>
-          {MOBILE_CORE_TEAM.map((item, idx) => (
+          {CORE_TEAM.map((item, idx) => (
             <AvatarItemMobile item={item} key={idx} />
           ))}
         </StyledMobileTeamRow>

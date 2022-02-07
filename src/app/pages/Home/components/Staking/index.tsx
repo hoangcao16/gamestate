@@ -58,7 +58,7 @@ const Staking = () => {
               winners.
             </StyledDescRight>
             <StyledVideo
-              linkVideo="http://136.243.47.124/GS_Cinematic_v04_HQ.mp4"
+              linkVideo="https://defiforyou.mypinata.cloud/ipfs/QmWAkpPw3fstuK3F7UjuAQ1YEHamftzB82nVnv7UtnQAoQ"
               radius="10"
               shadow
             />

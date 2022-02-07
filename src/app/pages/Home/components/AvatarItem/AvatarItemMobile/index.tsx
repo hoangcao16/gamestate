@@ -46,12 +46,16 @@ const StyledItemDesc = styled.p`
   flex: 1;
   margin-top: 8px;
 `;
-const StyledIcons = styled.div`
+const StyledIcons = styled.div<{
+  has_linked_in: boolean;
+  has_twitter: boolean;
+}>`
   position: absolute;
-  top: 0px;
+  top: ${props => (props.has_linked_in && props.has_twitter ? '0px' : ' 6px')};
   right: 12px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: ${props =>
+    props.has_linked_in && props.has_twitter ? 'space-evenly' : ''};
   height: 60px;
   flex-direction: column;
 `;
@@ -73,11 +77,12 @@ const StyledIcon = styled.a`
 `;
 interface AvatarItemMobileProps {
   item: {
-    image: string;
+    src?: string | any;
+    srcMobile?: string | any;
     name: string;
     job: string;
     desc: string;
-    twitter?: string;
+    twitter?: string | undefined;
     linkedIn?: string;
   };
 }
@@ -85,7 +90,7 @@ const AvatarItemMobile = ({ item }: AvatarItemMobileProps) => {
   return item.name === '' ? (
     <StyledItemColMobile>
       <a href="#contact-form">
-        <StyledItemImage image={item.image} />
+        <StyledItemImage image={item.srcMobile} />
         <StyledItemName>{item.name}</StyledItemName>
         <StyledItemJob>{item.job}</StyledItemJob>
         <StyledItemDesc>{item.desc}</StyledItemDesc>
@@ -93,14 +98,22 @@ const AvatarItemMobile = ({ item }: AvatarItemMobileProps) => {
     </StyledItemColMobile>
   ) : (
     <StyledItemColMobile>
-      <StyledItemImage image={item.image} />
-      <StyledIcons className="icons">
-        <StyledIcon href={item.linkedIn} target="_blank">
-          <IconLinkedIn />
-        </StyledIcon>
-        <StyledIcon href={item.twitter} target="_blank">
-          <IconTwitter />
-        </StyledIcon>
+      <StyledItemImage image={item.srcMobile} />
+      <StyledIcons
+        className="icons"
+        has_linked_in={!!item.twitter}
+        has_twitter={!!item.linkedIn}
+      >
+        {item.linkedIn && (
+          <StyledIcon href={item.linkedIn} target="_blank">
+            <IconLinkedIn />
+          </StyledIcon>
+        )}
+        {item.twitter && (
+          <StyledIcon href={item.twitter} target="_blank">
+            <IconTwitter />
+          </StyledIcon>
+        )}
       </StyledIcons>
       <StyledItemName>{item.name}</StyledItemName>
       <StyledItemJob>{item.job}</StyledItemJob>

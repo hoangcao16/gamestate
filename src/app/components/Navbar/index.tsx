@@ -18,6 +18,7 @@ import {
   StyledDropdown,
   StyledNav,
   StyledNavbarToggle,
+  StyledOnePageButton,
   StyledImg,
   StyledContainer,
   StyledNavbar,
@@ -82,6 +83,12 @@ const Header = () => {
               >
                 PITCH DECK
               </StyledFirstButton>
+              <StyledOnePageButton
+                href="https://defiforyou.mypinata.cloud/ipfs/QmRpXPJziAZsGDBzWJ8VVFoMkp8tagVfQunFytNNBpgDtz"
+                target="_blank"
+              >
+                ONE PAGER
+              </StyledOnePageButton>
               <StyledSecondButton
                 href="https://static.defiforyou.uk/Gamestate-metapaper-20211208.pdf"
                 target="_blank"

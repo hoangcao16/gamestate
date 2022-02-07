@@ -3,7 +3,7 @@ import { Video } from '../Video';
 
 const Hero = () => {
   return (
-    <Video linkVideo="http://136.243.47.124/Gamestate%20SFX%20MIX%201.mp4" />
+    <Video linkVideo="https://defiforyou.mypinata.cloud/ipfs/QmRQUGrUGEQ8Tsh6Q8srRVLbuaFxF7sXC1uR1Mj1ovz2h7" />
   );
 };
 

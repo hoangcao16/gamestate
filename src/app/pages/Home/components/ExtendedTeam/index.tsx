@@ -77,108 +77,81 @@ const StyledMobileLabelRow = styled(Row)`
     display: none;
   }
 `;
-
 const EXTENDED_TEAM = [
   {
     src: extErik,
+    srcMobile: mobileExtErik,
     name: 'ERIK CURRE',
     job: 'SPLINTERLANDS.COM | HIVE-ENGINE.COM',
     desc: 'University of Washington B.S.C. Banking industry developer turned code-slinger for Hive Engine smart contract DEX, and the popular Splinterlands digital trading card game.',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/ecurre/',
   },
   {
     src: extAdam,
+    srcMobile: mobileExtAdam,
     name: 'ADAM CHAPLIN',
     job: 'DEFIFORYOU.UK | DIGCHAIN.ORG',
     desc: 'CEO of DeFi For You, Dig Chain, and co-founder of Travala. Adam is a seasoned veteran with 30 years of business management experience.',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/adamchristopherchaplin',
   },
   {
     src: extWilliam,
+    srcMobile: mobileExtWilliam,
     name: 'WILLIAM GRAY',
     job: 'DEFIFORYOU.UK | DIGCHAIN.ORG',
     desc: 'Digital marketing expert and Chief Marketing Officer at DeFi For You and Dig Chain. William’s background includes copywriting, journalism and social media management.',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/williamgraycmo',
   },
   {
     src: extJacob,
+    srcMobile: mobileExtJacob,
     name: 'JACOB GADIKIAN',
     job: 'NOTIONAL | BLURT.BLOG',
     desc: 'Decentralised protocol developer since 2013, and a technical powerhouse in edge-of-network validation, blockchain interoperability, and open embedded systems design.',
+    twitter: 'https://twitter.com/gadikian',
+    linkedIn: 'https://www.linkedin.com/in/jacobgadikian/',
   },
   {
     src: extBrenn,
+    srcMobile: mobileExtBrenn,
     name: 'BRENN HILL',
     job: 'NOTIONAL',
     desc: 'Engineering leader since 2009 focusing on media, sports, and marketing technology. In the blockchain space since 2015, Brenn is a published author with Packt on blockchain topics.',
+    twitter: 'https://twitter.com/brennhill',
+    linkedIn: 'https://www.linkedin.com/in/brennhill/',
   },
   {
     src: extKhanh,
+    srcMobile: mobileExtKhanh,
     name: 'KHANH NGUYEN',
     job: 'NOTIONAL',
     desc: 'Khanh is a skilled blockchain engineer with deep expertise in cross-chain technology. He has a Bachelors in Computer Science from Hanoi University of Science and Technology.',
+    twitter: undefined,
+    linkedIn: undefined,
   },
   {
     src: extAnkur,
+    srcMobile: mobileExtAnkur,
     name: 'ANKUR BANERJEE',
     job: 'CTO - CHEQD.IO',
     desc: 'Engineering and digital identity project leader. Software development innovator, and co-inventor on multiple patent-pending solutions in blockchain and artificial intelligence systems.',
+    twitter: 'https://twitter.com/ankurb',
+    linkedIn: 'https://www.linkedin.com/in/banerjeeankur/',
   },
   {
     src: extMarco,
+    srcMobile: mobileExtMarco,
     name: "MARCO STAGLIANO'",
     job: 'ANOTHER-1.IO | SNEAKERHEADZ',
     desc: 'Digital fashion collectibles marketplace founder, experienced in Corporate Finance, M&A, Fintech, Real-estate, NFT’s and Metaverses. Developed business across Asia and Europe, and acted as head of operations for AngelVest.',
+    twitter: undefined,
+    linkedIn: 'https://www.linkedin.com/in/marco-staglian%C3%B2-50b4864/',
   },
 ];
 
-const MOBILE_EXTENDED_TEAM = [
-  {
-    image: mobileExtErik,
-    name: 'ERIK CURRE',
-    job: 'SPLINTERLANDS.COM | HIVE-ENGINE.COM',
-    desc: 'University of Washington B.S.C. Banking industry developer turned code-slinger for Hive Engine smart contract DEX, and the popular Splinterlands digital trading card game.',
-  },
-  {
-    image: mobileExtAdam,
-    name: 'ADAM CHAPLIN',
-    job: 'DEFIFORYOU.UK | DIGCHAIN.ORG',
-    desc: 'CEO of DeFi For You, Dig Chain, and co-founder of Travala. Adam is a seasoned veteran with 30 years of business management experience.',
-  },
-  {
-    image: mobileExtWilliam,
-    name: 'WILLIAM GRAY',
-    job: 'DEFIFORYOU.UK | DIGCHAIN.ORG',
-    desc: 'Digital marketing expert and Chief Marketing Officer at DeFi For You and Dig Chain. William’s background includes copywriting, journalism and social media management.',
-  },
-  {
-    image: mobileExtJacob,
-    name: 'JACOB GADIKIAN',
-    job: 'NOTIONAL | BLURT.BLOG',
-    desc: 'Decentralised protocol developer since 2013, and a technical powerhouse in edge-of-network validation, blockchain interoperability, and open embedded systems design.',
-  },
-  {
-    image: mobileExtBrenn,
-    name: 'BRENN HILL',
-    job: 'NOTIONAL',
-    desc: 'Engineering leader since 2009 focusing on media, sports, and marketing technology. In the blockchain space since 2015, Brenn is a published author with Packt on blockchain topics.',
-  },
-  {
-    image: mobileExtKhanh,
-    name: 'KHANH NGUYEN',
-    job: 'NOTIONAL',
-    desc: 'Khanh is a skilled blockchain engineer with deep expertise in cross-chain technology. He has a Bachelors in Computer Science from Hanoi University of Science and Technology.',
-  },
-  {
-    image: mobileExtAnkur,
-    name: 'ANKUR BANERJEE',
-    job: 'CTO - CHEQD.IO',
-    desc: 'Engineering and digital identity project leader. Software development innovator, and co-inventor on multiple patent-pending solutions in blockchain and artificial intelligence systems.',
-  },
-  {
-    image: mobileExtMarco,
-    name: "MARCO STAGLIANO'",
-    job: 'ANOTHER-1.IO | SNEAKERHEADZ',
-    desc: 'Digital fashion collectibles marketplace founder, experienced in Corporate Finance, M&A, Fintech, Real-estate, NFT’s and Metaverses. Developed business across Asia and Europe, and acted as head of operations for AngelVest.',
-  },
-];
 const ExtendedTeam = () => {
   return (
     <Container>
@@ -201,7 +174,7 @@ const ExtendedTeam = () => {
         ))}
       </StyledTeamRow>
       <StyledMobileTeamRow>
-        {MOBILE_EXTENDED_TEAM.map((item, idx) => (
+        {EXTENDED_TEAM.map((item, idx) => (
           <AvatarItemMobile item={item} key={idx} />
         ))}
       </StyledMobileTeamRow>
