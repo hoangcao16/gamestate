@@ -131,7 +131,7 @@ export const StyledConnectButton = styled.div`
 export const StyledOnePageButton = styled(A)`
   color: #b5eb39;
   border: 3px solid #e5e75f;
-  box-shadow: inset 0px 3px 6px #dfff2c6c, 0px 3px 6px #cef813;
+  box-shadow: inset 0px 3px 6px #fffb0e6c, 0px 3px 6px #cef813;
   text-shadow: 0px 3px 6px #fffb0e6c, 0px 3px 6px #f0e263e6;
   &:hover {
     color: #fff12a;
