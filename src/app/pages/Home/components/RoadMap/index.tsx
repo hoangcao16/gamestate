@@ -163,8 +163,22 @@ const CONTENT = [
   {
     className: 'card_bottom_left',
     color: '#FE6B1B',
-    label: 'Q1 2022',
+    label: 'Q4 2021',
     image: q4,
+    description: [
+      'Brand Identity',
+      'Initial Synergy Partnerships',
+      'Community Building',
+      'Community Seed Raise',
+      'Metaverse MVP Design',
+    ],
+  },
+
+  {
+    className: 'card_top_left',
+    color: '#FA0E86',
+    label: 'Q1 2022',
+    image: q1,
     description: [
       'Launch NFT Collection',
       'Private Raise',
@@ -175,10 +189,10 @@ const CONTENT = [
     ],
   },
   {
-    className: 'card_top_left',
-    color: '#FA0E86',
-    label: 'Q2 2021',
-    image: q1,
+    className: 'card_bottom_right',
+    color: '#560DB1',
+    label: 'Q2 2022',
+    image: q2,
     description: [
       'Launch Metaverse MVP',
       'Community Artist NFT Collections',
@@ -186,29 +200,16 @@ const CONTENT = [
     ],
   },
   {
-    className: 'card_bottom_right',
-    color: '#560DB1',
+    className: 'card_top_right',
+    color: '#1F95FF',
     label: 'Q3 2022',
-    image: q2,
+    image: q3,
     description: [
       'Introduce Game World Economy',
       'Expand and Optimize Megaverse',
       'Accelerate Marketing',
       'Increase Onboarding',
       'Expand Integrations',
-    ],
-  },
-  {
-    className: 'card_top_right',
-    color: '#1F95FF',
-    label: 'Q4 2022',
-    image: q3,
-    description: [
-      'Brand Identity',
-      'Initial Synergy Partnerships',
-      'Community Building',
-      'Community Seed Raise',
-      'Metaverse MVP Design',
     ],
   },
 ];
