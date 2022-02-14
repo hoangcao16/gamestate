@@ -10,8 +10,8 @@ import q3 from 'app/assets/img/RoadMap/q3.png';
 import q4 from 'app/assets/img/RoadMap/q4.png';
 const StyledBlockRoadMap = styled.div`
   height: 66vw;
-  margin-top: 126px;
-  margin-bottom: 286px;
+  margin-top: 170px;
+  margin-bottom: 320px;
   @media screen and (min-width: 1920px) {
     & div.card_top_right {
       top: -60px;
@@ -31,14 +31,17 @@ const StyledBlockRoadMap = styled.div`
       bottom: 100px;
     }
     & div.card_bottom_left {
-      bottom: -190px;
+      bottom: -210px;
       left: 140px;
     }
   }
   @media screen and (max-width: 1860px) {
     & div.card_top_right {
       right: 70px;
-      top: -70px;
+      top: -90px;
+    }
+    & div.card_top_left {
+      top: -170px;
     }
   }
 
@@ -47,12 +50,17 @@ const StyledBlockRoadMap = styled.div`
       top: -140px;
     }
     & div.card_top_left {
-      top: -100px;
+      top: -150px;
+    }
+    & div.card_bottom_right {
+      bottom: 10px;
+      right: 40px;
     }
   }
   @media screen and (max-width: 1399px) {
     & div.card_top_right {
       right: 0px;
+      top: -150px;
     }
     & div.card_bottom_right {
       right: 20px;
@@ -60,16 +68,21 @@ const StyledBlockRoadMap = styled.div`
     }
     & div.card_top_left {
       left: 0;
-      top: -140px;
+      top: -180px;
     }
     & div.card_bottom_left {
       left: 0;
+      bottom: -280px;
     }
   }
 
   @media screen and (max-width: 1199px) {
     & div.card_top_right {
       right: 0px;
+      top: -200px;
+    }
+    & div.card_bottom_right {
+      bottom: -100px;
     }
   }
 
@@ -150,49 +163,53 @@ const CONTENT = [
   {
     className: 'card_bottom_left',
     color: '#FE6B1B',
-    label: 'Q4 2021',
+    label: 'Q2 2022',
     image: q4,
     description: [
-      'Initial Partnerships',
-      'Community building',
-      'Hive-Engine IDO',
-      'Polygon main event IDO',
+      'Launch Metaverse MVP',
+      'Community Artist NFT Collections',
+      'Multi-chain Integration',
     ],
   },
   {
     className: 'card_top_left',
     color: '#FA0E86',
-    label: 'Q1 2022',
+    label: 'Q4 2021',
     image: q1,
     description: [
-      'NFT collection design',
-      'Metaverse development',
-      'Launch NFT collection',
-      'Unveil marketplace',
+      'Brand Identity',
+      'Initial Synergy Partnerships',
+      'Community Building',
+      'Community Seed Raise',
+      'Metaverse MVP Design',
     ],
   },
   {
     className: 'card_bottom_right',
     color: '#560DB1',
-    label: 'Q2 2022',
+    label: 'Q3 2022',
     image: q2,
     description: [
-      'Launch metaverse MVP',
-      'Community artist NFT collections',
-      'Multi-chain Integration',
+      'Introduce Game World Economy',
+      'Expand and Optimize Megaverse',
+      'Accelerate Marketing',
+      'Increase Onboarding',
+      'Expand Integrations',
     ],
   },
 
   {
     className: 'card_top_right',
     color: '#1F95FF',
-    label: 'Q3 2022',
+    label: 'Q1 2022',
     image: q3,
     description: [
-      'Introduce game world economy',
-      'Accelerate marketing',
-      'Increase onboarding',
-      'Expand integrations',
+      'Launch NFT Collection',
+      'Private Raise',
+      'Polygon Multi-Launchpad Raise',
+      'Staking Pools',
+      'Copperlaunch LBP',
+      'Quickswap & Uniswap Dex listings',
     ],
   },
 ];
