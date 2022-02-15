@@ -23,6 +23,7 @@ import logoXhash from 'app/assets/img/Logo/logoXhash.png';
 import logoConfluence from 'app/assets/img/Logo/logoConfluence.png';
 import logoNya from 'app/assets/img/Logo/logoNya.png';
 import logoRoad from 'app/assets/img/Logo/logoRoad.png';
+import logoArcade from 'app/assets/img/Logo/logoArcade.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -186,6 +187,14 @@ const PARTNERS = [
         name: 'logoRoad',
         src: logoRoad,
         link: 'https://corporateroadshow.com/profile/?logoid=8877',
+        width: '500',
+        height: '198',
+        right: '100',
+      },
+      {
+        name: 'logoArcade',
+        src: logoArcade,
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-arcadenetwork-to-create-the-megaverse-99c59baa5c0e',
         width: '500',
         height: '198',
         right: '100',

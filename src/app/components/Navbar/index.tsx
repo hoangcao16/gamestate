@@ -84,13 +84,13 @@ const Header = () => {
                 PITCH DECK
               </StyledFirstButton>
               <StyledOnePageButton
-                href="https://defiforyou.mypinata.cloud/ipfs/QmRpXPJziAZsGDBzWJ8VVFoMkp8tagVfQunFytNNBpgDtz"
+                href="https://drive.google.com/file/d/1POi_e0qvqcbkmnOBovydCOc66FAhMgij/view"
                 target="_blank"
               >
                 ONE PAGER
               </StyledOnePageButton>
               <StyledSecondButton
-                href="https://static.defiforyou.uk/Gamestate-metapaper-20211208.pdf"
+                href="https://drive.google.com/file/d/1QyeBB46XmXQnvmw9XfrK-vo39-qI68hU/view"
                 target="_blank"
               >
                 METAPAPER
