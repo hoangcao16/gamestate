@@ -197,7 +197,7 @@ const PARTNERS = [
         src: logoRoad,
         link: 'https://corporateroadshow.com/profile/?logoid=8877',
         width: '500',
-        height: '198',
+        height: '',
         right: '100',
       },
       {
@@ -205,7 +205,7 @@ const PARTNERS = [
         src: logoMida,
         link: 'https://midanft.com/',
         width: '500',
-        height: '198',
+        height: '',
         right: '100',
       },
     ],
