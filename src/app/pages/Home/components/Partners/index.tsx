@@ -25,6 +25,7 @@ import logoNya from 'app/assets/img/Logo/logoNya.png';
 import logoRoad from 'app/assets/img/Logo/logoRoad.png';
 import logoArcade from 'app/assets/img/Logo/logoArcade.png';
 import logoMida from 'app/assets/img/Logo/logoMida.svg';
+import logoFat from 'app/assets/img/Logo/logoFat.svg';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -196,6 +197,14 @@ const PARTNERS = [
         name: 'logoRoad',
         src: logoRoad,
         link: 'https://corporateroadshow.com/profile/?logoid=8877',
+        width: '500',
+        height: '',
+        right: '100',
+      },
+      {
+        name: 'logoFat',
+        src: logoFat,
+        link: 'https://fatcatscapital.com/',
         width: '500',
         height: '',
         right: '100',
