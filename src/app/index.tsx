@@ -16,10 +16,16 @@ import { useTranslation } from 'react-i18next';
 import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
+import DetailNft from './pages/DetailNft';
+import Wearable from './pages/Wearable';
 // import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import { useGlobalState } from 'store/globalReducer';
 import PrivateRoute from 'app/components/common/privateRoute';
+
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 export const history = createBrowserHistory();
 export function App() {
@@ -43,25 +49,29 @@ export function App() {
   // });
 
   return (
-    <Router history={history}>
-      <Helmet
-        titleTemplate="Gamestate"
-        defaultTitle="Gamestate"
-        htmlAttributes={{ lang: i18n.language }}
-      >
-        <meta
-          name="description"
-          content="Gamestate is a cross-chain, multi-world megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning."
-        />
-      </Helmet>
+    <QueryClientProvider client={queryClient}>
+      <Router history={history}>
+        <Helmet
+          titleTemplate="Gamestate"
+          defaultTitle="Gamestate"
+          htmlAttributes={{ lang: i18n.language }}
+        >
+          <meta
+            name="description"
+            content="Gamestate is a cross-chain, multi-world megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning."
+          />
+        </Helmet>
 
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/buy" component={BuyQuantum} />
-        <PrivateRoute exact path="/order" component={QuantumOrder} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </Router>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/buy" component={BuyQuantum} />
+          <PrivateRoute exact path="/order" component={QuantumOrder} />
+          <PrivateRoute exact path="/wearable" component={Wearable} />
+          <Route exact path="/nft/:id" component={DetailNft} />
+          <Route component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </Router>
+    </QueryClientProvider>
   );
 }
