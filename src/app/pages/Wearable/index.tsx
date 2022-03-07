@@ -11,6 +11,7 @@ import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { apiNftDetailByID } from 'services/apiDetailNFt';
 import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -30,6 +31,7 @@ const QuantumOrder = () => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const [metadata, setMetadata] = useState<any>({});
   const history = useHistory();
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
@@ -49,40 +51,60 @@ const QuantumOrder = () => {
     !curAddress && !wallet?.wallet && history.push('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curAddress, wallet]);
+
+  useEffect(() => {
+    (async () => {
+      const metadata = await apiNftDetailByID(data[0]);
+      setMetadata(metadata.data);
+    })();
+  }, [data]);
   return (
     <>
       <Header />
       <Main>
-        <P>Quantum Accelerator orders</P>
+        <P>My wallet</P>
         <CtnFilter>
-          <Button
+          <StyleButton
             id="basic-button"
             aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
             style={{
               background: '#212121 0% 0% no-repeat padding-box',
               color: '#fff',
               width: '150px',
               borderRadius: '24px',
             }}
-            onClick={handleClick}
           >
             Filter
-          </Button>
+          </StyleButton>
         </CtnFilter>
         {isLoading ? (
           <CircularProgress size={40} color="primary" />
         ) : (
           <Row className="justify-content-center">
-            {data?.map((item, index) => {
-              return (
-                <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
-                  <QuantumItem items={item} idx={index + 1} />
-                  <LabelPrice># {item}</LabelPrice>
-                </StyledCol>
-              );
-            })}
+            {data.length
+              ? data?.map((item, index) => {
+                  return (
+                    <StyledCol
+                      key={index}
+                      xs={6}
+                      sm={6}
+                      lg={3}
+                      xl={2}
+                      onClick={() => history.push(`/nft/${item}`)}
+                    >
+                      <QuantumItem
+                        items={item}
+                        metadata={metadata}
+                        idx={index + 1}
+                      />
+                      <LabelPrice># {item}</LabelPrice>
+                    </StyledCol>
+                  );
+                })
+              : ''}
           </Row>
         )}
       </Main>
@@ -107,17 +129,18 @@ const QuantumOrder = () => {
         >
           <ListItemButton>
             <Chip
-              style={{ marginRight: '10px', cursor: `pointer` }}
+              style={{
+                marginRight: '10px',
+                cursor: `pointer`,
+                background: '#e740f0',
+                color: '#fff',
+              }}
               label="Wearable"
               variant="outlined"
               onClick={() => handleLink(`/wearable`)}
             />
             <Chip
-              style={{
-                cursor: `pointer`,
-                background: '#e740f0',
-                color: '#fff',
-              }}
+              style={{ cursor: `pointer` }}
               label="Quantum"
               variant="outlined"
               onClick={() => handleLink(`/order`)}
@@ -161,6 +184,7 @@ const Main = styled(Container)`
   }
 `;
 const StyledCol = styled(Col)`
+  cursor: pointer;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -173,4 +197,8 @@ const CtnFilter = styled.div`
   text-align: left;
   margin-bottom: 30px;
   display: flex;
+`;
+const StyleButton = styled(Button)``;
+const StyleChip = styled(Chip)`
+  cursor: pointer;
 `;
