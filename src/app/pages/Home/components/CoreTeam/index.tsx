@@ -12,8 +12,9 @@ import coreViet from 'app/assets/img/Team/coreViet.png';
 import coreManne from 'app/assets/img/Team/coreManne.png';
 import corePeck from 'app/assets/img/Team/corePeck.png';
 import coreMartinez from 'app/assets/img/Team/coreMartinez.png';
-import coreTien from 'app/assets/img/Team/coreTien.png';
+// import coreTien from 'app/assets/img/Team/coreTien.png';
 import coreEdde from 'app/assets/img/Team/coreEdde.png';
+import coreToni from 'app/assets/img/Team/coreToni.png';
 import mobileCoreCong from 'app/assets/img/Team/mobileCoreCong.png';
 // import mobileCoreKobus from "../../assets/img/Team/mobileCoreKobus.png"
 import mobileCoreLocke from 'app/assets/img/Team/mobileCoreLocke.png';
@@ -24,8 +25,9 @@ import mobileCoreTung from 'app/assets/img/Team/mobileCoreTung.png';
 import mobileCoreViet from 'app/assets/img/Team/mobileCoreViet.png';
 import mobileCoreManne from 'app/assets/img/Team/mobileCoreManne.png';
 import mobileCorePeck from 'app/assets/img/Team/mobileCorePeck.png';
-import mobileCoreTien from 'app/assets/img/Team/mobileCoreTien.png';
+// import mobileCoreTien from 'app/assets/img/Team/mobileCoreTien.png';
 import mobileCoreEdde from 'app/assets/img/Team/mobileCoreEdde.png';
+import mobileCoreToni from 'app/assets/img/Team/mobileCoreToni.png';
 
 // import mobileCoreMartinez from "../../assets/img/Team/mobileCoreMartinez.png"
 // import anonymous from 'app/assets/img/Team/anonymous.png';
@@ -179,6 +181,15 @@ const CORE_TEAM = [
     linkedIn: undefined,
   },
   {
+    src: coreToni,
+    srcMobile: mobileCoreToni,
+    name: 'Toni Cristian Tanase',
+    job: 'Concept Manager',
+    desc: 'Masters in Architecture, Project Manager in pharmaceutical planning and development both in Germany and Switzerland since 2014, member of the Chamber of Architects in Germany and Switzerland.',
+    twitter: undefined,
+    linkedIn: undefined,
+  },
+  {
     src: coreManne,
     srcMobile: mobileCoreManne,
     name: 'Rycharde Manne',
@@ -197,15 +208,7 @@ const CORE_TEAM = [
     twitter: 'https://twitter.com/lmartinezmdl',
     linkedIn: 'https://www.linkedin.com/in/licarmen-mart%C3%ADnez-21122861/',
   },
-  {
-    src: coreTien,
-    srcMobile: mobileCoreTien,
-    name: 'TIEN NGUYEN',
-    job: 'DIGITAL MARKETING MANAGER',
-    desc: 'Digital marketing with a focus on social media, web development, SEO, software development, e-commerce, edtech and fintech.',
-    twitter: 'https://twitter.com/TienHip',
-    linkedIn: 'https://www.linkedin.com/in/huytien/',
-  },
+
   // {
   //   src: anonymous,
   //   srcMobile: anonymous,
