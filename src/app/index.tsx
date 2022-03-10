@@ -67,7 +67,7 @@ export function App() {
           <Route exact path="/buy" component={BuyQuantum} />
           <PrivateRoute exact path="/order" component={QuantumOrder} />
           <PrivateRoute exact path="/wearable" component={Wearable} />
-          <Route exact path="/nft/:id" component={DetailNft} />
+          <Route exact path="/nft/wearable/:id" component={DetailNft} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
