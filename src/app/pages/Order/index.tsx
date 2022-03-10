@@ -2,7 +2,7 @@ import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
 import LabelPrice from './components/LabelPrice';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOrderNFTSlice } from './slice';
@@ -11,24 +11,10 @@ import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
-import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
-import Chip from '@mui/material/Chip';
-import ListItemButton from '@mui/material/ListItemButton';
 const QuantumOrder = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const handleLink = link => {
     history.push(link);
-    setAnchorEl(null);
-  };
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
   };
   const history = useHistory();
   const curAddress = JSON.parse(
@@ -53,22 +39,32 @@ const QuantumOrder = () => {
     <>
       <Header />
       <Main>
-        <P>Quantum Accelerator orders</P>
+        <P>My wallet</P>
         <CtnFilter>
           <Button
             id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
             style={{
-              background: '#212121 0% 0% no-repeat padding-box',
+              background: '#e740f0',
+              color: '#fff',
+              width: '150px',
+              borderRadius: '24px',
+              marginRight: '10px',
+            }}
+            onClick={() => handleLink(`/order`)}
+          >
+            Quantum
+          </Button>
+          <Button
+            id="basic-button"
+            variant="outlined"
+            style={{
               color: '#fff',
               width: '150px',
               borderRadius: '24px',
             }}
-            onClick={handleClick}
+            onClick={() => handleLink(`/wearable`)}
           >
-            Filter
+            Wearable
           </Button>
         </CtnFilter>
         {isLoading ? (
@@ -86,45 +82,6 @@ const QuantumOrder = () => {
           </Row>
         )}
       </Main>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <List
-          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              Category
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <Chip
-              style={{ marginRight: '10px', cursor: `pointer` }}
-              label="Wearable"
-              variant="outlined"
-              onClick={() => handleLink(`/wearable`)}
-            />
-            <Chip
-              style={{
-                cursor: `pointer`,
-                background: '#e740f0',
-                color: '#fff',
-              }}
-              label="Quantum"
-              variant="outlined"
-              onClick={() => handleLink(`/order`)}
-            />
-          </ListItemButton>
-        </List>
-      </Menu>
     </>
   );
 };
