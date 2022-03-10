@@ -90,7 +90,7 @@ const QuantumOrder = () => {
                       sm={6}
                       lg={3}
                       xl={2}
-                      onClick={() => history.push(`/nft/${item}`)}
+                      onClick={() => history.push(`/nft/wearable/${item}`)}
                     >
                       <QuantumItem
                         items={item}
