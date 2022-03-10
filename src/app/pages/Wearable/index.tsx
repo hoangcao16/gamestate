@@ -12,24 +12,10 @@ import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import { apiNftDetailByID } from 'services/apiDetailNFt';
-import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
-import Chip from '@mui/material/Chip';
-import ListItemButton from '@mui/material/ListItemButton';
 const QuantumOrder = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const handleLink = link => {
     history.push(link);
-    setAnchorEl(null);
-  };
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
   };
   const [metadata, setMetadata] = useState<any>({});
   const history = useHistory();
@@ -64,21 +50,32 @@ const QuantumOrder = () => {
       <Main>
         <P>My wallet</P>
         <CtnFilter>
-          <StyleButton
+          <Button
             id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
+            variant="outlined"
+            disableRipple
             style={{
-              background: '#212121 0% 0% no-repeat padding-box',
+              color: '#fff',
+              width: '150px',
+              borderRadius: '24px',
+              marginRight: '10px',
+            }}
+            onClick={() => handleLink(`/order`)}
+          >
+            Quantum
+          </Button>
+          <Button
+            id="basic-button"
+            style={{
+              background: '#e740f0',
               color: '#fff',
               width: '150px',
               borderRadius: '24px',
             }}
+            onClick={() => handleLink(`/wearable`)}
           >
-            Filter
-          </StyleButton>
+            Wearable
+          </Button>
         </CtnFilter>
         {isLoading ? (
           <CircularProgress size={40} color="primary" />
@@ -108,46 +105,6 @@ const QuantumOrder = () => {
           </Row>
         )}
       </Main>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <List
-          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              Category
-            </ListSubheader>
-          }
-        >
-          <ListItemButton>
-            <Chip
-              style={{
-                marginRight: '10px',
-                cursor: `pointer`,
-                background: '#e740f0',
-                color: '#fff',
-              }}
-              label="Wearable"
-              variant="outlined"
-              onClick={() => handleLink(`/wearable`)}
-            />
-            <Chip
-              style={{ cursor: `pointer` }}
-              label="Quantum"
-              variant="outlined"
-              onClick={() => handleLink(`/order`)}
-            />
-          </ListItemButton>
-        </List>
-      </Menu>
     </>
   );
 };
@@ -197,8 +154,4 @@ const CtnFilter = styled.div`
   text-align: left;
   margin-bottom: 30px;
   display: flex;
-`;
-const StyleButton = styled(Button)``;
-const StyleChip = styled(Chip)`
-  cursor: pointer;
 `;

@@ -20,6 +20,14 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { DatetimeFormat } from 'utils/formatTime';
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'model-viewer': any;
+    }
+  }
+}
+
 const ITEMS = [attrItem1, attrItem2, attrItem3];
 const endpoint =
   'https://api.thegraph.com/subgraphs/name/qtvnnn/transaction-history';
@@ -42,6 +50,7 @@ const QuantumOrder = () => {
           to
           createdAtTimestamp
           tokenID
+          transactionHash
         }
       }
     `,
@@ -80,8 +89,6 @@ const QuantumOrder = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curAddress, wallet]);
 
-  console.log(typeof data2?.transfers, 'data2');
-  console.log(JSON.stringify(data2?.transfers), 'data2');
   return (
     <>
       <Header />
@@ -101,7 +108,22 @@ const QuantumOrder = () => {
             <Row>
               <Col md={4}>
                 <NftImage>
-                  <img src={data.image} alt="logo" />
+                  <model-viewer
+                    alt="3D NFT"
+                    src={data.animation_url}
+                    camera-controls
+                    auto-rotate
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      background: '#fff',
+                      // backgroundImage: `url(${attrItem1})`,
+                      // backgroundSize: 'cover',
+                      // backgroundRepeat: 'no-repeat',
+                      // backgroundPosition: 'center',
+                    }}
+                  ></model-viewer>
+                  {/* <img src={data.image} alt="logo" /> */}
                 </NftImage>
               </Col>
               <Col md={8} style={{ padding: '0px 25px' }}>
@@ -149,7 +171,7 @@ const QuantumOrder = () => {
               </SectionHeaderAtr>
               <HeaderTable>
                 <Row>
-                  <Col md={2}>Price</Col>
+                  <Col>Txn Hash</Col>
                   <Col>From</Col>
                   <Col>To</Col>
                   <Col>Date</Col>
@@ -163,17 +185,40 @@ const QuantumOrder = () => {
                     return (
                       <Row>
                         <Col
-                          md={2}
                           style={{ paddingTop: '5px', paddingBottom: '5px' }}
                         >
-                          0 MATIC
+                          <StyleTxtLink
+                            onClick={() =>
+                              window.open(
+                                process.env.REACT_APP_TXT_DETAIL_URL +
+                                  '/tx/' +
+                                  item.transactionHash,
+                                '_blank',
+                              )
+                            }
+                          >
+                            <ShortenWalletAddress numShort={20}>
+                              {item.transactionHash}
+                            </ShortenWalletAddress>
+                          </StyleTxtLink>
                         </Col>
                         <Col
                           style={{ paddingTop: '5px', paddingBottom: '5px' }}
                         >
-                          <ShortenWalletAddress numShort={20}>
-                            {item.from}
-                          </ShortenWalletAddress>
+                          <StyleTxtLink
+                            onClick={() =>
+                              window.open(
+                                process.env.REACT_APP_TXT_DETAIL_URL +
+                                  '/address/' +
+                                  item.from,
+                                '_blank',
+                              )
+                            }
+                          >
+                            <ShortenWalletAddress numShort={20}>
+                              {item.from}
+                            </ShortenWalletAddress>
+                          </StyleTxtLink>
                         </Col>
                         <Col
                           style={{ paddingTop: '5px', paddingBottom: '5px' }}
@@ -414,4 +459,7 @@ const BodyTableTx = styled.div`
     font-size: 18px;
     height: 160px;
   }
+`;
+const StyleTxtLink = styled.div`
+  cursor: pointer;
 `;
