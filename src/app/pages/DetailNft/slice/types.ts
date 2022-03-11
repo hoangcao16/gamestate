@@ -1,5 +1,5 @@
 /* --- STATE --- */
-export interface OrderNFTState {
+export interface DetailNFTState {
   data: any;
   isLoading: boolean;
 }

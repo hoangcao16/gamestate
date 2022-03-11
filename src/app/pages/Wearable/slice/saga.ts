@@ -22,6 +22,7 @@ function* handleOrderNFT(action) {
       yield put(actions.orderNFTSuccess(txData));
     }
   } catch (err) {
+    console.log(err);
   } finally {
     yield put(actions.clearLoading());
   }

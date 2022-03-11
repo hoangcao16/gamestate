@@ -3,6 +3,8 @@
 import { ApproveNFTState } from 'app/pages/BuyQuantum/components/ApproveButton/slice/types';
 import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
 import { OrderNFTState } from 'app/pages/Order/slice/types';
+import { DetailNFTState } from 'app/pages/DetailNft/slice/types';
+import { WearableNFTState } from 'app/pages/Wearable/slice/types';
 
 import { GlobalState } from '../store/globalReducer';
 import { WalletState } from 'app/components/Wallet/slice/types';
@@ -16,4 +18,6 @@ export interface RootState {
   buyNFT?: BuyNftState;
   approveNFT?: ApproveNFTState;
   orderNFT?: OrderNFTState;
+  detailNFT?: DetailNFTState;
+  wearableNFT?: WearableNFTState;
 }
