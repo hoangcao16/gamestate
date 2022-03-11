@@ -17,7 +17,11 @@ const QuantumOrder = () => {
   const handleLink = link => {
     history.push(link);
   };
-  const [metadata, setMetadata] = useState<any>({});
+  const [metadata, setMetadata] = useState<any>({
+    image:
+      'https://ymjzpkd3nijnpmeul3yobm5peuedfdzonnb4yzj6py56znzs.arweave.net/wxOXqHtqEtewlF7w4-LOvJQgyjy5rQ8xl-Pn477Lcyw/',
+    name: 'Meta Visor - Gamestate',
+  });
   const history = useHistory();
   const curAddress = JSON.parse(
     localStorage.getItem('StoreWallet')!,
@@ -40,8 +44,10 @@ const QuantumOrder = () => {
 
   useEffect(() => {
     (async () => {
-      const metadata = await apiNftDetailByID(data[0]);
-      setMetadata(metadata.data);
+      if (data.length) {
+        const metadata = await apiNftDetailByID(data[0]);
+        setMetadata(metadata.data);
+      }
     })();
   }, [data]);
   return (

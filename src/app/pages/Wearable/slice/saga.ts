@@ -18,7 +18,7 @@ function* handleOrderNFT(action) {
       const txData = yield buyContract.methods
         .getOwnedTokenIds(curAddress)
         .call();
-
+      console.log(txData, 'txData');
       yield put(actions.orderNFTSuccess(txData));
     }
   } catch (err) {
