@@ -236,14 +236,14 @@ const PARTNERS = [
         height: '',
         right: '150',
       },
-      {
-        name: 'logoAlchemist',
-        src: logoAlchemist,
-        link: 'https://www.alchemist.wtf/',
-        width: '477',
-        height: '',
-        right: '113',
-      },
+      // {
+      //   name: 'logoAlchemist',
+      //   src: logoAlchemist,
+      //   link: 'https://www.alchemist.wtf/',
+      //   width: '477',
+      //   height: '',
+      //   right: '113',
+      // },
       {
         name: 'logoCopper',
         src: logoCopper,
