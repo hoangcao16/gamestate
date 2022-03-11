@@ -166,9 +166,9 @@ const QuantumOrder = () => {
               </Col>
             </Row>
             <TransferHistory>
-              <SectionHeaderAtr>
+              <SectionHeaderAtrHis>
                 <span>TRANSFER HISTORY</span>
-              </SectionHeaderAtr>
+              </SectionHeaderAtrHis>
               <HeaderTable>
                 <Row>
                   <Col>Txn Hash</Col>
@@ -278,12 +278,16 @@ const ContainDetailNft = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 62px 66px;
+  padding: 53px 66px;
   margin-bottom: 40px;
   @media (max-width: 1280px) {
     background-size: contain;
     background-position: top;
-    padding: 55px 50px;
+    padding: 44px 50px;
+  }
+  @media (max-width: 480px) {
+    background-image: none;
+    padding: 0;
   }
 `;
 const NftImage = styled.div`
@@ -361,6 +365,16 @@ const SectionHeaderAtr = styled.div`
   font-size: 18px;
   font-weight: 500;
 `;
+const SectionHeaderAtrHis = styled.div`
+  background: #335a72;
+  // opacity: 0.8;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  @media (max-width: 480px) {
+    width: 1050px;
+  }
+`;
 const AttributeContain = styled.div`
   padding-top: 20px;
   grid-template-columns: auto auto auto;
@@ -412,12 +426,21 @@ const AttributeItem = styled.div<{
     width: 180px;
     height: 130px;
   }
+  @media (max-width: 480px) {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
 `;
 const TransferHistory = styled.div`
   margin-top: 30px;
   border: 5px solid #81efff;
   @media (max-width: 1280px) {
     margin-top: 25px;
+  }
+  @media (max-width: 480px) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
   }
 `;
 const HeaderTable = styled.div`
@@ -427,6 +450,9 @@ const HeaderTable = styled.div`
   @media (max-width: 1280px) {
     font-size: 18px;
     padding: 10px 40px;
+  }
+  @media (max-width: 480px) {
+    width: 1050px;
   }
 `;
 const BodyTableTx = styled.div`
@@ -457,7 +483,11 @@ const BodyTableTx = styled.div`
   }
   @media (max-width: 1280px) {
     font-size: 18px;
+    padding: 10px 16px;
     height: 160px;
+  }
+  @media (max-width: 480px) {
+    width: 1050px;
   }
 `;
 const StyleTxtLink = styled.div`
