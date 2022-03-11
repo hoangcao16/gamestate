@@ -10,7 +10,7 @@ export const initialState: WearableNFTState = {
 };
 
 const slice = createSlice({
-  name: 'orderNFT',
+  name: 'wearableNFT',
   initialState,
   reducers: {
     orderNFTRequest(state, action: PayloadAction<any>) {

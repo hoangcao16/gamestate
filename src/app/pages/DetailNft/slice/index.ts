@@ -10,7 +10,7 @@ export const initialState: DetailNFTState = {
 };
 
 const slice = createSlice({
-  name: 'orderNFT',
+  name: 'detailNFT',
   initialState,
   reducers: {
     orderNFTRequest(state, action: PayloadAction<any>) {
