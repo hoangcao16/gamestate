@@ -71,14 +71,16 @@ const QuantumOrder = () => {
           <CircularProgress size={40} color="primary" />
         ) : (
           <Row className="justify-content-center">
-            {data?.map((item, index) => {
-              return (
-                <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
-                  <QuantumItem items={item} idx={index + 1} />
-                  <LabelPrice># {item}</LabelPrice>
-                </StyledCol>
-              );
-            })}
+            {data.length
+              ? data?.map((item, index) => {
+                  return (
+                    <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
+                      <QuantumItem items={item} idx={index + 1} />
+                      <LabelPrice># {item}</LabelPrice>
+                    </StyledCol>
+                  );
+                })
+              : ''}
           </Row>
         )}
       </Main>

@@ -271,7 +271,7 @@ const PARTNERS = [
       {
         name: 'logoDefi',
         src: logoDefi,
-        link: 'https://defiforyou.uk/',
+        link: 'https://medium.com/@gamestate/gamestate-partners-with-defiforyou-to-bring-the-future-of-lending-to-the-megaverse-a256abf0230',
         width: '477',
         height: '',
         right: '80',
