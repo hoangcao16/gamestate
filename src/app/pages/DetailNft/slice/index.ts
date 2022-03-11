@@ -2,9 +2,9 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { OrderNFTSaga } from './saga';
-import { OrderNFTState } from './types';
+import { DetailNFTState } from './types';
 
-export const initialState: OrderNFTState = {
+export const initialState: DetailNFTState = {
   data: {},
   isLoading: false,
 };

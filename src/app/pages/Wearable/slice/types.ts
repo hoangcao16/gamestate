@@ -1,5 +1,5 @@
 /* --- STATE --- */
-export interface OrderNFTState {
+export interface WearableNFTState {
   data: Array<any>;
   isLoading: boolean;
 }
