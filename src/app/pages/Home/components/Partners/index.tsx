@@ -224,7 +224,7 @@ const PARTNERS = [
     ],
   },
   {
-    label: 'XFI PARTNERS',
+    label: 'XFI PLATFORMS',
     technology: null,
     className: 'align-items-center flex-wrap mt-5 mb-124',
     logos: [
