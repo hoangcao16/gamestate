@@ -419,7 +419,7 @@ const AttributeContain = styled.div`
     padding-top: 16px;
     height: 160px;
   }
-  @media (min-width: 1440px) {
+  @media (max-width: 1440px) {
     height: 130px;
   }
 `;
