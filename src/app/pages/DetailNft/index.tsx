@@ -84,10 +84,10 @@ const QuantumOrder = () => {
   const { data, isLoading } = useSelector(orderNFTSelector);
   const wallet: any = useSelector(selectWallet);
 
-  useEffect(() => {
-    !curAddress && !wallet?.wallet && history.push('/');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [curAddress, wallet]);
+  // useEffect(() => {
+  //   !curAddress && !wallet?.wallet && history.push('/');
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [curAddress, wallet]);
 
   return (
     <>
