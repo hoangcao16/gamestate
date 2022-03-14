@@ -9,7 +9,6 @@ import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/sli
 import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
-import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import background from './assets/img/Background.png';
 import Path3728 from './assets/img/Path3728.png';
@@ -33,7 +32,6 @@ const endpoint =
   'https://api.thegraph.com/subgraphs/name/qtvnnn/transaction-history';
 
 const QuantumOrder = () => {
-  // const [transactionHistory, setTransactionHistory] = useState();
   let { id } = useParams<{ id: string }>();
   const { data: data2, isLoading: isLoading2 } = useQuery('launches', () => {
     return fetch(endpoint, {
@@ -66,13 +64,10 @@ const QuantumOrder = () => {
       .then(data => data.data);
   });
   const history = useHistory();
-  const curAddress = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
-  )?.currentAddress;
+
   const dispatch = useDispatch();
   const { actions } = useOrderNFTSlice();
   const { actions: actionsApprove } = useApproveNFT();
-
   useEffect(() => {
     (async () => {
       dispatch(actionsApprove.clearReceipt());
@@ -82,12 +77,6 @@ const QuantumOrder = () => {
   }, []);
 
   const { data, isLoading } = useSelector(orderNFTSelector);
-  const wallet: any = useSelector(selectWallet);
-
-  // useEffect(() => {
-  //   !curAddress && !wallet?.wallet && history.push('/');
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [curAddress, wallet]);
 
   return (
     <>
@@ -275,10 +264,10 @@ const ContainDetailNft = styled.div`
   color: #ffffff;
   background-image: url(${background});
   min-height: 1058px;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 53px 66px;
+  padding: 12% 66px;
   margin-bottom: 40px;
   @media (max-width: 1366px) {
     background-size: contain;
@@ -302,6 +291,10 @@ const NftImage = styled.div`
     max-height: 100%;
   }
   @media (max-width: 1366px) {
+    width: 100%;
+    height: 384px;
+  }
+  @media (max-width: 1800px) {
     width: 100%;
     height: 384px;
   }
@@ -488,6 +481,9 @@ const BodyTableTx = styled.div`
   }
   @media (max-width: 480px) {
     width: 1050px;
+  }
+  @media (max-width: 1800px) {
+    height: 150px;
   }
 `;
 const StyleTxtLink = styled.div`

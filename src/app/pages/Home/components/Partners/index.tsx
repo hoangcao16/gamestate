@@ -27,7 +27,6 @@ import logoArcade from 'app/assets/img/Logo/logoArcade.png';
 import logoMida from 'app/assets/img/Logo/logoMida.svg';
 import logoFat from 'app/assets/img/Logo/logoFat.svg';
 import logoGravity from 'app/assets/img/Logo/logoGravity.png';
-import logoAlchemist from 'app/assets/img/Logo/logoAlchemist.png';
 import logoCopper from 'app/assets/img/Logo/logoCopper.png';
 import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
