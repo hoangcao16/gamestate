@@ -254,7 +254,7 @@ const Main = styled(Container)`
   margin: 0 auto;
   max-width: 85%;
   font-weight: 300;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     padding-top: 90px;
     max-width: 95%;
     font-size: 14px;
@@ -280,7 +280,7 @@ const ContainDetailNft = styled.div`
   background-position: center;
   padding: 53px 66px;
   margin-bottom: 40px;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     background-size: contain;
     background-position: top;
     padding: 44px 50px;
@@ -301,7 +301,7 @@ const NftImage = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     width: 100%;
     height: 384px;
   }
@@ -323,7 +323,7 @@ const NftName = styled.div`
     font-size: 20px;
     text-decoration: underline;
   }
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     .txt-nft-name {
       font-size: 40px;
     }
@@ -336,7 +336,7 @@ const NftName = styled.div`
 const NftInfo = styled.div`
   font-size: 20px;
   margin-bottom: 20px;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     font-size: 16px;
     margin-bottom: 8px;
   }
@@ -354,7 +354,7 @@ const PropertyItem = styled.div`
 const NftAttributes = styled.div`
   border: 5px solid #81efff;
   margin-top: 41px;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     margin-top: 20px;
   }
 `;
@@ -403,7 +403,7 @@ const AttributeContain = styled.div`
     height: 40%;
     background: #81efff;
   }
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     padding-top: 16px;
     height: 160px;
   }
@@ -421,7 +421,7 @@ const AttributeItem = styled.div<{
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     padding-bottom: 16px;
     width: 180px;
     height: 130px;
@@ -434,7 +434,7 @@ const AttributeItem = styled.div<{
 const TransferHistory = styled.div`
   margin-top: 30px;
   border: 5px solid #81efff;
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     margin-top: 25px;
   }
   @media (max-width: 480px) {
@@ -447,7 +447,7 @@ const HeaderTable = styled.div`
   font-size: 20px;
   padding: 12px 40px;
   background: rgb(129, 239, 255, 0.19);
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     font-size: 18px;
     padding: 10px 40px;
   }
@@ -481,7 +481,7 @@ const BodyTableTx = styled.div`
     height: 40%;
     background: #81efff;
   }
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
     font-size: 18px;
     padding: 10px 16px;
     height: 160px;

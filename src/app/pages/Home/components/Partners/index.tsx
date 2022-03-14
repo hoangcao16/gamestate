@@ -30,6 +30,7 @@ import logoGravity from 'app/assets/img/Logo/logoGravity.png';
 import logoAlchemist from 'app/assets/img/Logo/logoAlchemist.png';
 import logoCopper from 'app/assets/img/Logo/logoCopper.png';
 import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
+import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -217,6 +218,14 @@ const PARTNERS = [
         name: 'logoMida',
         src: logoMida,
         link: 'https://midanft.com/',
+        width: '500',
+        height: '',
+        right: '0',
+      },
+      {
+        name: 'logoKoi',
+        src: logoKoi,
+        link: 'https://koi.io/',
         width: '500',
         height: '',
         right: '0',
