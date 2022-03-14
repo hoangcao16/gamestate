@@ -186,7 +186,7 @@ const QuantumOrder = () => {
                               )
                             }
                           >
-                            <ShortenWalletAddress numShort={20}>
+                            <ShortenWalletAddress numShort={15}>
                               {item.transactionHash}
                             </ShortenWalletAddress>
                           </StyleTxtLink>
@@ -204,7 +204,7 @@ const QuantumOrder = () => {
                               )
                             }
                           >
-                            <ShortenWalletAddress numShort={20}>
+                            <ShortenWalletAddress numShort={15}>
                               {item.from}
                             </ShortenWalletAddress>
                           </StyleTxtLink>
@@ -212,7 +212,7 @@ const QuantumOrder = () => {
                         <Col
                           style={{ paddingTop: '5px', paddingBottom: '5px' }}
                         >
-                          <ShortenWalletAddress numShort={20}>
+                          <ShortenWalletAddress numShort={15}>
                             {item.to}
                           </ShortenWalletAddress>
                         </Col>
@@ -278,6 +278,12 @@ const ContainDetailNft = styled.div`
     background-image: none;
     padding: 0;
   }
+  @media (min-width: 2560px) {
+    padding: 7%;
+  }
+  @media (min-width: 1440px) {
+    padding: 168px 50px;
+  }
 `;
 const NftImage = styled.div`
   width: 476px;
@@ -298,6 +304,10 @@ const NftImage = styled.div`
     width: 100%;
     height: 384px;
   }
+  @media (min-width: 2560px) {
+    width: 100%;
+    height: 545px;
+  }
 `;
 const CollectionNft = styled.div`
   color: #81efff;
@@ -317,6 +327,15 @@ const NftName = styled.div`
     text-decoration: underline;
   }
   @media (max-width: 1366px) {
+    .txt-nft-name {
+      font-size: 40px;
+    }
+    .txt-tx {
+      font-size: 16px;
+      text-decoration: underline;
+    }
+  }
+  @media (min-width: 1440px) {
     .txt-nft-name {
       font-size: 40px;
     }
@@ -399,6 +418,9 @@ const AttributeContain = styled.div`
   @media (max-width: 1366px) {
     padding-top: 16px;
     height: 160px;
+  }
+  @media (min-width: 1440px) {
+    height: 130px;
   }
 `;
 const AttributeItem = styled.div<{
@@ -483,7 +505,10 @@ const BodyTableTx = styled.div`
     width: 1050px;
   }
   @media (max-width: 1800px) {
-    height: 150px;
+    height: 120px;
+  }
+  @media (min-width: 2560px) {
+    height: 400px;
   }
 `;
 const StyleTxtLink = styled.div`
