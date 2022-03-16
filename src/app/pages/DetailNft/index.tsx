@@ -20,7 +20,11 @@ import { useQuery } from 'react-query';
 import { DatetimeFormat } from 'utils/formatTime';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
-
+import TabsUnstyled from '@mui/base/TabsUnstyled';
+import TabsListUnstyled from '@mui/base/TabsListUnstyled';
+import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
+import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
+import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -132,129 +136,59 @@ const QuantumOrder = () => {
                   <span className="txt-nft-name">{data.name}</span>
                   <span className="txt-tx">#{data.tokenid}</span>
                 </NftName>
-                <NftInfo>{data.description}</NftInfo>
+                {matches ? <NftInfo>{data.description}</NftInfo> : ''}
                 <NftProperties>
                   <PropertyItem>{data?.properties?.rarity}</PropertyItem>
                   <PropertyItem>{data?.properties?.collection}</PropertyItem>
                   <PropertyItem>{data?.properties?.category}</PropertyItem>
                   <PropertyItem>{data?.properties?.type}</PropertyItem>
                 </NftProperties>
-                <NftAttributes>
-                  <SectionHeaderAtr>
-                    <span>ATTRIBUTES</span>
-                  </SectionHeaderAtr>
-                  <AttributeContain>
-                    {data?.attributes?.map(item => (
-                      <AttributeItem
-                        bgimage={ITEMS[Math.floor(Math.random() * 3)]}
-                      >
-                        <span style={{ fontWeight: '600' }}>
-                          {item.trait_type}
-                        </span>
-                        <span>{item.value}</span>
-                      </AttributeItem>
-                    ))}
-                  </AttributeContain>
-                </NftAttributes>
+                {matches ? (
+                  <NftAttributes>
+                    <AttributeContain>
+                      {data?.attributes?.map(item => (
+                        <AttributeItem
+                          bgimage={ITEMS[Math.floor(Math.random() * 3)]}
+                        >
+                          <span style={{ fontWeight: '600' }}>
+                            {item.trait_type}
+                          </span>
+                          <span>{item.value}</span>
+                        </AttributeItem>
+                      ))}
+                    </AttributeContain>
+                  </NftAttributes>
+                ) : (
+                  ''
+                )}
               </Col>
             </Row>
-            <TransferHistory>
-              <SectionHeaderAtrHis>
-                <span>TRANSFER HISTORY</span>
-              </SectionHeaderAtrHis>
-              {matches ? (
-                <>
-                  <HeaderTable>
-                    <Row>
-                      <Col>Txn Hash</Col>
-                      <Col>From</Col>
-                      <Col>To</Col>
-                      <Col>Date</Col>
-                    </Row>
-                  </HeaderTable>
-                  <BodyTableTx>
-                    {isLoading2 ? (
-                      <CircularProgress size={40} color="primary" />
-                    ) : (
-                      data2?.transfers.map((item, i) => {
-                        return (
-                          <Row>
-                            <Col
-                              style={{
-                                paddingTop: '5px',
-                                paddingBottom: '5px',
-                              }}
-                            >
-                              <StyleTxtLink
-                                onClick={() =>
-                                  window.open(
-                                    process.env.REACT_APP_TXT_DETAIL_URL +
-                                      '/tx/' +
-                                      item.transactionHash,
-                                    '_blank',
-                                  )
-                                }
-                              >
-                                <ShortenWalletAddress numShort={15}>
-                                  {item.transactionHash}
-                                </ShortenWalletAddress>
-                              </StyleTxtLink>
-                            </Col>
-                            <Col
-                              style={{
-                                paddingTop: '5px',
-                                paddingBottom: '5px',
-                              }}
-                            >
-                              <StyleTxtLink
-                                onClick={() =>
-                                  window.open(
-                                    process.env.REACT_APP_TXT_DETAIL_URL +
-                                      '/address/' +
-                                      item.from,
-                                    '_blank',
-                                  )
-                                }
-                              >
-                                <ShortenWalletAddress numShort={15}>
-                                  {item.from}
-                                </ShortenWalletAddress>
-                              </StyleTxtLink>
-                            </Col>
-                            <Col
-                              style={{
-                                paddingTop: '5px',
-                                paddingBottom: '5px',
-                              }}
-                            >
-                              <ShortenWalletAddress numShort={15}>
-                                {item.to}
-                              </ShortenWalletAddress>
-                            </Col>
-                            <Col
-                              style={{
-                                paddingTop: '5px',
-                                paddingBottom: '5px',
-                              }}
-                            >
-                              <DatetimeFormat format="HH:mm DD/MM/YYYY">
-                                {item.createdAtTimestamp * 1000}
-                              </DatetimeFormat>
-                            </Col>
-                          </Row>
-                        );
-                      })
-                    )}
-                  </BodyTableTx>
-                </>
-              ) : (
-                <BodyTableTxMobile>
-                  {data2?.transfers.map((item, i) => {
-                    return (
-                      <RecordRowStyle>
+            {matches ? (
+              <TransferHistory>
+                <SectionHeaderAtrHis>
+                  <span>History</span>
+                </SectionHeaderAtrHis>
+                <HeaderTable>
+                  <Row>
+                    <Col>Txn Hash</Col>
+                    <Col>From</Col>
+                    <Col>To</Col>
+                    <Col>Date</Col>
+                  </Row>
+                </HeaderTable>
+                <BodyTableTx>
+                  {isLoading2 ? (
+                    <CircularProgress size={40} color="primary" />
+                  ) : (
+                    data2?.transfers.map((item, i) => {
+                      return (
                         <Row>
-                          <Col xs={4}>Txn Hash</Col>
-                          <Col xs={8}>
+                          <Col
+                            style={{
+                              paddingTop: '5px',
+                              paddingBottom: '5px',
+                            }}
+                          >
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
@@ -265,15 +199,17 @@ const QuantumOrder = () => {
                                 )
                               }
                             >
-                              <ShortenWalletAddress numShort={20}>
+                              <ShortenWalletAddress numShort={15}>
                                 {item.transactionHash}
                               </ShortenWalletAddress>
                             </StyleTxtLink>
                           </Col>
-                        </Row>
-                        <Row style={{ paddingTop: '5px' }}>
-                          <Col xs={4}>From</Col>
-                          <Col xs={8}>
+                          <Col
+                            style={{
+                              paddingTop: '5px',
+                              paddingBottom: '5px',
+                            }}
+                          >
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
@@ -284,34 +220,127 @@ const QuantumOrder = () => {
                                 )
                               }
                             >
-                              <ShortenWalletAddress numShort={20}>
+                              <ShortenWalletAddress numShort={15}>
                                 {item.from}
                               </ShortenWalletAddress>
                             </StyleTxtLink>
                           </Col>
-                        </Row>
-                        <Row style={{ paddingTop: '5px' }}>
-                          <Col xs={4}>To</Col>
-                          <Col xs={8}>
-                            <ShortenWalletAddress numShort={20}>
+                          <Col
+                            style={{
+                              paddingTop: '5px',
+                              paddingBottom: '5px',
+                            }}
+                          >
+                            <ShortenWalletAddress numShort={15}>
                               {item.to}
                             </ShortenWalletAddress>
                           </Col>
-                        </Row>
-                        <Row style={{ paddingTop: '5px' }}>
-                          <Col xs={4}>Date</Col>
-                          <Col xs={8}>
+                          <Col
+                            style={{
+                              paddingTop: '5px',
+                              paddingBottom: '5px',
+                            }}
+                          >
                             <DatetimeFormat format="HH:mm DD/MM/YYYY">
                               {item.createdAtTimestamp * 1000}
                             </DatetimeFormat>
                           </Col>
                         </Row>
-                      </RecordRowStyle>
-                    );
-                  })}
-                </BodyTableTxMobile>
-              )}
-            </TransferHistory>
+                      );
+                    })
+                  )}
+                </BodyTableTx>
+              </TransferHistory>
+            ) : (
+              <>
+                <TabsUnstyled defaultValue={0}>
+                  <TabsList>
+                    <Tab>Description</Tab>
+                    <Tab>Attributes</Tab>
+                    <Tab>History</Tab>
+                  </TabsList>
+                  <TabPanel value={0}>{data.description}</TabPanel>
+                  <TabPanel value={1}>
+                    <AttributeContainMoblie>
+                      {data?.attributes?.map(item => (
+                        <AttributeItem
+                          bgimage={ITEMS[Math.floor(Math.random() * 3)]}
+                        >
+                          <span style={{ fontWeight: '600' }}>
+                            {item.trait_type}
+                          </span>
+                          <span>{item.value}</span>
+                        </AttributeItem>
+                      ))}
+                    </AttributeContainMoblie>
+                  </TabPanel>
+                  <TabPanel value={2}>
+                    <BodyTableTxMobile>
+                      {data2?.transfers.map((item, i) => {
+                        return (
+                          <RecordRowStyle>
+                            <Row>
+                              <Col xs={4}>Txn Hash</Col>
+                              <Col xs={8}>
+                                <StyleTxtLink
+                                  onClick={() =>
+                                    window.open(
+                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                        '/tx/' +
+                                        item.transactionHash,
+                                      '_blank',
+                                    )
+                                  }
+                                >
+                                  <ShortenWalletAddress numShort={20}>
+                                    {item.transactionHash}
+                                  </ShortenWalletAddress>
+                                </StyleTxtLink>
+                              </Col>
+                            </Row>
+                            <Row style={{ paddingTop: '5px' }}>
+                              <Col xs={4}>From</Col>
+                              <Col xs={8}>
+                                <StyleTxtLink
+                                  onClick={() =>
+                                    window.open(
+                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                        '/address/' +
+                                        item.from,
+                                      '_blank',
+                                    )
+                                  }
+                                >
+                                  <ShortenWalletAddress numShort={20}>
+                                    {item.from}
+                                  </ShortenWalletAddress>
+                                </StyleTxtLink>
+                              </Col>
+                            </Row>
+                            <Row style={{ paddingTop: '5px' }}>
+                              <Col xs={4}>To</Col>
+                              <Col xs={8}>
+                                <ShortenWalletAddress numShort={20}>
+                                  {item.to}
+                                </ShortenWalletAddress>
+                              </Col>
+                            </Row>
+                            <Row style={{ paddingTop: '5px' }}>
+                              <Col xs={4}>Date</Col>
+                              <Col xs={8}>
+                                <DatetimeFormat format="HH:mm DD/MM/YYYY">
+                                  {item.createdAtTimestamp * 1000}
+                                </DatetimeFormat>
+                              </Col>
+                            </Row>
+                          </RecordRowStyle>
+                        );
+                      })}
+                    </BodyTableTxMobile>
+                  </TabPanel>
+                </TabsUnstyled>
+              </>
+            )}
           </ContainDetailNft>
         )}
       </Main>
@@ -320,6 +349,47 @@ const QuantumOrder = () => {
 };
 
 export default QuantumOrder;
+
+const Tab = styled(TabUnstyled)`
+  font-family: IBM Plex Sans, sans-serif;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  width: 100%;
+  padding: 8px;
+  margin: 6px 6px;
+  border: none;
+  display: flex;
+  justify-content: center;
+
+  &.${tabUnstyledClasses.selected} {
+    color: #81efff;
+    border-bottom: 1px solid #81efff;
+  }
+
+  &.${buttonUnstyledClasses.disabled} {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+const TabPanel = styled(TabPanelUnstyled)`
+  width: 100%;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 0.875rem;
+`;
+
+const TabsList = styled(TabsListUnstyled)`
+  min-width: 320px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-between;
+`;
 
 const Main = styled(Container)`
   padding-top: 160px;
@@ -368,10 +438,10 @@ const ContainDetailNft = styled.div`
     }
   }
   @media (min-width: 2560px) {
-    padding: 7%;
+    padding: 140px 150px !important;
   }
   @media (min-width: 1440px) {
-    padding: 168px 50px;
+    padding: 210px 50px;
   }
 `;
 const NftImage = styled.div`
@@ -465,33 +535,24 @@ const PropertyItem = styled.div`
   padding: 3.5px 24px;
 `;
 const NftAttributes = styled.div`
-  border: 3px solid #81efff;
-  margin-top: 41px;
+  margin-top: 5px;
   @media (max-width: 1366px) {
     margin-top: 20px;
   }
 `;
-const SectionHeaderAtr = styled.div`
-  background: #335a72;
-  // opacity: 0.8;
-  padding: 10px 16px;
-  font-size: 18px;
-  font-weight: 500;
-`;
 const SectionHeaderAtrHis = styled.div`
-  background: #335a72;
-  // opacity: 0.8;
   padding: 10px 16px;
-  font-size: 18px;
+  color: #81efff;
+  font-size: 24px;
   font-weight: 500;
 `;
 const AttributeContain = styled.div`
   padding-top: 20px;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   display: grid;
-  justify-items: center;
-  height: 189px;
-  overflow: auto;
+  justify-items: start;
+  // height: 189px;
+  // overflow: auto;
   width: 99.5%;
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -518,10 +579,13 @@ const AttributeContain = styled.div`
   }
   @media (max-width: 1366px) {
     padding-top: 16px;
-    height: 160px;
+    // height: 160px;
   }
   @media (max-width: 1440px) {
-    height: 130px;
+    padding-top: 10px;
+  }
+  @media (min-width: 2560px) {
+    grid-template-columns: auto auto auto auto auto;
   }
 `;
 const AttributeItem = styled.div<{
@@ -530,17 +594,23 @@ const AttributeItem = styled.div<{
   background-image: url(${props => props.bgimage});
   background-size: cover;
   background-position: center;
-  width: 198px;
-  height: 143px;
+  width: 180px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  @media (max-width: 1440px) {
+    width: 146px;
+    font-size: 12px;
+    height: 105px;
+  }
   @media (max-width: 1366px) {
-    padding-bottom: 16px;
-    width: 180px;
-    height: 130px;
+    // padding-bottom: 16px;
+    width: 146px;
+    height: 105px;
+    font-size: 12px;
   }
   @media (max-width: 480px) {
     padding-bottom: 0 !important;
@@ -549,21 +619,26 @@ const AttributeItem = styled.div<{
   }
 `;
 const TransferHistory = styled.div`
-  margin-top: 30px;
-  border: 3px solid #81efff;
+  margin-top: 8px;
+  // border: 3px solid #81efff;
   @media (max-width: 1366px) {
-    margin-top: 25px;
+    // margin-top: 25px;
   }
   @media (max-width: 480px) {
     display: block;
     // width: 100%;
     // overflow-x: auto;
   }
+  @media (min-width: 1440px) {
+    margin-top: 0;
+  }
 `;
 const HeaderTable = styled.div`
   font-size: 20px;
+  border: 1px solid #81efff;
   padding: 12px 40px;
-  background: rgb(129, 239, 255, 0.19);
+  background: #26656e;
+  border-radius: 10px;
   @media (max-width: 1366px) {
     font-size: 18px;
     padding: 10px 40px;
@@ -576,7 +651,7 @@ const BodyTableTx = styled.div`
   font-size: 20px;
   padding: 5px 40px;
   width: 99.5%;
-  height: 305px;
+  height: 250px;
   overflow: auto;
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -612,6 +687,9 @@ const BodyTableTx = styled.div`
   @media (min-width: 2560px) {
     height: 400px;
   }
+  @media (min-width: 1440px) {
+    padding: 8px 16px;
+  }
 `;
 const StyleTxtLink = styled.div`
   cursor: pointer;
@@ -619,6 +697,10 @@ const StyleTxtLink = styled.div`
 const BodyTableTxMobile = styled.div``;
 const RecordRowStyle = styled.div`
   padding: 16px 10px;
-  border: 1px solid #81efff;
-  border-top: none;
+  border-bottom: 1px solid #81efff;
+`;
+const AttributeContainMoblie = styled.div`
+  grid-template-columns: auto auto;
+  display: grid;
+  justify-items: start;
 `;
