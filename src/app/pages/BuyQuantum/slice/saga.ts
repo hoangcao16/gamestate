@@ -36,8 +36,8 @@ function* handleBuyNFT(action) {
       gasLimit: gasData.gasLimit,
     };
     yield signAndSendTx(txBuy);
-    yield call(forwardTo, '/order');
-    // history.push('/order');
+    yield call(forwardTo, '/utility');
+    // history.push('/utility');
   } catch (err) {
     yield put(actions.buyNFTError());
   } finally {

@@ -13,10 +13,10 @@ const slice = createSlice({
   name: 'wearableNFT',
   initialState,
   reducers: {
-    orderNFTRequest(state, action: PayloadAction<any>) {
+    wearableNFTRequest(state, action: PayloadAction<any>) {
       state.isLoading = true;
     },
-    orderNFTSuccess(state, action) {
+    wearableNFTSuccess(state, action) {
       state.data = action.payload;
     },
     clearLoading(state) {
@@ -27,7 +27,7 @@ const slice = createSlice({
 
 export const { actions } = slice;
 
-export const useOrderNFTSlice = () => {
+export const useWearableNFTSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
   useInjectSaga({ key: slice.name, saga: OrderNFTSaga });
   return { actions: slice.actions };

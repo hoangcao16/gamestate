@@ -5,9 +5,9 @@ import LabelPrice from './components/LabelPrice';
 import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useOrderNFTSlice } from './slice';
+import { useWearableNFTSlice } from './slice';
 import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/slice';
-import { orderNFTSelector } from './slice/selectors';
+import { wearableNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
@@ -27,14 +27,14 @@ const QuantumOrder = () => {
     localStorage.getItem('StoreWallet')!,
   )?.currentAddress;
   const dispatch = useDispatch();
-  const { actions } = useOrderNFTSlice();
+  const { actions } = useWearableNFTSlice();
   const { actions: actionsApprove } = useApproveNFT();
   useEffect(() => {
     dispatch(actionsApprove.clearReceipt());
-    dispatch(actions.orderNFTRequest(curAddress));
+    dispatch(actions.wearableNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { data, isLoading } = useSelector(orderNFTSelector);
+  const { data, isLoading } = useSelector(wearableNFTSelector);
   const wallet: any = useSelector(selectWallet);
 
   useEffect(() => {
@@ -59,6 +59,19 @@ const QuantumOrder = () => {
           <Button
             id="basic-button"
             variant="outlined"
+            style={{
+              color: '#fff',
+              width: '150px',
+              marginRight: '10px',
+              borderRadius: '24px',
+            }}
+            onClick={() => handleLink(`/nft-all`)}
+          >
+            All
+          </Button>
+          <Button
+            id="basic-button"
+            variant="outlined"
             disableRipple
             style={{
               color: '#fff',
@@ -66,9 +79,9 @@ const QuantumOrder = () => {
               borderRadius: '24px',
               marginRight: '10px',
             }}
-            onClick={() => handleLink(`/order`)}
+            onClick={() => handleLink(`/utility`)}
           >
-            Quantum
+            Utility
           </Button>
           <Button
             id="basic-button"
@@ -80,7 +93,7 @@ const QuantumOrder = () => {
             }}
             onClick={() => handleLink(`/wearable`)}
           >
-            Wearable
+            Wearables
           </Button>
         </CtnFilter>
         {isLoading ? (

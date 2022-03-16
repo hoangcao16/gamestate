@@ -18,6 +18,7 @@ import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import DetailNft from './pages/DetailNft';
 import Wearable from './pages/Wearable';
+import NftAll from './pages/NftAll';
 // import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import { useGlobalState } from 'store/globalReducer';
@@ -65,8 +66,9 @@ export function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/buy" component={BuyQuantum} />
-          <PrivateRoute exact path="/order" component={QuantumOrder} />
+          <PrivateRoute exact path="/utility" component={QuantumOrder} />
           <PrivateRoute exact path="/wearable" component={Wearable} />
+          <PrivateRoute exact path="/nft-all" component={NftAll} />
           <Route exact path="/nft/wearable/:id" component={DetailNft} />
           <Route component={NotFoundPage} />
         </Switch>
