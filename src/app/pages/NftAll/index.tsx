@@ -1,18 +1,27 @@
 import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
+import WearableItem from './components/WearableItem';
 import LabelPrice from './components/LabelPrice';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useOrderNFTSlice } from './slice';
 import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/slice';
-import { orderNFTSelector } from './slice/selectors';
 import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import Button from '@mui/material/Button';
+import { useWearableNFTSlice } from '../Wearable/slice';
+import { wearableNFTSelector } from '../Wearable/slice/selectors';
+import { useOrderNFTSlice } from '../Order/slice';
+import { apiNftDetailByID } from 'services/apiDetailNFt';
+import { orderNFTSelector } from '../Order/slice/selectors';
 const QuantumOrder = () => {
+  const [metadata, setMetadata] = useState<any>({
+    image:
+      'https://ymjzpkd3nijnpmeul3yobm5peuedfdzonnb4yzj6py56znzs.arweave.net/wxOXqHtqEtewlF7w4-LOvJQgyjy5rQ8xl-Pn477Lcyw/',
+    name: 'Meta Visor - Gamestate',
+  });
   const handleLink = link => {
     history.push(link);
   };
@@ -22,13 +31,16 @@ const QuantumOrder = () => {
   )?.currentAddress;
   const dispatch = useDispatch();
   const { actions } = useOrderNFTSlice();
+  const { actions: actionsWearable } = useWearableNFTSlice();
   const { actions: actionsApprove } = useApproveNFT();
   useEffect(() => {
     dispatch(actionsApprove.clearReceipt());
     dispatch(actions.orderNFTRequest(curAddress));
+    dispatch(actionsWearable.wearableNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { data, isLoading } = useSelector(orderNFTSelector);
+  const { data: dataWearable } = useSelector(wearableNFTSelector);
 
   const wallet: any = useSelector(selectWallet);
 
@@ -36,6 +48,15 @@ const QuantumOrder = () => {
     !curAddress && !wallet?.wallet && history.push('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curAddress, wallet]);
+  useEffect(() => {
+    (async () => {
+      if (data.length) {
+        const metadata = await apiNftDetailByID(data[0]);
+        setMetadata(metadata.data);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataWearable]);
   return (
     <>
       <Header />
@@ -44,12 +65,12 @@ const QuantumOrder = () => {
         <CtnFilter>
           <Button
             id="basic-button"
-            variant="outlined"
             style={{
+              background: '#e740f0',
               color: '#fff',
               width: '150px',
-              marginRight: '10px',
               borderRadius: '24px',
+              marginRight: '10px',
             }}
             onClick={() => handleLink(`/nft-all`)}
           >
@@ -57,12 +78,12 @@ const QuantumOrder = () => {
           </Button>
           <Button
             id="basic-button"
+            variant="outlined"
             style={{
-              background: '#e740f0',
               color: '#fff',
               width: '150px',
-              borderRadius: '24px',
               marginRight: '10px',
+              borderRadius: '24px',
             }}
             onClick={() => handleLink(`/utility`)}
           >
@@ -90,6 +111,27 @@ const QuantumOrder = () => {
                   return (
                     <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
                       <QuantumItem items={item} idx={index + 1} />
+                      <LabelPrice># {item}</LabelPrice>
+                    </StyledCol>
+                  );
+                })
+              : ''}
+            {dataWearable.length
+              ? dataWearable?.map((item, index) => {
+                  return (
+                    <StyledCol
+                      key={index}
+                      xs={6}
+                      sm={6}
+                      lg={3}
+                      xl={2}
+                      onClick={() => history.push(`/nft/wearable/${item}`)}
+                    >
+                      <WearableItem
+                        items={item}
+                        metadata={metadata}
+                        idx={index + 1}
+                      />
                       <LabelPrice># {item}</LabelPrice>
                     </StyledCol>
                   );
@@ -134,6 +176,7 @@ const Main = styled(Container)`
   }
 `;
 const StyledCol = styled(Col)`
+  cursor: pointer;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;

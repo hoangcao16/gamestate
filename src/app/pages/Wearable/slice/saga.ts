@@ -6,7 +6,7 @@ import { actions } from '.';
 import Web3 from 'services/walletService/initWeb3';
 import actionNftAbi from 'services/walletService/config/nftDetail.abi.json';
 
-function* handleOrderNFT(action) {
+function* handleWearableNFT(action) {
   const spender = process.env.REACT_APP_NFT_DETAIL;
   const curAddress = action.payload;
   try {
@@ -19,7 +19,7 @@ function* handleOrderNFT(action) {
         .getOwnedTokenIds(curAddress)
         .call();
       console.log(txData, 'txData');
-      yield put(actions.orderNFTSuccess(txData));
+      yield put(actions.wearableNFTSuccess(txData));
     }
   } catch (err) {
     console.log(err);
@@ -28,7 +28,7 @@ function* handleOrderNFT(action) {
   }
 }
 function* watchHandleOrderNFT() {
-  yield takeLatest(actions.orderNFTRequest, handleOrderNFT);
+  yield takeLatest(actions.wearableNFTRequest, handleWearableNFT);
 }
 
 export function* OrderNFTSaga() {

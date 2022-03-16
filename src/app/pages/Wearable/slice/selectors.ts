@@ -5,4 +5,7 @@ import { initialState } from '.';
 
 const orderNFTSlice = (state: RootState) => state?.wearableNFT || initialState;
 
-export const orderNFTSelector = createSelector([orderNFTSlice], state => state);
+export const wearableNFTSelector = createSelector(
+  [orderNFTSlice],
+  state => state,
+);
