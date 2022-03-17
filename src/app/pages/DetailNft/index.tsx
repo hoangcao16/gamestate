@@ -408,7 +408,7 @@ const Main = styled(Container)`
   margin: 0 auto;
   max-width: 85%;
   font-weight: 300;
-  @media (max-width: 1366px) {
+  @media (max-width: 1570px) {
     padding-top: 90px;
     max-width: 95%;
     font-size: 14px;
@@ -437,7 +437,7 @@ const ContainDetailNft = styled.div`
   .right-detail {
     padding: 0px 25px;
   }
-  @media (max-width: 1366px) {
+  @media (max-width: 1570px) {
     background-size: contain;
     background-position: top;
     padding: 44px 50px;
@@ -456,12 +456,19 @@ const ContainDetailNft = styled.div`
       padding: 0px 12px;
     }
   }
+  @media (max-width: 1140px) {
+    background-image: none;
+    padding: 0;
+    .right-detail {
+      padding: 0px 12px;
+    }
+  }
   @media (min-width: 2560px) {
     padding: 140px 150px !important;
   }
-  @media (min-width: 1440px) {
-    padding: 210px 50px;
-  }
+  // @media (min-width: 1440px) {
+  //   padding: 210px 50px;
+  // }
 `;
 const NftImage = styled.div`
   width: 476px;
@@ -564,6 +571,10 @@ const SectionHeaderAtrHis = styled.div`
   color: #81efff;
   font-size: 24px;
   font-weight: 500;
+  @media (max-width: 1240px) {
+    padding: 6px 16px;
+    font-size: 20px;
+  }
 `;
 const AttributeContain = styled.div`
   padding-top: 20px;
@@ -625,7 +636,7 @@ const AttributeItem = styled.div<{
     font-size: 12px;
     height: 105px;
   }
-  @media (max-width: 1366px) {
+  @media (max-width: 1570px) {
     // padding-bottom: 16px;
     width: 146px;
     height: 105px;
@@ -636,7 +647,7 @@ const AttributeItem = styled.div<{
     margin-right: 16px;
     margin-left: 16px;
   }
-  @media (max-width: 912px) {
+  @media (max-width: 1240px) {
     width: 125px;
     height: 91px;
     font-size: 11px;
@@ -697,7 +708,7 @@ const BodyTableTx = styled.div`
     height: 40%;
     background: #81efff;
   }
-  @media (max-width: 1366px) {
+  @media (max-width: 1570px) {
     font-size: 18px;
     padding: 10px 16px;
     height: 160px;
@@ -713,6 +724,11 @@ const BodyTableTx = styled.div`
   }
   @media (min-width: 1440px) {
     padding: 8px 16px;
+  }
+  @media (max-width: 1240px) {
+    padding: 6px 16px;
+    font-size: 16px;
+    height: 100px;
   }
 `;
 const StyleTxtLink = styled.div`
