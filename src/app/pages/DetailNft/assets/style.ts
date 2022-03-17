@@ -116,7 +116,7 @@ export const ContainDetailNft = styled.div`
 `;
 export const NftImage = styled.div`
   width: 476px;
-  height: 476px;
+  height: 96%;
   border: 3px solid #81efff;
   display: flex;
   align-items: center;
@@ -134,11 +134,16 @@ export const NftImage = styled.div`
   }
   @media (max-width: 1800px) {
     width: 100%;
-    height: 384px;
+    height: 96%;
   }
   @media (min-width: 2560px) {
     width: 100%;
     height: 545px;
+  }
+  @media (max-width: 766px) {
+    width: 100%;
+    height: 384px;
+    margin-bottom: 30px;
   }
 `;
 export const CollectionNft = styled.div`
@@ -389,11 +394,11 @@ export const RecordRowStyle = styled.div`
   border-bottom: 1px solid #81efff;
 `;
 export const AttributeContainMoblie = styled.div`
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   display: grid;
-  justify-items: start;
-  @media (max-width: 912px) {
-    grid-template-columns: auto auto auto;
+  justify-items: center;
+  @media (max-width: 480px) {
+    grid-template-columns: auto auto;
     justify-items: center;
   }
 `;
@@ -411,10 +416,12 @@ export const InfoShareLink = styled.div`
   align-items: center;
 `;
 export const LinkScan = styled.div`
+  font-size: 24px;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 10px;
   border: 1px solid #fff;
-  width: 70px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
