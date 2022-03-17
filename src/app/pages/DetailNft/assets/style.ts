@@ -327,17 +327,22 @@ export const HeaderTable = styled.div`
   }
 `;
 export const BodyTableTx = styled.div`
+  position: relative;
+  top: 3px;
   font-size: 20px;
   padding: 5px 40px;
   width: 99.5%;
   height: 250px;
   overflow: auto;
+  scrollbar-color: #81efff #3c3c3d;
+  scrollbar-width: thin;
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     // background-color: #f5f5f5;
     border-radius: 10px;
     height: 90%;
+    background: #3c3c3d;
   }
 
   &::-webkit-scrollbar {
