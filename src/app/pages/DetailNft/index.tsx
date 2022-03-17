@@ -122,7 +122,6 @@ const QuantumOrder = () => {
               <ArrowBackIosIcon /> Back
             </StyleBackBtn>
           </TopCol>
-          <TopCol style={{ textAlign: 'right' }}>DETAILS</TopCol>
         </Row>
         {isLoading ? (
           <CircularProgress size={40} color="primary" />
@@ -180,7 +179,7 @@ const QuantumOrder = () => {
                           )
                         }
                       >
-                        #{id}
+                        # {id}
                       </LinkScan>
                     </InfoShareLink>
                   </Col>
