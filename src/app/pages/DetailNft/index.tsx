@@ -134,7 +134,19 @@ const QuantumOrder = () => {
                 </CollectionNft>
                 <NftName>
                   <span className="txt-nft-name">{data.name}</span>
-                  <span className="txt-tx">#{data.tokenid}</span>
+                  <span
+                    className="txt-tx"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() =>
+                      window.open(
+                        'https://mumbai.polygonscan.com/address/' +
+                          process.env.REACT_APP_NFT_DETAIL,
+                        '_blank',
+                      )
+                    }
+                  >
+                    #{data.tokenid}
+                  </span>
                 </NftName>
                 {matches ? <NftInfo>{data.description}</NftInfo> : ''}
                 <NftProperties>
@@ -437,6 +449,13 @@ const ContainDetailNft = styled.div`
       padding: 0px 12px;
     }
   }
+  @media (max-width: 912px) {
+    background-image: none;
+    padding: 0;
+    .right-detail {
+      padding: 0px 12px;
+    }
+  }
   @media (min-width: 2560px) {
     padding: 140px 150px !important;
   }
@@ -617,6 +636,11 @@ const AttributeItem = styled.div<{
     margin-right: 16px;
     margin-left: 16px;
   }
+  @media (max-width: 912px) {
+    width: 125px;
+    height: 91px;
+    font-size: 11px;
+  }
 `;
 const TransferHistory = styled.div`
   margin-top: 8px;
@@ -703,4 +727,8 @@ const AttributeContainMoblie = styled.div`
   grid-template-columns: auto auto;
   display: grid;
   justify-items: start;
+  @media (max-width: 912px) {
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+  }
 `;
