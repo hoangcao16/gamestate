@@ -5,6 +5,7 @@ import { BuyNftState } from 'app/pages/BuyQuantum/slice/types';
 import { OrderNFTState } from 'app/pages/Order/slice/types';
 import { DetailNFTState } from 'app/pages/DetailNft/slice/types';
 import { WearableNFTState } from 'app/pages/Wearable/slice/types';
+import { DetailQAState } from 'app/pages/DetailQA/slice/types';
 
 import { GlobalState } from '../store/globalReducer';
 import { WalletState } from 'app/components/Wallet/slice/types';
@@ -20,4 +21,5 @@ export interface RootState {
   orderNFT?: OrderNFTState;
   detailNFT?: DetailNFTState;
   wearableNFT?: WearableNFTState;
+  detailQA?: DetailQAState;
 }

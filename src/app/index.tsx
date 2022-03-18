@@ -17,6 +17,7 @@ import Web3 from 'services/walletService/initWeb3';
 import BuyQuantum from './pages/BuyQuantum';
 import QuantumOrder from './pages/Order';
 import DetailNft from './pages/DetailNft';
+import DetailQA from './pages/DetailQA';
 import Wearable from './pages/Wearable';
 import NftAll from './pages/NftAll';
 // import axios from 'axios';
@@ -70,6 +71,7 @@ export function App() {
           <PrivateRoute exact path="/wearable" component={Wearable} />
           <PrivateRoute exact path="/nft-all" component={NftAll} />
           <Route exact path="/nft/wearable/:id" component={DetailNft} />
+          <Route exact path="/nft/:id" component={DetailQA} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />

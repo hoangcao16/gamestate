@@ -88,7 +88,14 @@ const QuantumOrder = () => {
             {data.length
               ? data?.map((item, index) => {
                   return (
-                    <StyledCol key={index} xs={6} sm={6} lg={3} xl={2}>
+                    <StyledCol
+                      key={index}
+                      xs={6}
+                      sm={6}
+                      lg={3}
+                      xl={2}
+                      onClick={() => history.push(`/nft/${item}`)}
+                    >
                       <QuantumItem items={item} idx={index + 1} />
                       <LabelPrice># {item}</LabelPrice>
                     </StyledCol>
@@ -134,6 +141,7 @@ const Main = styled(Container)`
   }
 `;
 const StyledCol = styled(Col)`
+  cursor: pointer;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;

@@ -7,7 +7,7 @@ import Web3 from 'services/walletService/initWeb3';
 import actionNftAbi from 'services/walletService/config/actionNft.abi.json';
 
 function* handleOrderNFT(action) {
-  const spender = process.env.REACT_APP_NFT_ADDRESS;
+  const spender = process.env.REACT_APP_QUANTUM_ACCELERATOR;
   const curAddress = action.payload;
   try {
     if (localStorage.getItem('extensionName')) {
@@ -18,6 +18,7 @@ function* handleOrderNFT(action) {
       const txData = yield buyContract.methods
         .getOwnedTokenIds(curAddress)
         .call();
+      console.log(txData, 'txDatass');
       yield put(actions.orderNFTSuccess(txData));
     }
   } catch (err) {
