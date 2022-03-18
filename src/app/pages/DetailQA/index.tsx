@@ -433,11 +433,13 @@ const QuantumOrder = () => {
           }}
         >
           <DfyBlockchainInformation
-            collectionAddress={process.env.REACT_APP_NFT_DETAIL}
+            collectionAddress={process.env.REACT_APP_QUANTUM_ACCELERATOR}
             nftTokenId={id}
             nftStandard={`ERC-721`}
             blockchainNetwork={80001}
-            metadata={'https://api.gamestate.one/api/token-metadata/wearable/1'}
+            metadata={
+              'https://api.gamestate.one/api/token-metadata/quantum-accelerator/1'
+            }
           />
         </Popover>
 
