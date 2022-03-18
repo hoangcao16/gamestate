@@ -1,12 +1,12 @@
 import Header from 'app/components/Navbar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ShortenWalletAddress } from 'utils/formatWalletAddress';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOrderNFTSlice } from './slice';
 import { useApproveNFT } from 'app/pages/BuyQuantum/components/ApproveButton/slice';
 import { orderNFTSelector } from './slice/selectors';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Popover } from '@mui/material';
 import { useHistory } from 'react-router';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Path3728 from './assets/img/Path3728.png';
@@ -50,6 +50,8 @@ import {
   InfoShareLink,
   LinkScan,
 } from './assets/style';
+import DfyBlockchainInformation from 'app/components/DfyBlockchainInformation';
+import ShareMenu from 'app/components/ShareMenu';
 
 declare global {
   namespace JSX {
@@ -112,6 +114,19 @@ const QuantumOrder = () => {
 
   const { data, isLoading } = useSelector(orderNFTSelector);
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [shareAnchorEl, setShareAnchorEl] = useState<Element | null>(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const idPopup = open ? 'simple-popover' : undefined;
+
   return (
     <>
       <Header />
@@ -162,11 +177,16 @@ const QuantumOrder = () => {
                   </Col>
                   <Col>
                     <InfoShareLink>
-                      <ContainIcon>
+                      <ContainIcon
+                        aria-describedby={idPopup}
+                        onClick={handleClick}
+                      >
                         <InfoOutlinedIcon></InfoOutlinedIcon>
                       </ContainIcon>
 
-                      <ContainIcon>
+                      <ContainIcon
+                        onClick={e => setShareAnchorEl(e.currentTarget)}
+                      >
                         <ShareIcon></ShareIcon>
                       </ContainIcon>
                       <LinkScan
@@ -395,6 +415,58 @@ const QuantumOrder = () => {
             )}
           </ContainDetailNft>
         )}
+        <Popover
+          id={idPopup}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          sx={{
+            display: { md: 'block' },
+
+            '& .MuiPaper-root': {
+              background: 'none',
+              boxShadow: 'none',
+            },
+          }}
+        >
+          <DfyBlockchainInformation
+            collectionAddress={process.env.REACT_APP_NFT_DETAIL}
+            nftTokenId={id}
+            nftStandard={`ERC-721`}
+            blockchainNetwork={80001}
+            metadata={'https://api.gamestate.one/api/token-metadata/wearable/1'}
+          />
+        </Popover>
+
+        <Popover
+          open={Boolean(shareAnchorEl)}
+          anchorEl={shareAnchorEl}
+          onClose={() => setShareAnchorEl(null)}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          sx={{
+            '& .MuiPaper-root': {
+              background: 'none',
+              boxShadow: 'none',
+            },
+          }}
+        >
+          <ShareMenu />
+        </Popover>
       </Main>
     </>
   );
