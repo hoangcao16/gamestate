@@ -123,7 +123,7 @@ const Header = () => {
                       </>
                     }
                   >
-                    <NavDropdown.Item onClick={() => history.push('/utility')}>
+                    <NavDropdown.Item onClick={() => history.push('/nft-all')}>
                       My Wallet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
