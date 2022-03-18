@@ -147,6 +147,9 @@ const Wrapper = styled(Box)(({ theme }) => ({
   width: '417px',
   borderRadius: '10px',
   background: '#3D414B',
+  [theme.breakpoints.down(480)]: {
+    width: '350px',
+  },
 }));
 
 const Line = styled(Box)(({ theme }) => ({
@@ -159,11 +162,14 @@ const Line = styled(Box)(({ theme }) => ({
   fontStyle: 'normal',
   fontWeight: 500,
   color: '#FFFFFF',
+  [theme.breakpoints.down(480)]: {
+    fontSize: '14px',
+  },
 }));
 
 const FirstLine = styled(Line)(({ theme }) => ({
   paddingTop: '14px',
-  fontSize: '20px',
+  fontSize: '20px !important',
   lineHeight: '24px',
   fontStyle: 'normal',
   fontWeight: 600,
