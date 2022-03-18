@@ -60,8 +60,8 @@ export default function ShareMenu() {
           target="_blank"
           className="twitter-share-button"
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-            'An amazing item on Gamestate Metaverse',
-          )}&url=${encodeURIComponent(nftUrl)}&hashtags=gamestate,metaverse`}
+            'An amazing item in the @gamestate_one',
+          )}&url=${encodeURIComponent(nftUrl)}&hashtags=Metaverse`}
         >
           <TwitterIcon />
         </StyledIconButton>
