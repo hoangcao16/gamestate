@@ -16,6 +16,8 @@ import { wearableNFTSelector } from '../Wearable/slice/selectors';
 import { useOrderNFTSlice } from '../Order/slice';
 import { apiNftDetailByID } from 'services/apiDetailNFt';
 import { orderNFTSelector } from '../Order/slice/selectors';
+import { get, find } from 'lodash';
+
 const QuantumOrder = () => {
   const [metadata, setMetadata] = useState<any>({
     image:
@@ -39,7 +41,7 @@ const QuantumOrder = () => {
     dispatch(actionsWearable.wearableNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { data, isLoading } = useSelector(orderNFTSelector);
+  const { data, listAllNft, isLoading } = useSelector(orderNFTSelector);
   const { data: dataWearable } = useSelector(wearableNFTSelector);
 
   const wallet: any = useSelector(selectWallet);
@@ -57,6 +59,12 @@ const QuantumOrder = () => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataWearable]);
+
+  const getImage = id => {
+    if (!listAllNft) return;
+    const aqNft = find(listAllNft, ['tokenid', id]);
+    return get(aqNft, 'image', '');
+  };
   return (
     <>
       <Header />
@@ -115,9 +123,13 @@ const QuantumOrder = () => {
                       sm={6}
                       lg={3}
                       xl={2}
-                      onClick={() => history.push(`/nft/${item}`)}
+                      onClick={() => history.push(`/nft/utility/${item}`)}
                     >
-                      <QuantumItem items={item} idx={index + 1} />
+                      <QuantumItem
+                        items={item}
+                        idx={index + 1}
+                        image={getImage(item)}
+                      />
                       <LabelPrice># {item}</LabelPrice>
                     </StyledCol>
                   );

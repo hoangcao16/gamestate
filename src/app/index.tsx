@@ -71,7 +71,7 @@ export function App() {
           <PrivateRoute exact path="/wearable" component={Wearable} />
           <PrivateRoute exact path="/nft-all" component={NftAll} />
           <Route exact path="/nft/wearable/:id" component={DetailNft} />
-          <Route exact path="/nft/:id" component={DetailQA} />
+          <Route exact path="/nft/utility/:id" component={DetailQA} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />

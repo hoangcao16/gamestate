@@ -6,6 +6,7 @@ import { OrderNFTState } from './types';
 
 export const initialState: OrderNFTState = {
   data: [],
+  listAllNft: [],
   isLoading: false,
 };
 
@@ -18,6 +19,9 @@ const slice = createSlice({
     },
     orderNFTSuccess(state, action) {
       state.data = action.payload;
+    },
+    listQASuccess(state, action) {
+      state.listAllNft = action.payload;
     },
     clearLoading(state) {
       state.isLoading = false;
