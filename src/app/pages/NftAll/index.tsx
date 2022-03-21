@@ -67,7 +67,7 @@ const QuantumOrder = () => {
   };
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Main>
         <P>My wallet</P>
         <CtnFilter>

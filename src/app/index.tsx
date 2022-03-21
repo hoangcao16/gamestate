@@ -26,6 +26,7 @@ import { useGlobalState } from 'store/globalReducer';
 import PrivateRoute from 'app/components/common/privateRoute';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Header from './components/Navbar';
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ export function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Header />
       <Router history={history}>
         <Helmet
           titleTemplate="Gamestate"

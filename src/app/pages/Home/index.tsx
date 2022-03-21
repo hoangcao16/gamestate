@@ -45,7 +45,7 @@ const HomeContainer = () => {
   }, []);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <StyledMain>
         <Hero />
         <Monitor />
