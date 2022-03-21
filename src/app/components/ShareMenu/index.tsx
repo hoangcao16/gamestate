@@ -49,7 +49,7 @@ export default function ShareMenu() {
           }&display=page&href=${encodeURIComponent(
             nftUrl,
           )}&quote=${encodeURIComponent(
-            'An amazing item on Gamestate Metaverse',
+            'An amazing item in Gamestate Metaverse',
           )}`}
         >
           <FacebookIcon />
@@ -70,7 +70,7 @@ export default function ShareMenu() {
           underline="none"
           target="_blank"
           href={`https://t.me/share/url?text=${encodeURIComponent(
-            'An amazing item on Gamestate Metaverse',
+            'An amazing item in Gamestate Metaverse',
           )}&url=${encodeURIComponent(nftUrl)}&hashtags=gamestate,metaverse`}
         >
           <TelegramIcon />
@@ -80,7 +80,7 @@ export default function ShareMenu() {
           underline="none"
           target="_blank"
           href={`mailto:?subject=${encodeURIComponent(
-            'An amazing item on Gamestate Metaverse',
+            'An amazing item in Gamestate Metaverse',
           )}&body=${encodeURIComponent(nftUrl)}`}
         >
           <EmailIcon />

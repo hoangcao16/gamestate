@@ -267,10 +267,7 @@ export const AttributeContain = styled.div`
     grid-template-columns: auto auto auto auto auto;
   }
 `;
-export const AttributeItem = styled.div<{
-  bgimage: string;
-}>`
-  background-image: url(${props => props.bgimage});
+export const AttributeItem = styled.div`
   background-size: cover;
   background-position: center;
   width: 180px;

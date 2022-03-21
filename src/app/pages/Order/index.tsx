@@ -12,6 +12,8 @@ import { CircularProgress } from '@mui/material';
 import { useHistory } from 'react-router';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import Button from '@mui/material/Button';
+import { get, find } from 'lodash';
+
 const QuantumOrder = () => {
   const handleLink = link => {
     history.push(link);
@@ -28,7 +30,7 @@ const QuantumOrder = () => {
     dispatch(actions.orderNFTRequest(curAddress));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { data, isLoading } = useSelector(orderNFTSelector);
+  const { data, listAllNft, isLoading } = useSelector(orderNFTSelector);
 
   const wallet: any = useSelector(selectWallet);
 
@@ -36,6 +38,12 @@ const QuantumOrder = () => {
     !curAddress && !wallet?.wallet && history.push('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curAddress, wallet]);
+
+  const getImage = id => {
+    if (!listAllNft) return;
+    const aqNft = find(listAllNft, ['tokenid', id]);
+    return get(aqNft, 'image', '');
+  };
   return (
     <>
       <Header />
@@ -94,9 +102,13 @@ const QuantumOrder = () => {
                       sm={6}
                       lg={3}
                       xl={2}
-                      onClick={() => history.push(`/nft/${item}`)}
+                      onClick={() => history.push(`/nft/utility/${item}`)}
                     >
-                      <QuantumItem items={item} idx={index + 1} />
+                      <QuantumItem
+                        items={item}
+                        idx={index + 1}
+                        image={getImage(item)}
+                      />
                       <LabelPrice># {item}</LabelPrice>
                     </StyledCol>
                   );

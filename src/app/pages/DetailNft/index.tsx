@@ -61,11 +61,11 @@ declare global {
   }
 }
 
-const ITEMS = [attrItem1, attrItem2, attrItem3];
 const endpoint =
   'https://api.thegraph.com/subgraphs/name/qtvnnn/transaction-history';
 
 const QuantumOrder = () => {
+  const ITEMS = [attrItem1, attrItem2, attrItem3];
   let { id } = useParams<{ id: string }>();
   const { data: data2, isLoading: isLoading2 } = useQuery('launches', () => {
     return fetch(endpoint, {
@@ -127,13 +127,17 @@ const QuantumOrder = () => {
   const open = Boolean(anchorEl);
   const idPopup = open ? 'simple-popover' : undefined;
 
+  const randomBgAttr = index => {
+    return ITEMS[index % 3];
+  };
+
   return (
     <>
       <Header />
       <Main>
         <Row>
           <TopCol>
-            <StyleBackBtn onClick={() => history.push(`/wearable`)}>
+            <StyleBackBtn onClick={() => history.push(`/nft-all`)}>
               <ArrowBackIosIcon /> Back
             </StyleBackBtn>
           </TopCol>
@@ -218,9 +222,11 @@ const QuantumOrder = () => {
                 {matches ? (
                   <NftAttributes>
                     <AttributeContain>
-                      {data?.attributes?.map(item => (
+                      {data?.attributes?.map((item, index) => (
                         <AttributeItem
-                          bgimage={ITEMS[Math.floor(Math.random() * 3)]}
+                          style={{
+                            backgroundImage: `url(${randomBgAttr(index)})`,
+                          }}
                         >
                           <span style={{ fontWeight: '600' }}>
                             {item.trait_type}
@@ -334,9 +340,11 @@ const QuantumOrder = () => {
                   <TabPanel value={0}>{data.description}</TabPanel>
                   <TabPanel value={1}>
                     <AttributeContainMoblie>
-                      {data?.attributes?.map(item => (
+                      {data?.attributes?.map((item, index) => (
                         <AttributeItem
-                          bgimage={ITEMS[Math.floor(Math.random() * 3)]}
+                          style={{
+                            backgroundImage: `url(${randomBgAttr(index)})`,
+                          }}
                         >
                           <span style={{ fontWeight: '600' }}>
                             {item.trait_type}
