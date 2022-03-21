@@ -133,7 +133,7 @@ const QuantumOrder = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Main>
         <Row>
           <TopCol>

@@ -69,7 +69,7 @@ const BuyQuantum = () => {
   const { isAllow } = useSelector(approveNFTSelector);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <StyledMain>
         <Row>
           <StyledQuantumItem>

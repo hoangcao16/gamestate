@@ -25,8 +25,9 @@ import {
   Div,
 } from './style';
 import UserAvatar from 'app/assets/img/user.png';
+import { history } from 'app';
+
 const Header = () => {
-  const history = useHistory();
   const wallet: any = useSelector(selectWallet);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
