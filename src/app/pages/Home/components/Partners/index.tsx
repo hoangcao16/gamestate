@@ -5,6 +5,7 @@ import logoDig from 'app/assets/img/Logo/logoDig.svg';
 import logoDefi from 'app/assets/img/Logo/logoDefi.svg';
 import logoAnother from 'app/assets/img/Logo/logoAnother.svg';
 import logoSplin from 'app/assets/img/Logo/logoSplin.svg';
+import LogoOhHash from 'app/assets/img/Logo/LogoOhHash.png';
 import logoHive from 'app/assets/img/Logo/logoHive.svg';
 import logoN from 'app/assets/img/Logo/logoN.svg';
 import logoBirt from 'app/assets/img/Logo/logoBirt.svg';
@@ -209,7 +210,7 @@ const PARTNERS = [
         name: 'logoFat',
         src: logoFat,
         link: 'https://fatcatscapital.com/',
-        width: '500',
+        width: '300',
         height: '',
         right: '150',
       },
@@ -217,15 +218,23 @@ const PARTNERS = [
         name: 'logoMida',
         src: logoMida,
         link: 'https://midanft.com/',
-        width: '500',
+        width: '350',
         height: '',
-        right: '0',
+        right: '150',
       },
       {
         name: 'logoKoi',
         src: logoKoi,
         link: 'https://koi.io/',
-        width: '500',
+        width: '300',
+        height: '',
+        right: '150',
+      },
+      {
+        name: 'logoOhHash',
+        src: LogoOhHash,
+        link: 'https://www.ohhash.com/',
+        width: '300',
         height: '',
         right: '0',
       },
