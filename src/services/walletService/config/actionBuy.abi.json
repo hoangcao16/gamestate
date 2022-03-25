@@ -4,6 +4,50 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "string",
+        "name": "coupon",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "walletAffiliate",
+        "type": "address"
+      }
+    ],
+    "name": "AddCouponOfAffiliates",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "currency",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isCurrencySupport",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "name": "AddWhitelistedCurrencyAndPrice",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "previousAdmin",
         "type": "address"
@@ -37,7 +81,7 @@
       {
         "indexed": false,
         "internalType": "address",
-        "name": "buyer",
+        "name": "owner",
         "type": "address"
       },
       {
@@ -49,119 +93,17 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "price",
+        "name": "fee",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "coupon",
+        "type": "string"
       }
     ],
     "name": "BuyNFTMint",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "canSell",
-        "type": "bool"
-      }
-    ],
-    "name": "EveryoneCanSell",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "GetNFTBack",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "maxSupply",
-        "type": "uint256"
-      }
-    ],
-    "name": "MaxNFTCanMint",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "NFT721Addr",
-        "type": "address"
-      }
-    ],
-    "name": "NFT721Contract",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "buyer",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "currency",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      }
-    ],
-    "name": "NFTSold",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "currency",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      }
-    ],
-    "name": "NewNFT",
     "type": "event"
   },
   {
@@ -201,18 +143,57 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "bool",
+        "name": "isPublicSellNFT",
+        "type": "bool"
+      }
+    ],
+    "name": "SetIsPublicSellNFT",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "listWalletSale",
+        "type": "address[]"
+      }
+    ],
+    "name": "SetListWalletSale",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "maxNFTCanMint",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetMaxNFTCanMint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
-        "name": "currency",
+        "name": "operator",
         "type": "address"
       },
       {
         "indexed": false,
         "internalType": "bool",
-        "name": "accepted",
+        "name": "isOperator",
         "type": "bool"
       }
     ],
-    "name": "PaymentCurrency",
+    "name": "SetOperator",
     "type": "event"
   },
   {
@@ -221,30 +202,11 @@
       {
         "indexed": false,
         "internalType": "address",
-        "name": "currency",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      }
-    ],
-    "name": "PriceMintNFT",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "wallet",
+        "name": "receiveFeeWallet",
         "type": "address"
       }
     ],
-    "name": "ReceiveFeeWallet",
+    "name": "SetReceiveFeeWallet",
     "type": "event"
   },
   {
@@ -264,25 +226,6 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdatePrice",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": true,
         "internalType": "address",
         "name": "implementation",
@@ -293,119 +236,126 @@
     "type": "event"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "wallet",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "isSeller",
-        "type": "bool"
-      }
-    ],
-    "name": "WalletCanSell",
-    "type": "event"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "currency", "type": "address" }
-    ],
-    "name": "buyNFTMint",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "inputs": [],
+    "name": "_isPublicSellNFT",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "currency", "type": "address" }
-    ],
-    "name": "checkCurrency",
+    "inputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+    "name": "_listCouponOfAffiliates",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "_listOperator",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "_listPriceMintNFTByCurrency",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "_listWalletBuyNFT",
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "getListCurrecyWhitelist",
-    "outputs": [
-      { "internalType": "address[]", "name": "", "type": "address[]" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "getNFTBack",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "getNFTInfo",
-    "outputs": [
-      { "internalType": "address", "name": "seller", "type": "address" },
-      { "internalType": "address", "name": "currency", "type": "address" },
-      { "internalType": "uint256", "name": "price", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "seller", "type": "address" }
-    ],
-    "name": "getNFTsOnSellOf",
-    "outputs": [
-      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "currency", "type": "address" }
-    ],
-    "name": "getPriceMintNFT",
+    "name": "_maxNFTCanMint",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "initialize",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "isEveryoneCanSell",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "listCurrencyWhitelist",
+    "name": "_receiveFeeWallet",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "maxNFTCanMint",
+    "name": "_totalNFTMinted",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "_totalNFTMintedByWalletSale",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "_whitelistedCurrency",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "_whitelistedWalletSales",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "operator", "type": "address" },
+      { "internalType": "bool", "name": "isOperator", "type": "bool" }
+    ],
+    "name": "addOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "listWalletSale",
+        "type": "address[]"
+      }
+    ],
+    "name": "addWhitelistedWallets",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "currency", "type": "address" },
+      { "internalType": "string", "name": "couponCode", "type": "string" }
+    ],
+    "name": "buyNFT",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "quantumAcceleratorAddress",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -442,12 +392,10 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "purchaseNFT",
-    "outputs": [],
-    "stateMutability": "payable",
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -465,13 +413,6 @@
   },
   {
     "inputs": [],
-    "name": "receiveFeeWallet",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -479,25 +420,21 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
-      { "internalType": "address", "name": "currency", "type": "address" },
-      { "internalType": "uint256", "name": "price", "type": "uint256" }
+      { "internalType": "string", "name": "couponCode", "type": "string" },
+      {
+        "internalType": "address",
+        "name": "walletAffiliate",
+        "type": "address"
+      }
     ],
-    "name": "sellNFT",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "bool", "name": "canSell", "type": "bool" }],
-    "name": "setEveryoneCanSell",
+    "name": "setListCouponOfAffiliates",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "maxSupply", "type": "uint256" }
+      { "internalType": "uint256", "name": "maxNFTCanMint", "type": "uint256" }
     ],
     "name": "setMaxNFTCanMint",
     "outputs": [],
@@ -506,36 +443,20 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "nft721Address", "type": "address" }
+      { "internalType": "bool", "name": "isPublicSellNFT", "type": "bool" }
     ],
-    "name": "setNFT721Address",
+    "name": "setPublicSellNFT",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "currency", "type": "address" },
-      { "internalType": "bool", "name": "accepted", "type": "bool" }
-    ],
-    "name": "setPaymentCurrency",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "currency", "type": "address" },
-      { "internalType": "uint256", "name": "price", "type": "uint256" }
-    ],
-    "name": "setPriceMintNFT",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "wallet", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "receiveFeeWallet",
+        "type": "address"
+      }
     ],
     "name": "setReceiveFeeWallet",
     "outputs": [],
@@ -544,19 +465,13 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "wallet", "type": "address" },
-      { "internalType": "bool", "name": "isSeller", "type": "bool" }
+      { "internalType": "address", "name": "currency", "type": "address" },
+      { "internalType": "bool", "name": "isCurrencySupport", "type": "bool" },
+      { "internalType": "uint256", "name": "price", "type": "uint256" }
     ],
-    "name": "setWalletCanSell",
+    "name": "setWhitelistedCurrencyAndPrice",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "supplyNFTMinted",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -571,16 +486,6 @@
   {
     "inputs": [],
     "name": "unpause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
-      { "internalType": "uint256", "name": "newPrice", "type": "uint256" }
-    ],
-    "name": "updatePrice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

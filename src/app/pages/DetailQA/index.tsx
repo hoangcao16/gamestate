@@ -61,8 +61,7 @@ declare global {
 }
 
 const ITEMS = [attrItem1, attrItem2, attrItem3];
-const endpoint =
-  'https://api.thegraph.com/subgraphs/name/qtvnnn/qa-trans-history';
+const endpoint = 'https://api.thegraph.com/subgraphs/name/qtvnnn/qa-mainet';
 
 const QuantumOrder = () => {
   let { id } = useParams<{ id: string }>();
@@ -192,7 +191,7 @@ const QuantumOrder = () => {
                         className="txt-tx"
                         onClick={() =>
                           window.open(
-                            'https://mumbai.polygonscan.com/address/' +
+                            'https://polygonscan.com/address/' +
                               process.env.REACT_APP_NFT_DETAIL,
                             '_blank',
                           )
@@ -265,7 +264,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL +
+                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
                                     '/tx/' +
                                     item.transactionHash,
                                   '_blank',
@@ -286,7 +285,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL +
+                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
                                     '/address/' +
                                     item.from,
                                   '_blank',
@@ -360,7 +359,8 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                      process.env
+                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
                                         '/tx/' +
                                         item.transactionHash,
                                       '_blank',
@@ -379,7 +379,8 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                      process.env
+                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
                                         '/address/' +
                                         item.from,
                                       '_blank',
@@ -441,10 +442,12 @@ const QuantumOrder = () => {
           }}
         >
           <DfyBlockchainInformation
-            collectionAddress={process.env.REACT_APP_QUANTUM_ACCELERATOR}
+            collectionAddress={
+              process.env.REACT_APP_QUANTUM_ACCELERATOR_MAINNET
+            }
             nftTokenId={id}
             nftStandard={`ERC-721`}
-            blockchainNetwork={80001}
+            blockchainNetwork={137}
             metadata={
               'https://api.gamestate.one/api/token-metadata/quantum-accelerator/1'
             }

@@ -9,6 +9,7 @@ export const initialState: ApproveNFTState = {
   isAllow: false,
   receipt: undefined,
   allowance: undefined,
+  isPublicSell: false,
 };
 
 const slice = createSlice({
@@ -24,6 +25,9 @@ const slice = createSlice({
     },
     checkApproveNFTAllowance(state, action) {
       state.allowance = action.payload;
+    },
+    checkPublicSell(state, action) {
+      state.isPublicSell = action.payload;
     },
     handleApproveNFTRequest(state, action: PayloadAction<any>) {
       state.isLoading = true;

@@ -197,7 +197,7 @@ const QuantumOrder = () => {
                         className="txt-tx"
                         onClick={() =>
                           window.open(
-                            'https://mumbai.polygonscan.com/address/' +
+                            'https://polygonscan.com/address/' +
                               process.env.REACT_APP_NFT_DETAIL,
                             '_blank',
                           )

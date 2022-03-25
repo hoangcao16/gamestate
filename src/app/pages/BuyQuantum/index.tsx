@@ -1,31 +1,42 @@
-import Header from 'app/components/Navbar';
-import { useState, useEffect } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import QuantumItem, { StyledBuyItemBlack } from './components/QuantumItem';
+import { CircularProgress } from '@mui/material';
+import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
+import { DfyAlert } from 'app/components/DfyAlert';
+import ModalConnectWallet from 'app/components/ModalConnect';
+import { selectWallet } from 'app/components/Wallet/slice/selectors';
+import { isEmpty } from 'lodash';
+import { useEffect, useState } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { testContract } from 'services/walletService/addCurrencyService/addCurrency';
+import { addWhiteList } from 'services/walletService/addWhiteListService/addWhiteList';
+import { setupReceive } from 'services/walletService/setupReceiveFeeService/setupReceive';
+import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
+import ApproveButton from './components/ApproveButton';
+import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
 import ButtonQuantum from './components/ButtonQuantum';
 import LabelPrice from './components/LabelPrice';
-import ModalConnectWallet from 'app/components/ModalConnect';
-import ApproveButton from './components/ApproveButton';
-import { CircularProgress } from '@mui/material';
+import QuantumItem, {
+  StyledBuyItem,
+  StyledBuyItemBlack,
+} from './components/QuantumItem';
+import { useBuyNFTSlice } from './slice';
+import { buyNFTSelector } from './slice/selectors';
 import {
+  RowInputStyle,
+  StyledButton,
+  StyledBuyItemVideo,
+  StyledColInput,
+  StyledDesc,
+  StyledGroupButton,
+  StyledInput,
   StyledMain,
   StyledQuantumItem,
   StyledTitle,
-  StyledDesc,
-  StyledButton,
-  StyledGroupButton,
-  StyledBuyItemVideo,
 } from './style';
-import { StyledBuyItem } from './components/QuantumItem';
-import { useBuyNFTSlice } from './slice';
-import { useDispatch, useSelector } from 'react-redux';
-import { buyNFTSelector } from './slice/selectors';
-import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
-import { selectWallet } from 'app/components/Wallet/slice/selectors';
-import { isEmpty } from 'lodash';
-import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
 
 const BuyQuantum = () => {
+  const [couponCode, setCouponCode] = useState('');
+
   const dispatch = useDispatch();
 
   const wallet: any = useSelector(selectWallet);
@@ -37,16 +48,17 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
   const amount = '250';
-  const isLoading = useSelector(buyNFTSelector).isLoading;
+  const { isLoading, isError } = useSelector(buyNFTSelector);
   //set up allow
 
   // Handle Buy
-  const handleBuy = () => {
+  const handleBuy = couponCode => {
     dispatch(
       actions.buyNFTRequest({
         from: curAddress,
         payableAmount: 0,
         tokenSymbol,
+        couponCode,
       }),
     );
   };
@@ -58,6 +70,14 @@ const BuyQuantum = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //open modal message error
+  const [openError, setOpenError] = useState(false);
+  useEffect(() => {
+    isError ? setOpenError(true) : setOpenError(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isError]);
+  const handleCloseError = () => setOpenError(false);
+
   const handleOpenConnect = () => {
     setOpenConnect(true);
   };
@@ -66,11 +86,52 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
-  const { isAllow } = useSelector(approveNFTSelector);
+  const { isAllow, isPublicSell } = useSelector(approveNFTSelector);
+
+  const handleChangeCode = e => {
+    setCouponCode(e.target.value);
+  };
+  const handleTest = async () => {
+    try {
+      const abx = await testContract(curAddress);
+      await signAndSendTx(abx);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleAddWhitelist = async () => {
+    try {
+      const transfer = await addWhiteList(curAddress);
+      await signAndSendTx(transfer);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSetupReice = async () => {
+    try {
+      const transfer = await setupReceive(curAddress);
+      await signAndSendTx(transfer);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       {/* <Header /> */}
       <StyledMain>
+        {/* <button onClick={handleTest}>test</button>
+        <button onClick={handleAddWhitelist}>addWhitelist</button>
+        <button onClick={handleSetupReice}>setupReceive</button> */}
+        <DfyAlert
+          type="danger"
+          onClose={handleCloseError}
+          isOpen={openError}
+          alertText="Transaction failed!"
+          messageText="This wallet has already purchased this NFT"
+          handle={() => handleClose()}
+        />
         <Row>
           <StyledQuantumItem>
             <StyledTitle>Quantum Accelerator</StyledTitle>
@@ -106,6 +167,23 @@ const BuyQuantum = () => {
               Purchase 1x Quantum Accelerator static NFT (numbered), un-numbered
               video link included.
             </StyledDesc>
+            {isPublicSell ? (
+              <RowInputStyle>
+                <StyledColInput>
+                  <StyledInput className="mb-3">
+                    <Form.Label>COUPON CODE</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={couponCode}
+                      onChange={handleChangeCode}
+                    />
+                  </StyledInput>
+                </StyledColInput>
+              </RowInputStyle>
+            ) : (
+              ''
+            )}
+
             {isEmpty(wallet.wallet) ? (
               <StyledButton className="mb-100">
                 <ButtonQuantum onclick={handleOpenConnect}>
@@ -123,7 +201,7 @@ const BuyQuantum = () => {
                 <ButtonQuantum
                   margin="0 0 0 20px"
                   disable={isAllow ? false : true}
-                  onclick={handleBuy}
+                  onclick={() => handleBuy(couponCode)}
                 >
                   {isLoading ? (
                     <CircularProgress size={19} color="inherit" />

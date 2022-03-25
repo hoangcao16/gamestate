@@ -11,6 +11,7 @@ import BigNumber from 'bignumber.js';
   @param {string} spender
  * @returns
  */
+const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
 export const checkApprove = async (
   from,
   tokenSymbol,
@@ -28,7 +29,7 @@ export const checkApprove = async (
     // const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
     const tokenContract = new web3.eth.Contract(
       erc20Abi,
-      '0x76B07A77769CB38A973e46d7c29c828Ab91A6744', //sua address coin
+      coinAddress, //sua address coin
     );
 
     const allowance = await tokenContract.methods
@@ -60,7 +61,7 @@ export const createApprove = async (
   // const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
   const tokenContract = new web3.eth.Contract(
     erc20Abi,
-    '0x76B07A77769CB38A973e46d7c29c828Ab91A6744', // sua address coin
+    coinAddress, // sua address coin
   );
   const txData = tokenContract.methods.approve(
     spender,
@@ -71,7 +72,7 @@ export const createApprove = async (
   // data tx
   const tx = {
     from,
-    to: '0x76b07a77769cb38a973e46d7c29c828ab91a6744', // sua address coin
+    to: coinAddress, // sua address coin
     value: 0,
     nonce,
     data: txData.encodeABI(),
