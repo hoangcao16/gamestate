@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Logo from 'app/assets/img/Logo/logo.png';
 import { Navbar, NavDropdown } from 'react-bootstrap';
-import { useHistory } from 'react-router';
 import ModalConnectWallet from 'app/components/ModalConnect/index';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import { isEmpty } from 'lodash';

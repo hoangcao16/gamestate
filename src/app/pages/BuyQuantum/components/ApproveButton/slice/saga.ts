@@ -9,19 +9,29 @@ import { createApprove } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import erc20Abi from 'services/walletService/config/erc20.abi.json';
 // import * as gasInfo from 'services/walletService/supportService/getGasInformation';
+import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
 
-const spender = process.env.REACT_APP_NFT_SALES_ADDRESS;
-const coinAddress = process.env.REACT_APP_COIN_ADDRESS;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
+const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
 function* checkApproveNFT(action) {
   const instanceValue = Web3.getInstance;
   const { curAddress, tokenSymbol, amount } = action.payload;
   try {
     if (localStorage.getItem('extensionName')) {
       yield instanceValue.setWeb3();
+      const web3: any = instanceValue.getWeb3();
+
+      // check public sell
+      const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
+      console.log(buyContract, 'buyContract');
+      const isPublic = yield buyContract.methods._isPublicSellNFT().call();
+      console.log(isPublic, 'isPublic');
+      yield put(actions.checkPublicSell(isPublic));
+
+      // check approve
       let res;
       if (tokenSymbol === 'MATIC') res = amount;
       else {
-        const web3: any = instanceValue.getWeb3();
         const tokenContract = new web3.eth.Contract(erc20Abi, coinAddress);
         res = yield tokenContract.methods.allowance(curAddress, spender).call();
       }
@@ -33,7 +43,9 @@ function* checkApproveNFT(action) {
       }
       yield put(actions.checkApproveNFTAllowance(resDiv18));
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(err, 'err');
+  }
 }
 function* handleApproveNFT(action) {
   const { curAddress, tokenSymbol, amount } = action.payload;

@@ -4,8 +4,10 @@ import Background from 'app/assets/img/Explore/background.png';
 // import HeroBanner from "../../assets/img/Explore/Giff_Chip.gif";
 import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const Explore = () => {
+  const history = useHistory();
   const [text, setText] = useState('BUY');
   const [textsd, setTextsd] = useState('NOW');
   return (
@@ -20,14 +22,15 @@ const Explore = () => {
           and early bird access!
         </StyledDescription>
         <StyledButton
-          onMouseEnter={() => {
-            setText('COMING');
-            setTextsd('SOON');
-          }}
-          onMouseLeave={() => {
-            setText('BUY');
-            setTextsd('NOW');
-          }}
+          // onMouseEnter={() => {
+          //   setText('COMING');
+          //   setTextsd('SOON');
+          // }}
+          // onMouseLeave={() => {
+          //   setText('BUY');
+          //   setTextsd('NOW');
+          // }}
+          onClick={() => history.push('/buy')}
         >
           <StyledSpan>{text}</StyledSpan>
           <StyledSubSpan>{textsd}</StyledSubSpan>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Dialog } from '@mui/material';
 
 export const StyledMain = styled(Container)`
   margin-top: 90px;
@@ -61,13 +62,70 @@ export const StyledGroupButton = styled.div`
   max-width: 1432px;
   display: flex;
   width: 100%;
-  margin: 90px auto 100px auto;
+  margin: 45px auto 100px auto;
   @media screen and (max-width: 575px) {
     flex-direction: column;
+    margin: 10px auto 100px auto;
   }
 `;
 export const StyledBuyItemVideo = styled.video`
   width: 100%;
   border-radius: 42px;
   display: flex;
+`;
+
+export const RowInputStyle = styled(Row)`
+  margin: 20px auto 20px auto;
+  width: 50%;
+  @media screen and (max-width: 575px) {
+    margin: 20px auto 0px auto;
+    width: 90%;
+  }
+`;
+
+export const StyledColInput = styled(Col)`
+  padding: 0 6px;
+`;
+
+export const StyledInput = styled(Form.Group)`
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  position: relative;
+  &:focus-within {
+    border: 1px solid #e740f0;
+  }
+  & input,
+  & textarea {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    padding-left: 0;
+    width: 90%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    &:focus {
+      background: transparent;
+      color: #fff;
+      outline: none;
+      box-shadow: unset;
+    }
+  }
+
+  & label {
+    padding-left: 0 !important;
+    border: none;
+    opacity: 1 !important;
+    width: 100%;
+    resize: none;
+    text-align: left;
+  }
 `;

@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet-async';
 import { Switch, Route, Router } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import HomePage from './pages/Home';
+import Manage from './pages/Manage';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import Web3 from 'services/walletService/initWeb3';
@@ -68,6 +69,7 @@ export function App() {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/manage" component={Manage} />
           <Route exact path="/buy" component={BuyQuantum} />
           <PrivateRoute exact path="/utility" component={QuantumOrder} />
           <PrivateRoute exact path="/wearable" component={Wearable} />

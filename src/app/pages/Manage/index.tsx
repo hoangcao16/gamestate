@@ -2,8 +2,8 @@ import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import bookIcon from 'progressassets/img/Contact/book.svg';
-import urlIcon from 'progressassets/img/Contact/url.svg';
+// import bookIcon from 'progressassets/img/Contact/book.svg';
+// import urlIcon from 'progressassets/img/Contact/url.svg';
 
 const StyledContactForm = styled.div`
   background: rgba(255, 255, 255, 0.1);
@@ -124,14 +124,14 @@ const ContactForm = () => {
             <StyledInput className="mb-3" controlId="formBasicHive">
               <Form.Label>HIVE-ENGINE IDO </Form.Label>
               <Form.Control type="text" name="hive" className="text" />
-              <StyledIconInput src={bookIcon} />
+              {/* <StyledIconInput src={bookIcon} /> */}
             </StyledInput>
           </StyledColInput>
           <StyledColInput xxl={12}>
             <StyledInput className="mb-3" controlId="formBasicPolygon">
               <Form.Label>POLYGON IDO</Form.Label>
               <Form.Control type="text" className="text" name="polygon" />
-              <StyledIconInput src={urlIcon} alt="" />
+              {/* <StyledIconInput src={urlIcon} alt="" /> */}
             </StyledInput>
           </StyledColInput>
           <StyledColInput md={12}>
