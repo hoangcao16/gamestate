@@ -22,15 +22,15 @@ const Explore = () => {
           and early bird access!
         </StyledDescription>
         <StyledButton
-          // onMouseEnter={() => {
-          //   setText('COMING');
-          //   setTextsd('SOON');
-          // }}
-          // onMouseLeave={() => {
-          //   setText('BUY');
-          //   setTextsd('NOW');
-          // }}
-          onClick={() => history.push('/buy')}
+          onMouseEnter={() => {
+            setText('COMING');
+            setTextsd('SOON');
+          }}
+          onMouseLeave={() => {
+            setText('BUY');
+            setTextsd('NOW');
+          }}
+          // onClick={() => history.push('/buy')}
         >
           <StyledSpan>{text}</StyledSpan>
           <StyledSubSpan>{textsd}</StyledSubSpan>
