@@ -24,7 +24,7 @@ export const addWhiteList = async from => {
   );
   console.log(tokenContract, 'tokenContract');
   const txData = tokenContract.methods.addWhitelistedWallets([
-    '0x082F681445a90750745b7D0F4BD383eD7c824f3d',
+    '0xa3a42E000D5a25bb5353D2FbAcC99D34462a282F',
   ]);
   console.log(txData, 'txData');
 
