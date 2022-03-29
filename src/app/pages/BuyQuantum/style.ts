@@ -11,12 +11,23 @@ export const StyledQuantumItem = styled.div`
   align-items: center;
   justify-content: center;
   /* max-width: 800px; */
-  margin: 60px auto;
+  margin: 30px auto;
   text-align: center;
   @media screen and (max-width: 575px) {
     max-width: unset;
   }
 `;
+
+export const ContainQuantumItem = styled.div`
+  position: relative;
+`;
+
+export const StyledSaleOff = styled.img`
+  position: absolute;
+  left: 0px;
+  z-index: 3;
+`;
+
 export const StyledTitle = styled.h3`
   font-size: 60px;
   font-weight: bold;
@@ -37,7 +48,7 @@ export const StyledDesc = styled.p`
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 0.7;
-  margin: 34px 0 55px;
+  margin: 10px 0 15px;
   @media screen and (max-width: 575px) {
     font-size: 14px;
     font-weight: bold;
@@ -59,13 +70,13 @@ export const StyledButton = styled.div`
   }
 `;
 export const StyledGroupButton = styled.div`
-  max-width: 1432px;
+  max-width: 800px;
   display: flex;
   width: 100%;
-  margin: 45px auto 100px auto;
+  margin: 10px auto 100px auto;
   @media screen and (max-width: 575px) {
     flex-direction: column;
-    margin: 10px auto 100px auto;
+    margin: 15px auto 100px auto;
   }
 `;
 export const StyledBuyItemVideo = styled.video`
@@ -75,7 +86,7 @@ export const StyledBuyItemVideo = styled.video`
 `;
 
 export const RowInputStyle = styled(Row)`
-  margin: 20px auto 20px auto;
+  // margin: 20px auto 20px auto;
   width: 50%;
   @media screen and (max-width: 575px) {
     margin: 20px auto 0px auto;
@@ -93,7 +104,7 @@ export const StyledInput = styled(Form.Group)`
   border-radius: 12px;
   border: 1px solid transparent;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 0;
   color: #fff;
   position: relative;
   &:focus-within {

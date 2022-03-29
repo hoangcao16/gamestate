@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import buyItem from 'app/assets/img/BuyQuantum/quantumtest.png';
 const StyledBuyItemImage = styled.img`
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 42px;
@@ -19,8 +20,8 @@ export const StyledBuyItemBlack = styled.div`
   }
 `;
 export const StyledBuyItem = styled.div`
-  max-width: 705px;
-  padding: 40px;
+  max-width: 400px;
+  padding: 20px 24px;
   background-color: #262727;
   border-radius: 42px;
   position: relative;
@@ -47,7 +48,7 @@ export const StyledBuyItem = styled.div`
 
   @media screen and (max-width: 575px) {
     max-width: 322px;
-    padding: 17px;
+    padding: 20px 23px;
     border-radius: 0;
     margin: 0 auto;
   }
