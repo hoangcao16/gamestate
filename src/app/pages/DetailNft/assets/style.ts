@@ -108,7 +108,16 @@ export const ContainDetailNft = styled.div`
     }
   }
   @media (min-width: 2560px) {
-    padding: 140px 150px !important;
+    padding: 150px 150px !important;
+    min-height: 1600px;
+  }
+  @media (min-width: 2020px) and (max-width: 2250px) {
+    min-height: 1231px;
+    padding: 160px 80px !important;
+  }
+  @media (min-width: 2250px) and (max-width: 2560px) {
+    min-height: 1410px;
+    padding: 215px 80px !important;
   }
   // @media (min-width: 1440px) {
   //   padding: 210px 50px;

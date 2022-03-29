@@ -1,5 +1,5 @@
 import { CircularProgress } from '@mui/material';
-import ChipEffect from 'app/assets/videos/Chip_Effect.mp4';
+import ChipEffect from 'app/assets/videos/Chip_Effect_2.mp4';
 import { DfyAlert } from 'app/components/DfyAlert';
 import ModalConnectWallet from 'app/components/ModalConnect';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
@@ -22,6 +22,7 @@ import QuantumItem, {
 import { useBuyNFTSlice } from './slice';
 import { buyNFTSelector } from './slice/selectors';
 import {
+  ContainQuantumItem,
   RowInputStyle,
   StyledButton,
   StyledBuyItemVideo,
@@ -31,8 +32,10 @@ import {
   StyledInput,
   StyledMain,
   StyledQuantumItem,
+  StyledSaleOff,
   StyledTitle,
 } from './style';
+import saleOff10 from 'app/assets/img/BuyQuantum/saleOff10.svg';
 
 const BuyQuantum = () => {
   const [couponCode, setCouponCode] = useState('');
@@ -144,9 +147,12 @@ const BuyQuantum = () => {
               <Col
                 xs={{ order: 2 }}
                 xl={{ order: 1 }}
-                className="d-flex justify-content-md-center mt-4 mt-xl-0 col-xl-6 col-12"
+                className="quantum-item-style d-flex justify-content-center mt-4 mt-xl-0 col-xl-6 col-12"
               >
-                <QuantumItem />
+                <ContainQuantumItem>
+                  <StyledSaleOff src={saleOff10} alt="" />
+                  <QuantumItem />
+                </ContainQuantumItem>
               </Col>
               <Col
                 xs={{ order: 1 }}
@@ -164,8 +170,8 @@ const BuyQuantum = () => {
             </Row>
             <LabelPrice className="mb-0">{amount} USDC</LabelPrice>
             <StyledDesc className="mb-0">
-              Purchase 1x Quantum Accelerator static NFT (numbered), un-numbered
-              video link included.
+              Mint 1x random rarity Quantum Accelerator static NFT (1 to 1111
+              numbered), un-numbered video link included.
             </StyledDesc>
             {isPublicSell ? (
               <RowInputStyle>
