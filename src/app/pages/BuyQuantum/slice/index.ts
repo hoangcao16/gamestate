@@ -6,6 +6,7 @@ import { BuyNftState } from './types';
 export const initialState: BuyNftState = {
   isLoading: false,
   isError: false,
+  isSuccess: false,
 };
 
 const buyNFTSlice = createSlice({
@@ -17,6 +18,9 @@ const buyNFTSlice = createSlice({
     },
     buyNFTError(state) {
       state.isError = true;
+    },
+    buyNFTSuccess(state) {
+      state.isSuccess = true;
     },
     clearLoading(state) {
       state.isLoading = false;
