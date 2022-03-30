@@ -61,7 +61,7 @@ declare global {
 }
 
 const ITEMS = [attrItem1, attrItem2, attrItem3];
-const endpoint = 'https://api.thegraph.com/subgraphs/name/qtvnnn/qa-mainet';
+const endpoint = 'https://api.thegraph.com/subgraphs/name/qtvnnn/qa-trans-tes';
 
 const QuantumOrder = () => {
   let { id } = useParams<{ id: string }>();
@@ -264,7 +264,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
+                                  process.env.REACT_APP_TXT_DETAIL_URL +
                                     '/tx/' +
                                     item.transactionHash,
                                   '_blank',
@@ -285,7 +285,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
+                                  process.env.REACT_APP_TXT_DETAIL_URL +
                                     '/address/' +
                                     item.from,
                                   '_blank',
@@ -359,8 +359,7 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env
-                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
+                                      process.env.REACT_APP_TXT_DETAIL_URL +
                                         '/tx/' +
                                         item.transactionHash,
                                       '_blank',
@@ -379,8 +378,7 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env
-                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
+                                      process.env.REACT_APP_TXT_DETAIL_URL +
                                         '/address/' +
                                         item.from,
                                       '_blank',
@@ -442,12 +440,10 @@ const QuantumOrder = () => {
           }}
         >
           <DfyBlockchainInformation
-            collectionAddress={
-              process.env.REACT_APP_QUANTUM_ACCELERATOR_MAINNET
-            }
+            collectionAddress={process.env.REACT_APP_QUANTUM_ACCELERATOR}
             nftTokenId={id}
             nftStandard={`ERC-721`}
-            blockchainNetwork={137}
+            blockchainNetwork={80001}
             metadata={
               'https://api.gamestate.one/api/token-metadata/quantum-accelerator/1'
             }

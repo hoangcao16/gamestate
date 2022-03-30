@@ -1,6 +1,7 @@
 import * as gasInfo from '../supportService/getGasInformation';
 import Web3 from '../initWeb3';
 import erc20Abi from '../config/erc20.abi.json';
+import gsErc20Abi from 'services/walletService/config/gs-erc20.abi.json';
 import softNftAbi from '../config/softNft.abi.json';
 // import { filterTokenToAddress } from '../supportService/filterTokenToAddress';
 import BigNumber from 'bignumber.js';
@@ -11,7 +12,7 @@ import BigNumber from 'bignumber.js';
   @param {string} spender
  * @returns
  */
-const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
+const coinAddress = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
 export const checkApprove = async (
   from,
   tokenSymbol,
@@ -60,7 +61,7 @@ export const createApprove = async (
   // );
   // const tokenAddress = filterTokenToAddress(supportSymbol, tokenSymbol);
   const tokenContract = new web3.eth.Contract(
-    erc20Abi,
+    gsErc20Abi,
     coinAddress, // sua address coin
   );
   const txData = tokenContract.methods.approve(

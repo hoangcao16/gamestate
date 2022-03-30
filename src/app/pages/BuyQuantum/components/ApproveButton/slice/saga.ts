@@ -8,11 +8,12 @@ import BigNumber from 'bignumber.js';
 import { createApprove } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import erc20Abi from 'services/walletService/config/erc20.abi.json';
+import gsErc20Abi from 'services/walletService/config/gs-erc20.abi.json';
 // import * as gasInfo from 'services/walletService/supportService/getGasInformation';
 import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
 
-const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
-const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
+const coinAddress = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
 function* checkApproveNFT(action) {
   const instanceValue = Web3.getInstance;
   const { curAddress, tokenSymbol, amount } = action.payload;
@@ -24,7 +25,7 @@ function* checkApproveNFT(action) {
       // check public sell
       const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
       console.log(buyContract, 'buyContract');
-      const isPublic = yield buyContract.methods._isPublicSellNFT().call();
+      const isPublic = yield buyContract.methods._isPublicSale().call();
       console.log(isPublic, 'isPublic');
       yield put(actions.checkPublicSell(isPublic));
 
@@ -32,7 +33,7 @@ function* checkApproveNFT(action) {
       let res;
       if (tokenSymbol === 'MATIC') res = amount;
       else {
-        const tokenContract = new web3.eth.Contract(erc20Abi, coinAddress);
+        const tokenContract = new web3.eth.Contract(gsErc20Abi, coinAddress);
         res = yield tokenContract.methods.allowance(curAddress, spender).call();
       }
       const resDiv18 = Number(new BigNumber(res).dividedBy(10 ** 18).toFixed());

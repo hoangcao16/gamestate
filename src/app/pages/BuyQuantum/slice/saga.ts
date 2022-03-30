@@ -6,8 +6,8 @@ import * as gasInfo from 'services/walletService/supportService/getGasInformatio
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import { history } from 'app';
 
-const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
-const currency = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
+const currency = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
 function forwardTo(location) {
   history.push(location);
 }
@@ -21,6 +21,7 @@ function* handleBuyNFT(action) {
   if (tokenSymbol.toUpperCase() !== 'MATIC') value = 0;
   try {
     const txData = yield buyContract.methods.buyNFT(currency, couponCode);
+    console.log(txData, 'txData');
     const nonce = yield web3.eth.getTransactionCount(from, 'pending');
     const tx = {
       from,

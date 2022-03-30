@@ -15,7 +15,7 @@ export const buy = async (
   payableAmount,
   tokenSymbol,
   spender = process.env.REACT_APP_NFT_SALES_ADDRESS,
-  currency = process.env.REACT_APP_COIN_ADDRESS_MAINNET,
+  currency = process.env.REACT_APP_COIN_ADDRESS,
 ) => {
   const instanceValue = Web3.getInstance;
   const web3: any = instanceValue.getWeb3();

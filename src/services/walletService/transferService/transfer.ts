@@ -10,7 +10,7 @@ import BigNumber from 'bignumber.js';
   @param {string} spender
  * @returns
  */
-const currency = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
+const currency = process.env.REACT_APP_COIN_ADDRESS;
 
 export const testTransfer = async from => {
   const instanceValue = Web3.getInstance;
