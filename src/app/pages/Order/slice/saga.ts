@@ -8,7 +8,7 @@ import actionNftAbi from 'services/walletService/config/actionNft.abi.json';
 import { apiGetListQA } from 'services/apiDetailNFt';
 
 function* handleOrderNFT(action) {
-  const spender = process.env.REACT_APP_QUANTUM_ACCELERATOR_MAINNET;
+  const spender = process.env.REACT_APP_QUANTUM_ACCELERATOR;
   const curAddress = action.payload;
   try {
     if (localStorage.getItem('extensionName')) {

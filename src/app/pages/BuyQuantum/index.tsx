@@ -124,15 +124,15 @@ const BuyQuantum = () => {
     <>
       {/* <Header /> */}
       <StyledMain>
-        {/* <button onClick={handleTest}>test</button>
+        <button onClick={handleTest}>test</button>
         <button onClick={handleAddWhitelist}>addWhitelist</button>
-        <button onClick={handleSetupReice}>setupReceive</button> */}
+        <button onClick={handleSetupReice}>setupReceive</button>
         <DfyAlert
           type="danger"
           onClose={handleCloseError}
           isOpen={openError}
           alertText="Transaction failed!"
-          messageText="This wallet has already purchased this NFT"
+          messageText=""
           handle={() => handleClose()}
         />
         <Row>
