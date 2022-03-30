@@ -6,12 +6,15 @@ import logoDefi from 'app/assets/img/Logo/logoDefi.svg';
 import logoAnother from 'app/assets/img/Logo/logoAnother.svg';
 import logoSplin from 'app/assets/img/Logo/logoSplin.svg';
 import LogoOhHash from 'app/assets/img/Logo/LogoOhHash.png';
+import LogoStickupBoys from 'app/assets/img/Logo/logoStickupBoys.png';
+import LogoBlockTunes from 'app/assets/img/Logo/logoBlockTunes.png';
 import logoHive from 'app/assets/img/Logo/logoHive.svg';
 import logoN from 'app/assets/img/Logo/logoN.svg';
 import logoBirt from 'app/assets/img/Logo/logoBirt.svg';
 import logoEdso from 'app/assets/img/Logo/logoEdso.svg';
 import logoBlockchain from 'app/assets/img/Logo/logoDemo.svg';
 import logoPolygon from 'app/assets/img/Logo/logoPolygon.svg';
+import logoReadyPlayer from 'app/assets/img/Logo/readyPlayer.jpg';
 import logoArweave from 'app/assets/img/Logo/logoArweave.svg';
 import logoToday from 'app/assets/img/Logo/logoToday.svg';
 import logoMagazine from 'app/assets/img/Logo/logoMagazine.svg';
@@ -238,6 +241,22 @@ const PARTNERS = [
         height: '',
         right: '0',
       },
+      {
+        name: 'LogoStickupBoys',
+        src: LogoStickupBoys,
+        link: 'https://www.stickupboys.co.uk/',
+        width: '350',
+        height: '',
+        right: '150',
+      },
+      {
+        name: 'LogoBlockTunes',
+        src: LogoBlockTunes,
+        link: 'https://blocktunes.net/',
+        width: '350',
+        height: '',
+        right: '0',
+      },
     ],
   },
   {
@@ -333,10 +352,18 @@ const PARTNERS = [
         right: '0',
       },
       {
+        name: 'logoReadyPlayer',
+        src: logoReadyPlayer,
+        link: 'https://readyplayer.me/',
+        width: '195',
+        height: '157',
+        right: '0',
+      },
+      {
         name: 'logoPolygon',
         src: logoPolygon,
         link: 'https://polygon.technology/',
-        width: '314',
+        width: '306',
         height: '54',
         right: '0',
       },

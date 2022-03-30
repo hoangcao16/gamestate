@@ -21,6 +21,7 @@ import DetailNft from './pages/DetailNft';
 import DetailQA from './pages/DetailQA';
 import Wearable from './pages/Wearable';
 import NftAll from './pages/NftAll';
+import BuySuccess from './pages/BuySuccess';
 // import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import { useGlobalState } from 'store/globalReducer';
@@ -74,6 +75,7 @@ export function App() {
           <PrivateRoute exact path="/utility" component={QuantumOrder} />
           <PrivateRoute exact path="/wearable" component={Wearable} />
           <PrivateRoute exact path="/nft-all" component={NftAll} />
+          <PrivateRoute exact path="/success" component={BuySuccess} />
           <Route exact path="/nft/wearable/:id" component={DetailNft} />
           <Route exact path="/nft/utility/:id" component={DetailQA} />
           <Route component={NotFoundPage} />
