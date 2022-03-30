@@ -36,6 +36,7 @@ import {
   StyledTitle,
 } from './style';
 import saleOff10 from 'app/assets/img/BuyQuantum/saleOff10.svg';
+import { history } from 'app';
 
 const BuyQuantum = () => {
   const [couponCode, setCouponCode] = useState('');
@@ -51,7 +52,7 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
   const amount = '250';
-  const { isLoading, isError } = useSelector(buyNFTSelector);
+  const { isLoading, isError, isSuccess } = useSelector(buyNFTSelector);
   //set up allow
 
   // Handle Buy
@@ -80,6 +81,14 @@ const BuyQuantum = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
   const handleCloseError = () => setOpenError(false);
+
+  //open modal message success
+  const [openSuccess, setOpenSuccess] = useState(false);
+  useEffect(() => {
+    isSuccess ? setOpenSuccess(true) : setOpenSuccess(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
+  const handleCloseSuccess = () => setOpenSuccess(false);
 
   const handleOpenConnect = () => {
     setOpenConnect(true);
@@ -124,9 +133,9 @@ const BuyQuantum = () => {
     <>
       {/* <Header /> */}
       <StyledMain>
-        <button onClick={handleTest}>test</button>
+        {/* <button onClick={handleTest}>test</button>
         <button onClick={handleAddWhitelist}>addWhitelist</button>
-        <button onClick={handleSetupReice}>setupReceive</button>
+        <button onClick={handleSetupReice}>setupReceive</button> */}
         <DfyAlert
           type="danger"
           onClose={handleCloseError}
@@ -134,6 +143,14 @@ const BuyQuantum = () => {
           alertText="Transaction failed!"
           messageText=""
           handle={() => handleClose()}
+        />
+        <DfyAlert
+          type="success"
+          onClose={handleCloseSuccess}
+          isOpen={openSuccess}
+          alertText="Your order is now complete! Thank you for your purchase."
+          messageText="Please click below to view your NFT."
+          handle={() => history.push('/nft-all')}
         />
         <Row>
           <StyledQuantumItem>
