@@ -7,10 +7,10 @@ import { isEmpty } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { testContract } from 'services/walletService/addCurrencyService/addCurrency';
-import { addWhiteList } from 'services/walletService/addWhiteListService/addWhiteList';
-import { setupReceive } from 'services/walletService/setupReceiveFeeService/setupReceive';
-import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
+// import { testContract } from 'services/walletService/addCurrencyService/addCurrency';
+// import { addWhiteList } from 'services/walletService/addWhiteListService/addWhiteList';
+// import { setupReceive } from 'services/walletService/setupReceiveFeeService/setupReceive';
+// import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
 import ApproveButton from './components/ApproveButton';
 import { approveNFTSelector } from './components/ApproveButton/slice/selectors';
 import ButtonQuantum from './components/ButtonQuantum';
@@ -36,6 +36,7 @@ import {
   StyledTitle,
 } from './style';
 import saleOff10 from 'app/assets/img/BuyQuantum/saleOff10.svg';
+import saleOff7 from 'app/assets/img/BuyQuantum/saleOff7.svg';
 import { history } from 'app';
 
 const BuyQuantum = () => {
@@ -98,35 +99,49 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
-  const { isAllow, isPublicSell } = useSelector(approveNFTSelector);
+  const { isAllow, isPublicSell, salePriceBc, discountPercentageBc } =
+    useSelector(approveNFTSelector);
+  console.log(salePriceBc, 'salePriceBc');
 
   const handleChangeCode = e => {
     setCouponCode(e.target.value);
   };
-  const handleTest = async () => {
-    try {
-      const abx = await testContract(curAddress);
-      await signAndSendTx(abx);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const handleAddWhitelist = async () => {
-    try {
-      const transfer = await addWhiteList(curAddress);
-      await signAndSendTx(transfer);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleTest = async () => {
+  //   try {
+  //     const abx = await testContract(curAddress);
+  //     await signAndSendTx(abx);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const handleSetupReice = async () => {
-    try {
-      const transfer = await setupReceive(curAddress);
-      await signAndSendTx(transfer);
-    } catch (error) {
-      console.log(error);
+  // const handleAddWhitelist = async () => {
+  //   try {
+  //     const transfer = await addWhiteList(curAddress);
+  //     await signAndSendTx(transfer);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // const handleSetupReice = async () => {
+  //   try {
+  //     const transfer = await setupReceive(curAddress);
+  //     await signAndSendTx(transfer);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const getImageDiscount = discount => {
+    switch (discount) {
+      case '10':
+        return <StyledSaleOff src={saleOff10} alt="" />;
+      case '7':
+        return <StyledSaleOff src={saleOff7} alt="" />;
+      default:
+        return '';
     }
   };
   return (
@@ -167,7 +182,7 @@ const BuyQuantum = () => {
                 className="quantum-item-style d-flex justify-content-center mt-4 mt-xl-0 col-xl-6 col-12"
               >
                 <ContainQuantumItem>
-                  <StyledSaleOff src={saleOff10} alt="" />
+                  {getImageDiscount(discountPercentageBc)}
                   <QuantumItem />
                 </ContainQuantumItem>
               </Col>
@@ -185,7 +200,7 @@ const BuyQuantum = () => {
                 </StyledBuyItem>
               </Col>
             </Row>
-            <LabelPrice className="mb-0">{amount} USDC</LabelPrice>
+            <LabelPrice className="mb-0">{salePriceBc} USDC</LabelPrice>
             <StyledDesc className="mb-0">
               Mint 1x random rarity Quantum Accelerator static NFT (1 to 1111
               numbered), un-numbered video link included.

@@ -1,4 +1,4 @@
-import Header from 'app/components/Navbar';
+// import Header from 'app/components/Navbar';
 import { useEffect, useState } from 'react';
 import { ShortenWalletAddress } from 'utils/formatWalletAddress';
 import { Row, Col } from 'react-bootstrap';

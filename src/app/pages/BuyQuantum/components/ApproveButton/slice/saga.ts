@@ -7,7 +7,7 @@ import Web3 from 'services/walletService/initWeb3';
 import BigNumber from 'bignumber.js';
 import { createApprove } from 'services/walletService/approveService/approve';
 import { signAndSendTx } from 'services/walletService/supportService/signAndSendTx';
-import erc20Abi from 'services/walletService/config/erc20.abi.json';
+// import erc20Abi from 'services/walletService/config/erc20.abi.json';
 import gsErc20Abi from 'services/walletService/config/gs-erc20.abi.json';
 // import * as gasInfo from 'services/walletService/supportService/getGasInformation';
 import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
@@ -26,8 +26,13 @@ function* checkApproveNFT(action) {
       const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
       console.log(buyContract, 'buyContract');
       const isPublic = yield buyContract.methods._isPublicSale().call();
+      const getDiscount = yield buyContract.methods
+        .getWhitelistedSalePrice(curAddress, coinAddress)
+        .call();
+
       console.log(isPublic, 'isPublic');
       yield put(actions.checkPublicSell(isPublic));
+      yield put(actions.getDiscount(getDiscount));
 
       // check approve
       let res;

@@ -5,4 +5,7 @@ export interface ApproveNFTState {
   receipt?: any;
   allowance?: number;
   isPublicSell?: boolean;
+  isSuccessBc: boolean;
+  salePriceBc: number;
+  discountPercentageBc: string;
 }

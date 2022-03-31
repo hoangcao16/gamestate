@@ -1,5 +1,4 @@
 import { Dialog, styled } from '@mui/material';
-import * as React from 'react';
 export const Modal = styled(Dialog)(({ theme }) => ({
   '.MuiPaper-root': {
     borderRadius: '20px',
