@@ -10,7 +10,6 @@ import { signAndSendTx } from 'services/walletService/supportService/signAndSend
 // import erc20Abi from 'services/walletService/config/erc20.abi.json';
 import gsErc20Abi from 'services/walletService/config/gs-erc20.abi.json';
 // import * as gasInfo from 'services/walletService/supportService/getGasInformation';
-import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
 
 const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
 const coinAddress = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
@@ -21,22 +20,6 @@ function* checkApproveNFT(action) {
     if (localStorage.getItem('extensionName')) {
       yield instanceValue.setWeb3();
       const web3: any = instanceValue.getWeb3();
-
-      // check public sell
-      const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
-      console.log(buyContract, 'buyContract');
-      const isPublic = yield buyContract.methods._isPublicSale().call();
-      const getDiscount = yield buyContract.methods
-        .getWhitelistedSalePrice(curAddress, coinAddress)
-        .call();
-      const isAlreadyBought = yield buyContract.methods
-        .isAlreadyBought(curAddress)
-        .call();
-      console.log(isAlreadyBought, 'isAlreadyBought');
-
-      yield put(actions.checkPublicSell(isPublic));
-      yield put(actions.getDiscount(getDiscount));
-      yield put(actions.checkIsAlreadyBought(isAlreadyBought));
 
       // check approve
       let res;

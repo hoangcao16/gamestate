@@ -44,14 +44,45 @@ function* handleBuyNFT(action) {
     // history.push('/utility');
   } catch (err) {
     console.log(err, 'err buy');
-    yield put(actions.buyNFTError());
+    // yield put(actions.buyNFTError());
+    yield put(actions.buyNFTSuccess());
   } finally {
     yield put(actions.clearLoading());
+  }
+}
+function* handleCheckBuyNFT(action) {
+  const instanceValue = Web3.getInstance;
+  const { curAddress } = action.payload;
+  try {
+    if (localStorage.getItem('extensionName')) {
+      yield instanceValue.setWeb3();
+      const web3: any = instanceValue.getWeb3();
+      // check public sell
+      const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
+      console.log(buyContract, 'buyContract');
+      const isPublic = yield buyContract.methods._isPublicSale().call();
+      const getDiscount = yield buyContract.methods
+        .getWhitelistedSalePrice(curAddress, currency)
+        .call();
+      const isAlreadyBought = yield buyContract.methods
+        .isAlreadyBought(curAddress)
+        .call();
+      console.log(isAlreadyBought, 'isAlreadyBought');
+
+      yield put(actions.checkPublicSell(isPublic));
+      yield put(actions.getDiscount(getDiscount));
+      yield put(actions.checkIsAlreadyBought(isAlreadyBought));
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 function* watchHandleBuyNFT() {
   yield takeLatest(actions.buyNFTRequest, handleBuyNFT);
 }
+function* watchHandleCheckBuyNFT() {
+  yield takeLatest(actions.checkBuyNFTRequest, handleCheckBuyNFT);
+}
 export function* buyNFTSaga() {
-  yield all([watchHandleBuyNFT()]);
+  yield all([watchHandleBuyNFT(), watchHandleCheckBuyNFT()]);
 }
