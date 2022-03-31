@@ -8,4 +8,5 @@ export interface ApproveNFTState {
   isSuccessBc: boolean;
   salePriceBc: number;
   discountPercentageBc: string;
+  isAlreadyBought: boolean;
 }

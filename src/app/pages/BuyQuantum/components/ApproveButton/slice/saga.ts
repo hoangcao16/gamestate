@@ -29,10 +29,14 @@ function* checkApproveNFT(action) {
       const getDiscount = yield buyContract.methods
         .getWhitelistedSalePrice(curAddress, coinAddress)
         .call();
+      const isAlreadyBought = yield buyContract.methods
+        .isAlreadyBought(curAddress)
+        .call();
+      console.log(isAlreadyBought, 'isAlreadyBought');
 
-      console.log(isPublic, 'isPublic');
       yield put(actions.checkPublicSell(isPublic));
       yield put(actions.getDiscount(getDiscount));
+      yield put(actions.checkIsAlreadyBought(isAlreadyBought));
 
       // check approve
       let res;

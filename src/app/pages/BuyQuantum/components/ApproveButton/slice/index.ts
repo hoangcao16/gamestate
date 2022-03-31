@@ -14,6 +14,7 @@ export const initialState: ApproveNFTState = {
   isSuccessBc: false,
   salePriceBc: 200,
   discountPercentageBc: '',
+  isAlreadyBought: false,
 };
 
 const slice = createSlice({
@@ -26,6 +27,9 @@ const slice = createSlice({
     },
     checkApproveNFTError(state) {
       state.isAllow = false;
+    },
+    checkIsAlreadyBought(state, action) {
+      state.isAlreadyBought = action.payload;
     },
     getDiscount(state, action) {
       const getWhitelistPrice = action.payload;
