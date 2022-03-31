@@ -58,14 +58,19 @@ const BuyQuantum = () => {
 
   // Handle Buy
   const handleBuy = couponCode => {
-    dispatch(
-      actions.buyNFTRequest({
-        from: curAddress,
-        payableAmount: 0,
-        tokenSymbol,
-        couponCode,
-      }),
-    );
+    console.log(isAlreadyBought, 'isAlreadyBought');
+    if (isAlreadyBought) {
+      setOpenBought(true);
+    } else {
+      dispatch(
+        actions.buyNFTRequest({
+          from: curAddress,
+          payableAmount: 0,
+          tokenSymbol,
+          couponCode,
+        }),
+      );
+    }
   };
 
   //open modal connect
@@ -91,6 +96,11 @@ const BuyQuantum = () => {
   }, [isSuccess]);
   const handleCloseSuccess = () => setOpenSuccess(false);
 
+  //open modal message success
+  const [openBought, setOpenBought] = useState(false);
+  const handleCloseBought = () => setOpenBought(false);
+
+  //
   const handleOpenConnect = () => {
     setOpenConnect(true);
   };
@@ -99,8 +109,13 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
-  const { isAllow, isPublicSell, salePriceBc, discountPercentageBc } =
-    useSelector(approveNFTSelector);
+  const {
+    isAllow,
+    isPublicSell,
+    salePriceBc,
+    discountPercentageBc,
+    isAlreadyBought,
+  } = useSelector(approveNFTSelector);
   console.log(salePriceBc, 'salePriceBc');
 
   const handleChangeCode = e => {
@@ -167,6 +182,14 @@ const BuyQuantum = () => {
           messageText="Please click below to view your NFT."
           handle={() => history.push('/nft-all')}
         />
+        <DfyAlert
+          type="danger"
+          onClose={handleCloseBought}
+          isOpen={openBought}
+          alertText="This wallet has already purchased this NFT"
+          messageText=""
+          handle={() => handleClose()}
+        />
         <Row>
           <StyledQuantumItem>
             <StyledTitle>Quantum Accelerator</StyledTitle>
@@ -200,7 +223,9 @@ const BuyQuantum = () => {
                 </StyledBuyItem>
               </Col>
             </Row>
-            <LabelPrice className="mb-0">{salePriceBc} USDC</LabelPrice>
+            <LabelPrice className="mb-0">
+              {isAlreadyBought ? '250' : salePriceBc} USDC
+            </LabelPrice>
             <StyledDesc className="mb-0">
               Mint 1x random rarity Quantum Accelerator static NFT (1 to 1111
               numbered), un-numbered video link included.
