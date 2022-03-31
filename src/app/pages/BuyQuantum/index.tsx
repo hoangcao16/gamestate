@@ -53,25 +53,39 @@ const BuyQuantum = () => {
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
   const amount = '250';
-  const { isLoading, isError, isSuccess } = useSelector(buyNFTSelector);
+  const {
+    isLoading,
+    isError,
+    isSuccess,
+    isSuccessBc,
+    isPublicSell,
+    salePriceBc,
+    discountPercentageBc,
+    isAlreadyBought,
+  } = useSelector(buyNFTSelector);
   //set up allow
 
   // Handle Buy
   const handleBuy = couponCode => {
-    console.log(isAlreadyBought, 'isAlreadyBought');
-    if (isAlreadyBought) {
-      setOpenBought(true);
-    } else {
-      dispatch(
-        actions.buyNFTRequest({
-          from: curAddress,
-          payableAmount: 0,
-          tokenSymbol,
-          couponCode,
-        }),
-      );
-    }
+    dispatch(
+      actions.buyNFTRequest({
+        from: curAddress,
+        payableAmount: 0,
+        tokenSymbol,
+        couponCode,
+      }),
+    );
   };
+
+  useEffect(() => {
+    dispatch(
+      actions.checkBuyNFTRequest({
+        curAddress,
+      }),
+    );
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localStorage.getItem('StoreWallet')]);
 
   //open modal connect
   const [openConnect, setOpenConnect] = useState(false);
@@ -96,10 +110,6 @@ const BuyQuantum = () => {
   }, [isSuccess]);
   const handleCloseSuccess = () => setOpenSuccess(false);
 
-  //open modal message success
-  const [openBought, setOpenBought] = useState(false);
-  const handleCloseBought = () => setOpenBought(false);
-
   //
   const handleOpenConnect = () => {
     setOpenConnect(true);
@@ -109,13 +119,7 @@ const BuyQuantum = () => {
   };
 
   const handleClose = () => {};
-  const {
-    isAllow,
-    isPublicSell,
-    salePriceBc,
-    discountPercentageBc,
-    isAlreadyBought,
-  } = useSelector(approveNFTSelector);
+  const { isAllow } = useSelector(approveNFTSelector);
   console.log(salePriceBc, 'salePriceBc');
 
   const handleChangeCode = e => {
@@ -182,14 +186,6 @@ const BuyQuantum = () => {
           messageText="Please click below to view your NFT."
           handle={() => history.push('/nft-all')}
         />
-        <DfyAlert
-          type="danger"
-          onClose={handleCloseBought}
-          isOpen={openBought}
-          alertText="This wallet has already purchased this NFT"
-          messageText=""
-          handle={() => handleClose()}
-        />
         <Row>
           <StyledQuantumItem>
             <StyledTitle>Quantum Accelerator</StyledTitle>
@@ -223,13 +219,25 @@ const BuyQuantum = () => {
                 </StyledBuyItem>
               </Col>
             </Row>
-            <LabelPrice className="mb-0">
-              {isAlreadyBought ? '250' : salePriceBc} USDC
-            </LabelPrice>
-            <StyledDesc className="mb-0">
-              Mint 1x random rarity Quantum Accelerator static NFT (1 to 1111
-              numbered), un-numbered video link included.
-            </StyledDesc>
+            {isAlreadyBought ? (
+              <StyledDesc className="mb-0">
+                You have already purchased a maximum of one unit per address!
+              </StyledDesc>
+            ) : isSuccessBc ? (
+              <>
+                <LabelPrice className="mb-0">{salePriceBc} USDC</LabelPrice>
+                <StyledDesc className="mb-0">
+                  Mint 1x random rarity Quantum Accelerator static NFT (1 to
+                  1111 numbered), un-numbered video link included.
+                </StyledDesc>
+              </>
+            ) : (
+              <StyledDesc className="mb-0">
+                Join discord.gamestate.one to request the Early Bird role for
+                whitelist participation
+              </StyledDesc>
+            )}
+
             {isPublicSell ? (
               <RowInputStyle>
                 <StyledColInput>
@@ -253,7 +261,9 @@ const BuyQuantum = () => {
                   BUY NOW
                 </ButtonQuantum>
               </StyledButton>
-            ) : (
+            ) : isAlreadyBought ? (
+              ''
+            ) : isSuccessBc ? (
               <StyledGroupButton>
                 <ApproveButton
                   curAddress={curAddress}
@@ -273,6 +283,8 @@ const BuyQuantum = () => {
                   )}
                 </ButtonQuantum>
               </StyledGroupButton>
+            ) : (
+              ''
             )}
           </StyledQuantumItem>
         </Row>

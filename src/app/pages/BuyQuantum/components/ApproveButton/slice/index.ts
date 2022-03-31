@@ -3,18 +3,12 @@ import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { approveNFTSaga } from './saga';
 import { ApproveNFTState } from './types';
-import BigNumber from 'bignumber.js';
 
 export const initialState: ApproveNFTState = {
   isLoading: false,
   isAllow: false,
   receipt: undefined,
   allowance: undefined,
-  isPublicSell: false,
-  isSuccessBc: false,
-  salePriceBc: 200,
-  discountPercentageBc: '',
-  isAlreadyBought: false,
 };
 
 const slice = createSlice({
@@ -28,22 +22,8 @@ const slice = createSlice({
     checkApproveNFTError(state) {
       state.isAllow = false;
     },
-    checkIsAlreadyBought(state, action) {
-      state.isAlreadyBought = action.payload;
-    },
-    getDiscount(state, action) {
-      const getWhitelistPrice = action.payload;
-      state.isSuccessBc = getWhitelistPrice[0];
-      state.salePriceBc = Number(
-        new BigNumber(getWhitelistPrice[1]).dividedBy(10 ** 18).toFixed(),
-      );
-      state.discountPercentageBc = getWhitelistPrice[2];
-    },
     checkApproveNFTAllowance(state, action) {
       state.allowance = action.payload;
-    },
-    checkPublicSell(state, action) {
-      state.isPublicSell = action.payload;
     },
     handleApproveNFTRequest(state, action: PayloadAction<any>) {
       state.isLoading = true;
