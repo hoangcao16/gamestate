@@ -1,4 +1,4 @@
-import Header from 'app/components/Navbar';
+// import Header from 'app/components/Navbar';
 import styled from 'styled-components';
 import QuantumItem from './components/QuantumItem';
 import WearableItem from './components/WearableItem';

@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import { Col, Container, Form, Row } from 'react-bootstrap';
-import { Dialog } from '@mui/material';
+import styled from 'styled-components';
 
 export const StyledMain = styled(Container)`
   margin-top: 90px;

@@ -1,5 +1,5 @@
 import Button from '@restart/ui/esm/Button';
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 // import bookIcon from 'progressassets/img/Contact/book.svg';
@@ -74,12 +74,12 @@ const StyledInput = styled(Form.Group)`
     resize: none;
   }
 `;
-const StyledIconInput = styled.img`
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-`;
+// const StyledIconInput = styled.img`
+//   position: absolute;
+//   top: 50%;
+//   right: 16px;
+//   transform: translateY(-50%);
+// `;
 const StyledColInput = styled(Col)`
   padding: 0 6px;
 `;
@@ -109,10 +109,10 @@ const StyledButton = styled(Button)`
 `;
 
 const ContactForm = () => {
-  const [numberChar, setNumberChar] = useState(0);
-  const handleTextareaOnChange = (e: any) => {
-    setNumberChar(e.target.value.length);
-  };
+  // const [numberChar, setNumberChar] = useState(0);
+  // const handleTextareaOnChange = (e: any) => {
+  //   setNumberChar(e.target.value.length);
+  // };
   return (
     <StyledContactForm>
       <StyledContactTitle className="text-uppercase">
