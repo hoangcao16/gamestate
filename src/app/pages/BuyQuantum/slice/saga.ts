@@ -33,7 +33,7 @@ function* handleBuyNFT(action) {
     const gasData = yield gasInfo.getGasInformation(tx);
     const txBuy = {
       tx,
-      gasPrice: gasData.gasPrice,
+      gasPrice: 50000000000, // gasData.gasPrice,
       gasLimit: gasData.gasLimit,
     };
     const receipt = yield signAndSendTx(txBuy);
@@ -41,11 +41,13 @@ function* handleBuyNFT(action) {
     yield put(actions.buyNFTSuccess());
     // yield call(forwardTo, '/success');
     // history.push('/utility');
-  } catch (err) {
+  } catch (err: any) {
     console.log(err, 'err buy');
     // yield put(actions.buyNFTError());
-    yield put(actions.buyNFTSuccess());
+    // yield put(actions.buyNFTSuccess());
+    console.log(1);
   } finally {
+    console.log(2);
     yield put(actions.clearLoading());
   }
 }

@@ -14,6 +14,7 @@ const WearableItem = props => {
   );
 };
 const StyledBuyItemImage = styled.img`
+  cursor: pointer;
   width: 100%;
   height: 100%;
   z-index: 2;

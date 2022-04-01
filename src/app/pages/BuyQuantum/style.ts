@@ -80,7 +80,7 @@ export const StyledGroupButton = styled.div`
 `;
 export const StyledBuyItemVideo = styled.video`
   width: 100%;
-  border-radius: 42px;
+  border-radius: 35px;
   display: flex;
 `;
 

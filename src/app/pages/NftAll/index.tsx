@@ -195,7 +195,6 @@ const Main = styled(Container)`
   }
 `;
 const StyledCol = styled(Col)`
-  cursor: pointer;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;

@@ -47,6 +47,7 @@ function* handleApproveNFT(action) {
   // const tokenContract = new web3.eth.Contract(erc20Abi, coinAddress);
   try {
     const tx = yield createApprove(curAddress, tokenSymbol, spender, amount);
+    console.log(tx, 'tx 2');
     // const txData = yield tokenContract.methods.approve(
     //   spender,
     //   new BigNumber(amount).multipliedBy(10 ** 18).toFixed(),
@@ -67,6 +68,7 @@ function* handleApproveNFT(action) {
     //   gasLimit: gasData.gasLimit,
     // });
     const receipt = yield signAndSendTx(tx);
+    console.log(receipt, 'receipt fn');
     yield put(actions.handleApproveNFTRequest(receipt));
     yield put(actions.checkApproveNFTSuccess());
   } catch (error) {

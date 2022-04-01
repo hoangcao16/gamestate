@@ -36,13 +36,13 @@ const buyNFTSlice = createSlice({
     checkIsAlreadyBought(state, action) {
       state.isAlreadyBought = action.payload;
     },
-    getDiscount(state, action) {
+    getDiscount(state, action: PayloadAction<any>) {
       const getWhitelistPrice = action.payload;
-      state.isSuccessBc = getWhitelistPrice[0];
+      state.isSuccessBc = getWhitelistPrice['0'];
       state.salePriceBc = Number(
-        new BigNumber(getWhitelistPrice[1]).dividedBy(10 ** 18).toFixed(),
+        new BigNumber(getWhitelistPrice['1']).dividedBy(10 ** 18).toFixed(),
       );
-      state.discountPercentageBc = getWhitelistPrice[2];
+      state.discountPercentageBc = getWhitelistPrice['2'];
     },
     checkPublicSell(state, action) {
       state.isPublicSell = action.payload;
