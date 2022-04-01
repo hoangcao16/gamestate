@@ -23,6 +23,7 @@ import { useBuyNFTSlice } from './slice';
 import { buyNFTSelector } from './slice/selectors';
 import {
   ContainQuantumItem,
+  LinkScan,
   RowInputStyle,
   StyledButton,
   StyledBuyItemVideo,
@@ -120,7 +121,6 @@ const BuyQuantum = () => {
 
   const handleClose = () => {};
   const { isAllow } = useSelector(approveNFTSelector);
-  console.log(salePriceBc, 'salePriceBc');
 
   const handleChangeCode = e => {
     setCouponCode(e.target.value);
@@ -233,8 +233,15 @@ const BuyQuantum = () => {
               </>
             ) : (
               <StyledDesc className="mb-0">
-                Join discord.gamestate.one to request the Early Bird role for
-                whitelist participation
+                Join{' '}
+                <LinkScan
+                  onClick={() =>
+                    window.open('https://discord.gamestate.one', '_blank')
+                  }
+                >
+                  discord.gamestate.one
+                </LinkScan>{' '}
+                to request the Early Bird role for whitelist participation
               </StyledDesc>
             )}
 

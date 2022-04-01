@@ -16,7 +16,6 @@ function* handleBuyNFT(action) {
   const instanceValue = Web3.getInstance;
   const web3: any = instanceValue.getWeb3();
   const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
-  console.log(buyContract, 'buyContract');
   let value = payableAmount;
   if (tokenSymbol.toUpperCase() !== 'MATIC') value = 0;
   try {
@@ -59,7 +58,6 @@ function* handleCheckBuyNFT(action) {
       const web3: any = instanceValue.getWeb3();
       // check public sell
       const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
-      console.log(buyContract, 'buyContract');
       const isPublic = yield buyContract.methods._isPublicSale().call();
       const getDiscount = yield buyContract.methods
         .getWhitelistedSalePrice(curAddress, currency)
@@ -67,7 +65,6 @@ function* handleCheckBuyNFT(action) {
       const isAlreadyBought = yield buyContract.methods
         .isAlreadyBought(curAddress)
         .call();
-      console.log(isAlreadyBought, 'isAlreadyBought');
 
       yield put(actions.checkPublicSell(isPublic));
       yield put(actions.getDiscount(getDiscount));
