@@ -184,7 +184,7 @@ const BuyQuantum = () => {
           isOpen={openSuccess}
           alertText="Your order is now complete! Thank you for your purchase."
           messageText="Please click below to view your NFT."
-          handle={() => history.push('/nft-all')}
+          handle={() => history.push('/success')}
         />
         <Row>
           <StyledQuantumItem>
