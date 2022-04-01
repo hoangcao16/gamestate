@@ -68,8 +68,10 @@ export const createApprove = async (
     spender,
     new BigNumber(amountApprove).multipliedBy(10 ** 18).toFixed(),
   );
-
+  console.log(txData, 'txData');
   const nonce = await web3.eth.getTransactionCount(from, 'pending');
+  console.log(nonce, 'nonce');
+
   // data tx
   const tx = {
     from,
@@ -78,12 +80,14 @@ export const createApprove = async (
     nonce,
     data: txData.encodeABI(),
   };
+  console.log(tx, 'tx');
 
   const gasData = await gasInfo.getGasInformation(tx);
+  console.log(gasData, 'gasData');
   // console.log('gasData', gasData);
   return {
     tx,
-    gasPrice: gasData.gasPrice,
+    gasPrice: 40000000000, //gasData.gasPrice,
     gasLimit: gasData.gasLimit,
   };
 };

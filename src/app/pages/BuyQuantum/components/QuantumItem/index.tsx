@@ -5,7 +5,7 @@ const StyledBuyItemImage = styled.img`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 42px;
+  border-radius: 35px;
   @media screen and (max-width: 575px) {
     border-radius: 0;
   }

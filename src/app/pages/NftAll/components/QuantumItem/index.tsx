@@ -1,18 +1,36 @@
+import { CircularProgress } from '@mui/material';
+import { history } from 'app';
 import React from 'react';
 import styled from 'styled-components';
 // import buyItem from 'app/assets/img/Order/quantum.png';
 
 const QuantumItem = props => {
+  const { image, items } = props;
   return (
     <StyledBuyItem>
       <StyledBuyItemBlack>
-        <StyledBuyItemImage src={props.image} alt="" />
-        <Span>#{props.items} Quantum Accelerator</Span>
+        {image ? (
+          <StyledBuyItemImage
+            onClick={() => history.push(`/nft/utility/${items}`)}
+            src={image}
+            alt=""
+          />
+        ) : (
+          <StyleLoading className="d-flex justify-content-center align-items-center">
+            <CircularProgress />
+          </StyleLoading>
+        )}
+
+        <Span>#{items} Quantum Accelerator</Span>
       </StyledBuyItemBlack>
     </StyledBuyItem>
   );
 };
+const StyleLoading = styled.div`
+  height: 145.77px;
+`;
 const StyledBuyItemImage = styled.img`
+  cursor: pointer;
   width: 100%;
   height: 100%;
   z-index: 2;

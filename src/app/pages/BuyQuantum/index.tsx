@@ -241,7 +241,7 @@ const BuyQuantum = () => {
                 >
                   discord.gamestate.one
                 </LinkScan>{' '}
-                to request the Early Bird role for whitelist participation
+                to request the Early Bird role for whitelist participation!
               </StyledDesc>
             )}
 
