@@ -86,7 +86,7 @@ export const StyledBuyItemVideo = styled.video`
 
 export const RowInputStyle = styled(Row)`
   // margin: 20px auto 20px auto;
-  width: 50%;
+  width: 400px;
   @media screen and (max-width: 575px) {
     margin: 20px auto 0px auto;
     width: 90%;
