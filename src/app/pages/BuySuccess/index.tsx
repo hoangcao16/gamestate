@@ -61,6 +61,12 @@ const Main = styled(Container)`
   @media (max-width: 564px) {
     padding-top: 90px;
   }
+  .MuiLinearProgress-root {
+    background-color: #fff;
+  }
+  .MuiLinearProgress-bar {
+    background-color: #81efff;
+  }
 `;
 const P = styled.p`
   letter-spacing: 0px;
