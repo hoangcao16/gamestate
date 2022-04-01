@@ -23,7 +23,7 @@ export const StyledBuyItem = styled.div`
   max-width: 400px;
   padding: 20px 24px;
   background-color: #262727;
-  border-radius: 42px;
+  border-radius: 47px;
   position: relative;
   z-index: 2;
   overflow: hidden;
