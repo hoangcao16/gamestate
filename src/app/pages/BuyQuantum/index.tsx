@@ -223,9 +223,11 @@ const BuyQuantum = () => {
               <StyledDesc className="mb-0 mt-5">
                 You have already purchased a maximum of one unit per address!
               </StyledDesc>
-            ) : isSuccessBc ? (
+            ) : isSuccessBc || isPublicSell ? (
               <>
-                <LabelPrice className="mb-0">{salePriceBc} USDC</LabelPrice>
+                <LabelPrice className="mb-0">
+                  {isPublicSell ? '250' : salePriceBc} USDC
+                </LabelPrice>
                 <StyledDesc className="mb-0">
                   Mint 1x random rarity Quantum Accelerator static NFT (1 to
                   1111 numbered), un-numbered video link included.
@@ -270,7 +272,7 @@ const BuyQuantum = () => {
               </StyledButton>
             ) : isAlreadyBought ? (
               ''
-            ) : isSuccessBc ? (
+            ) : isSuccessBc || isPublicSell ? (
               <StyledGroupButton>
                 <ApproveButton
                   curAddress={curAddress}

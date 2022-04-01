@@ -56,7 +56,7 @@ export const StyledDesc = styled.p`
   }
 `;
 export const StyledButton = styled.div`
-  margin-top: 90px;
+  margin-top: 60px;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -151,9 +151,9 @@ export const LinkScan = styled.span`
     position: absolute;
     background: #e740f0 0% 0% no-repeat padding-box;
     opacity: 0.5;
-    filter: blur(41px);
+    filter: blur(37px);
     width: 100%;
-    height: 28px;
+    height: 50px;
     top: 50%;
     transform: translateY(-50%);
   }
