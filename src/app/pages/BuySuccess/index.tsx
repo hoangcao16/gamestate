@@ -3,10 +3,30 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { history } from 'app';
+import { Box, LinearProgress } from '@mui/material';
 
 BuySuccess.propTypes = {};
 
 function BuySuccess(props) {
+  const [progress, setProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(oldProgress => {
+        if (oldProgress === 100) {
+          history.push('/nft-all');
+          return 0;
+        }
+        const diff = 3.3;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
     <Main>
       <Container>
@@ -17,11 +37,14 @@ function BuySuccess(props) {
           className="justify-content-center"
           style={{ marginBottom: '25px' }}
         >
-          Please click below to view your NFT.
+          Quantum Accelerator metadata initiating, please wait...
         </Row>
-        <Button variant="contained" onClick={() => history.push('/nft-all')}>
+        <Box sx={{ width: '50%', margin: 'auto' }}>
+          <LinearProgress variant="determinate" value={progress} />
+        </Box>
+        {/* <Button variant="contained" onClick={() => history.push('/nft-all')}>
           View wallet
-        </Button>
+        </Button> */}
       </Container>
     </Main>
   );
