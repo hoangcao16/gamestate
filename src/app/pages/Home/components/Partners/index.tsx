@@ -252,7 +252,7 @@ const PARTNERS = [
       {
         name: 'LogoBlockTunes',
         src: LogoBlockTunes,
-        link: 'https://blocktunes.net/',
+        link: 'https://peakd.com/hive-176363/@thelogicaldude/blocktunes-and-gamestate-team-up-to-bring-you-music-in-the-metaverse',
         width: '350',
         height: '',
         right: '0',

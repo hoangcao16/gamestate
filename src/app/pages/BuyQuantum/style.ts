@@ -139,3 +139,8 @@ export const StyledInput = styled(Form.Group)`
     text-align: left;
   }
 `;
+export const LinkScan = styled.span`
+  cursor: pointer;
+  text-decoration: underline;
+  color: #81efff;
+`;
