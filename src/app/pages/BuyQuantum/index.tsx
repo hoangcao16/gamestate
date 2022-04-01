@@ -220,7 +220,7 @@ const BuyQuantum = () => {
               </Col>
             </Row>
             {isAlreadyBought ? (
-              <StyledDesc className="mb-0">
+              <StyledDesc className="mb-0 mt-5">
                 You have already purchased a maximum of one unit per address!
               </StyledDesc>
             ) : isSuccessBc ? (
@@ -232,7 +232,7 @@ const BuyQuantum = () => {
                 </StyledDesc>
               </>
             ) : (
-              <StyledDesc className="mb-0">
+              <StyledDesc className="mb-0 mt-5">
                 Join{' '}
                 <LinkScan
                   onClick={() =>

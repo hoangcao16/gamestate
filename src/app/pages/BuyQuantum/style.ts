@@ -142,5 +142,19 @@ export const StyledInput = styled(Form.Group)`
 export const LinkScan = styled.span`
   cursor: pointer;
   text-decoration: underline;
-  color: #81efff;
+  text-shadow: 0px 1px 2px #da87de, 0px 3px 6px #e740f0;
+  color: #e740f0;
+  position: relative;
+  z-index: 99;
+  &::before {
+    content: '';
+    position: absolute;
+    background: #e740f0 0% 0% no-repeat padding-box;
+    opacity: 0.5;
+    filter: blur(41px);
+    width: 100%;
+    height: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
