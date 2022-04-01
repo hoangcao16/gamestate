@@ -248,18 +248,22 @@ const BuyQuantum = () => {
             )}
 
             {isPublicSell ? (
-              <RowInputStyle>
-                <StyledColInput>
-                  <StyledInput className="mb-3">
-                    <Form.Label>COUPON CODE</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={couponCode}
-                      onChange={handleChangeCode}
-                    />
-                  </StyledInput>
-                </StyledColInput>
-              </RowInputStyle>
+              !isAlreadyBought ? (
+                <RowInputStyle>
+                  <StyledColInput>
+                    <StyledInput className="mb-3">
+                      <Form.Label>COUPON CODE</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={couponCode}
+                        onChange={handleChangeCode}
+                      />
+                    </StyledInput>
+                  </StyledColInput>
+                </RowInputStyle>
+              ) : (
+                ''
+              )
             ) : (
               ''
             )}
