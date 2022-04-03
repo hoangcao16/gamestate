@@ -49,7 +49,7 @@ const BuyQuantum = () => {
   const { actions } = useBuyNFTSlice();
   //Mock data
   const curAddress = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
+    localStorage.getItem('StoreWallet')! || '{}',
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market

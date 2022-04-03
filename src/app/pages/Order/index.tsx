@@ -20,7 +20,7 @@ const QuantumOrder = () => {
   };
   const history = useHistory();
   const curAddress = JSON.parse(
-    localStorage.getItem('StoreWallet')!,
+    localStorage.getItem('StoreWallet')! || '{}',
   )?.currentAddress;
   const dispatch = useDispatch();
   const { actions } = useOrderNFTSlice();
