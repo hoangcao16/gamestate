@@ -5,7 +5,7 @@ import ModalConnectWallet from 'app/components/ModalConnect';
 import { selectWallet } from 'app/components/Wallet/slice/selectors';
 import { isEmpty } from 'lodash';
 import { useEffect, useState } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 // import { testContract } from 'services/walletService/addCurrencyService/addCurrency';
 // import { addWhiteList } from 'services/walletService/addWhiteListService/addWhiteList';
@@ -30,6 +30,7 @@ import {
   StyledColInput,
   StyledDesc,
   StyledGroupButton,
+  StyledGroupInput,
   StyledInput,
   StyledMain,
   StyledQuantumItem,
@@ -53,6 +54,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
+  const currency = process.env.REACT_APP_GS20_TOKEN_ADDRESS; // currency
   const amount = '250';
   const {
     isLoading,
@@ -63,6 +65,8 @@ const BuyQuantum = () => {
     salePriceBc,
     discountPercentageBc,
     isAlreadyBought,
+    isValidCoupon,
+    discountedPrice,
   } = useSelector(buyNFTSelector);
   //set up allow
 
@@ -124,6 +128,15 @@ const BuyQuantum = () => {
 
   const handleChangeCode = e => {
     setCouponCode(e.target.value);
+  };
+
+  const handleCheckValidateCoupon = () => {
+    dispatch(
+      actions.checkValidateCoupon({
+        currency,
+        couponCode,
+      }),
+    );
   };
 
   // const handleTest = async () => {
@@ -226,7 +239,12 @@ const BuyQuantum = () => {
             ) : isSuccessBc || isPublicSell ? (
               <>
                 <LabelPrice className="mb-0">
-                  {isPublicSell ? '250' : salePriceBc} USDC
+                  {isPublicSell
+                    ? isValidCoupon
+                      ? discountedPrice
+                      : '250'
+                    : salePriceBc}{' '}
+                  USDC
                 </LabelPrice>
                 <StyledDesc className="mb-0">
                   Mint 1x random rarity Quantum Accelerator static NFT (1 to
@@ -252,12 +270,20 @@ const BuyQuantum = () => {
                 <RowInputStyle>
                   <StyledColInput>
                     <StyledInput className="mb-3">
-                      <Form.Label>COUPON CODE</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={couponCode}
-                        onChange={handleChangeCode}
-                      />
+                      <StyledGroupInput>
+                        <Form.Label>COUPON CODE</Form.Label>
+                        <Form.Control
+                          type="text"
+                          value={couponCode}
+                          onChange={handleChangeCode}
+                        />
+                      </StyledGroupInput>
+                      <Button
+                        variant="outline-secondary"
+                        onClick={handleCheckValidateCoupon}
+                      >
+                        Apply
+                      </Button>
                     </StyledInput>
                   </StyledColInput>
                 </RowInputStyle>
