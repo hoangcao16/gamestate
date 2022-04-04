@@ -17,6 +17,7 @@ const QuantumItem = props => {
           />
         ) : (
           <StyleLoading className="d-flex justify-content-center align-items-center">
+            <StyledRefresh>Refresh if image not loaded</StyledRefresh>
             <CircularProgress />
           </StyleLoading>
         )}
@@ -26,7 +27,14 @@ const QuantumItem = props => {
     </StyledBuyItem>
   );
 };
+const StyledRefresh = styled.div`
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+`;
 const StyleLoading = styled.div`
+  position: relative;
   height: 145.77px;
 `;
 const StyledBuyItemImage = styled.img`
