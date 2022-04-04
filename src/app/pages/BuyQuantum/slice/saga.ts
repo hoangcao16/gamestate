@@ -76,12 +76,40 @@ function* handleCheckBuyNFT(action) {
     console.log(error);
   }
 }
+
+function* handleCheckCoupon(action) {
+  const instanceValue = Web3.getInstance;
+  const { currency, couponCode } = action.payload;
+  try {
+    if (localStorage.getItem('extensionName')) {
+      yield instanceValue.setWeb3();
+      const web3: any = instanceValue.getWeb3();
+      // check public sell
+      const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
+      console.log(currency, couponCode, 'buyContract');
+      const validateCoupon = yield buyContract.methods
+        .validateCoupon(currency, couponCode)
+        .call();
+      console.log(validateCoupon, 'validateCoupon');
+      yield put(actions.getValidateCoupon(validateCoupon));
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 function* watchHandleBuyNFT() {
   yield takeLatest(actions.buyNFTRequest, handleBuyNFT);
 }
 function* watchHandleCheckBuyNFT() {
   yield takeLatest(actions.checkBuyNFTRequest, handleCheckBuyNFT);
 }
+function* watchHandleCheckValidateCoupon() {
+  yield takeLatest(actions.checkValidateCoupon, handleCheckCoupon);
+}
 export function* buyNFTSaga() {
-  yield all([watchHandleBuyNFT(), watchHandleCheckBuyNFT()]);
+  yield all([
+    watchHandleBuyNFT(),
+    watchHandleCheckBuyNFT(),
+    watchHandleCheckValidateCoupon(),
+  ]);
 }

@@ -8,4 +8,7 @@ export interface BuyNftState {
   salePriceBc: number;
   discountPercentageBc: string;
   isAlreadyBought: boolean;
+
+  isValidCoupon: boolean;
+  discountedPrice: number;
 }

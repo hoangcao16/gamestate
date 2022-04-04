@@ -98,6 +98,7 @@ export const StyledColInput = styled(Col)`
 `;
 
 export const StyledInput = styled(Form.Group)`
+  display: flex;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 10px 16px;
   border-radius: 12px;
@@ -119,8 +120,8 @@ export const StyledInput = styled(Form.Group)`
     font-weight: 600;
     color: #fff;
     padding-left: 0;
-    width: 90%;
-    padding-top: 0px;
+    // width: 90%;
+    padding-top: 5px;
     padding-bottom: 0px;
     &:focus {
       background: transparent;
@@ -138,6 +139,9 @@ export const StyledInput = styled(Form.Group)`
     resize: none;
     text-align: left;
   }
+`;
+export const StyledGroupInput = styled.div`
+  width: 100%;
 `;
 export const LinkScan = styled.span`
   cursor: pointer;

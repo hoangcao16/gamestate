@@ -14,6 +14,8 @@ export const initialState: BuyNftState = {
   salePriceBc: 200,
   discountPercentageBc: '',
   isAlreadyBought: false,
+  isValidCoupon: false,
+  discountedPrice: 250,
 };
 
 const buyNFTSlice = createSlice({
@@ -21,6 +23,7 @@ const buyNFTSlice = createSlice({
   initialState,
   reducers: {
     checkBuyNFTRequest(state, action: PayloadAction<any>) {},
+    checkValidateCoupon(state, action: PayloadAction<any>) {},
     buyNFTRequest(state, action) {
       state.isLoading = true;
     },
@@ -43,6 +46,13 @@ const buyNFTSlice = createSlice({
         new BigNumber(getWhitelistPrice['1']).dividedBy(10 ** 18).toFixed(),
       );
       state.discountPercentageBc = getWhitelistPrice['2'];
+    },
+    getValidateCoupon(state, action) {
+      const getCoupon = action.payload;
+      state.isValidCoupon = getCoupon['0'];
+      state.discountedPrice = Number(
+        new BigNumber(getCoupon['1']).dividedBy(10 ** 18).toFixed(),
+      );
     },
     checkPublicSell(state, action) {
       state.isPublicSell = action.payload;
