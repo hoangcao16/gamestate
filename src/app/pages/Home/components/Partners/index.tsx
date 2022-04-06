@@ -7,6 +7,7 @@ import logoAnother from 'app/assets/img/Logo/logoAnother.svg';
 import logoSplin from 'app/assets/img/Logo/logoSplin.svg';
 import LogoOhHash from 'app/assets/img/Logo/LogoOhHash.png';
 import LogoStickupBoys from 'app/assets/img/Logo/logoStickupBoys.png';
+import LogoSquareWon from 'app/assets/img/Logo/logoSquareWon.svg';
 import LogoBlockTunes from 'app/assets/img/Logo/logoBlockTunes.png';
 import logoHive from 'app/assets/img/Logo/logoHive.svg';
 import logoN from 'app/assets/img/Logo/logoN.svg';
@@ -245,14 +246,22 @@ const PARTNERS = [
         name: 'LogoStickupBoys',
         src: LogoStickupBoys,
         link: 'https://www.stickupboys.co.uk/',
-        width: '350',
+        width: '500',
         height: '',
-        right: '150',
+        right: '100',
       },
       {
         name: 'LogoBlockTunes',
         src: LogoBlockTunes,
         link: 'https://peakd.com/hive-176363/@thelogicaldude/blocktunes-and-gamestate-team-up-to-bring-you-music-in-the-metaverse',
+        width: '500',
+        height: '',
+        right: '150',
+      },
+      {
+        name: 'LogoSquareWon',
+        src: LogoSquareWon,
+        link: 'https://www.squarewon.io/',
         width: '350',
         height: '',
         right: '0',
