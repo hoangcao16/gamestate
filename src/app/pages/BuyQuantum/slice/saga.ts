@@ -6,8 +6,8 @@ import { signAndSendTx } from 'services/walletService/supportService/signAndSend
 import { actions } from '.';
 // import { history } from 'app';
 
-const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
-const currency = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
+const currency = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
 // function forwardTo(location) {
 //   history.push(location);
 // }
@@ -60,13 +60,17 @@ function* handleCheckBuyNFT(action) {
       const web3: any = instanceValue.getWeb3();
       // check public sell
       const buyContract = new web3.eth.Contract(actionBuyAbi, spender);
-      const isPublic = yield buyContract.methods._isPublicSale().call();
+      console.log(buyContract, 'buyContract');
+      const isPublic = yield buyContract.methods.isPublicSale().call();
+      console.log(isPublic, 'isPublic');
       const getDiscount = yield buyContract.methods
         .getWhitelistedSalePrice(curAddress, currency)
         .call();
+      console.log(getDiscount, 'getDiscount');
       const isAlreadyBought = yield buyContract.methods
         .isAlreadyBought(curAddress)
         .call();
+      console.log(isAlreadyBought, 'isAlreadyBought');
 
       yield put(actions.checkPublicSell(isPublic));
       yield put(actions.getDiscount(getDiscount));

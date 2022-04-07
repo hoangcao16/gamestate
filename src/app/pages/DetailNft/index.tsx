@@ -270,7 +270,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL +
+                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
                                     '/tx/' +
                                     item.transactionHash,
                                   '_blank',
@@ -291,7 +291,7 @@ const QuantumOrder = () => {
                             <StyleTxtLink
                               onClick={() =>
                                 window.open(
-                                  process.env.REACT_APP_TXT_DETAIL_URL +
+                                  process.env.REACT_APP_TXT_DETAIL_URL_MAINNET +
                                     '/address/' +
                                     item.from,
                                   '_blank',
@@ -365,7 +365,8 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                      process.env
+                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
                                         '/tx/' +
                                         item.transactionHash,
                                       '_blank',
@@ -384,7 +385,8 @@ const QuantumOrder = () => {
                                 <StyleTxtLink
                                   onClick={() =>
                                     window.open(
-                                      process.env.REACT_APP_TXT_DETAIL_URL +
+                                      process.env
+                                        .REACT_APP_TXT_DETAIL_URL_MAINNET +
                                         '/address/' +
                                         item.from,
                                       '_blank',

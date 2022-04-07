@@ -54,7 +54,7 @@ const BuyQuantum = () => {
   )?.currentAddress;
   const tokenSymbol = 'USDC';
   const toAddress = process.env.REACT_APP_NFT_SALES_ADDRESS; // market
-  const currency = process.env.REACT_APP_GS20_TOKEN_ADDRESS; // currency
+  const currency = process.env.REACT_APP_COIN_ADDRESS_MAINNET; // currency
   const amount = '250';
   const {
     isLoading,

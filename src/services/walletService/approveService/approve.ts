@@ -12,7 +12,7 @@ import BigNumber from 'bignumber.js';
   @param {string} spender
  * @returns
  */
-const coinAddress = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
+const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
 export const checkApprove = async (
   from,
   tokenSymbol,

@@ -57,7 +57,7 @@ const autoAddNetWork = async (idNetWork, chainName) => {
     chainName,
     currencyName,
     currencySymbol,
-    process.env.REACT_APP_RPC_NETWORK,
-    process.env.REACT_APP_BLOCK_EXPLORER_URL,
+    process.env.REACT_APP_RPC_NETWORK_MAINNET,
+    process.env.REACT_APP_BLOCK_EXPLORER_URL_MAINNET,
   );
 };
