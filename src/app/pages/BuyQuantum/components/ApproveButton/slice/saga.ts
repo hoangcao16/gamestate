@@ -11,8 +11,8 @@ import { signAndSendTx } from 'services/walletService/supportService/signAndSend
 import gsErc20Abi from 'services/walletService/config/gs-erc20.abi.json';
 // import * as gasInfo from 'services/walletService/supportService/getGasInformation';
 
-const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
-const coinAddress = process.env.REACT_APP_GS20_TOKEN_ADDRESS;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
+const coinAddress = process.env.REACT_APP_COIN_ADDRESS_MAINNET;
 function* checkApproveNFT(action) {
   const instanceValue = Web3.getInstance;
   const { curAddress, tokenSymbol, amount } = action.payload;

@@ -9,7 +9,7 @@ import actionBuyAbi from 'services/walletService/config/actionBuy.abi.json';
   @param {string} spender
  * @returns
  */
-const spender = process.env.REACT_APP_BUY_NFT_ADDRESS;
+const spender = process.env.REACT_APP_BUY_NFT_ADDRESS_MAINNET;
 
 export const addWhiteList = async from => {
   const instanceValue = Web3.getInstance;
