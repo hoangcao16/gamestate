@@ -297,7 +297,7 @@ const BuyQuantum = () => {
             {isEmpty(wallet.wallet) ? (
               <StyledButton className="mb-100">
                 <ButtonQuantum onclick={handleOpenConnect}>
-                  BUY NOW
+                  MINT NOW
                 </ButtonQuantum>
               </StyledButton>
             ) : isAlreadyBought ? (
@@ -318,7 +318,7 @@ const BuyQuantum = () => {
                   {isLoading ? (
                     <CircularProgress size={19} color="inherit" />
                   ) : (
-                    'BUY'
+                    'MINT'
                   )}
                 </ButtonQuantum>
               </StyledGroupButton>
