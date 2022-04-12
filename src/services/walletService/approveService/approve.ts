@@ -66,7 +66,7 @@ export const createApprove = async (
   );
   const txData = tokenContract.methods.approve(
     spender,
-    new BigNumber(amountApprove).multipliedBy(10 ** 18).toFixed(),
+    new BigNumber(amountApprove).multipliedBy(10 ** 6).toFixed(),
   );
   console.log(txData, 'txData');
   const nonce = await web3.eth.getTransactionCount(from, 'pending');
