@@ -9,7 +9,7 @@ import { history } from 'app';
 
 const Explore = () => {
   // const history = useHistory();
-  const [text, setText] = useState('BUY');
+  const [text, setText] = useState('MINT');
   const [textsd, setTextsd] = useState('NOW');
   return (
     <Div>
@@ -28,10 +28,10 @@ const Explore = () => {
           //   setTextsd('SOON');
           // }}
           // onMouseLeave={() => {
-          //   setText('BUY');
+          //   setText('MINT');
           //   setTextsd('NOW');
           // }}
-          onClick={() => history.push('/buy')}
+          onClick={() => history.push('/mint')}
         >
           <StyledSpan>{text}</StyledSpan>
           <StyledSubSpan>{textsd}</StyledSubSpan>

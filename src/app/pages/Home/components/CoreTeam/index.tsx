@@ -129,7 +129,7 @@ const CORE_TEAM = [
     src: corePeck,
     srcMobile: mobileCorePeck,
     name: 'Sean Peck',
-    job: 'Business Strategist',
+    job: 'Business Development Director',
     desc: 'MBA. Finance & Human Resources, BA. Biz Management. Experienced in manufacturing management, startups, valuations, mergers, acquisitions, project management, scaling, and strategic management.',
     twitter: 'https://twitter.com/SeanSunset',
     linkedIn: 'https://www.linkedin.com/in/seanpeck',

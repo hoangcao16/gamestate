@@ -71,7 +71,7 @@ export function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/manage" component={Manage} />
-          <Route exact path="/buy" component={BuyQuantum} />
+          <Route exact path="/mint" component={BuyQuantum} />
           <PrivateRoute exact path="/utility" component={QuantumOrder} />
           <PrivateRoute exact path="/wearable" component={Wearable} />
           <PrivateRoute exact path="/nft-all" component={NftAll} />
