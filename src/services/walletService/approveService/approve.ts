@@ -6,6 +6,9 @@ import softNftAbi from '../config/softNft.abi.json';
 // import { filterTokenToAddress } from '../supportService/filterTokenToAddress';
 import BigNumber from 'bignumber.js';
 
+const MAX_INT =
+  '115792089237316195423570985008687907853269984665640564039457584007913129639935';
+
 /**
  * check approve
   @param {string} from format wallet address
@@ -64,10 +67,7 @@ export const createApprove = async (
     gsErc20Abi,
     coinAddress, // sua address coin
   );
-  const txData = tokenContract.methods.approve(
-    spender,
-    new BigNumber(amountApprove).multipliedBy(10 ** 6).toFixed(),
-  );
+  const txData = tokenContract.methods.approve(spender, MAX_INT);
   console.log(txData, 'txData');
   const nonce = await web3.eth.getTransactionCount(from, 'pending');
   console.log(nonce, 'nonce');
