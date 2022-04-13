@@ -11,7 +11,7 @@ const QuantumItem = props => {
       <StyledBuyItemBlack>
         {image ? (
           <StyledBuyItemImage
-            onClick={() => history.push(`/nft/utility/${items}`)}
+            onClick={() => history.push(`/nft/utility/qa/${items}`)}
             src={image}
             alt=""
           />
