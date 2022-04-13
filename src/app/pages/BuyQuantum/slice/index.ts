@@ -43,7 +43,7 @@ const buyNFTSlice = createSlice({
       const getWhitelistPrice = action.payload;
       state.isSuccessBc = getWhitelistPrice['0'];
       state.salePriceBc = Number(
-        new BigNumber(getWhitelistPrice['1']).dividedBy(10 ** 18).toFixed(),
+        new BigNumber(getWhitelistPrice['1']).dividedBy(10 ** 6).toFixed(),
       );
       state.discountPercentageBc = getWhitelistPrice['2'];
     },
@@ -51,7 +51,7 @@ const buyNFTSlice = createSlice({
       const getCoupon = action.payload;
       state.isValidCoupon = getCoupon['0'];
       state.discountedPrice = Number(
-        new BigNumber(getCoupon['1']).dividedBy(10 ** 18).toFixed(),
+        new BigNumber(getCoupon['1']).dividedBy(10 ** 6).toFixed(),
       );
     },
     checkPublicSell(state, action) {
