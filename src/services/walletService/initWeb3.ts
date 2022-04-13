@@ -29,18 +29,20 @@ export default class Web3 {
     const Moralis = require('moralis');
     if (extensionName === 'WalletConnect') {
       try {
-        await Moralis.enableWeb3({
+        this._init = await Moralis.enableWeb3({
           provider: 'walletconnect',
           chainId: 56, //hard code
         });
       } catch (e) {
         console.error(e, 9999);
+        localStorage.removeItem('extensionName');
       }
     } else {
       this._init = await Moralis.enableWeb3();
     }
 
     const accounts = await this._init.eth?.getAccounts();
+    console.log(accounts, 'accounts');
     if (!isEmpty(accounts)) {
       await loginSignature(accounts[0]);
       await getBalance(accounts[0]);
