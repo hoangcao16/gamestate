@@ -44,6 +44,7 @@ const Header = () => {
     store.dispatch(walletAction(null));
     localStorage.removeItem('StoreWallet');
     localStorage.removeItem('extensionName');
+    localStorage.removeItem('walletconnect');
   };
 
   //open modal connect
