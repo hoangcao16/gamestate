@@ -12,6 +12,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import attrItem1 from './assets/img/attrItem1.png';
 import attrItem2 from './assets/img/attrItem2.png';
 import attrItem3 from './assets/img/attrItem3.png';
+import logoOpenSea from './assets/img/opensea-white.svg';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { DatetimeFormat } from 'utils/formatTime';
@@ -175,6 +176,22 @@ const QuantumOrder = () => {
                   </Col>
                   <Col>
                     <InfoShareLink>
+                      <ContainIcon
+                        aria-describedby={idPopup}
+                        onClick={() =>
+                          window.open(
+                            process.env.REACT_APP_OPENSEA_LINK + id,
+                            '_blank',
+                          )
+                        }
+                      >
+                        <img
+                          style={{ width: '24px' }}
+                          src={logoOpenSea}
+                          alt="logo"
+                        />
+                      </ContainIcon>
+
                       <ContainIcon
                         aria-describedby={idPopup}
                         onClick={handleClick}
