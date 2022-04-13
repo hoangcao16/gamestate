@@ -77,7 +77,7 @@ export function App() {
           <PrivateRoute exact path="/nft-all" component={NftAll} />
           <PrivateRoute exact path="/success" component={BuySuccess} />
           <Route exact path="/nft/wearable/:id" component={DetailNft} />
-          <Route exact path="/nft/utility/:id" component={DetailQA} />
+          <Route exact path="/nft/utility/qa/:id" component={DetailQA} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
