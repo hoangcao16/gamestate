@@ -60,7 +60,8 @@ declare global {
 }
 
 const ITEMS = [attrItem1, attrItem2, attrItem3];
-const endpoint = 'https://api.thegraph.com/subgraphs/name/qtvnnn/qa-trans-tes';
+const endpoint =
+  'https://api.thegraph.com/subgraphs/id/Qmf6nBwy23zqZiudkvY4kzhypZd194b99uqLreKjEckMrh';
 
 const QuantumOrder = () => {
   let { id } = useParams<{ id: string }>();
