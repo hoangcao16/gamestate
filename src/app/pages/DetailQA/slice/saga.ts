@@ -8,7 +8,7 @@ function* handleDetailQA(action) {
   const spender = process.env.REACT_APP_QUANTUM_ACCELERATOR_MAINNET;
   const nftId = action.payload;
   try {
-    const web3: any = new Web3('https://rpc-mumbai.maticvigil.com/'); // hardcode
+    const web3: any = new Web3('https://polygon-rpc.com/'); // hardcode
 
     const buyContract = new web3.eth.Contract(actionNftAbi, spender);
     const txData = yield buyContract.methods.tokenURI(nftId).call();
