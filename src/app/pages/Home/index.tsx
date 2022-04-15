@@ -49,9 +49,9 @@ const HomeContainer = () => {
       <StyledMain>
         <Hero />
         <Monitor />
+        <Explore />
         <Airdrop />
         <TokenSale />
-        <Explore />
         <Description />
         <MarketPlace />
         <Igos />

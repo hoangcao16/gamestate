@@ -28,6 +28,7 @@ export const getBalance = async (walletAddress: string) => {
   if (walletAddress) {
     localStorage.setItem('StoreWallet', JSON.stringify(storeWallet));
     store.dispatch(walletAction(storeWallet));
+    console.log(1112);
   } else {
     localStorage.setItem('StoreWallet', '');
     store.dispatch(walletAction(null));
