@@ -177,7 +177,6 @@ const QuantumOrder = () => {
                   <Col>
                     <InfoShareLink>
                       <ContainIcon
-                        aria-describedby={idPopup}
                         onClick={() =>
                           window.open(
                             process.env.REACT_APP_OPENSEA_LINK + id,
