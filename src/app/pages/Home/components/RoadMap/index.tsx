@@ -191,25 +191,25 @@ const CONTENT = [
   {
     className: 'card_bottom_right',
     color: '#560DB1',
-    label: 'Q4 2022',
+    label: 'Q3 2022',
     image: q3,
+    description: [
+      'Launch Metaverse MVP',
+      'Community Artist NFT Collections',
+      'Multi-chain Integration',
+    ],
+  },
+  {
+    className: 'card_top_right',
+    color: '#1F95FF',
+    label: 'Q4 2022',
+    image: q2,
     description: [
       'Introduce Game World Economy',
       'Expand and Optimize Megaverse',
       'Accelerate Marketing',
       'Increase Onboarding',
       'Expand Integrations',
-    ],
-  },
-  {
-    className: 'card_top_right',
-    color: '#1F95FF',
-    label: 'Q1 2023',
-    image: q2,
-    description: [
-      'Launch Metaverse MVP',
-      'Community Artist NFT Collections',
-      'Multi-chain Integration',
     ],
   },
 ];
