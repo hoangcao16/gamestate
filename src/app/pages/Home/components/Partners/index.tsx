@@ -34,6 +34,7 @@ import logoFat from 'app/assets/img/Logo/logoFat.svg';
 import logoGravity from 'app/assets/img/Logo/logoGravity.png';
 import logoCopper from 'app/assets/img/Logo/logoCopper.png';
 import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
+import logoaAdshares from 'app/assets/img/Logo/adshares_logo.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
@@ -366,6 +367,14 @@ const PARTNERS = [
         link: 'https://readyplayer.me/',
         width: '195',
         height: '157',
+        right: '0',
+      },
+      {
+        name: 'logoAdshares',
+        src: logoaAdshares,
+        link: 'https://adshares.net/',
+        width: '306',
+        height: '54',
         right: '0',
       },
       {
