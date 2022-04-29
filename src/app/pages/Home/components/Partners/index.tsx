@@ -36,6 +36,7 @@ import logoCopper from 'app/assets/img/Logo/logoCopper.png';
 import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
 import logoaAdshares from 'app/assets/img/Logo/adshares_logo.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
+import logoAppics from 'app/assets/img/Logo/logoAppics.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -247,7 +248,7 @@ const PARTNERS = [
         name: 'LogoStickupBoys',
         src: LogoStickupBoys,
         link: 'https://www.stickupboys.co.uk/',
-        width: '500',
+        width: '350',
         height: '',
         right: '100',
       },
@@ -255,7 +256,7 @@ const PARTNERS = [
         name: 'LogoBlockTunes',
         src: LogoBlockTunes,
         link: 'https://peakd.com/hive-176363/@thelogicaldude/blocktunes-and-gamestate-team-up-to-bring-you-music-in-the-metaverse',
-        width: '500',
+        width: '350',
         height: '',
         right: '150',
       },
@@ -263,7 +264,15 @@ const PARTNERS = [
         name: 'LogoSquareWon',
         src: LogoSquareWon,
         link: 'https://www.squarewon.io/',
-        width: '350',
+        width: '300',
+        height: '',
+        right: '0',
+      },
+      {
+        name: 'LogoAppics',
+        src: logoAppics,
+        link: 'https://appics.com/',
+        width: '300',
         height: '',
         right: '0',
       },
