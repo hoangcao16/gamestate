@@ -188,14 +188,14 @@ const PARTNERS = [
         height: '',
         right: '0',
       },
-      {
-        name: 'logoGameX',
-        src: logoGameX,
-        link: 'https://medium.com/@gamestate/gamestate-and-gamex-partner-to-take-blockchain-gaming-to-the-next-level-5ba9ea086c00',
-        width: '350',
-        height: '',
-        right: '150',
-      },
+      // {
+      //   name: 'logoGameX',
+      //   src: logoGameX,
+      //   link: 'https://medium.com/@gamestate/gamestate-and-gamex-partner-to-take-blockchain-gaming-to-the-next-level-5ba9ea086c00',
+      //   width: '350',
+      //   height: '',
+      //   right: '150',
+      // },
       {
         name: 'logoArcade',
         src: logoArcade,
@@ -210,7 +210,7 @@ const PARTNERS = [
         link: 'https://corporateroadshow.com/profile/?logoid=8877',
         width: '500',
         height: '',
-        right: '0',
+        right: '150',
       },
       {
         name: 'logoFat',
@@ -266,7 +266,7 @@ const PARTNERS = [
         link: 'https://www.squarewon.io/',
         width: '300',
         height: '',
-        right: '0',
+        right: '150',
       },
       {
         name: 'LogoAppics',

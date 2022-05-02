@@ -50,7 +50,7 @@ const HomeContainer = () => {
         <Hero />
         <Monitor />
         <Explore />
-        <Airdrop />
+        {/* <Airdrop /> */}
         <TokenSale />
         <Description />
         <MarketPlace />
