@@ -63,7 +63,7 @@ const TokenSale = () => {
               </div>
             </Bar>
           </HiveProgessBar> */}
-          <StyledCloseTime>COMING SOON</StyledCloseTime>
+          <StyledCloseTime>4th - 5th May 2022</StyledCloseTime>
           <PolygonProgessBar fluid>
             <Bar>
               {/* <img src={PolygonLogo} alt="Polygon Logo" />
@@ -81,18 +81,18 @@ const TokenSale = () => {
           </PolygonProgessBar>
         </StyledBar>
 
-        {/* <a
+        <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://starter.investments/#/pool/33"
-        > */}
-        <StyledButton
-          onMouseEnter={() => setTextButton('COMING SOON')}
-          onMouseLeave={() => setTextButton('READ MORE')}
+          href="https://gravityfinance.medium.com/gamestate-ido-details-9152c013d976"
         >
-          {textButton}
-        </StyledButton>
-        {/* </a> */}
+          <StyledButton
+          // onMouseEnter={() => setTextButton('COMING SOON')}
+          // onMouseLeave={() => setTextButton('READ MORE')}
+          >
+            {textButton}
+          </StyledButton>
+        </a>
 
         <StyledTokenImage src={TokenBackground} alt="Token Background" />
       </StyledTokenSales>
