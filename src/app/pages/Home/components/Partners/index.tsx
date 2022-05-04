@@ -37,6 +37,7 @@ import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
 import logoaAdshares from 'app/assets/img/Logo/adshares_logo.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import logoAppics from 'app/assets/img/Logo/logoAppics.png';
+import logoMetaFarm from 'app/assets/img/Logo/logoMetaFarm.jpg';
 import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
@@ -414,7 +415,15 @@ const PARTNERS = [
         name: 'logoGravity',
         src: logoGravity,
         link: 'https://gravityfinance.io/',
-        width: '477',
+        width: '400',
+        height: '',
+        right: '0',
+      },
+      {
+        name: 'logoMetaFarm',
+        src: logoMetaFarm,
+        link: undefined,
+        width: '280',
         height: '',
         right: '0',
       },
