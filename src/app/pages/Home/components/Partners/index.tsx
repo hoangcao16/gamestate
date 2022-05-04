@@ -37,6 +37,7 @@ import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
 import logoaAdshares from 'app/assets/img/Logo/adshares_logo.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import logoAppics from 'app/assets/img/Logo/logoAppics.png';
+import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -166,7 +167,7 @@ const PARTNERS = [
       {
         name: 'logoConfluence',
         src: logoConfluence,
-        link: undefined,
+        link: 'https://theconfluence.world/',
         width: '600',
         height: '',
         right: '150',
@@ -392,6 +393,29 @@ const PARTNERS = [
         link: 'https://polygon.technology/',
         width: '306',
         height: '54',
+        right: '0',
+      },
+    ],
+  },
+  {
+    label: 'backers',
+    technology: 1,
+    className: 'align-items-center flex-wrap mt-5 mb-124',
+    logos: [
+      {
+        name: 'logoHybrid',
+        src: logoHybrid,
+        link: 'https://hyfinance.net/',
+        width: '400',
+        height: '',
+        right: '0',
+      },
+      {
+        name: 'logoGravity',
+        src: logoGravity,
+        link: 'https://gravityfinance.io/',
+        width: '477',
+        height: '',
         right: '0',
       },
     ],
