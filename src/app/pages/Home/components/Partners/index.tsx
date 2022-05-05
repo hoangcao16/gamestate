@@ -39,6 +39,7 @@ import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import logoAppics from 'app/assets/img/Logo/logoAppics.png';
 import logoMetaFarm from 'app/assets/img/Logo/logoMetaFarm.jpg';
 import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
+import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -260,7 +261,7 @@ const PARTNERS = [
         link: 'https://peakd.com/hive-176363/@thelogicaldude/blocktunes-and-gamestate-team-up-to-bring-you-music-in-the-metaverse',
         width: '350',
         height: '',
-        right: '150',
+        right: '120',
       },
       {
         name: 'LogoSquareWon',
@@ -268,12 +269,20 @@ const PARTNERS = [
         link: 'https://www.squarewon.io/',
         width: '300',
         height: '',
-        right: '150',
+        right: '120',
       },
       {
         name: 'LogoAppics',
         src: logoAppics,
         link: 'https://appics.com/',
+        width: '300',
+        height: '',
+        right: '100',
+      },
+      {
+        name: 'logoNFT4Play',
+        src: logoNFT4Play,
+        link: 'https://www.nft4play.com/',
         width: '300',
         height: '',
         right: '0',
@@ -301,14 +310,14 @@ const PARTNERS = [
       //   height: '',
       //   right: '113',
       // },
-      {
-        name: 'logoCopper',
-        src: logoCopper,
-        link: 'https://copperlaunch.com/',
-        width: '477',
-        height: '',
-        right: '117',
-      },
+      // {
+      //   name: 'logoCopper',
+      //   src: logoCopper,
+      //   link: 'https://copperlaunch.com/',
+      //   width: '477',
+      //   height: '',
+      //   right: '117',
+      // },
       {
         name: 'logoHive',
         src: logoHive,
@@ -356,14 +365,14 @@ const PARTNERS = [
         height: '54',
         right: '0',
       },
-      {
-        name: 'logoN',
-        src: logoN,
-        link: 'https://notional.ventures/',
-        width: '306',
-        height: '157',
-        right: '0',
-      },
+      // {
+      //   name: 'logoN',
+      //   src: logoN,
+      //   link: 'https://notional.ventures/',
+      //   width: '306',
+      //   height: '157',
+      //   right: '0',
+      // },
       {
         name: 'logoArweave',
         src: logoArweave,
