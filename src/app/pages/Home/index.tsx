@@ -51,7 +51,7 @@ const HomeContainer = () => {
         <Monitor />
         <Explore />
         {/* <Airdrop /> */}
-        <TokenSale />
+        {/* <TokenSale /> */}
         <Description />
         <MarketPlace />
         <Igos />
