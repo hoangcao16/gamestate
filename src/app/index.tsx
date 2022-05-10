@@ -64,7 +64,7 @@ export function App() {
         >
           <meta
             name="description"
-            content="Gamestate is a cross-chain, multi-world megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning."
+            content="Gamestate is a cross-chain, multi-world Megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning."
           />
         </Helmet>
 

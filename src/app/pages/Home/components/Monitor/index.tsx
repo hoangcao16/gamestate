@@ -24,7 +24,7 @@ const Monitor = () => {
   useEffect(() => {
     const options = {
       strings: [
-        'Gamestate is a cross-chain, multi-world megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning.<br><br>An open world platform, offering sales channels for games, apps, advertising, gaming equipment, music, media, and general merchandise, as well as a Rocket Launchpad accelerator for indie game startups.</br>',
+        'Gamestate is a cross-chain, multi-world Megaverse nexus, uniting gamers, fans, developers, creators, and merchants in a place of fun, discovery, and learning.<br><br>An open world platform, offering sales channels for games, apps, advertising, gaming equipment, music, media, and general merchandise, as well as a Rocket Launchpad accelerator for indie game startups.</br>',
       ],
       typeSpeed: 24,
       backSpeed: 0,
