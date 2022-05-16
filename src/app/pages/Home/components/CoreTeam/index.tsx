@@ -103,7 +103,7 @@ const CORE_TEAM = [
     src: corePeter,
     srcMobile: mobileCorePeter,
     name: 'PETER HJORTSOE',
-    job: 'CO-FOUNDER',
+    job: 'Co-Founder & Chief Engagement Officer',
     desc: 'M.Sc. International Business. Professional experience in real estate, FMCG, retail, renewable energy & finance. Serial entrepreneur, building and scaling businesses in Asia since 2014.',
     twitter: 'https://twitter.com/deerlakep',
     linkedIn: 'https://www.linkedin.com/in/peter-hjortsoe/',
