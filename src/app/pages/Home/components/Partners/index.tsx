@@ -40,6 +40,7 @@ import logoAppics from 'app/assets/img/Logo/logoAppics.png';
 import logoMetaFarm from 'app/assets/img/Logo/logoMetaFarm.jpg';
 import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
+import logoTipoZeniverse from 'app/assets/img/Logo/logoTipoZeniverse.svg';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -203,7 +204,7 @@ const PARTNERS = [
         name: 'logoArcade',
         src: logoArcade,
         link: 'https://medium.com/@gamestate/gamestate-partners-with-arcadenetwork-to-create-the-megaverse-99c59baa5c0e',
-        width: '500',
+        width: '300',
         height: '',
         right: '150',
       },
@@ -211,7 +212,7 @@ const PARTNERS = [
         name: 'logoRoad',
         src: logoRoad,
         link: 'https://corporateroadshow.com/profile/?logoid=8877',
-        width: '500',
+        width: '300',
         height: '',
         right: '150',
       },
@@ -219,6 +220,14 @@ const PARTNERS = [
         name: 'logoFat',
         src: logoFat,
         link: 'https://fatcatscapital.com/',
+        width: '300',
+        height: '',
+        right: '150',
+      },
+      {
+        name: 'logoTipoZeniverse',
+        src: logoTipoZeniverse,
+        link: 'https://www.zeniverse.io/',
         width: '300',
         height: '',
         right: '150',
