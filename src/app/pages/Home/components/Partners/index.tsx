@@ -440,7 +440,7 @@ const PARTNERS = [
       {
         name: 'logoMetaFarm',
         src: logoMetaFarm,
-        link: undefined,
+        link: 'https://metafarm.group/',
         width: '280',
         height: '',
         right: '0',
