@@ -37,7 +37,6 @@ import logoTribal from 'app/assets/img/Logo/logoTribal.svg';
 import logoaAdshares from 'app/assets/img/Logo/adshares_logo.svg';
 import logoKoi from 'app/assets/img/Logo/logoKoi.png';
 import logoAppics from 'app/assets/img/Logo/logoAppics.png';
-import logoMetaFarm from 'app/assets/img/Logo/logoMetaFarm.jpg';
 import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
 import logoTipoZeniverse from 'app/assets/img/Logo/logoTipoZeniverse.svg';
@@ -434,14 +433,6 @@ const PARTNERS = [
         src: logoGravity,
         link: 'https://gravityfinance.io/',
         width: '400',
-        height: '',
-        right: '0',
-      },
-      {
-        name: 'logoMetaFarm',
-        src: logoMetaFarm,
-        link: 'https://metafarm.group/',
-        width: '280',
         height: '',
         right: '0',
       },
