@@ -40,6 +40,7 @@ import logoAppics from 'app/assets/img/Logo/logoAppics.png';
 import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
 import logoTipoZeniverse from 'app/assets/img/Logo/logoTipoZeniverse.svg';
+import logoDeNet from 'app/assets/img/Logo/logoDeNet.png';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -385,7 +386,7 @@ const PARTNERS = [
         name: 'logoArweave',
         src: logoArweave,
         link: 'https://www.arweave.org/',
-        width: '314',
+        width: '400',
         height: '54',
         right: '0',
       },
@@ -401,7 +402,7 @@ const PARTNERS = [
         name: 'logoAdshares',
         src: logoaAdshares,
         link: 'https://adshares.net/',
-        width: '306',
+        width: '400',
         height: '54',
         right: '0',
       },
@@ -409,6 +410,14 @@ const PARTNERS = [
         name: 'logoPolygon',
         src: logoPolygon,
         link: 'https://polygon.technology/',
+        width: '600',
+        height: '150',
+        right: '0',
+      },
+      {
+        name: 'logoDeNet',
+        src: logoDeNet,
+        link: 'https://denet.pro/en/main-page/',
         width: '306',
         height: '54',
         right: '0',
@@ -501,20 +510,21 @@ const Partners = () => {
             className={section.className}
             technology={section.technology}
           >
-            {section.logos.map((logo: any, idx: number) =>
-              logo.name === 'logoPolygon' ? (
-                <StyledBlockLogoPolygon key={idx}>
-                  <StyledLinkLogo
-                    href="https://polygon.technology/"
-                    rel="nofollow"
-                    target="_blank"
-                    width={logo.width}
-                    height={logo.height}
-                  >
-                    <StyledLogo src={logo.src} />
-                  </StyledLinkLogo>
-                </StyledBlockLogoPolygon>
-              ) : (
+            {section.logos.map(
+              (logo: any, idx: number) => (
+                // logo.name === 'logoPolygon' ? (
+                //   <StyledBlockLogoPolygon key={idx}>
+                //     <StyledLinkLogo
+                //       href="https://polygon.technology/"
+                //       rel="nofollow"
+                //       target="_blank"
+                //       width={logo.width}
+                //       height={logo.height}
+                //     >
+                //       <StyledLogo src={logo.src} />
+                //     </StyledLinkLogo>
+                //   </StyledBlockLogoPolygon>
+                // ) : (
                 <StyledLinkLogo
                   key={idx}
                   href={logo.link ? logo.link : undefined}
@@ -530,6 +540,7 @@ const Partners = () => {
                   <StyledLogo src={logo.src} />
                 </StyledLinkLogo>
               ),
+              // ),
             )}
           </StyledBlockLogo>
         </div>
