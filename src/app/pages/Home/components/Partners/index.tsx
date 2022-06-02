@@ -41,6 +41,7 @@ import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
 import logoTipoZeniverse from 'app/assets/img/Logo/logoTipoZeniverse.svg';
 import logoDeNet from 'app/assets/img/Logo/logoDeNet.png';
+import logoBeeswap from 'app/assets/img/Logo/logoBeeswap.svg';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
 const StyledBlockLogo = styled(Row)<{ technology?: number }>`
@@ -330,7 +331,7 @@ const PARTNERS = [
       {
         name: 'logoHive',
         src: logoHive,
-        link: 'https://hive-engine.com/',
+        link: 'https://hive-engine.com/trade/SWAP.STATE',
         width: '477',
         height: '',
         right: '100',
@@ -338,7 +339,7 @@ const PARTNERS = [
       {
         name: 'logoTribal',
         src: logoTribal,
-        link: 'https://tribaldex.com/',
+        link: 'https://tribaldex.com/trade/SWAP.STATE',
         width: '477',
         height: '',
         right: '80',
@@ -347,6 +348,14 @@ const PARTNERS = [
         name: 'logoDefi',
         src: logoDefi,
         link: 'https://medium.com/@gamestate/gamestate-partners-with-defiforyou-to-bring-the-future-of-lending-to-the-megaverse-a256abf0230',
+        width: '477',
+        height: '',
+        right: '80',
+      },
+      {
+        name: 'logoBeeswap',
+        src: logoBeeswap,
+        link: 'https://beeswap.dcity.io/swap?pools&search=state',
         width: '477',
         height: '',
         right: '80',
@@ -440,7 +449,7 @@ const PARTNERS = [
       {
         name: 'logoGravity',
         src: logoGravity,
-        link: 'https://gravityfinance.io/',
+        link: 'https://gravityfinance.io/swap?outputCurrency=0xf10e7f2daf275c7003266f29a19fb2ef7f3cc977&inputCurrency=0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
         width: '400',
         height: '',
         right: '0',
