@@ -41,6 +41,7 @@ import logoHybrid from 'app/assets/img/Logo/logoHybrid.png';
 import logoNFT4Play from 'app/assets/img/Logo/logoNFT4Play.png';
 import logoTipoZeniverse from 'app/assets/img/Logo/logoTipoZeniverse.svg';
 import logoDeNet from 'app/assets/img/Logo/logoDeNet.png';
+import logoProtocolStyle from 'app/assets/img/Logo/logoProtocolStyle.png';
 import logoBeeswap from 'app/assets/img/Logo/logoBeeswap.svg';
 import { ReactComponent as LogoToday } from 'app/assets/img/Logo/logoToday.svg';
 
@@ -307,7 +308,7 @@ const PARTNERS = [
       {
         name: 'logoGravity',
         src: logoGravity,
-        link: 'https://gravityfinance.io/',
+        link: 'https://gravityfinance.io/swap?outputCurrency=0xf10e7f2daf275c7003266f29a19fb2ef7f3cc977&inputCurrency=0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
         width: '477',
         height: '',
         right: '150',
@@ -431,6 +432,14 @@ const PARTNERS = [
         height: '54',
         right: '0',
       },
+      {
+        name: 'logoProtocolStyle',
+        src: logoProtocolStyle,
+        link: 'https://www.protocol.style/',
+        width: '306',
+        height: '110',
+        right: '0',
+      },
     ],
   },
   {
@@ -449,7 +458,7 @@ const PARTNERS = [
       {
         name: 'logoGravity',
         src: logoGravity,
-        link: 'https://gravityfinance.io/swap?outputCurrency=0xf10e7f2daf275c7003266f29a19fb2ef7f3cc977&inputCurrency=0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
+        link: 'https://gravityfinance.io/',
         width: '400',
         height: '',
         right: '0',
